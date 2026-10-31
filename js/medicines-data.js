@@ -23,7 +23,7 @@ window.BIOPLASMA_DATA = {
       },
       {
         icon: "drop",
-        color: "#ef4444",
+        color: "#104581",
         titleEn: "Clinical Bioavailability",
         titleHi: "तेज़ और प्रभावी असर",
         descEn: "Nano-droplet Vitamin D3, Liposomal Iron, Micronized Hormones, and EC+IR+SR release technologies.",
