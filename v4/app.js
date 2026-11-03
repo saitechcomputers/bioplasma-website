@@ -1601,10 +1601,7 @@
     });
 
     const exploreBtnTxt = document.querySelector("[data-i18n-explore-btn]");
-    if (exploreBtnTxt) exploreBtnTxt.textContent = t("Explore Our 9 Medicines", "सभी 9 दवाइयाँ देखें");
-
-    const watchBtnTxt = document.querySelector("[data-i18n-watch-btn]");
-    if (watchBtnTxt) watchBtnTxt.textContent = t("Watch Our Story", "हमारी कहानी देखें");
+    if (exploreBtnTxt) exploreBtnTxt.textContent = t("Explore All Our Medicines", "हमारी सभी दवाइयाँ देखें");
 
     HERO_SLIDES.forEach((s, idx) => {
       const tEl = document.querySelector(`[data-hero-tab-title="${idx}"]`);
