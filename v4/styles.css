@@ -258,14 +258,9 @@ ul, ol {
   font-size: 0.83rem;
 }
 
-/* ---------- Top Stakeholder Utility Bar (Emcure + Lilly) ---------- */
+/* ---------- Top Stakeholder Utility Bar (Removed for Clean Lilly Hero) ---------- */
 .utility-bar {
-  background: var(--bio-navy);
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 0.78rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  position: relative;
-  z-index: 101;
+  display: none !important;
 }
 
 .utility-inner {
@@ -2622,12 +2617,12 @@ textarea.form-control {
 /* Transparent-Over-Video Architectural Header on V4 Cinema Pages */
 body.has-cinema-hero .site-header:not(.scrolled) {
   position: fixed;
-  top: 38px;
+  top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(180deg, rgba(6, 15, 29, 0.72) 0%, rgba(6, 15, 29, 0.28) 68%, rgba(6, 15, 29, 0) 100%);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(6, 15, 29, 0.76) 0%, rgba(6, 15, 29, 0.32) 70%, rgba(6, 15, 29, 0) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: none;
 }
@@ -2637,6 +2632,47 @@ body.has-cinema-hero .site-header.scrolled {
   top: 0;
   left: 0;
   right: 0;
+}
+
+/* Language Switcher Pill in Header */
+.site-header .lang-pill {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-warm);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--pill);
+  padding: 2px;
+}
+
+.site-header .lang-pill button {
+  padding: 3px 10px;
+  border-radius: var(--pill);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+  transition: all 0.2s ease;
+}
+
+.site-header .lang-pill button.active {
+  background: var(--surface);
+  color: var(--lilly-crimson);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+body.has-cinema-hero .site-header:not(.scrolled) .lang-pill {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.26);
+  backdrop-filter: blur(10px);
+}
+
+body.has-cinema-hero .site-header:not(.scrolled) .lang-pill button {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+body.has-cinema-hero .site-header:not(.scrolled) .lang-pill button.active {
+  background: #FFFFFF;
+  color: var(--bio-navy);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 body.has-cinema-hero .site-header:not(.scrolled) .brand-logo .logo-on-video {
@@ -2690,7 +2726,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 .lilly-video-hero {
   position: relative;
   width: 100%;
-  min-height: clamp(720px, calc(100svh - 38px), 980px);
+  min-height: clamp(720px, 100svh, 980px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
