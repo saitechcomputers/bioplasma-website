@@ -359,6 +359,15 @@
     const heroRoot = document.getElementById("heroCarouselRoot");
     if (!heroRoot) return;
 
+    // Preload all 4 hero packshot images into memory for zero image swap blink
+    HERO_SLIDES.forEach(s => {
+      const m = getMedById(s.medId);
+      if (m && m.image) {
+        const preImg = new Image();
+        preImg.src = m.image;
+      }
+    });
+
     const tabsMount = document.getElementById("heroTabsMount");
     if (tabsMount) {
       tabsMount.innerHTML = HERO_SLIDES.map((s, idx) => `
@@ -549,24 +558,39 @@
     const medDescEl = document.getElementById("stageMedDesc");
     const openBtn = document.getElementById("stageOpenMedBtn");
 
-    if (tagEl) tagEl.textContent = t(slide.tagEn, slide.tagHi);
-    if (headEl) headEl.innerHTML = t(slide.headlineEn, slide.headlineHi);
-    if (subEl) subEl.textContent = t(slide.subEn, slide.subHi);
-    if (blobEl) blobEl.style.background = slide.glowColor;
+    // Smooth micro-fade to eliminate sudden layout snapping
+    const faders = [headEl, subEl, imgEl, medTitleEl, medDescEl, techEl].filter(Boolean);
+    faders.forEach(el => {
+      el.style.transition = "opacity 0.15s ease, transform 0.15s ease";
+      el.style.opacity = "0.2";
+      el.style.transform = "translateY(2px)";
+    });
 
-    if (techEl) techEl.textContent = med.technology;
-    if (rxEl) {
-      rxEl.textContent = med.rxRequired ? "Rx Prescription" : (med.sugarFree ? "Sugar-Free" : "Supplement");
-      rxEl.classList.toggle("is-rx", Boolean(med.rxRequired));
-    }
-    if (imgEl) {
-      imgEl.src = med.image;
-      imgEl.alt = `${med.name} packshot`;
-    }
-    if (packWrap) packWrap.setAttribute("data-open-med", med.id);
-    if (medTitleEl) medTitleEl.textContent = med.name;
-    if (medDescEl) medDescEl.textContent = med.genericSummary;
-    if (openBtn) openBtn.setAttribute("data-open-med", med.id);
+    setTimeout(() => {
+      if (tagEl) tagEl.textContent = t(slide.tagEn, slide.tagHi);
+      if (headEl) headEl.innerHTML = t(slide.headlineEn, slide.headlineHi);
+      if (subEl) subEl.textContent = t(slide.subEn, slide.subHi);
+      if (blobEl) blobEl.style.background = slide.glowColor;
+
+      if (techEl) techEl.textContent = med.technology;
+      if (rxEl) {
+        rxEl.textContent = med.rxRequired ? "Rx Prescription" : (med.sugarFree ? "Sugar-Free" : "Supplement");
+        rxEl.classList.toggle("is-rx", Boolean(med.rxRequired));
+      }
+      if (imgEl) {
+        imgEl.src = med.image;
+        imgEl.alt = `${med.name} packshot`;
+      }
+      if (packWrap) packWrap.setAttribute("data-open-med", med.id);
+      if (medTitleEl) medTitleEl.textContent = med.name;
+      if (medDescEl) medDescEl.textContent = med.genericSummary;
+      if (openBtn) openBtn.setAttribute("data-open-med", med.id);
+
+      faders.forEach(el => {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+      });
+    }, 120);
 
     document.querySelectorAll(".cinema-chapter-btn").forEach((btn, i) => {
       const isAct = i === idx;
@@ -579,7 +603,6 @@
     });
 
     if (manualTrigger && state.heroVideoPaused) {
-      // Keep paused if user explicitly paused, just show the frame cleanly
       getActiveHeroVideoEl()?.pause();
     }
   }
