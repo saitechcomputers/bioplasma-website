@@ -68,8 +68,10 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-y: scroll !important;
+  scrollbar-gutter: stable !important;
   -webkit-text-size-adjust: 100%;
-  scroll-padding-top: 96px;
+  scroll-padding-top: 110px;
 }
 
 body {
@@ -352,51 +354,55 @@ ul, ol {
 }
 
 .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 80px !important;
-  min-height: 80px !important;
-  max-height: 80px !important;
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr !important;
+  align-items: center !important;
+  height: 104px !important;
+  min-height: 104px !important;
+  max-height: 104px !important;
   padding: 0 !important;
   gap: 16px;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
 
 .site-header.scrolled .header-inner {
-  height: 76px !important;
-  min-height: 76px !important;
-  max-height: 76px !important;
+  height: 104px !important;
+  min-height: 104px !important;
+  max-height: 104px !important;
 }
 
 .brand-logo {
   display: inline-flex;
   align-items: center;
+  justify-self: start !important;
   flex-shrink: 0;
   line-height: 1;
 }
 
 .brand-logo img {
-  height: 56px !important;
-  max-height: 56px !important;
-  width: auto;
-  max-width: 250px;
+  height: 84px !important;
+  min-height: 84px !important;
+  max-height: 84px !important;
+  width: auto !important;
+  max-width: 320px !important;
   object-fit: contain;
-  transition: height 0.2s ease;
+  transition: opacity 0.2s ease;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
 }
 
 .site-header.scrolled .brand-logo img {
-  height: 52px !important;
-  max-height: 52px !important;
+  height: 84px !important;
+  min-height: 84px !important;
+  max-height: 84px !important;
   filter: none;
 }
 
 .primary-nav {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  flex-shrink: 0;
+  display: flex !important;
+  align-items: center !important;
+  justify-self: center !important;
+  gap: 6px !important;
+  flex-shrink: 0 !important;
   margin: 0;
   padding: 0;
 }
@@ -408,20 +414,20 @@ ul, ol {
 }
 
 .nav-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   gap: 4px;
-  padding: 8px 14px !important;
-  border-radius: var(--pill);
-  font-size: 0.90rem;
+  padding: 10px 18px !important;
+  border-radius: var(--pill) !important;
+  font-size: 0.94rem !important;
   font-weight: 600 !important;
   white-space: nowrap !important;
   line-height: 1.2 !important;
   color: var(--ink-body);
-  text-decoration: none;
-  transition: color 0.18s, background 0.18s;
-  box-sizing: border-box;
+  text-decoration: none !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+  box-sizing: border-box !important;
 }
 
 .nav-link:hover,
@@ -432,15 +438,17 @@ ul, ol {
 
 .nav-link.active {
   font-weight: 600 !important;
-  color: var(--lilly-crimson);
-  background: var(--bg-blush);
+  color: #FFFFFF !important;
+  background: var(--lilly-crimson) !important;
+  box-shadow: 0 4px 14px rgba(213, 43, 30, 0.35) !important;
 }
 
 .header-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
+  display: flex !important;
+  align-items: center !important;
+  justify-self: end !important;
+  gap: 12px !important;
+  flex-shrink: 0 !important;
 }
 
 /* Mega Dropdown (Merck / Lilly style) */
@@ -2571,8 +2579,13 @@ textarea.form-control {
 
 /* ---------- RESPONSIVE BREAKPOINTS ---------- */
 @media (max-width: 1120px) {
-  .primary-nav { display: none; }
-  .mobile-toggle { display: inline-flex; }
+  .header-inner {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  .primary-nav { display: none !important; }
+  .mobile-toggle { display: inline-flex !important; }
   .hero-stage { grid-template-columns: 1fr; }
   .hero-visual-col { order: -1; }
   .cellular-stage-card { max-width: 100%; }
@@ -2587,8 +2600,8 @@ textarea.form-control {
 
 @media (max-width: 780px) {
   body { padding-bottom: 68px; }
-  .header-inner { min-height: 72px; padding: 6px 0; }
-  .brand-logo img { height: 58px; max-width: 190px; }
+  .header-inner { height: 80px !important; min-height: 80px !important; max-height: 80px !important; padding: 0 !important; }
+  .brand-logo img { height: 64px !important; min-height: 64px !important; max-height: 64px !important; max-width: 210px !important; }
   .utility-left .hide-sm,
   .utility-right .hide-sm,
   .header-actions .hide-sm { display: none; }
@@ -2713,18 +2726,18 @@ body.has-cinema-hero .site-header:not(.scrolled) .brand-logo .logo-on-solid {
 }
 
 body.has-cinema-hero .site-header:not(.scrolled) .nav-link {
-  color: rgba(255, 255, 255, 0.90);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 body.has-cinema-hero .site-header:not(.scrolled) .nav-link:hover {
   color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.16);
 }
 
 body.has-cinema-hero .site-header:not(.scrolled) .nav-link.active {
   color: #FFFFFF;
-  background: rgba(213, 43, 30, 0.88);
-  box-shadow: 0 6px 18px -6px rgba(213, 43, 30, 0.65);
+  background: var(--lilly-crimson);
+  box-shadow: 0 4px 14px rgba(213, 43, 30, 0.45);
   font-weight: 600 !important;
 }
 
@@ -3437,7 +3450,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 .subpage-video-hero {
   position: relative;
   overflow: hidden;
-  padding: clamp(130px, 16vh, 168px) 0 clamp(54px, 7vh, 78px);
+  padding: clamp(152px, 18vh, 184px) 0 clamp(54px, 7vh, 78px);
   background: #071324;
   color: #FFFFFF;
   isolation: isolate;
