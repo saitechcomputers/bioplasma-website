@@ -1632,11 +1632,394 @@
     document.body.appendChild(dock);
   }
 
+  /* ---------- Subpage Ambient Video Toggle ---------- */
+  function initSubpageVideo() {
+    const subVid = document.getElementById("subpageAmbientVideo");
+    const subVidBtn = document.getElementById("subpageVideoToggleBtn");
+    if (subVid && subVidBtn) {
+      if (prefersReducedMotion) {
+        subVid.pause();
+        subVidBtn.classList.add("is-paused");
+        subVidBtn.setAttribute("aria-pressed", "true");
+        const lbl = subVidBtn.querySelector("[data-subvid-label]");
+        if (lbl) lbl.textContent = "Play Video";
+      }
+      subVidBtn.onclick = () => {
+        if (subVid.paused) {
+          subVid.play().catch(() => {});
+          subVidBtn.classList.remove("is-paused");
+          subVidBtn.setAttribute("aria-pressed", "false");
+          const lbl = subVidBtn.querySelector("[data-subvid-label]");
+          if (lbl) lbl.textContent = t("Pause Video", "वीडियो रोकें");
+        } else {
+          subVid.pause();
+          subVidBtn.classList.add("is-paused");
+          subVidBtn.setAttribute("aria-pressed", "true");
+          const lbl = subVidBtn.querySelector("[data-subvid-label]");
+          if (lbl) lbl.textContent = t("Play Video", "वीडियो चलाएँ");
+        }
+      };
+    }
+  }
+
+  /* ---------- Careers Page Interactive Engine ---------- */
+  function initCareersPage() {
+    const filterBtns = document.querySelectorAll("[data-job-filter]");
+    const jobCards = document.querySelectorAll(".job-card");
+    if (filterBtns.length > 0) {
+      filterBtns.forEach(btn => {
+        btn.onclick = () => {
+          filterBtns.forEach(b => {
+            b.classList.remove("btn-crimson", "active");
+            b.classList.add("btn-outline");
+          });
+          btn.classList.remove("btn-outline");
+          btn.classList.add("btn-crimson", "active");
+
+          const filterVal = btn.getAttribute("data-job-filter");
+          jobCards.forEach(card => {
+            const cardDept = card.getAttribute("data-job-dept");
+            card.style.display = (filterVal === "all" || cardDept === filterVal) ? "flex" : "none";
+          });
+        };
+      });
+    }
+
+    const applyButtons = document.querySelectorAll(".apply-job-btn");
+    const positionInput = document.getElementById("jobPosition");
+    const formSection = document.getElementById("applyFormSection");
+    if (applyButtons.length > 0) {
+      applyButtons.forEach(button => {
+        button.onclick = () => {
+          const title = button.getAttribute("data-job-title") || "";
+          if (positionInput) positionInput.value = title;
+          if (formSection) formSection.scrollIntoView({ behavior: "smooth" });
+          const nameInput = document.getElementById("applicantName");
+          if (nameInput) nameInput.focus();
+        };
+      });
+    }
+
+    const cvInput = document.getElementById("applicantCv");
+    const cvDropZone = document.getElementById("cvDropZone");
+    const cvEmptyState = document.getElementById("cvEmptyState");
+    const cvFileState = document.getElementById("cvFileState");
+    const cvFileName = document.getElementById("cvFileName");
+    const cvFileSize = document.getElementById("cvFileSize");
+    const removeCvBtn = document.getElementById("removeCvBtn");
+    const cvErrorMsg = document.getElementById("cvErrorMessage");
+    let selectedCvFile = null;
+
+    function handleCvFile(file) {
+      if (!file) return;
+      const allowed = [".pdf", ".doc", ".docx"];
+      const ext = file.name.substring(file.name.lastIndexOf(".")).toLowerCase();
+      if (!allowed.includes(ext)) {
+        alert("Please upload a valid CV file in PDF, DOC, or DOCX format.");
+        return;
+      }
+      if (file.size > 10 * 1024 * 1024) {
+        alert("File size exceeds 10 MB limit. Please select a smaller CV file.");
+        return;
+      }
+      selectedCvFile = file;
+      if (cvFileName) cvFileName.textContent = file.name;
+      if (cvFileSize) cvFileSize.textContent = `${(file.size / 1024).toFixed(1)} KB • Verified & Attached`;
+      if (cvEmptyState) cvEmptyState.style.display = "none";
+      if (cvFileState) cvFileState.style.display = "flex";
+      if (cvDropZone) {
+        cvDropZone.classList.add("has-file");
+        cvDropZone.classList.remove("error-border");
+      }
+      if (cvErrorMsg) cvErrorMsg.style.display = "none";
+    }
+
+    if (cvDropZone && cvInput) {
+      cvDropZone.onclick = (e) => {
+        if (e.target !== removeCvBtn && !removeCvBtn?.contains(e.target)) {
+          cvInput.click();
+        }
+      };
+      cvDropZone.ondragover = (e) => {
+        e.preventDefault();
+        cvDropZone.classList.add("dragover");
+      };
+      cvDropZone.ondragleave = () => {
+        cvDropZone.classList.remove("dragover");
+      };
+      cvDropZone.ondrop = (e) => {
+        e.preventDefault();
+        cvDropZone.classList.remove("dragover");
+        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+          cvInput.files = e.dataTransfer.files;
+          handleCvFile(e.dataTransfer.files[0]);
+        }
+      };
+      cvInput.onchange = () => {
+        if (cvInput.files && cvInput.files.length > 0) {
+          handleCvFile(cvInput.files[0]);
+        }
+      };
+      if (removeCvBtn) {
+        removeCvBtn.onclick = (e) => {
+          e.stopPropagation();
+          cvInput.value = "";
+          selectedCvFile = null;
+          if (cvEmptyState) cvEmptyState.style.display = "block";
+          if (cvFileState) cvFileState.style.display = "none";
+          if (cvDropZone) cvDropZone.classList.remove("has-file", "error-border");
+          if (cvErrorMsg) cvErrorMsg.style.display = "none";
+        };
+      }
+    }
+
+    const careerForm = document.getElementById("careerApplicationForm");
+    if (careerForm) {
+      careerForm.onsubmit = function(e) {
+        e.preventDefault();
+        if (!selectedCvFile && (!cvInput.files || cvInput.files.length === 0)) {
+          if (cvDropZone) {
+            cvDropZone.classList.add("error-border");
+            if (cvErrorMsg) cvErrorMsg.style.display = "flex";
+            cvDropZone.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+          return false;
+        }
+
+        const fileObj = selectedCvFile || cvInput.files[0];
+        const name = document.getElementById("applicantName")?.value.trim() || "";
+        const phone = document.getElementById("applicantPhone")?.value.trim() || "";
+        const email = document.getElementById("applicantEmail")?.value.trim() || "";
+        const city = document.getElementById("applicantCity")?.value.trim() || "";
+        const dept = document.getElementById("jobDepartment")?.value || "";
+        const exp = document.getElementById("jobExperience")?.value || "";
+        const pos = document.getElementById("jobPosition")?.value.trim() || "General Application";
+        const notes = document.getElementById("applicantNotes")?.value.trim() || "";
+
+        const subject = encodeURIComponent(`Job Application: ${pos} - ${name} (${city}) [CV: ${fileObj.name}]`);
+        const body = encodeURIComponent(
+          `Dear HR Team,\n\nI would like to apply for the position of "${pos}" at LV Bioplasma Biologicals Private Limited.\n\n` +
+          `APPLICANT DETAILS:\n` +
+          `• Full Name: ${name}\n` +
+          `• Mobile/WhatsApp: ${phone}\n` +
+          `• Email: ${email}\n` +
+          `• Current City & State: ${city}\n` +
+          `• Department: ${dept}\n` +
+          `• Total Experience: ${exp}\n` +
+          `• Position: ${pos}\n` +
+          `• MANDATORY CV ATTACHED: ${fileObj.name} (${(fileObj.size / 1024).toFixed(1)} KB)\n\n` +
+          `BACKGROUND & NOTES:\n${notes || "Please find my attached resume for your consideration."}\n\n` +
+          `Warm regards,\n${name}\n${phone}`
+        );
+
+        const successBox = document.getElementById("applicationSuccessBox");
+        const whatsAppBtn = document.getElementById("whatsAppCvBtn");
+        if (successBox) {
+          successBox.style.display = "block";
+          successBox.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        if (whatsAppBtn) {
+          const waText = encodeURIComponent(
+            `Hello HR Team at LV Bioplasma, I am ${name} from ${city}. I have applied for the position of "${pos}". My CV (${fileObj.name}) is attached.`
+          );
+          whatsAppBtn.href = `https://wa.me/919319491093?text=${waText}`;
+        }
+
+        window.location.href = `mailto:admin@bioplasmabio.com?subject=${subject}&body=${body}`;
+      };
+    }
+
+    const copyBtn = document.getElementById("copyCareerDetailsBtn");
+    if (copyBtn) {
+      copyBtn.onclick = function() {
+        const name = document.getElementById("applicantName")?.value.trim() || "[Your Name]";
+        const phone = document.getElementById("applicantPhone")?.value.trim() || "[Phone]";
+        const email = document.getElementById("applicantEmail")?.value.trim() || "[Email]";
+        const city = document.getElementById("applicantCity")?.value.trim() || "[City]";
+        const dept = document.getElementById("jobDepartment")?.value || "";
+        const exp = document.getElementById("jobExperience")?.value || "";
+        const pos = document.getElementById("jobPosition")?.value.trim() || "General Application";
+        const notes = document.getElementById("applicantNotes")?.value.trim() || "";
+        const cvName = selectedCvFile ? selectedCvFile.name : (cvInput?.files?.[0]?.name || "CV Not Selected");
+
+        const text = `Job Application - LV Bioplasma Biologicals\n` +
+          `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nCity: ${city}\n` +
+          `Department: ${dept}\nExperience: ${exp}\nPosition: ${pos}\n` +
+          `CV File: ${cvName}\n` +
+          `Notes: ${notes}`;
+
+        navigator.clipboard.writeText(text).then(() => {
+          const orig = copyBtn.innerText;
+          copyBtn.innerText = "✓ Copied!";
+          setTimeout(() => { copyBtn.innerText = orig; }, 2000);
+        }).catch(() => {
+          alert("Application text copied. Please send your CV to admin@bioplasmabio.com");
+        });
+      };
+    }
+  }
+
+  /* ---------- Re-Initialize Interactive Components on Page Swap ---------- */
+  function reinitPageComponents() {
+    applyUrlParams();
+    initSubpageVideo();
+    initHeroVideoCinema();
+    renderQuickNeeds();
+    renderDivisionsShowcase();
+    renderScienceLab();
+    initExplorerControls();
+    renderPillarsAndBrochures();
+    initEnquiryForm();
+    initFaqAccordion();
+    initCareersPage();
+    syncLanguageUI();
+  }
+
+  /* ---------- Seamless Instant Page Transition Engine (Zero Shiver / Zero Shake) ---------- */
+  const PAGE_CACHE = new Map();
+
+  async function fetchPage(url) {
+    const cleanUrl = url.split('#')[0];
+    if (PAGE_CACHE.has(cleanUrl)) {
+      return PAGE_CACHE.get(cleanUrl);
+    }
+    try {
+      const res = await fetch(cleanUrl);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      PAGE_CACHE.set(cleanUrl, text);
+      return text;
+    } catch (err) {
+      console.warn("Fetch page failed for", cleanUrl, err);
+      return null;
+    }
+  }
+
+  function preloadSitePages() {
+    const pages = ['index.html', 'about.html', 'products.html', 'science.html', 'careers.html', 'contact.html'];
+    pages.forEach(p => fetchPage(p));
+  }
+
+  function updateActiveNav(targetFilename) {
+    const fn = targetFilename === '' ? 'index.html' : targetFilename;
+    document.querySelectorAll('.primary-nav .nav-link').forEach(link => {
+      const href = link.getAttribute('href')?.split('?')[0].split('#')[0] || '';
+      link.classList.toggle('active', href === fn);
+    });
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+      const href = link.getAttribute('href')?.split('?')[0].split('#')[0] || '';
+      link.classList.toggle('active', href === fn);
+    });
+  }
+
+  let isNavigating = false;
+  async function navigateSeamlessly(targetUrl, pushHistory = true) {
+    if (isNavigating) return;
+
+    const cleanTarget = targetUrl.split('#')[0];
+    const targetFilename = cleanTarget.split('/').pop().split('?')[0] || 'index.html';
+    const currentFilename = window.location.pathname.split('/').pop().split('?')[0] || 'index.html';
+
+    // If same page without query, smooth scroll top
+    if (targetFilename === currentFilename && !targetUrl.includes('?')) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    isNavigating = true;
+
+    // Instantly update active capsule in frozen header with zero flicker
+    updateActiveNav(targetFilename);
+
+    const mainEl = document.querySelector('main');
+    if (mainEl) {
+      mainEl.classList.add('page-transitioning');
+    }
+
+    const htmlText = await fetchPage(targetUrl);
+    if (!htmlText) {
+      window.location.href = targetUrl;
+      return;
+    }
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlText, 'text/html');
+
+    // Micro-delay for elegant crossfade
+    await new Promise(r => setTimeout(r, 100));
+
+    if (doc.title) {
+      document.title = doc.title;
+    }
+
+    const newMain = doc.querySelector('main');
+    if (newMain && mainEl) {
+      mainEl.innerHTML = newMain.innerHTML;
+    }
+
+    const newFooter = doc.querySelector('footer.site-footer');
+    const curFooter = document.querySelector('footer.site-footer');
+    if (newFooter && curFooter) {
+      curFooter.innerHTML = newFooter.innerHTML;
+    }
+
+    window.scrollTo(0, 0);
+
+    if (pushHistory) {
+      window.history.pushState({ path: targetUrl }, '', targetUrl);
+    }
+
+    // Re-initialize interactive components
+    reinitPageComponents();
+
+    if (mainEl) {
+      mainEl.classList.remove('page-transitioning');
+    }
+
+    isNavigating = false;
+  }
+
+  function initSeamlessTransitions() {
+    preloadSitePages();
+
+    document.addEventListener('click', (e) => {
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      const anchor = e.target.closest('a');
+      if (!anchor) return;
+
+      const href = anchor.getAttribute('href');
+      if (!href) return;
+
+      if (
+        href.startsWith('http://') ||
+        href.startsWith('https://') ||
+        href.startsWith('mailto:') ||
+        href.startsWith('tel:') ||
+        href.startsWith('javascript:') ||
+        href.startsWith('#')
+      ) {
+        return;
+      }
+
+      const validPages = ['index.html', 'about.html', 'products.html', 'science.html', 'careers.html', 'contact.html'];
+      const baseTarget = href.split('?')[0].split('#')[0];
+      if (validPages.includes(baseTarget) || baseTarget === '' || baseTarget === './') {
+        e.preventDefault();
+        navigateSeamlessly(href, true);
+      }
+    });
+
+    window.addEventListener('popstate', () => {
+      navigateSeamlessly(window.location.href, false);
+    });
+  }
+
   /* ---------- Boot ---------- */
   document.addEventListener("DOMContentLoaded", () => {
     applyUrlParams();
     initHeaderAndNav();
     initHeroVideoCinema();
+    initSubpageVideo();
     initFloatingContactWidget();
     renderQuickNeeds();
     renderDivisionsShowcase();
@@ -1645,6 +2028,8 @@
     renderPillarsAndBrochures();
     initEnquiryForm();
     initFaqAccordion();
+    initCareersPage();
     syncLanguageUI();
+    initSeamlessTransitions();
   });
 })();

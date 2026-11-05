@@ -83,6 +83,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+main {
+  display: block;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+  will-change: opacity, transform;
+}
+
+main.page-transitioning {
+  opacity: 0 !important;
+  transform: translateY(4px) !important;
+  pointer-events: none !important;
+}
+
 img, svg {
   max-width: 100%;
   display: block;
