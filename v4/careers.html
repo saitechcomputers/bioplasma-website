@@ -347,7 +347,7 @@
             </p>
             <div style="display:flex;gap:14px;flex-wrap:wrap;">
               <a href="#applyFormSection" class="btn btn-crimson" onclick="document.getElementById('jobPosition').value='Young Bio-Leaders Trainee';">Apply as Fresher / Graduate →</a>
-              <a href="about.html" class="btn btn-outline" style="color:#FFFFFF;border-color:rgba(255,255,255,0.3);">Discover Our Enterprise Scale</a>
+              <a href="about.html" class="btn btn-ghost-light" style="background:rgba(255,255,255,0.14);color:#FFFFFF;border:1.5px solid rgba(255,255,255,0.4);text-decoration:none;">Discover Our Enterprise Scale →</a>
             </div>
           </div>
         </div>
@@ -464,8 +464,67 @@
               <textarea id="applicantNotes" class="form-control" placeholder="Summarize your qualifications, current division/HQ, highest qualification, and why you wish to join LV Bioplasma..."></textarea>
             </div>
 
+            <!-- Mandatory CV Upload -->
+            <div class="form-group" id="cvUploadGroup">
+              <label class="form-label" style="display:flex;justify-content:space-between;align-items:center;">
+                <span>Upload Your CV / Resume (PDF, DOC, DOCX) <b style="color:var(--lilly-crimson);font-weight:800;">* (Mandatory)</b></span>
+                <span id="cvRequirementNotice" style="font-size:0.75rem;font-weight:800;color:var(--lilly-crimson);background:rgba(213,43,30,0.08);padding:2px 8px;border-radius:4px;">Mandatory to Submit</span>
+              </label>
+
+              <div class="cv-upload-zone" id="cvDropZone">
+                <input type="file" id="applicantCv" accept=".pdf,.doc,.docx" required style="display:none;" />
+                
+                <div id="cvEmptyState">
+                  <div style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;background:rgba(213,43,30,0.08);color:var(--lilly-crimson);margin-bottom:10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                  </div>
+                  <div style="font-size:0.95rem;font-weight:700;color:var(--ink-head);margin-bottom:4px;">
+                    <span style="color:var(--lilly-crimson);text-decoration:underline;">Click to Browse</span> or Drag &amp; Drop your CV here
+                  </div>
+                  <div style="font-size:0.8rem;color:var(--ink-muted);">
+                    Supports PDF, DOC, DOCX up to 10 MB • <strong style="color:var(--lilly-crimson);">Without CV, application cannot be submitted</strong>
+                  </div>
+                </div>
+
+                <div id="cvFileState" style="display:none;align-items:center;justify-content:space-between;padding:4px 6px;gap:12px;">
+                  <div style="display:flex;align-items:center;gap:12px;text-align:left;">
+                    <div style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#10B981;color:#FFFFFF;flex-shrink:0;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div>
+                      <strong id="cvFileName" style="display:block;font-size:0.92rem;color:var(--ink-head);word-break:break-all;">resume.pdf</strong>
+                      <span id="cvFileSize" style="font-size:0.78rem;color:#059669;font-weight:700;">120 KB &bull; Verified &amp; Attached</span>
+                    </div>
+                  </div>
+                  <button type="button" id="removeCvBtn" style="background:#FEE2E2;border:none;color:#DC2626;font-size:0.8rem;font-weight:700;padding:6px 12px;border-radius:6px;cursor:pointer;flex-shrink:0;">
+                    Remove / Change
+                  </button>
+                </div>
+              </div>
+
+              <div id="cvErrorMessage" style="display:none;color:#DC2626;background:#FEF2F2;border:1px solid #FCA5A5;padding:8px 12px;border-radius:6px;font-size:0.84rem;font-weight:700;margin-top:8px;align-items:center;gap:8px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <span>Please select/upload your CV (Resume) before submitting. Applications without CV cannot be sent.</span>
+              </div>
+            </div>
+
             <div style="background:#F1F5F9;border-radius:var(--radius-md);padding:14px 16px;margin-bottom:18px;font-size:0.86rem;color:var(--ink-muted);line-height:1.5;">
-              📎 <strong>Resume Attachment:</strong> Clicking below will generate a pre-formatted email to our talent team at <b>admin@bioplasmabio.com</b>. Please attach your PDF/Word resume to the email.
+              📎 <strong>Resume Verification:</strong> Your uploaded CV file name will be recorded and sent to <b>admin@bioplasmabio.com</b>. Please ensure your CV is selected above.
+            </div>
+
+            <!-- Success Confirmation Box (Appears on Submit) -->
+            <div id="applicationSuccessBox" style="display:none;background:#ECFDF5;border:1.5px solid #10B981;border-radius:var(--radius-md);padding:16px 18px;margin-bottom:18px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                <span style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#10B981;color:#fff;font-weight:800;font-size:0.8rem;">✓</span>
+                <strong style="color:#065F46;font-size:0.96rem;">Application Prepared Successfully!</strong>
+              </div>
+              <p style="font-size:0.88rem;color:#047857;margin:0 0 10px;line-height:1.5;" id="successMsgText">
+                Your email client has opened with your application details. Please attach your selected CV file to the email and press Send.
+              </p>
+              <a href="#" id="whatsAppCvBtn" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#FFFFFF;padding:8px 14px;border-radius:6px;font-size:0.84rem;font-weight:700;text-decoration:none;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.35C9.35 7.35 9.07 7.42 8.82 7.69C8.58 7.95 7.9 8.58 7.9 9.87C7.9 11.16 8.84 12.4 8.97 12.58C9.11 12.76 10.82 15.4 13.44 16.53C14.07 16.8 14.56 16.96 14.94 17.08C15.57 17.28 16.14 17.25 16.59 17.18C17.09 17.11 18.13 16.55 18.35 15.93C18.57 15.31 18.57 14.78 18.5 14.67C18.43 14.56 18.25 14.5 17.97 14.36C17.7 14.22 16.36 13.56 16.11 13.47C15.86 13.38 15.68 13.33 15.5 13.6C15.32 13.88 14.8 14.5 14.64 14.67C14.48 14.85 14.33 14.88 14.05 14.74C13.78 14.6 12.89 14.31 11.84 13.37C11.02 12.64 10.46 11.73 10.3 11.46C10.15 11.18 10.28 11.03 10.42 10.89C10.55 10.76 10.7 10.56 10.85 10.38C10.99 10.2 11.04 10.07 11.13 9.89C11.23 9.71 11.18 9.55 11.11 9.42C11.04 9.29 10.48 7.93 10.26 7.39C10.04 6.86 9.81 6.94 9.65 6.93C9.5 6.93 9.35 6.93 9.17 6.93H9.53Z"/></svg>
+                <span>Or Also Send CV on WhatsApp (9319491093)</span>
+              </a>
             </div>
 
             <div style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -592,11 +651,99 @@
         });
       });
 
+      // CV File Upload Interaction
+      const cvInput = document.getElementById("applicantCv");
+      const cvDropZone = document.getElementById("cvDropZone");
+      const cvEmptyState = document.getElementById("cvEmptyState");
+      const cvFileState = document.getElementById("cvFileState");
+      const cvFileName = document.getElementById("cvFileName");
+      const cvFileSize = document.getElementById("cvFileSize");
+      const removeCvBtn = document.getElementById("removeCvBtn");
+      const cvErrorMsg = document.getElementById("cvErrorMessage");
+      let selectedCvFile = null;
+
+      function handleCvFile(file) {
+        if (!file) return;
+        const allowed = [".pdf", ".doc", ".docx"];
+        const ext = file.name.substring(file.name.lastIndexOf(".")).toLowerCase();
+        if (!allowed.includes(ext)) {
+          alert("Please upload a valid CV file in PDF, DOC, or DOCX format.");
+          return;
+        }
+        if (file.size > 10 * 1024 * 1024) {
+          alert("File size exceeds 10 MB limit. Please select a smaller CV file.");
+          return;
+        }
+
+        selectedCvFile = file;
+        cvFileName.textContent = file.name;
+        cvFileSize.textContent = `${(file.size / 1024).toFixed(1)} KB • Verified & Attached`;
+        cvEmptyState.style.display = "none";
+        cvFileState.style.display = "flex";
+        cvDropZone.classList.add("has-file");
+        cvDropZone.classList.remove("error-border");
+        cvErrorMsg.style.display = "none";
+      }
+
+      if (cvDropZone && cvInput) {
+        cvDropZone.addEventListener("click", (e) => {
+          if (e.target !== removeCvBtn && !removeCvBtn?.contains(e.target)) {
+            cvInput.click();
+          }
+        });
+
+        cvDropZone.addEventListener("dragover", (e) => {
+          e.preventDefault();
+          cvDropZone.classList.add("dragover");
+        });
+
+        cvDropZone.addEventListener("dragleave", () => {
+          cvDropZone.classList.remove("dragover");
+        });
+
+        cvDropZone.addEventListener("drop", (e) => {
+          e.preventDefault();
+          cvDropZone.classList.remove("dragover");
+          if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            cvInput.files = e.dataTransfer.files;
+            handleCvFile(e.dataTransfer.files[0]);
+          }
+        });
+
+        cvInput.addEventListener("change", () => {
+          if (cvInput.files && cvInput.files.length > 0) {
+            handleCvFile(cvInput.files[0]);
+          }
+        });
+
+        if (removeCvBtn) {
+          removeCvBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            cvInput.value = "";
+            selectedCvFile = null;
+            cvEmptyState.style.display = "block";
+            cvFileState.style.display = "none";
+            cvDropZone.classList.remove("has-file", "error-border");
+            cvErrorMsg.style.display = "none";
+          });
+        }
+      }
+
       // Career Form Submission Handler
       const careerForm = document.getElementById("careerApplicationForm");
       if (careerForm) {
         careerForm.addEventListener("submit", function(e) {
           e.preventDefault();
+
+          // MANDATORY VALIDATION: WITHOUT CV DON'T SEND!
+          if (!selectedCvFile && (!cvInput.files || cvInput.files.length === 0)) {
+            cvDropZone.classList.add("error-border");
+            cvErrorMsg.style.display = "flex";
+            cvDropZone.scrollIntoView({ behavior: "smooth", block: "center" });
+            return false;
+          }
+
+          const fileObj = selectedCvFile || cvInput.files[0];
           const name = document.getElementById("applicantName").value.trim();
           const phone = document.getElementById("applicantPhone").value.trim();
           const email = document.getElementById("applicantEmail").value.trim();
@@ -606,7 +753,7 @@
           const pos = document.getElementById("jobPosition").value.trim() || "General Application";
           const notes = document.getElementById("applicantNotes").value.trim();
 
-          const subject = encodeURIComponent(`Job Application: ${pos} - ${name} (${city})`);
+          const subject = encodeURIComponent(`Job Application: ${pos} - ${name} (${city}) [CV: ${fileObj.name}]`);
           const body = encodeURIComponent(
             `Dear HR Team,\n\nI would like to apply for the position of "${pos}" at LV Bioplasma Biologicals Private Limited.\n\n` +
             `APPLICANT DETAILS:\n` +
@@ -616,11 +763,27 @@
             `• Current City & State: ${city}\n` +
             `• Department: ${dept}\n` +
             `• Total Experience: ${exp}\n` +
-            `• Position: ${pos}\n\n` +
+            `• Position: ${pos}\n` +
+            `• MANDATORY CV ATTACHED: ${fileObj.name} (${(fileObj.size / 1024).toFixed(1)} KB)\n\n` +
             `BACKGROUND & NOTES:\n${notes || "Please find my attached resume for your consideration."}\n\n` +
-            `(Note: Resume attached with this email)\n\nWarm regards,\n${name}\n${phone}`
+            `Warm regards,\n${name}\n${phone}`
           );
 
+          // Success confirmation on-page
+          const successBox = document.getElementById("applicationSuccessBox");
+          const whatsAppBtn = document.getElementById("whatsAppCvBtn");
+          if (successBox) {
+            successBox.style.display = "block";
+            successBox.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+          if (whatsAppBtn) {
+            const waText = encodeURIComponent(
+              `Hello HR Team at LV Bioplasma, I am ${name} from ${city}. I have applied for the position of "${pos}". My CV (${fileObj.name}) is attached.`
+            );
+            whatsAppBtn.href = `https://wa.me/919319491093?text=${waText}`;
+          }
+
+          // Trigger email client
           window.location.href = `mailto:admin@bioplasmabio.com?subject=${subject}&body=${body}`;
         });
       }
@@ -637,18 +800,20 @@
           const exp = document.getElementById("jobExperience").value;
           const pos = document.getElementById("jobPosition").value.trim() || "General Application";
           const notes = document.getElementById("applicantNotes").value.trim();
+          const cvName = selectedCvFile ? selectedCvFile.name : (cvInput?.files?.[0]?.name || "CV Not Selected");
 
           const text = `Job Application - LV Bioplasma Biologicals\n` +
             `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nCity: ${city}\n` +
             `Department: ${dept}\nExperience: ${exp}\nPosition: ${pos}\n` +
-            `Notes: ${notes}\n\n(Resume attached)`;
+            `CV File: ${cvName}\n` +
+            `Notes: ${notes}`;
 
           navigator.clipboard.writeText(text).then(() => {
             const originalText = copyBtn.innerText;
             copyBtn.innerText = "✓ Copied!";
             setTimeout(() => { copyBtn.innerText = originalText; }, 2000);
           }).catch(() => {
-            alert("Application text ready. Please send your CV to admin@bioplasmabio.com");
+            alert("Application text copied. Please send your CV to admin@bioplasmabio.com");
           });
         });
       }

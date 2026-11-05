@@ -3780,3 +3780,41 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   }
 }
 
+/* ==========================================================================
+   CV UPLOAD ZONE & VALIDATION
+   ========================================================================== */
+.cv-upload-zone {
+  border: 2px dashed #CBD5E1;
+  background: #F8FAFC;
+  border-radius: var(--radius-lg);
+  padding: 22px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  position: relative;
+}
+
+.cv-upload-zone:hover,
+.cv-upload-zone.dragover {
+  border-color: var(--lilly-crimson);
+  background: rgba(213, 43, 30, 0.03);
+}
+
+.cv-upload-zone.error-border {
+  border-color: #EF4444 !important;
+  background: #FEF2F2 !important;
+  animation: cvShake 0.35s ease-in-out;
+}
+
+.cv-upload-zone.has-file {
+  border: 2px solid #10B981 !important;
+  background: #F0FDF4 !important;
+}
+
+@keyframes cvShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+
