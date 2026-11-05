@@ -2854,8 +2854,8 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: clamp(28px, 4vw, 64px);
+  grid-template-columns: 1fr 395px;
+  gap: clamp(24px, 3.5vw, 56px);
   align-items: end;
   padding-top: clamp(128px, 16vh, 178px);
   padding-bottom: clamp(32px, 4.5vh, 52px);
@@ -2863,7 +2863,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 .lilly-hero-copy {
-  max-width: 710px;
+  max-width: 760px;
   align-self: center;
 }
 
@@ -3030,26 +3030,39 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 .lilly-trust-row {
   display: flex;
   align-items: center;
-  gap: 9px;
-  flex-wrap: wrap;
+  gap: 7px;
+  flex-wrap: nowrap;
+  max-width: 100%;
 }
 
 .lilly-trust-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 13px;
+  gap: 5px;
+  padding: 5px 10px;
   border-radius: var(--pill);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.84);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.88);
   background: rgba(255, 255, 255, 0.09);
   border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .lilly-trust-pill b {
   color: #FFFFFF;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .lilly-trust-row {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
 }
 
 /* ---------- RIGHT FLOATING GLASS FORMULATION SPOTLIGHT OVER VIDEO ---------- */
