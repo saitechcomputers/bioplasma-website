@@ -355,20 +355,37 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 78px;
-  gap: 20px;
+  min-height: 102px;
+  height: auto;
+  padding: 8px 0;
+  gap: 24px;
+  transition: min-height 0.25s ease, padding 0.25s ease;
+}
+
+.site-header.scrolled .header-inner {
+  min-height: 78px;
+  padding: 5px 0;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  line-height: 1;
 }
 
 .brand-logo img {
-  height: 52px;
+  height: 86px;
   width: auto;
+  max-width: 290px;
   object-fit: contain;
+  transition: height 0.25s ease, transform 0.2s ease;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.2));
+}
+
+.site-header.scrolled .brand-logo img {
+  height: 64px;
+  filter: none;
 }
 
 .primary-nav {
@@ -2149,13 +2166,13 @@ textarea.form-control {
 .footer-logo-chip {
   display: inline-block;
   background: #fff;
-  padding: 10px 16px;
+  padding: 12px 20px;
   border-radius: var(--radius-sm);
   margin-bottom: 16px;
 }
 
 .footer-logo-chip img {
-  height: 48px;
+  height: 72px;
   width: auto;
 }
 
@@ -2560,6 +2577,8 @@ textarea.form-control {
 
 @media (max-width: 780px) {
   body { padding-bottom: 68px; }
+  .header-inner { min-height: 72px; padding: 6px 0; }
+  .brand-logo img { height: 58px; max-width: 190px; }
   .utility-left .hide-sm,
   .utility-right .hide-sm,
   .header-actions .hide-sm { display: none; }
