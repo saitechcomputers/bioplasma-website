@@ -3653,3 +3653,130 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
     padding: 18px;
   }
 }
+
+/* ==========================================================================
+   FLOATING WHATSAPP & PHONE CONTACT DOCK (9319491093)
+   ========================================================================== */
+.floating-contact-dock {
+  position: fixed;
+  bottom: 26px;
+  right: 24px;
+  z-index: 175;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.floating-contact-dock a {
+  pointer-events: auto;
+}
+
+.whatsapp-float-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 11px 18px 11px 14px;
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease, background-color 0.2s ease;
+}
+
+.whatsapp-float-btn:hover {
+  background: #20BA5A;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 26px rgba(37, 211, 102, 0.6), 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+.whatsapp-float-btn svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.phone-float-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0A3663;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  font-size: 0.84rem;
+  padding: 8px 14px 8px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(10, 54, 99, 0.35);
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.phone-float-btn:hover {
+  background: #D52B1E;
+  transform: translateY(-2px);
+}
+
+/* Header WhatsApp & Phone Pill */
+.header-phone-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: rgba(37, 211, 102, 0.15);
+  border: 1px solid rgba(37, 211, 102, 0.45);
+  color: #128C7E;
+  transition: all 0.2s ease;
+}
+
+.header-phone-pill svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.header-phone-pill:hover {
+  background: #25D366;
+  color: #FFFFFF !important;
+  border-color: #25D366;
+  transform: translateY(-1px);
+}
+
+.site-header:not(.scrolled) .header-phone-pill {
+  background: rgba(37, 211, 102, 0.22);
+  border-color: rgba(37, 211, 102, 0.6);
+  color: #A7F3D0;
+}
+
+.site-header:not(.scrolled) .header-phone-pill:hover {
+  background: #25D366;
+  color: #FFFFFF !important;
+}
+
+@media (max-width: 820px) {
+  .floating-contact-dock {
+    bottom: 76px;
+    right: 16px;
+  }
+  .whatsapp-float-btn span,
+  .phone-float-btn span {
+    display: none;
+  }
+  .whatsapp-float-btn {
+    padding: 13px;
+    border-radius: 50%;
+  }
+  .phone-float-btn {
+    padding: 11px;
+    border-radius: 50%;
+  }
+}
+

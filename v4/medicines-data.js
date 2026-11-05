@@ -10,6 +10,10 @@ window.BIOPLASMA_DATA = {
     taglineHi: "बेहतर स्वास्थ्य और आधुनिक चिकित्सा के लिए उच्च-गुणवत्ता वाली दवाइयाँ",
     address: "Plot No.11, Block B, Sector-34, Gurugram, NCR - 122004, India",
     email: "admin@bioplasmabio.com",
+    phone: "+91 93194 91093",
+    phoneTel: "+919319491093",
+    whatsapp: "+91 93194 91093",
+    whatsappUrl: "https://wa.me/919319491093?text=Hello%20LV%20Bioplasma,%20I%20would%20like%20to%20enquire%20about%20your%20products.",
     website: "www.bioplasmabio.com",
     websiteUrl: "https://www.bioplasmabio.com",
     pillars: [

@@ -1613,11 +1613,31 @@
     }
   }
 
+  /* ---------- Floating WhatsApp & Phone Contact Widget (9319491093) ---------- */
+  function initFloatingContactWidget() {
+    if (document.getElementById("floatingContactDock")) return;
+    const dock = document.createElement("div");
+    dock.id = "floatingContactDock";
+    dock.className = "floating-contact-dock";
+    dock.innerHTML = `
+      <a href="https://wa.me/919319491093?text=Hello%20LV%20Bioplasma,%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" class="whatsapp-float-btn" aria-label="Chat on WhatsApp +91 9319491093">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.35C9.35 7.35 9.07 7.42 8.82 7.69C8.58 7.95 7.9 8.58 7.9 9.87C7.9 11.16 8.84 12.4 8.97 12.58C9.11 12.76 10.82 15.4 13.44 16.53C14.07 16.8 14.56 16.96 14.94 17.08C15.57 17.28 16.14 17.25 16.59 17.18C17.09 17.11 18.13 16.55 18.35 15.93C18.57 15.31 18.57 14.78 18.5 14.67C18.43 14.56 18.25 14.5 17.97 14.36C17.7 14.22 16.36 13.56 16.11 13.47C15.86 13.38 15.68 13.33 15.5 13.6C15.32 13.88 14.8 14.5 14.64 14.67C14.48 14.85 14.33 14.88 14.05 14.74C13.78 14.6 12.89 14.31 11.84 13.37C11.02 12.64 10.46 11.73 10.3 11.46C10.15 11.18 10.28 11.03 10.42 10.89C10.55 10.76 10.7 10.56 10.85 10.38C10.99 10.2 11.04 10.07 11.13 9.89C11.23 9.71 11.18 9.55 11.11 9.42C11.04 9.29 10.48 7.93 10.26 7.39C10.04 6.86 9.81 6.94 9.65 6.93C9.5 6.93 9.35 6.93 9.17 6.93H9.53Z"/></svg>
+        <span>WhatsApp 9319491093</span>
+      </a>
+      <a href="tel:+919319491093" class="phone-float-btn" aria-label="Call +91 9319491093">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Call: 9319491093</span>
+      </a>
+    `;
+    document.body.appendChild(dock);
+  }
+
   /* ---------- Boot ---------- */
   document.addEventListener("DOMContentLoaded", () => {
     applyUrlParams();
     initHeaderAndNav();
     initHeroVideoCinema();
+    initFloatingContactWidget();
     renderQuickNeeds();
     renderDivisionsShowcase();
     renderScienceLab();
