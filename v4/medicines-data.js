@@ -4,7 +4,7 @@
  */
 window.BIOPLASMA_DATA = {
   company: {
-    name: "Bioplasma Biologicals Private Limited",
+    name: "LV Bioplasma Biologicals Private Limited",
     brandName: "LV Bioplasma",
     taglineEn: "Science-Driven Formulations for Everyday Clinical Excellence",
     taglineHi: "बेहतर स्वास्थ्य और आधुनिक चिकित्सा के लिए उच्च-गुणवत्ता वाली दवाइयाँ",

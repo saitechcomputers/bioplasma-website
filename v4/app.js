@@ -52,8 +52,8 @@
       tagHi: "एक मेडिसिन कंपनी • स्वास्थ्य सर्वोपरि",
       headlineEn: 'A medicine company putting <span class="accent-word">everyday health</span> above all.',
       headlineHi: 'हर परिवार के <span class="accent-word">दैनिक स्वास्थ्य</span> को सर्वोपरि रखने वाली मेडिसिन कंपनी।',
-      subEn: "Inspired by life’s meaningful moments across every generation — Bioplasma Biologicals Pvt. Ltd. (LV Bioplasma) pairs globally trusted actives with gentle nano, liposomal, and dual-release formulations.",
-      subHi: "बचपन से बुज़ुर्गों तक हर पीढ़ी की सेहत के लिए — बायोप्लाज़्मा बायोलॉजिकल्स प्रा. लि. (LV Bioplasma) विश्व-स्तरीय तत्वों और सौम्य डिलीवरी विज्ञान से तेज़ असर वाली दवाइयाँ बनाता है।",
+      subEn: "Inspired by life’s meaningful moments across every generation — LV Bioplasma Biologicals pairs globally trusted actives with gentle nano, liposomal, and dual-release formulations.",
+      subHi: "बचपन से बुज़ुर्गों तक हर पीढ़ी की सेहत के लिए — LV बायोप्लाज़्मा बायोलॉजिकल्स विश्व-स्तरीय तत्वों और सौम्य डिलीवरी विज्ञान से तेज़ असर वाली दवाइयाँ बनाता है।",
       glowColor: "radial-gradient(circle, rgba(245, 158, 11, 0.34) 0%, transparent 70%)",
       medId: "aadirise-d3"
     },
@@ -927,7 +927,7 @@
     if (statusStrip && statusText) {
       statusStrip.classList.toggle("visible", Boolean(isFiltered));
       statusText.textContent = t(
-        `Showing ${filtered.length} of ${DATA.medicines.length} Bioplasma formulations`,
+        `Showing ${filtered.length} of ${DATA.medicines.length} LV Bioplasma formulations`,
         `कुल ${DATA.medicines.length} में से ${filtered.length} दवाइयाँ दिखाई जा रही हैं`
       );
     }
@@ -936,7 +936,7 @@
       gridMount.innerHTML = `
         <div style="text-align:center;padding:56px 20px;background:var(--surface);border-radius:var(--radius-lg);border:1px solid var(--line-strong);">
           <h3 style="font-size:1.25rem;margin-bottom:8px;">${t("No matching formulations found", "कोई मिलान वाली दवाई नहीं मिली")}</h3>
-          <p style="color:var(--ink-muted);margin-bottom:18px;">${t("Try clearing your search term or resetting active filters to view all 9 Bioplasma medicines.", "सभी 9 दवाइयाँ देखने के लिए फ़िल्टर रीसेट करें।")}</p>
+          <p style="color:var(--ink-muted);margin-bottom:18px;">${t("Try clearing your search term or resetting active filters to view all 9 LV Bioplasma medicines.", "सभी 9 LV बायोप्लाज्मा दवाइयाँ देखने के लिए फ़िल्टर रीसेट करें।")}</p>
         </div>
       `;
       return;
@@ -1216,7 +1216,7 @@
       <div class="modal-backdrop" id="quickSearchBackdrop" role="dialog" aria-modal="true" aria-label="Quick Search">
         <div class="modal-window" style="max-width:680px;">
           <div class="modal-header-bar">
-            <strong style="font-size:0.96rem;">Search Bioplasma Formulary &amp; Symptoms</strong>
+            <strong style="font-size:0.96rem;">Search LV Bioplasma Formulary &amp; Symptoms</strong>
             <button type="button" class="btn btn-outline btn-sm" id="quickSearchCloseBtn">✕ Esc</button>
           </div>
           <div class="modal-body-scroll">
@@ -1517,7 +1517,7 @@
 
       const subject = `[LV Bioplasma Enquiry] ${role} — ${name} (${city})`;
       const body = [
-        `Dear Bioplasma Biologicals Desk (Gurugram NCR),`,
+        `Dear LV Bioplasma Biologicals Desk (Gurugram NCR),`,
         ``,
         `Name / Firm: ${name}`,
         `Category: ${role}`,
