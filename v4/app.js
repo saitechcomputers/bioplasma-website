@@ -978,7 +978,6 @@
                   <td onclick="event.stopPropagation();">
                     <div style="display:flex;gap:8px;align-items:center;">
                       <button type="button" class="btn btn-cobalt btn-sm" data-open-med="${m.id}">${t("Monograph", "विवरण")}</button>
-                      <a href="${m.pdfUrl}" target="_blank" rel="noopener" class="btn btn-outline btn-sm">PDF</a>
                     </div>
                   </td>
                 </tr>
@@ -1014,7 +1013,6 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                   </button>
                   <div style="display:flex;gap:6px;align-items:center;">
-                    <a href="${m.pdfUrl}" target="_blank" rel="noopener" class="compare-check-btn" title="Download Official PDF">PDF</a>
                     <button type="button" class="compare-check-btn ${inCompare ? "selected" : ""}" data-toggle-compare="${m.id}">
                       ${inCompare ? "✓ Compared" : "+ Compare"}
                     </button>
@@ -1130,8 +1128,8 @@
               ${meds.map((m) => `<td>${(m.indications || []).slice(0, 4).map(escapeHtml).join("; ")}</td>`).join("")}
             </tr>
             <tr>
-              <td><strong>Official Literature</strong></td>
-              ${meds.map((m) => `<td><a href="${m.pdfUrl}" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Download PDF</a></td>`).join("")}
+              <td><strong>Monograph</strong></td>
+              ${meds.map((m) => `<td><button type="button" class="btn btn-cobalt btn-sm" data-open-med="${m.id}">Open Monograph →</button></td>`).join("")}
             </tr>
           </tbody>
         </table>
@@ -1198,7 +1196,6 @@
               <button type="button" class="btn btn-outline btn-sm" id="monoNextBtn">Next →</button>
             </div>
             <div style="display:flex;gap:8px;align-items:center;">
-              <button type="button" class="btn btn-outline btn-sm" id="monoPrintBtn">🖨️ Print</button>
               <button type="button" class="btn btn-crimson btn-sm" id="monoCloseBtn">✕ Close</button>
             </div>
           </div>
@@ -1265,7 +1262,6 @@
     document.getElementById("compareCloseBtn")?.addEventListener("click", closeAllModals);
     document.getElementById("quickSearchCloseBtn")?.addEventListener("click", closeAllModals);
     document.getElementById("brandFilmCloseBtn")?.addEventListener("click", closeAllModals);
-    document.getElementById("monoPrintBtn")?.addEventListener("click", () => window.print());
     document.getElementById("monoPrevBtn")?.addEventListener("click", () => stepMonographModal(-1));
     document.getElementById("monoNextBtn")?.addEventListener("click", () => stepMonographModal(1));
 
@@ -1377,11 +1373,8 @@
             <span><strong>Profile:</strong> ${escapeHtml(m.flavour)}</span>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <a href="${m.pdfUrl}" target="_blank" rel="noopener" class="btn btn-crimson btn-sm">
-              Download Official PDF Brochure ↗
-            </a>
-            <a href="contact.html?med=${encodeURIComponent(m.id)}" class="btn btn-outline btn-sm">
-              Enquire for Distribution / Samples
+            <a href="contact.html?med=${encodeURIComponent(m.id)}" class="btn btn-crimson btn-sm">
+              Enquire for Distribution / Samples →
             </a>
           </div>
         </div>
@@ -1451,7 +1444,7 @@
       </div>
 
       <!-- Indications & Dosage -->
-      <div class="mono-section-block" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+      <div class="mono-section-block" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:0;">
         <div style="background:var(--bg-warm);padding:18px;border-radius:var(--radius-md);border:1px solid var(--line);">
           <h4 style="margin-bottom:10px;">Clinical Indications</h4>
           <ul style="display:flex;flex-direction:column;gap:6px;">
@@ -1464,14 +1457,6 @@
           <div style="font-size:0.78rem;color:var(--ink-muted);padding-top:10px;border-top:1px solid var(--line);">
             <strong>Note:</strong> ${m.rxRequired ? "Schedule Prescription formulation — strictly administer under a Registered Medical Practitioner's advice." : "Use as directed by the Physician / Healthcare Professional."}
           </div>
-        </div>
-      </div>
-
-      <!-- Visual Aid Preview -->
-      <div class="mono-section-block" style="margin-bottom:0;">
-        <h4>Official Visual-Aid Artwork Preview</h4>
-        <div style="border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--line-strong);max-height:360px;">
-          <img src="${m.brochureImg}" alt="${escapeHtml(m.name)} brochure" style="width:100%;object-fit:cover;" loading="lazy" />
         </div>
       </div>
     `;
