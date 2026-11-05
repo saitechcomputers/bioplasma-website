@@ -15,7 +15,7 @@
   const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const state = {
-    lang: localStorage.getItem("bioplasma_v4_lang") || "en",
+    lang: "en",
     heroIndex: 0,
     heroVideoPaused: prefersReducedMotion,
     heroHoverHold: false,
@@ -243,12 +243,16 @@
       .replace(/"/g, "&quot;");
   }
 
-  function t(en, hi) {
-    return state.lang === "hi" && hi ? hi : en;
+  function t(en, _hi) {
+    return en;
   }
 
   /* ---------- Sticky / Transparent-to-Solid Header & Nav ---------- */
   function initHeaderAndNav() {
+    try {
+      localStorage.removeItem("bioplasma_v4_lang");
+    } catch (_) {}
+
     const header = document.getElementById("siteHeader");
     if (header) {
       const updateHeaderScroll = () => {
@@ -269,15 +273,6 @@
         link.addEventListener("click", () => mobDrawer.classList.remove("open"));
       });
     }
-
-    // Language switchers
-    document.querySelectorAll("[data-set-lang]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        state.lang = btn.getAttribute("data-set-lang") === "hi" ? "hi" : "en";
-        localStorage.setItem("bioplasma_v4_lang", state.lang);
-        syncLanguageUI();
-      });
-    });
 
     // Subpage ambient video Play/Pause toggle (About, Products, Science, Contact)
     const subVid = document.getElementById("subpageAmbientVideo");
@@ -1394,7 +1389,7 @@
 
       <!-- Easy Patient & Clinician Summary -->
       <div class="mono-section-block">
-        <h4>${t("Patient-Friendly Overview (EN / हिंदी)", "आसान रोगी मार्गदर्शिका")}</h4>
+        <h4>Patient-Friendly Overview</h4>
         <div class="easy-patient-box">
           <div>
             <strong style="display:block;margin-bottom:4px;font-size:0.88rem;">${t("What is it?", "यह क्या है?")}</strong>
