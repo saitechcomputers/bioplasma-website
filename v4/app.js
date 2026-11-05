@@ -394,6 +394,16 @@
       setHeroSlide((state.heroIndex + 1) % HERO_SLIDES.length, true);
     });
 
+    // Keyboard Arrow Keys Navigation (Left & Right Arrow Keys)
+    window.addEventListener("keydown", (e) => {
+      if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName)) return;
+      if (e.key === "ArrowLeft") {
+        setHeroSlide((state.heroIndex - 1 + HERO_SLIDES.length) % HERO_SLIDES.length, true);
+      } else if (e.key === "ArrowRight") {
+        setHeroSlide((state.heroIndex + 1) % HERO_SLIDES.length, true);
+      }
+    });
+
     // WCAG Accessibility Pause / Play Background Video Toggle
     const toggleBtn = document.getElementById("heroVideoToggleBtn");
     toggleBtn?.addEventListener("click", () => {

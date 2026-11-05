@@ -3147,10 +3147,77 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 .cinema-dock-inner {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: stretch;
-  gap: 0;
+  display: block;
+}
+
+/* Floating Left & Right Hero Navigation Arrow Buttons */
+.hero-side-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 15;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(7, 19, 36, 0.52);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.42);
+  user-select: none;
+}
+
+.hero-side-arrow svg {
+  width: 26px;
+  height: 26px;
+  stroke: #FFFFFF;
+  transition: transform 0.22s ease;
+}
+
+.hero-side-arrow:hover {
+  background: var(--lilly-crimson);
+  border-color: rgba(255, 255, 255, 0.55);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 12px 34px rgba(220, 38, 38, 0.55);
+}
+
+.hero-side-arrow-prev {
+  left: 28px;
+}
+
+.hero-side-arrow-prev:hover svg {
+  transform: translateX(-3px);
+}
+
+.hero-side-arrow-next {
+  right: 28px;
+}
+
+.hero-side-arrow-next:hover svg {
+  transform: translateX(3px);
+}
+
+@media (max-width: 900px) {
+  .hero-side-arrow {
+    width: 44px;
+    height: 44px;
+  }
+  .hero-side-arrow-prev {
+    left: 12px;
+  }
+  .hero-side-arrow-next {
+    right: 12px;
+  }
+  .hero-side-arrow svg {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 .cinema-chapters-grid {

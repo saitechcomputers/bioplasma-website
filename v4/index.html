@@ -57,7 +57,7 @@
         </div>
         <div class="nav-item">
           <a href="products.html" class="nav-link">
-            Our Medicines
+            Products
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="6 9 12 15 18 9"/></svg>
           </a>
           <!-- Mega Dropdown -->
@@ -112,9 +112,6 @@
           <a href="science.html" class="nav-link">Vibrant Science</a>
         </div>
         <div class="nav-item">
-          <a href="science.html#brochures" class="nav-link">PDF Literature</a>
-        </div>
-        <div class="nav-item">
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
       </nav>
@@ -142,9 +139,8 @@
       <div class="mobile-nav-links">
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About LV Bioplasma</a>
-        <a href="products.html">All 9 Medicines (Formulary)</a>
+        <a href="products.html">Products</a>
         <a href="science.html">Vibrant Delivery Science</a>
-        <a href="science.html#brochures">Official PDF Brochures</a>
         <a href="contact.html">Partner &amp; Doctor Enquiry</a>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;color:var(--ink-muted);">
@@ -157,8 +153,7 @@
   <main>
     <!-- =====================================================================
          BIOPLASMA V4 SIGNATURE HERO — INSPIRED BY ELI LILLY (LILLY.COM)
-         Full-Bleed Background Cinema Video +
-         WCAG Accessibility Play/Pause Toggle + 4-Story Interactive Video Reel
+         Full-Bleed Background Cinema Video + Floating Left/Right Arrows
          ===================================================================== -->
     <section class="lilly-video-hero" id="heroCarouselRoot" aria-label="LV Bioplasma Brand & Formulation Cinema Hero">
       <!-- Dual-Buffered Autoplaying Background Video Stage -->
@@ -186,6 +181,14 @@
       <!-- Lilly Multi-Layered Cinema Scrim -->
       <div class="hero-video-scrim" aria-hidden="true"></div>
       <div class="hero-ambient-ring" aria-hidden="true"></div>
+
+      <!-- Floating Left & Right Navigation Arrows on Both Sides -->
+      <button type="button" class="hero-side-arrow hero-side-arrow-prev" id="heroPrevSceneBtn" aria-label="Previous Medicine Slide" title="Previous Slide (←)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button type="button" class="hero-side-arrow hero-side-arrow-next" id="heroNextSceneBtn" aria-label="Next Medicine Slide" title="Next Slide (→)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
 
       <!-- Main Hero Foreground Copy + Floating Glass Medicine Spotlight -->
       <div class="container lilly-hero-inner">
@@ -241,29 +244,10 @@
         </div>
       </div>
 
-      <!-- Bottom Lilly Cinema Reel Chapters + WCAG Play/Pause Control -->
+      <!-- Bottom Lilly Cinema Reel Chapters (WCAG Controls Removed per User Request) -->
       <div class="lilly-cinema-dock">
         <div class="container cinema-dock-inner">
           <div class="cinema-chapters-grid" id="heroTabsMount" role="tablist" aria-label="Background Video Stories"></div>
-
-          <div class="cinema-controls-cluster" aria-label="Background Video Controls">
-            <div style="display:flex;align-items:center;gap:6px;">
-              <button type="button" class="cinema-step-btn" id="heroPrevSceneBtn" aria-label="Previous Video Scene" title="Previous Scene">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="15 18 9 12 15 6"/></svg>
-              </button>
-              <button type="button" class="cinema-step-btn" id="heroNextSceneBtn" aria-label="Next Video Scene" title="Next Scene">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
-            </div>
-
-            <button type="button" class="lilly-pause-toggle" id="heroVideoToggleBtn" aria-pressed="false" aria-label="Pause background video">
-              <span class="motion-eq" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span id="heroVideoToggleIcon" style="display:inline-flex;">
-                <svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
-              </span>
-              <span id="heroVideoToggleLabel">Pause Video</span>
-            </button>
-          </div>
         </div>
       </div>
     </section>
