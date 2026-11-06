@@ -358,11 +358,9 @@ ul, ol {
   background: rgba(255, 255, 255, 0.98);
 }
 
-/* Lilly-style thin crimson/multi-spectral accent top hairline on scroll */
+/* Replaced by live left-to-right scroll progress bar (#bioScrollProgressTrack) */
 .header-accent-line {
-  height: 3px;
-  width: 100%;
-  background: linear-gradient(90deg, var(--lilly-crimson) 0%, var(--bio-amber) 28%, var(--bio-cobalt) 62%, var(--merck-violet) 82%, var(--bio-emerald) 100%);
+  display: none;
 }
 
 .header-inner {
@@ -2781,7 +2779,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 .lilly-video-hero {
   position: relative;
   width: 100%;
-  min-height: clamp(720px, 100svh, 980px);
+  min-height: clamp(740px, 100svh, 960px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -2856,9 +2854,9 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   display: grid;
   grid-template-columns: 1fr 395px;
   gap: clamp(24px, 3.5vw, 56px);
-  align-items: end;
-  padding-top: clamp(128px, 16vh, 178px);
-  padding-bottom: clamp(32px, 4.5vh, 52px);
+  align-items: center;
+  padding-top: clamp(116px, 14.5vh, 164px);
+  padding-bottom: clamp(20px, 3vh, 42px);
   flex: 1;
 }
 
@@ -2924,14 +2922,14 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 
 /* Monumental Lilly Editorial Display Headline over Video */
 .lilly-hero-headline {
-  font-size: clamp(2.4rem, 4.5vw, 4.1rem);
+  font-size: clamp(2.35rem, 4.2vw, 3.85rem);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.09;
   letter-spacing: -0.035em;
   color: #FFFFFF;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   text-shadow: 0 10px 32px rgba(4, 12, 24, 0.45);
-  min-height: 282px;
+  min-height: 196px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -2952,13 +2950,13 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 .lilly-hero-subtext {
-  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  font-size: clamp(0.98rem, 1.15vw, 1.12rem);
   color: rgba(255, 255, 255, 0.88);
-  line-height: 1.65;
+  line-height: 1.62;
   max-width: 58ch;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
   text-shadow: 0 2px 14px rgba(4, 12, 24, 0.45);
-  min-height: 84px;
+  min-height: 76px;
   display: flex;
   align-items: flex-start;
   transition: opacity 0.22s ease;
@@ -2970,7 +2968,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   align-items: center;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 32px;
+  margin-bottom: 22px;
 }
 
 .btn-hero-lg {
@@ -3316,17 +3314,21 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 
 .cinema-chapters-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .cinema-chapter-btn {
   position: relative;
   text-align: left;
-  padding: 16px 18px;
+  padding: 13px 14px;
   border-right: 1px solid rgba(255, 255, 255, 0.10);
   color: rgba(255, 255, 255, 0.68);
   transition: background 0.22s ease, color 0.22s ease;
   overflow: hidden;
+}
+
+.cinema-chapter-btn:last-child {
+  border-right: none;
 }
 
 .cinema-chapter-btn:hover {
@@ -3497,11 +3499,16 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   100% { height: 12px; }
 }
 
-/* ---------- SUBPAGE AMBIENT VIDEO HERO (ABOUT, PRODUCTS, SCIENCE, CONTACT) ---------- */
+/* ---------- SUBPAGE AMBIENT VIDEO HERO (ABOUT, PRODUCTS, SCIENCE, CAREERS, CONTACT US) ---------- */
 .subpage-video-hero {
   position: relative;
+  width: 100%;
+  min-height: clamp(740px, 100svh, 960px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   overflow: hidden;
-  padding: clamp(152px, 18vh, 184px) 0 clamp(54px, 7vh, 78px);
+  padding: clamp(124px, 15vh, 168px) 0 clamp(48px, 6vh, 76px);
   background: #071324;
   color: #FFFFFF;
   isolation: isolate;
@@ -3513,7 +3520,8 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.48;
+  object-position: center center;
+  opacity: 0.82;
   z-index: 0;
   pointer-events: none;
 }
@@ -3523,8 +3531,9 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(105deg, rgba(6, 15, 29, 0.92) 0%, rgba(9, 23, 44, 0.76) 55%, rgba(9, 23, 44, 0.52) 100%),
-    radial-gradient(500px 320px at 15% 75%, rgba(213, 43, 30, 0.22), transparent 70%);
+    linear-gradient(104deg, rgba(6, 15, 29, 0.88) 0%, rgba(9, 23, 44, 0.72) 48%, rgba(9, 23, 44, 0.36) 82%, rgba(9, 23, 44, 0.48) 100%),
+    linear-gradient(180deg, rgba(6, 15, 29, 0.64) 0%, rgba(6, 15, 29, 0.08) 28%, rgba(6, 15, 29, 0.18) 70%, rgba(6, 15, 29, 0.88) 100%),
+    radial-gradient(640px 420px at 14% 70%, rgba(213, 43, 30, 0.22), transparent 72%);
 }
 
 .subpage-video-hero .container {
@@ -3642,7 +3651,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 
 .film-chapters-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   background: #0B192E;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
@@ -3693,6 +3702,13 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   .cinema-dock-inner {
     grid-template-columns: 1fr;
   }
+  .cinema-chapters-grid,
+  .film-chapters-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cinema-chapter-btn {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
   .cinema-controls-cluster {
     padding: 12px 18px;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -3701,7 +3717,8 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 @media (max-width: 780px) {
-  .lilly-video-hero {
+  .lilly-video-hero,
+  .subpage-video-hero {
     min-height: 660px;
   }
   .cinema-chapters-grid,
@@ -3730,7 +3747,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 /* ==========================================================================
-   FLOATING WHATSAPP & PHONE CONTACT DOCK (9319491093)
+   FLOATING WHATSAPP ICON BUTTON (ICON ONLY — NO PHONE TEXT OR CALL ICON)
    ========================================================================== */
 .floating-contact-dock {
   position: fixed;
@@ -3740,7 +3757,6 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 10px;
   pointer-events: none;
 }
 
@@ -3751,48 +3767,33 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 .whatsapp-float-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  border-radius: 50%;
   background: #25D366;
   color: #FFFFFF !important;
-  font-weight: 700;
-  font-size: 0.92rem;
-  padding: 11px 18px 11px 14px;
-  border-radius: 999px;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.46), 0 2px 8px rgba(0, 0, 0, 0.16);
   text-decoration: none;
-  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease, background-color 0.2s ease;
+  transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.24s ease, background-color 0.2s ease;
 }
 
 .whatsapp-float-btn:hover {
-  background: #20BA5A;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 26px rgba(37, 211, 102, 0.6), 0 4px 10px rgba(0, 0, 0, 0.18);
+  background: #1FAF54;
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.62), 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .whatsapp-float-btn svg {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   flex-shrink: 0;
 }
 
+.whatsapp-float-btn span,
 .phone-float-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #0A3663;
-  color: #FFFFFF !important;
-  font-weight: 700;
-  font-size: 0.84rem;
-  padding: 8px 14px 8px 12px;
-  border-radius: 999px;
-  box-shadow: 0 4px 14px rgba(10, 54, 99, 0.35);
-  text-decoration: none;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.phone-float-btn:hover {
-  background: #D52B1E;
-  transform: translateY(-2px);
+  display: none !important;
 }
 
 /* Header WhatsApp & Phone Pill */
@@ -3841,17 +3842,544 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
     bottom: 76px;
     right: 16px;
   }
-  .whatsapp-float-btn span,
-  .phone-float-btn span {
-    display: none;
-  }
   .whatsapp-float-btn {
-    padding: 13px;
-    border-radius: 50%;
+    width: 52px;
+    height: 52px;
   }
-  .phone-float-btn {
-    padding: 11px;
-    border-radius: 50%;
+  .whatsapp-float-btn svg {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+/* ==========================================================================
+   TOP LEFT-TO-RIGHT SCROLL PROGRESS BAR + COLLAPSING HEADER +
+   BESPOKE LV BIOPLASMA FLOATING LOGO PILL & COMMAND MENU
+   ========================================================================== */
+.bio-scroll-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 265;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bio-scroll-progress-fill {
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, #D52B1E 0%, #F59E0B 32%, #0EA5E9 68%, #10B981 100%);
+  box-shadow: 0 0 12px rgba(213, 43, 30, 0.65), 0 0 8px rgba(14, 165, 233, 0.45);
+  transition: transform 0.08s linear;
+  will-change: transform;
+}
+
+/* Smooth Complete Collapse of Top Full Header on Scroll Down */
+.site-header {
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.32s ease,
+    visibility 0.32s ease,
+    background 0.3s ease !important;
+}
+
+.site-header.is-collapsed-away {
+  transform: translate3d(0, -115%, 0) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Compact Top-Left Floating Bioplasma Logo Capsule Pill */
+.bio-float-pill {
+  position: fixed;
+  top: 18px;
+  left: clamp(16px, 3vw, 40px);
+  z-index: 245;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 22px 9px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(7, 20, 40, 0.95) 0%, rgba(12, 34, 66, 0.93) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  box-shadow:
+    0 16px 38px -10px rgba(4, 12, 24, 0.58),
+    0 0 0 1px rgba(213, 43, 30, 0.18) inset;
+  color: #FFFFFF;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(-18px, -12px, 0) scale(0.92);
+  transition:
+    opacity 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.34s ease,
+    border-color 0.22s ease,
+    box-shadow 0.24s ease;
+}
+
+.bio-float-pill.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.bio-float-pill.is-menu-open {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, -6px, 0) scale(0.96);
+}
+
+.bio-float-pill:hover {
+  border-color: rgba(255, 255, 255, 0.46);
+  box-shadow:
+    0 20px 44px -10px rgba(4, 12, 24, 0.72),
+    0 0 22px rgba(213, 43, 30, 0.32);
+  transform: translate3d(0, -1px, 0) scale(1.02);
+}
+
+.bio-float-pill-logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+}
+
+.bio-float-pill-sep {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.22);
+  flex-shrink: 0;
+}
+
+.bio-float-pill-burger {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 22px;
+}
+
+.bio-float-pill-burger i {
+  display: block;
+  height: 2px;
+  width: 100%;
+  border-radius: 2px;
+  background: #FFFFFF;
+  transition: transform 0.22s ease, width 0.22s ease, background-color 0.22s ease;
+}
+
+.bio-float-pill-burger i:nth-child(2) {
+  width: 78%;
+  background: #FCA5A5;
+}
+
+.bio-float-pill:hover .bio-float-pill-burger i:nth-child(2) {
+  width: 100%;
+  background: #38BDF8;
+}
+
+/* Dimmed Glass Backdrop Behind Expanded Command Menu */
+.bio-cmd-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 248;
+  background: rgba(4, 11, 22, 0.46);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+
+.bio-cmd-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Expanded Bespoke LV Bioplasma Command Menu Card */
+.bio-cmd-panel {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  z-index: 252;
+  width: min(1240px, calc(100vw - 28px));
+  max-height: calc(100svh - 28px);
+  overflow-y: auto;
+  border-radius: 28px;
+  padding: 22px 28px 26px;
+  background:
+    linear-gradient(145deg, rgba(7, 20, 40, 0.97) 0%, rgba(10, 29, 56, 0.97) 58%, rgba(8, 22, 44, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 34px 84px -16px rgba(2, 8, 18, 0.78),
+    0 0 0 1px rgba(56, 189, 248, 0.08) inset;
+  color: #FFFFFF;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(-50%, -18px, 0) scale(0.97);
+  transform-origin: top left;
+  transition:
+    opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.3s ease;
+}
+
+.bio-cmd-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate3d(-50%, 0, 0) scale(1);
+}
+
+.bio-cmd-glow {
+  position: absolute;
+  top: -120px;
+  right: 8%;
+  width: 420px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(213, 43, 30, 0.22) 0%, rgba(14, 165, 233, 0.12) 48%, transparent 72%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bio-cmd-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.bio-cmd-brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.bio-cmd-brand img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.bio-cmd-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.bio-cmd-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 17px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.84);
+  border: 1px solid transparent;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.bio-cmd-link:hover,
+.bio-cmd-link.is-previewed {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.bio-cmd-link.active {
+  color: #FFFFFF;
+  background: var(--lilly-crimson);
+  border-color: rgba(255, 255, 255, 0.26);
+  box-shadow: 0 6px 18px rgba(213, 43, 30, 0.42);
+}
+
+.bio-cmd-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.bio-cmd-search-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.bio-cmd-search-btn:hover {
+  background: rgba(255, 255, 255, 0.20);
+  border-color: rgba(255, 255, 255, 0.48);
+}
+
+.bio-cmd-search-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.bio-cmd-close-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.bio-cmd-close-btn:hover {
+  background: var(--lilly-crimson);
+  border-color: var(--lilly-crimson);
+  transform: rotate(90deg);
+}
+
+.bio-cmd-close-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.bio-cmd-divider {
+  position: relative;
+  z-index: 2;
+  height: 1px;
+  width: 100%;
+  margin: 18px 0 22px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.22) 0%, rgba(56, 189, 248, 0.34) 50%, rgba(255, 255, 255, 0.12) 100%);
+}
+
+.bio-cmd-showcase {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 0.92fr 1.35fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.bio-cmd-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 8px;
+}
+
+.bio-cmd-eyebrow {
+  font-family: var(--font-tech);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7DD3FC;
+  margin-bottom: 8px;
+}
+
+.bio-cmd-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.55rem, 2.3vw, 2.15rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.bio-cmd-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 16px;
+}
+
+.bio-cmd-quick-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bio-cmd-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 13px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #FDE68A;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(253, 230, 138, 0.28);
+  transition: all 0.2s ease;
+}
+
+.bio-cmd-chip:hover {
+  background: #FFFFFF;
+  color: var(--bio-navy);
+  border-color: #FFFFFF;
+}
+
+.bio-cmd-feature-card {
+  position: relative;
+  min-height: 210px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #040D1A;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px 26px;
+  isolation: isolate;
+  transition: transform 0.28s var(--ease-out), border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.bio-cmd-feature-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.42);
+  box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.65);
+}
+
+.bio-cmd-feature-card video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.76;
+  z-index: 0;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.bio-cmd-feature-card:hover video {
+  transform: scale(1.04);
+}
+
+.bio-cmd-feature-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(0deg, rgba(5, 14, 28, 0.92) 0%, rgba(5, 14, 28, 0.42) 56%, rgba(5, 14, 28, 0.18) 100%),
+    radial-gradient(380px 200px at 12% 88%, rgba(213, 43, 30, 0.28), transparent 72%);
+}
+
+.bio-cmd-feature-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.bio-cmd-feature-content strong {
+  display: block;
+  font-size: clamp(1.25rem, 1.9vw, 1.65rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.bio-cmd-feature-content span {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.bio-cmd-feature-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  color: #FFFFFF;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
+}
+
+.bio-cmd-feature-card:hover .bio-cmd-feature-arrow {
+  background: var(--lilly-crimson);
+  border-color: var(--lilly-crimson);
+  transform: translateX(4px);
+}
+
+.bio-cmd-feature-arrow svg {
+  width: 19px;
+  height: 19px;
+}
+
+@media (max-width: 1040px) {
+  .bio-cmd-showcase {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .bio-cmd-feature-card {
+    min-height: 168px;
+  }
+}
+
+@media (max-width: 680px) {
+  .bio-float-pill {
+    top: 12px;
+    left: 14px;
+    padding: 7px 16px 7px 14px;
+    gap: 10px;
+  }
+  .bio-float-pill-logo {
+    height: 34px;
+  }
+  .bio-cmd-panel {
+    top: 10px;
+    padding: 18px 16px 20px;
+    border-radius: 22px;
+  }
+  .bio-cmd-brand img {
+    height: 46px;
+  }
+  .bio-cmd-nav {
+    width: 100%;
+    order: 3;
+    padding-top: 6px;
+  }
+  .bio-cmd-link {
+    padding: 7px 13px;
+    font-size: 0.84rem;
+  }
+  .bio-cmd-search-btn span {
+    display: none;
   }
 }
 

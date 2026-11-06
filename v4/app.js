@@ -39,7 +39,7 @@
     selectedEnquiryMeds: new Set(["aadirise-d3", "pantheta-dsr", "bioipc"])
   };
 
-  /* ---------- V4 Lilly.com Cinema Hero Video Stories (4 Local HD MP4 Chapters) ---------- */
+  /* ---------- V4 Lilly.com Cinema Hero Video Stories (6 Local HD MP4 Chapters) ---------- */
   const HERO_SLIDES = [
     {
       num: "01",
@@ -55,7 +55,10 @@
       subEn: "Inspired by life’s meaningful moments across every generation — LV Bioplasma Biologicals pairs globally trusted actives with gentle nano, liposomal, and dual-release formulations.",
       subHi: "बचपन से बुज़ुर्गों तक हर पीढ़ी की सेहत के लिए — LV बायोप्लाज़्मा बायोलॉजिकल्स विश्व-स्तरीय तत्वों और सौम्य डिलीवरी विज्ञान से तेज़ असर वाली दवाइयाँ बनाता है।",
       glowColor: "radial-gradient(circle, rgba(245, 158, 11, 0.34) 0%, transparent 70%)",
-      medId: "aadirise-d3"
+      medId: "aadirise-d3",
+      ctaHref: "#medicinesExplorerSection",
+      ctaLabelEn: "Explore All Our Medicines",
+      ctaLabelHi: "हमारी सभी दवाइयाँ देखें"
     },
     {
       num: "02",
@@ -71,7 +74,10 @@
       subEn: "From 60,000 IU sugar-free Vitamin D3 nano-micelles to phospholipid-shielded Liposomal Iron + 4th-gen Quatrefolic®, our liquid & cellular engineering eliminates harsh GI irritation.",
       subHi: "60,000 IU शुगर-फ्री विटामिन D3 नैनो-शॉट से लेकर लिपोसोमल आयरन + Quatrefolic® तक — बिना पेट की जलन या धातु जैसे स्वाद के संपूर्ण अवशोषण।",
       glowColor: "radial-gradient(circle, rgba(225, 29, 100, 0.34) 0%, transparent 70%)",
-      medId: "bioipc"
+      medId: "bioipc",
+      ctaHref: "#medicinesExplorerSection",
+      ctaLabelEn: "Explore All Our Medicines",
+      ctaLabelHi: "हमारी सभी दवाइयाँ देखें"
     },
     {
       num: "03",
@@ -87,7 +93,10 @@
       subEn: "Porous Irish Aquamin™ marine algae calcium (~86.5% bioavailable with 72 trace minerals + Vitamin K2-7) and 2 Billion resilient Bacillus clausii spores built for cellular harmony.",
       subHi: "आयरलैंड का समुद्री शैवाल कैल्शियम Aquamin™ (~86.5% अवशोषण + विटामिन K2-7) और 2 बिलियन Bacillus clausii प्रोबायोटिक स्पोर्स।",
       glowColor: "radial-gradient(circle, rgba(56, 189, 248, 0.34) 0%, transparent 70%)",
-      medId: "adenocal-k2"
+      medId: "adenocal-k2",
+      ctaHref: "#medicinesExplorerSection",
+      ctaLabelEn: "Explore All Our Medicines",
+      ctaLabelHi: "हमारी सभी दवाइयाँ देखें"
     },
     {
       num: "04",
@@ -103,7 +112,48 @@
       subEn: "PANTHETA™ DSR and RABTHETA™ DSR combine Enteric-Coated PPIs with split 10 mg Immediate-Release and 20 mg Sustained-Release Domperidone inside one WHO-GMP capsule.",
       subHi: "PANTHETA™ DSR और RABTHETA™ DSR में एंटरिक-कोटेड PPI के साथ 10 mg IR और 20 mg SR डोमपेरिडोन की उन्नत टैबलेट-इन-कैप्सूल तकनीक है।",
       glowColor: "radial-gradient(circle, rgba(16, 185, 129, 0.34) 0%, transparent 70%)",
-      medId: "pantheta-dsr"
+      medId: "pantheta-dsr",
+      ctaHref: "#medicinesExplorerSection",
+      ctaLabelEn: "Explore All Our Medicines",
+      ctaLabelHi: "हमारी सभी दवाइयाँ देखें"
+    },
+    {
+      num: "05",
+      videoSrc: "assets/video/hero-careers.mp4",
+      tabTitleEn: "Careers",
+      tabTitleHi: "करियर व अवसर",
+      tabSubEn: "Grow with 8000 Cores Group",
+      tabSubHi: "8000 करोड़ ग्रुप के साथ बढ़ें",
+      tagEn: "Careers at LV Bioplasma • Pan-India Growth",
+      tagHi: "LV बायोप्लाज़्मा करियर • अखिल भारतीय अवसर",
+      headlineEn: 'Build your career where <span class="accent-word">science meets</span> human impact.',
+      headlineHi: 'जहाँ <span class="accent-word">विज्ञान और सेवा</span> मिलते हैं, वहाँ अपना करियर बनाएँ।',
+      subEn: "Join LV Bioplasma Biologicals across Field Sales, Product Management, QA/QC, and Corporate Operations — backed by an 8000 cores biotech group with 70% market share.",
+      subHi: "फील्ड सेल्स, प्रोडक्ट मैनेजमेंट, QA/QC और कॉर्पोरेट ऑपरेशंस में हमारे तेज़ी से बढ़ते परिवार से जुड़ें।",
+      glowColor: "radial-gradient(circle, rgba(168, 85, 247, 0.34) 0%, transparent 70%)",
+      medId: "dydrofy",
+      ctaHref: "careers.html",
+      ctaLabelEn: "Explore Careers & Open Roles",
+      ctaLabelHi: "करियर और रिक्तियाँ देखें"
+    },
+    {
+      num: "06",
+      videoSrc: "assets/video/hero-contact.mp4",
+      tabTitleEn: "Contact Us",
+      tabTitleHi: "संपर्क करें",
+      tabSubEn: "Partner & Corporate Desk",
+      tabSubHi: "पार्टनर व कॉर्पोरेट डेस्क",
+      tagEn: "Contact Us • Sector-34 Gurugram NCR HQ",
+      tagHi: "संपर्क करें • सेक्टर-34 गुरुग्राम मुख्यालय",
+      headlineEn: 'Connect with our <span class="accent-word">corporate desk</span> across India.',
+      headlineHi: 'पूरे भारत में हमारे <span class="accent-word">कॉर्पोरेट डेस्क</span> से जुड़ें।',
+      subEn: "For pharmaceutical stockist & distributor partnerships, clinical visual-aid monographs, hospital pharmacy supply, or product inquiries, reach our Gurugram NCR team directly.",
+      subHi: "डिस्ट्रीब्यूटरशिप, डॉक्टर मोनोग्राफ, अस्पताल सप्लाई या उत्पाद जानकारी के लिए हमारे गुरुग्राम मुख्यालय से सीधे संपर्क करें।",
+      glowColor: "radial-gradient(circle, rgba(14, 165, 233, 0.34) 0%, transparent 70%)",
+      medId: "argiluck",
+      ctaHref: "contact.html",
+      ctaLabelEn: "Contact Us / Partner Desk",
+      ctaLabelHi: "हमसे संपर्क करें"
     }
   ];
 
@@ -247,20 +297,373 @@
     return en;
   }
 
+  /* ---------- Bespoke Bioplasma Scroll-Collapsible Header + Floating Logo Command Menu ---------- */
+  const FLOATING_NAV_ITEMS = [
+    {
+      href: "index.html",
+      label: "Home",
+      eyebrow: "LV Bioplasma Biologicals",
+      title: "Putting everyday health above all.",
+      desc: "Part of an 8000 cores biotech group with 70% market share — pairing globally trusted actives with gentle nano, liposomal, and dual-release formulations.",
+      cardTitle: "A Medicine Company",
+      cardSub: "Explore our 6-scene brand cinema & healthcare divisions",
+      videoSrc: "assets/video/hero-human-life.mp4",
+      quickLinks: [
+        { label: "9 Formulations", href: "products.html" },
+        { label: "Delivery Science", href: "science.html" }
+      ]
+    },
+    {
+      href: "about.html",
+      label: "About Us",
+      eyebrow: "Enterprise Scale & Vision",
+      title: "Pioneering excellence in nuessential vitamins.",
+      desc: "Discover our 8000 cores biotech group foundation, global scientific alliances, WHO-GMP testing standards, corporate mission, and Director’s message.",
+      cardTitle: "About LV Bioplasma",
+      cardSub: "Corporate Story • Our Mission • Director’s Message",
+      videoSrc: "assets/video/hero-human-life.mp4",
+      quickLinks: [
+        { label: "Our Mission", href: "about.html#mission" },
+        { label: "Director’s Message", href: "about.html#director" }
+      ]
+    },
+    {
+      href: "products.html",
+      label: "Products",
+      eyebrow: "Complete 9-Medicine Formulary",
+      title: "Evidence-backed medicines across 5 specialties.",
+      desc: "Browse, filter, and compare all 9 formulations across Gastroenterology, Bone & D3, Gynecology, Liposomal Anemia Care, and Spore Probiotics.",
+      cardTitle: "Complete Formulary",
+      cardSub: "Aadirise-D3 • Bioipc • AdenoCal-K2 • Pantheta-DSR & more",
+      videoSrc: "assets/video/hero-capsule-gmp.mp4",
+      quickLinks: [
+        { label: "All 9 Medicines", href: "products.html" },
+        { label: "PDF Brochures", href: "science.html#brochures" }
+      ]
+    },
+    {
+      href: "science.html",
+      label: "Vibrant Science",
+      eyebrow: "Drug-Delivery Platforms",
+      title: "Microscopic engineering, macroscopic outcomes.",
+      desc: "Explore Nano-Droplet D3 micelles, phospholipid Liposomal Iron, Irish Aquamin™ marine matrix, and EC+IR+SR Tablet-in-Capsule architecture.",
+      cardTitle: "Vibrant Delivery Science",
+      cardSub: "Interactive viewport & downloadable visual-aid PDFs",
+      videoSrc: "assets/video/hero-formulation-lab.mp4",
+      quickLinks: [
+        { label: "4 Delivery Vehicles", href: "science.html" },
+        { label: "Literature Vault", href: "science.html#brochures" }
+      ]
+    },
+    {
+      href: "careers.html",
+      label: "Careers",
+      eyebrow: "Pan-India Career Growth",
+      title: "Build your career where science meets impact.",
+      desc: "Join LV Bioplasma across Field Sales, Product Management (PMT), Quality Assurance, and Corporate Operations at Gurugram NCR & pan-India.",
+      cardTitle: "Careers & Open Roles",
+      cardSub: "Merit-based growth • Apply online with your CV",
+      videoSrc: "assets/video/hero-careers.mp4",
+      quickLinks: [
+        { label: "Open Positions", href: "careers.html#openings" },
+        { label: "Quick Apply", href: "careers.html#applyFormSection" }
+      ]
+    },
+    {
+      href: "contact.html",
+      label: "Contact Us",
+      eyebrow: "Sector-34, Gurugram NCR HQ",
+      title: "Connect directly with our corporate desk.",
+      desc: "Reach out for pharmaceutical stockist & distributor partnerships, doctor visual-aid monographs, hospital supply, or product enquiries.",
+      cardTitle: "Contact Us & Partner Desk",
+      cardSub: "Plot No.11, Block B, Sector-34, Gurugram - 122004",
+      videoSrc: "assets/video/hero-contact.mp4",
+      quickLinks: [
+        { label: "Partner Enquiry", href: "contact.html" },
+        { label: "Email Desk", href: "mailto:admin@bioplasmabio.com" }
+      ]
+    }
+  ];
+
+  let closeCommandMenuFn = null;
+  let syncCommandMenuActiveFn = null;
+  let updateScrollBarAndHeaderFn = null;
+
+  function getCurrentPageFilename() {
+    const raw = window.location.pathname.split("/").pop().split("?")[0].split("#")[0];
+    return raw || "index.html";
+  }
+
+  function initLillyScrollNav() {
+    if (document.getElementById("bioScrollProgressTrack")) return;
+
+    // 1. Top Left-to-Right Scroll Progress Bar
+    const progTrack = document.createElement("div");
+    progTrack.id = "bioScrollProgressTrack";
+    progTrack.className = "bio-scroll-progress-track";
+    progTrack.setAttribute("aria-hidden", "true");
+    progTrack.innerHTML = `<div class="bio-scroll-progress-fill" id="bioScrollProgressFill"></div>`;
+    document.body.appendChild(progTrack);
+
+    // 2. Compact Top-Left Floating Bioplasma Logo Pill (Appears when Top Header Hides on Scroll)
+    const pillBtn = document.createElement("button");
+    pillBtn.type = "button";
+    pillBtn.id = "bioplasmaFloatPill";
+    pillBtn.className = "bio-float-pill";
+    pillBtn.setAttribute("aria-label", "Open LV Bioplasma Navigation Menu");
+    pillBtn.setAttribute("aria-expanded", "false");
+    pillBtn.setAttribute("aria-controls", "bioplasmaCommandMenu");
+    pillBtn.innerHTML = `
+      <img src="assets/brand/logo-footer-light.png" alt="LV Bioplasma" class="bio-float-pill-logo" />
+      <span class="bio-float-pill-sep" aria-hidden="true"></span>
+      <span class="bio-float-pill-burger" aria-hidden="true">
+        <i></i><i></i><i></i>
+      </span>
+    `;
+    document.body.appendChild(pillBtn);
+
+    // 3. Backdrop + Bespoke LV Bioplasma Floating Command Panel
+    const backdrop = document.createElement("div");
+    backdrop.id = "bioplasmaCommandBackdrop";
+    backdrop.className = "bio-cmd-backdrop";
+    document.body.appendChild(backdrop);
+
+    const panel = document.createElement("aside");
+    panel.id = "bioplasmaCommandMenu";
+    panel.className = "bio-cmd-panel";
+    panel.setAttribute("aria-label", "LV Bioplasma Navigation Hub");
+    panel.setAttribute("aria-hidden", "true");
+    panel.innerHTML = `
+      <div class="bio-cmd-glow" aria-hidden="true"></div>
+      <div class="bio-cmd-top">
+        <a href="index.html" class="bio-cmd-brand" data-cmd-nav>
+          <img src="assets/brand/logo-footer-light.png" alt="LV Bioplasma Biologicals Private Limited" />
+        </a>
+
+        <nav class="bio-cmd-nav" aria-label="Floating Primary Navigation">
+          ${FLOATING_NAV_ITEMS.map((item, idx) => `
+            <a href="${item.href}" class="bio-cmd-link" data-cmd-idx="${idx}" data-cmd-href="${item.href}" data-cmd-nav>
+              ${escapeHtml(item.label)}
+            </a>
+          `).join("")}
+        </nav>
+
+        <div class="bio-cmd-actions">
+          <button type="button" class="bio-cmd-search-btn" data-open-quick-search aria-label="Quick Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Search</span>
+          </button>
+          <a href="contact.html" class="btn btn-crimson btn-sm" data-cmd-nav>Partner / Enquire</a>
+          <button type="button" class="bio-cmd-close-btn" id="bioCmdCloseBtn" aria-label="Close Navigation Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="bio-cmd-divider"></div>
+
+      <div class="bio-cmd-showcase">
+        <div class="bio-cmd-copy">
+          <span class="bio-cmd-eyebrow" id="bioCmdEyebrow">LV Bioplasma Biologicals</span>
+          <h3 class="bio-cmd-title" id="bioCmdTitle">Putting everyday health above all.</h3>
+          <p class="bio-cmd-desc" id="bioCmdDesc"></p>
+          <div class="bio-cmd-quick-chips" id="bioCmdQuickChips"></div>
+        </div>
+
+        <a href="index.html" class="bio-cmd-feature-card" id="bioCmdFeatureCard" data-cmd-nav>
+          <video id="bioCmdFeatureVideo" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+          <div class="bio-cmd-feature-scrim" aria-hidden="true"></div>
+          <div class="bio-cmd-feature-content">
+            <div>
+              <strong id="bioCmdCardTitle">A Medicine Company</strong>
+              <span id="bioCmdCardSub">Explore our brand cinema &amp; healthcare divisions</span>
+            </div>
+            <span class="bio-cmd-feature-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    `;
+    document.body.appendChild(panel);
+
+    let cmdOpen = false;
+    let hoverOpenTimer = null;
+    let hoverCloseTimer = null;
+    const hasFinePointer = () => window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    function renderCmdShowcase(idx) {
+      const item = FLOATING_NAV_ITEMS[idx] || FLOATING_NAV_ITEMS[0];
+      const eyebrowEl = document.getElementById("bioCmdEyebrow");
+      const titleEl = document.getElementById("bioCmdTitle");
+      const descEl = document.getElementById("bioCmdDesc");
+      const chipsEl = document.getElementById("bioCmdQuickChips");
+      const cardEl = document.getElementById("bioCmdFeatureCard");
+      const cardTitleEl = document.getElementById("bioCmdCardTitle");
+      const cardSubEl = document.getElementById("bioCmdCardSub");
+      const vidEl = document.getElementById("bioCmdFeatureVideo");
+
+      if (eyebrowEl) eyebrowEl.textContent = item.eyebrow;
+      if (titleEl) titleEl.textContent = item.title;
+      if (descEl) descEl.textContent = item.desc;
+      if (cardEl) cardEl.setAttribute("href", item.href);
+      if (cardTitleEl) cardTitleEl.textContent = item.cardTitle;
+      if (cardSubEl) cardSubEl.textContent = item.cardSub;
+
+      if (chipsEl) {
+        chipsEl.innerHTML = (item.quickLinks || []).map(q =>
+          `<a href="${q.href}" class="bio-cmd-chip" data-cmd-nav>${escapeHtml(q.label)} →</a>`
+        ).join("");
+      }
+
+      if (vidEl) {
+        if (vidEl.getAttribute("src") !== item.videoSrc) {
+          vidEl.src = item.videoSrc;
+        }
+        if (cmdOpen && !prefersReducedMotion) {
+          vidEl.muted = true;
+          vidEl.play().catch(() => {});
+        }
+      }
+
+      panel.querySelectorAll(".bio-cmd-link").forEach((lnk, i) => {
+        lnk.classList.toggle("is-previewed", i === idx);
+      });
+    }
+
+    function syncActivePageInCmd(targetFn) {
+      const fn = targetFn || getCurrentPageFilename();
+      let activeIdx = 0;
+      panel.querySelectorAll(".bio-cmd-link").forEach((lnk, i) => {
+        const isAct = lnk.getAttribute("data-cmd-href") === fn;
+        lnk.classList.toggle("active", isAct);
+        if (isAct) activeIdx = i;
+      });
+      renderCmdShowcase(activeIdx);
+    }
+
+    function openCommandMenu() {
+      clearTimeout(hoverCloseTimer);
+      if (cmdOpen) return;
+      cmdOpen = true;
+      syncActivePageInCmd();
+      panel.classList.add("is-open");
+      panel.setAttribute("aria-hidden", "false");
+      backdrop.classList.add("is-open");
+      pillBtn.classList.add("is-menu-open");
+      pillBtn.setAttribute("aria-expanded", "true");
+      const vidEl = document.getElementById("bioCmdFeatureVideo");
+      if (vidEl && !prefersReducedMotion) {
+        vidEl.muted = true;
+        vidEl.play().catch(() => {});
+      }
+    }
+
+    function closeCommandMenu() {
+      clearTimeout(hoverOpenTimer);
+      clearTimeout(hoverCloseTimer);
+      if (!cmdOpen) return;
+      cmdOpen = false;
+      panel.classList.remove("is-open");
+      panel.setAttribute("aria-hidden", "true");
+      backdrop.classList.remove("is-open");
+      pillBtn.classList.remove("is-menu-open");
+      pillBtn.setAttribute("aria-expanded", "false");
+      const vidEl = document.getElementById("bioCmdFeatureVideo");
+      if (vidEl) vidEl.pause();
+    }
+
+    closeCommandMenuFn = closeCommandMenu;
+    syncCommandMenuActiveFn = syncActivePageInCmd;
+
+    // Click & Hover interactions on Bioplasma Pill & Command Panel
+    pillBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (cmdOpen) closeCommandMenu();
+      else openCommandMenu();
+    });
+
+    pillBtn.addEventListener("mouseenter", () => {
+      if (!hasFinePointer()) return;
+      clearTimeout(hoverCloseTimer);
+      hoverOpenTimer = setTimeout(openCommandMenu, 75);
+    });
+
+    pillBtn.addEventListener("mouseleave", () => {
+      if (!hasFinePointer()) return;
+      clearTimeout(hoverOpenTimer);
+      hoverCloseTimer = setTimeout(closeCommandMenu, 260);
+    });
+
+    panel.addEventListener("mouseenter", () => {
+      if (!hasFinePointer()) return;
+      clearTimeout(hoverCloseTimer);
+    });
+
+    panel.addEventListener("mouseleave", () => {
+      if (!hasFinePointer()) return;
+      clearTimeout(hoverCloseTimer);
+      hoverCloseTimer = setTimeout(closeCommandMenu, 240);
+    });
+
+    // Hovering any of the 6 headings dynamically updates showcase preview
+    panel.querySelectorAll(".bio-cmd-link").forEach((lnk) => {
+      const idx = Number(lnk.getAttribute("data-cmd-idx"));
+      lnk.addEventListener("mouseenter", () => renderCmdShowcase(idx));
+      lnk.addEventListener("focus", () => renderCmdShowcase(idx));
+    });
+
+    // Close on X button, backdrop click, or clicking any nav link inside panel
+    document.getElementById("bioCmdCloseBtn")?.addEventListener("click", closeCommandMenu);
+    backdrop.addEventListener("click", closeCommandMenu);
+    panel.addEventListener("click", (e) => {
+      if (e.target.closest("[data-cmd-nav]") || e.target.closest("[data-open-quick-search]")) {
+        closeCommandMenu();
+      }
+    });
+
+    // Scroll Progress + Top Header Collapse Engine
+    const header = document.getElementById("siteHeader");
+    const progFill = document.getElementById("bioScrollProgressFill");
+
+    const updateScrollState = () => {
+      const y = window.scrollY || window.pageYOffset || 0;
+      const docEl = document.documentElement;
+      const maxScroll = Math.max(1, docEl.scrollHeight - window.innerHeight);
+      const progress = Math.min(1, Math.max(0, y / maxScroll));
+
+      if (progFill) {
+        progFill.style.transform = `scaleX(${progress.toFixed(4)})`;
+      }
+
+      const collapseHeader = y > 68;
+      if (header) {
+        header.classList.toggle("is-collapsed-away", collapseHeader);
+        if (collapseHeader) {
+          document.getElementById("mobileNavDrawer")?.classList.remove("open");
+        }
+      }
+      pillBtn.classList.toggle("is-visible", collapseHeader);
+
+      if (!collapseHeader && cmdOpen) {
+        closeCommandMenu();
+      }
+    };
+
+    updateScrollBarAndHeaderFn = updateScrollState;
+    syncActivePageInCmd();
+    updateScrollState();
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    window.addEventListener("resize", updateScrollState, { passive: true });
+  }
+
   /* ---------- Sticky / Transparent-to-Solid Header & Nav ---------- */
   function initHeaderAndNav() {
     try {
       localStorage.removeItem("bioplasma_v4_lang");
     } catch (_) {}
 
-    const header = document.getElementById("siteHeader");
-    if (header) {
-      const updateHeaderScroll = () => {
-        header.classList.toggle("scrolled", window.scrollY > 36);
-      };
-      updateHeaderScroll();
-      window.addEventListener("scroll", updateHeaderScroll, { passive: true });
-    }
+    initLillyScrollNav();
 
     const mobToggle = document.getElementById("mobileMenuToggle");
     const mobDrawer = document.getElementById("mobileNavDrawer");
@@ -271,34 +674,6 @@
       });
       mobDrawer.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", () => mobDrawer.classList.remove("open"));
-      });
-    }
-
-    // Subpage ambient video Play/Pause toggle (About, Products, Science, Contact)
-    const subVid = document.getElementById("subpageAmbientVideo");
-    const subVidBtn = document.getElementById("subpageVideoToggleBtn");
-    if (subVid && subVidBtn) {
-      if (prefersReducedMotion) {
-        subVid.pause();
-        subVidBtn.classList.add("is-paused");
-        subVidBtn.setAttribute("aria-pressed", "true");
-        const lbl = subVidBtn.querySelector("[data-subvid-label]");
-        if (lbl) lbl.textContent = "Play Video";
-      }
-      subVidBtn.addEventListener("click", () => {
-        if (subVid.paused) {
-          subVid.play().catch(() => {});
-          subVidBtn.classList.remove("is-paused");
-          subVidBtn.setAttribute("aria-pressed", "false");
-          const lbl = subVidBtn.querySelector("[data-subvid-label]");
-          if (lbl) lbl.textContent = t("Pause Video", "वीडियो रोकें");
-        } else {
-          subVid.pause();
-          subVidBtn.classList.add("is-paused");
-          subVidBtn.setAttribute("aria-pressed", "true");
-          const lbl = subVidBtn.querySelector("[data-subvid-label]");
-          if (lbl) lbl.textContent = t("Play Video", "वीडियो चलाएँ");
-        }
       });
     }
 
@@ -338,6 +713,7 @@
           openQuickSearchModal();
         }
       } else if (e.key === "Escape") {
+        if (closeCommandMenuFn) closeCommandMenuFn();
         closeAllModals();
       } else if (document.getElementById("monographModalBackdrop")?.classList.contains("open")) {
         if (e.key === "ArrowRight") stepMonographModal(1);
@@ -359,7 +735,18 @@
     const heroRoot = document.getElementById("heroCarouselRoot");
     if (!heroRoot) return;
 
-    // Preload all 4 hero packshot images into memory for zero image swap blink
+    state.activeVideoSlot = "A";
+    ["heroVideoA", "heroVideoB"].forEach(vidId => {
+      const v = document.getElementById(vidId);
+      if (v) {
+        v.muted = true;
+        v.defaultMuted = true;
+        v.loop = true;
+        v.playsInline = true;
+      }
+    });
+
+    // Preload all 6 hero packshot images into memory for zero image swap blink
     HERO_SLIDES.forEach(s => {
       const m = getMedById(s.medId);
       if (m && m.image) {
@@ -390,29 +777,41 @@
       });
     }
 
-    document.getElementById("heroPrevSceneBtn")?.addEventListener("click", () => {
-      setHeroSlide((state.heroIndex - 1 + HERO_SLIDES.length) % HERO_SLIDES.length, true);
-    });
+    const prevBtn = document.getElementById("heroPrevSceneBtn");
+    if (prevBtn) {
+      prevBtn.onclick = () => {
+        setHeroSlide((state.heroIndex - 1 + HERO_SLIDES.length) % HERO_SLIDES.length, true);
+      };
+    }
 
-    document.getElementById("heroNextSceneBtn")?.addEventListener("click", () => {
-      setHeroSlide((state.heroIndex + 1) % HERO_SLIDES.length, true);
-    });
+    const nextBtn = document.getElementById("heroNextSceneBtn");
+    if (nextBtn) {
+      nextBtn.onclick = () => {
+        setHeroSlide((state.heroIndex + 1) % HERO_SLIDES.length, true);
+      };
+    }
 
     // Keyboard Arrow Keys Navigation (Left & Right Arrow Keys)
-    window.addEventListener("keydown", (e) => {
-      if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName)) return;
-      if (e.key === "ArrowLeft") {
-        setHeroSlide((state.heroIndex - 1 + HERO_SLIDES.length) % HERO_SLIDES.length, true);
-      } else if (e.key === "ArrowRight") {
-        setHeroSlide((state.heroIndex + 1) % HERO_SLIDES.length, true);
-      }
-    });
+    if (!window.__bioplasmaHeroKeyBound) {
+      window.__bioplasmaHeroKeyBound = true;
+      window.addEventListener("keydown", (e) => {
+        if (!document.getElementById("heroCarouselRoot")) return;
+        if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName)) return;
+        if (e.key === "ArrowLeft") {
+          setHeroSlide((state.heroIndex - 1 + HERO_SLIDES.length) % HERO_SLIDES.length, true);
+        } else if (e.key === "ArrowRight") {
+          setHeroSlide((state.heroIndex + 1) % HERO_SLIDES.length, true);
+        }
+      });
+    }
 
     // WCAG Accessibility Pause / Play Background Video Toggle
     const toggleBtn = document.getElementById("heroVideoToggleBtn");
-    toggleBtn?.addEventListener("click", () => {
-      setHeroPausedState(!state.heroVideoPaused);
-    });
+    if (toggleBtn) {
+      toggleBtn.onclick = () => {
+        setHeroPausedState(!state.heroVideoPaused);
+      };
+    }
 
     // Initial boot of Scene 01
     setHeroSlide(0, false, true);
@@ -571,6 +970,15 @@
       if (headEl) headEl.innerHTML = t(slide.headlineEn, slide.headlineHi);
       if (subEl) subEl.textContent = t(slide.subEn, slide.subHi);
       if (blobEl) blobEl.style.background = slide.glowColor;
+
+      const heroCtaLink = document.querySelector("#heroCarouselRoot .lilly-hero-ctas a.btn-crimson");
+      const heroCtaSpan = document.querySelector("[data-i18n-explore-btn]");
+      if (heroCtaLink && slide.ctaHref) {
+        heroCtaLink.setAttribute("href", slide.ctaHref);
+      }
+      if (heroCtaSpan && slide.ctaLabelEn) {
+        heroCtaSpan.textContent = t(slide.ctaLabelEn, slide.ctaLabelHi || slide.ctaLabelEn);
+      }
 
       if (techEl) techEl.textContent = med.technology;
       if (rxEl) {
@@ -1636,20 +2044,15 @@
     }
   }
 
-  /* ---------- Floating WhatsApp & Phone Contact Widget (9319491093) ---------- */
+  /* ---------- Floating WhatsApp Icon Widget (Icon Only, No Phone Text or Call Icon) ---------- */
   function initFloatingContactWidget() {
     if (document.getElementById("floatingContactDock")) return;
     const dock = document.createElement("div");
     dock.id = "floatingContactDock";
     dock.className = "floating-contact-dock";
     dock.innerHTML = `
-      <a href="https://wa.me/919319491093?text=Hello%20LV%20Bioplasma,%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" class="whatsapp-float-btn" aria-label="Chat on WhatsApp +91 9319491093">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.35C9.35 7.35 9.07 7.42 8.82 7.69C8.58 7.95 7.9 8.58 7.9 9.87C7.9 11.16 8.84 12.4 8.97 12.58C9.11 12.76 10.82 15.4 13.44 16.53C14.07 16.8 14.56 16.96 14.94 17.08C15.57 17.28 16.14 17.25 16.59 17.18C17.09 17.11 18.13 16.55 18.35 15.93C18.57 15.31 18.57 14.78 18.5 14.67C18.43 14.56 18.25 14.5 17.97 14.36C17.7 14.22 16.36 13.56 16.11 13.47C15.86 13.38 15.68 13.33 15.5 13.6C15.32 13.88 14.8 14.5 14.64 14.67C14.48 14.85 14.33 14.88 14.05 14.74C13.78 14.6 12.89 14.31 11.84 13.37C11.02 12.64 10.46 11.73 10.3 11.46C10.15 11.18 10.28 11.03 10.42 10.89C10.55 10.76 10.7 10.56 10.85 10.38C10.99 10.2 11.04 10.07 11.13 9.89C11.23 9.71 11.18 9.55 11.11 9.42C11.04 9.29 10.48 7.93 10.26 7.39C10.04 6.86 9.81 6.94 9.65 6.93C9.5 6.93 9.35 6.93 9.17 6.93H9.53Z"/></svg>
-        <span>WhatsApp 9319491093</span>
-      </a>
-      <a href="tel:+919319491093" class="phone-float-btn" aria-label="Call +91 9319491093">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span>Call: 9319491093</span>
+      <a href="https://wa.me/919319491093?text=Hello%20LV%20Bioplasma,%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" class="whatsapp-float-btn" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.35C9.35 7.35 9.07 7.42 8.82 7.69C8.58 7.95 7.9 8.58 7.9 9.87C7.9 11.16 8.84 12.4 8.97 12.58C9.11 12.76 10.82 15.4 13.44 16.53C14.07 16.8 14.56 16.96 14.94 17.08C15.57 17.28 16.14 17.25 16.59 17.18C17.09 17.11 18.13 16.55 18.35 15.93C18.57 15.31 18.57 14.78 18.5 14.67C18.43 14.56 18.25 14.5 17.97 14.36C17.7 14.22 16.36 13.56 16.11 13.47C15.86 13.38 15.68 13.33 15.5 13.6C15.32 13.88 14.8 14.5 14.64 14.67C14.48 14.85 14.33 14.88 14.05 14.74C13.78 14.6 12.89 14.31 11.84 13.37C11.02 12.64 10.46 11.73 10.3 11.46C10.15 11.18 10.28 11.03 10.42 10.89C10.55 10.76 10.7 10.56 10.85 10.38C10.99 10.2 11.04 10.07 11.13 9.89C11.23 9.71 11.18 9.55 11.11 9.42C11.04 9.29 10.48 7.93 10.26 7.39C10.04 6.86 9.81 6.94 9.65 6.93C9.5 6.93 9.35 6.93 9.17 6.93H9.53Z"/></svg>
       </a>
     `;
     document.body.appendChild(dock);
@@ -1659,14 +2062,32 @@
   function initSubpageVideo() {
     const subVid = document.getElementById("subpageAmbientVideo");
     const subVidBtn = document.getElementById("subpageVideoToggleBtn");
-    if (subVid && subVidBtn) {
-      if (prefersReducedMotion) {
-        subVid.pause();
+    if (!subVid) return;
+
+    subVid.muted = true;
+    subVid.defaultMuted = true;
+    subVid.loop = true;
+    subVid.playsInline = true;
+
+    if (prefersReducedMotion) {
+      subVid.pause();
+      if (subVidBtn) {
         subVidBtn.classList.add("is-paused");
         subVidBtn.setAttribute("aria-pressed", "true");
         const lbl = subVidBtn.querySelector("[data-subvid-label]");
         if (lbl) lbl.textContent = "Play Video";
       }
+    } else {
+      subVid.play().catch(() => {});
+      if (subVidBtn) {
+        subVidBtn.classList.remove("is-paused");
+        subVidBtn.setAttribute("aria-pressed", "false");
+        const lbl = subVidBtn.querySelector("[data-subvid-label]");
+        if (lbl) lbl.textContent = t("Pause Video", "वीडियो रोकें");
+      }
+    }
+
+    if (subVidBtn) {
       subVidBtn.onclick = () => {
         if (subVid.paused) {
           subVid.play().catch(() => {});
@@ -1933,18 +2354,29 @@
       const href = link.getAttribute('href')?.split('?')[0].split('#')[0] || '';
       link.classList.toggle('active', href === fn);
     });
+    if (syncCommandMenuActiveFn) syncCommandMenuActiveFn(fn);
+    if (closeCommandMenuFn) closeCommandMenuFn();
   }
 
   let isNavigating = false;
   async function navigateSeamlessly(targetUrl, pushHistory = true) {
     if (isNavigating) return;
 
+    const hashPart = targetUrl.includes('#') ? targetUrl.split('#')[1] : '';
     const cleanTarget = targetUrl.split('#')[0];
     const targetFilename = cleanTarget.split('/').pop().split('?')[0] || 'index.html';
     const currentFilename = window.location.pathname.split('/').pop().split('?')[0] || 'index.html';
 
-    // If same page without query, smooth scroll top
+    // If same page without query, smooth scroll to hash or top
     if (targetFilename === currentFilename && !targetUrl.includes('?')) {
+      if (closeCommandMenuFn) closeCommandMenuFn();
+      if (hashPart) {
+        const hashEl = document.getElementById(hashPart);
+        if (hashEl) {
+          hashEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return;
+        }
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
@@ -1986,7 +2418,16 @@
       curFooter.innerHTML = newFooter.innerHTML;
     }
 
-    window.scrollTo(0, 0);
+    if (hashPart) {
+      const hashEl = document.getElementById(hashPart);
+      if (hashEl) {
+        hashEl.scrollIntoView({ behavior: 'auto', block: 'start' });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
 
     if (pushHistory) {
       window.history.pushState({ path: targetUrl }, '', targetUrl);
@@ -1994,6 +2435,7 @@
 
     // Re-initialize interactive components
     reinitPageComponents();
+    if (updateScrollBarAndHeaderFn) updateScrollBarAndHeaderFn();
 
     if (mainEl) {
       mainEl.classList.remove('page-transitioning');
