@@ -12,6 +12,36 @@
   const DATA = window.BIOPLASMA_DATA;
   if (!DATA) return;
 
+  function formatProductName(raw) {
+    return String(raw || "")
+      .replace(/[®™]/g, "")
+      .replace(/\((?:R|TM)\)/gi, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toUpperCase();
+  }
+
+  function formatTechBadge(med) {
+    const raw = String(med?.techBadge || med?.technology || "")
+      .replace(/[®™]/g, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toUpperCase();
+    return raw.length > 26 ? `${raw.slice(0, 24).trim()}…` : raw;
+  }
+
+  if (Array.isArray(DATA.medicines)) {
+    DATA.medicines.forEach((m) => {
+      m.name = formatProductName(m.name);
+      m.techBadge = formatTechBadge(m);
+    });
+  }
+  if (Array.isArray(DATA.technologies)) {
+    DATA.technologies.forEach((tech) => {
+      if (tech.medicine) tech.medicine = formatProductName(tech.medicine);
+    });
+  }
+
   const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const state = {
@@ -109,8 +139,8 @@
       tagHi: "WHO-GMP प्रमाणित निर्माण • टैबलेट-इन-कैप्सूल",
       headlineEn: 'Dual-phase <span class="accent-word">capsule precision</span> for 24-hour acid control.',
       headlineHi: 'तुरंत राहत और पूरे 24 घंटे सुरक्षा के लिए <span class="accent-word">सटीक कैप्सूल</span> विज्ञान।',
-      subEn: "PANTHETA™ DSR and RABTHETA™ DSR combine Enteric-Coated PPIs with split 10 mg Immediate-Release and 20 mg Sustained-Release Domperidone inside one WHO-GMP capsule.",
-      subHi: "PANTHETA™ DSR और RABTHETA™ DSR में एंटरिक-कोटेड PPI के साथ 10 mg IR और 20 mg SR डोमपेरिडोन की उन्नत टैबलेट-इन-कैप्सूल तकनीक है।",
+      subEn: "PANTHETA DSR and RABTHETA DSR combine Enteric-Coated PPIs with split 10 mg Immediate-Release and 20 mg Sustained-Release Domperidone inside one WHO-GMP capsule.",
+      subHi: "PANTHETA DSR और RABTHETA DSR में एंटरिक-कोटेड PPI के साथ 10 mg IR और 20 mg SR डोमपेरिडोन की उन्नत टैबलेट-इन-कैप्सूल तकनीक है।",
       glowColor: "radial-gradient(circle, rgba(16, 185, 129, 0.34) 0%, transparent 70%)",
       medId: "pantheta-dsr",
       ctaHref: "#medicinesExplorerSection",
@@ -147,7 +177,7 @@
       tagHi: "संपर्क करें • सेक्टर-34 गुरुग्राम मुख्यालय",
       headlineEn: 'Connect with our <span class="accent-word">corporate desk</span> across India.',
       headlineHi: 'पूरे भारत में हमारे <span class="accent-word">कॉर्पोरेट डेस्क</span> से जुड़ें।',
-      subEn: "For pharmaceutical stockist & distributor partnerships, clinical visual-aid monographs, hospital pharmacy supply, or product inquiries, reach our Gurugram NCR team directly.",
+      subEn: "For pharmaceutical stockist & distributor partnerships, clinical product monographs, hospital pharmacy supply, or product inquiries, reach our Gurugram NCR team directly.",
       subHi: "डिस्ट्रीब्यूटरशिप, डॉक्टर मोनोग्राफ, अस्पताल सप्लाई या उत्पाद जानकारी के लिए हमारे गुरुग्राम मुख्यालय से सीधे संपर्क करें।",
       glowColor: "radial-gradient(circle, rgba(14, 165, 233, 0.34) 0%, transparent 70%)",
       medId: "argiluck",
@@ -180,7 +210,7 @@
       titleEn: "Gynecology & Maternal Vascular Nutrition",
       titleHi: "स्त्री-रोग एवं गर्भावस्था संपूर्ण देखभाल",
       descEn: "Comprehensive obstetric and gynecological support spanning IP-grade micronized Dydrogesterone 10 mg, uteroplacental Nitric Oxide L-Arginine sachets, Liposomal Iron, and Marine Calcium.",
-      descHi: "गर्भावस्था की सुरक्षा, बेहतर रक्त प्रवाह (L-Arginine), हीमोग्लोबिन सुधार और हार्मोनल संतुलन (Dydrofy® 10 mg) के लिए विशेष श्रृंखला।",
+      descHi: "गर्भावस्था की सुरक्षा, बेहतर रक्त प्रवाह (L-Arginine), हीमोग्लोबिन सुधार और हार्मोनल संतुलन (DYDROFY 10 mg) के लिए विशेष श्रृंखला।",
       medIds: ["dydrofy", "argiluck", "bioipc", "adenocal-k2"]
     },
     {
@@ -276,7 +306,7 @@
         <rect x="262" y="102" width="76" height="56" rx="28" fill="#10B981" stroke="#A7F3D0" stroke-width="1.8"/>
         <text x="300" y="127" text-anchor="middle" fill="#052E16" font-size="11" font-weight="800">20mg SR</text>
         <text x="300" y="143" text-anchor="middle" fill="#052E16" font-size="8.5" font-weight="700">24h Shield</text>
-        <text x="210" y="48" text-anchor="middle" fill="#A5F3FC" font-size="11" font-family="Space Grotesk, sans-serif" font-weight="700">PRECISION TABLET-IN-CAPSULE (PANTHETA™ / RABTHETA™ DSR)</text>
+        <text x="210" y="48" text-anchor="middle" fill="#A5F3FC" font-size="11" font-family="Space Grotesk, sans-serif" font-weight="700">PRECISION TABLET-IN-CAPSULE (PANTHETA / RABTHETA DSR)</text>
       </svg>`;
   }
 
@@ -334,11 +364,11 @@
       title: "Evidence-backed medicines across 5 specialties.",
       desc: "Browse, filter, and compare all 9 formulations across Gastroenterology, Bone & D3, Gynecology, Liposomal Anemia Care, and Spore Probiotics.",
       cardTitle: "Complete Formulary",
-      cardSub: "Aadirise-D3 • Bioipc • AdenoCal-K2 • Pantheta-DSR & more",
+      cardSub: "AADIRISE D3 • BIOIPC • ADENOCAL-K2 • PANTHETA DSR & MORE",
       videoSrc: "assets/video/hero-capsule-gmp.mp4",
       quickLinks: [
         { label: "All 9 Medicines", href: "products.html" },
-        { label: "PDF Brochures", href: "science.html#brochures" }
+        { label: "Compare Formulations", href: "products.html#medicinesExplorerSection" }
       ]
     },
     {
@@ -348,11 +378,11 @@
       title: "Microscopic engineering, macroscopic outcomes.",
       desc: "Explore Nano-Droplet D3 micelles, phospholipid Liposomal Iron, Irish Aquamin™ marine matrix, and EC+IR+SR Tablet-in-Capsule architecture.",
       cardTitle: "Vibrant Delivery Science",
-      cardSub: "Interactive viewport & downloadable visual-aid PDFs",
+      cardSub: "Interactive delivery viewport & WHO-GMP quality standards",
       videoSrc: "assets/video/hero-formulation-lab.mp4",
       quickLinks: [
         { label: "4 Delivery Vehicles", href: "science.html" },
-        { label: "Literature Vault", href: "science.html#brochures" }
+        { label: "Quality Standards", href: "science.html" }
       ]
     },
     {
@@ -374,7 +404,7 @@
       label: "Contact Us",
       eyebrow: "Sector-34, Gurugram NCR HQ",
       title: "Connect directly with our corporate desk.",
-      desc: "Reach out for pharmaceutical stockist & distributor partnerships, doctor visual-aid monographs, hospital supply, or product enquiries.",
+      desc: "Reach out for pharmaceutical stockist & distributor partnerships, doctor clinical monographs, hospital supply, or product enquiries.",
       cardTitle: "Contact Us & Partner Desk",
       cardSub: "Plot No.11, Block B, Sector-34, Gurugram - 122004",
       videoSrc: "assets/video/hero-contact.mp4",
@@ -1003,7 +1033,7 @@
         heroCtaSpan.textContent = t(slide.ctaLabelEn, slide.ctaLabelHi || slide.ctaLabelEn);
       }
 
-      if (techEl) techEl.textContent = med.technology;
+      if (techEl) techEl.textContent = med.techBadge || med.technology;
       if (rxEl) {
         rxEl.textContent = med.rxRequired ? "Rx Prescription" : (med.sugarFree ? "Sugar-Free" : "Supplement");
         rxEl.classList.toggle("is-rx", Boolean(med.rxRequired));
@@ -1232,9 +1262,6 @@
           ${t("Open Clinical Monograph", "मोनोग्राफ खोलें")}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
-        <a href="${linkedMed.pdfUrl}" target="_blank" rel="noopener" class="btn btn-ghost-light btn-sm">
-          ${t("Official PDF Brochure", "PDF ब्रोशर")}
-        </a>
       </div>
     `;
   }
@@ -1427,7 +1454,7 @@
                     </div>
                   </td>
                   <td style="max-width:300px;color:var(--ink-body);font-weight:500;">${escapeHtml(m.genericSummary)}</td>
-                  <td><span class="med-tech-chip">${escapeHtml(m.technology)}</span></td>
+                  <td><span class="med-tech-chip">${escapeHtml(m.techBadge || m.technology)}</span></td>
                   <td style="color:var(--ink-muted);font-size:0.82rem;">${escapeHtml(m.dosageForm)}<br/>${escapeHtml(m.packSize)}</td>
                   <td onclick="event.stopPropagation();">
                     <div style="display:flex;gap:8px;align-items:center;">
@@ -1451,10 +1478,12 @@
             <article class="med-card" style="--med-accent:${m.accent}">
               <div class="med-card-visual" data-open-med="${m.id}" title="Click to inspect full monograph">
                 <div class="med-badges-top">
-                  <span class="med-tech-chip">${escapeHtml(m.technology)}</span>
+                  <span class="med-tech-chip">${escapeHtml(m.techBadge || m.technology)}</span>
                   <span class="med-sched-chip ${m.rxRequired ? "rx" : ""}">${m.rxRequired ? "Rx Prescription" : (m.sugarFree ? "Sugar-Free" : "Supplement")}</span>
                 </div>
-                <img src="${m.image}" alt="${escapeHtml(m.name)} packshot" loading="lazy" />
+                <div class="med-packshot-stage">
+                  <img src="${m.image}" alt="${escapeHtml(m.name)} packshot" loading="lazy" />
+                </div>
               </div>
               <div class="med-card-body">
                 <div class="med-dosage-meta">${escapeHtml(m.dosageForm)} • ${escapeHtml(m.packSize)}</div>
@@ -1594,8 +1623,8 @@
     document.body.style.overflow = "hidden";
   }
 
-  /* ---------- Three-Symbol Emblem Pillars & Brochure Vault ---------- */
-  function renderPillarsAndBrochures() {
+  /* ---------- Three-Symbol Emblem Pillars ---------- */
+  function renderPillars() {
     const pillarsMount = document.getElementById("pillarsEditorialMount");
     if (pillarsMount) {
       const svgs = [
@@ -1611,26 +1640,6 @@
           </div>
           <h3>${escapeHtml(t(p.titleEn, p.titleHi))}</h3>
           <p>${escapeHtml(t(p.descEn, p.descHi))}</p>
-        </div>
-      `).join("");
-    }
-
-    const brochureMount = document.getElementById("brochuresVaultMount");
-    if (brochureMount) {
-      brochureMount.innerHTML = DATA.medicines.map((m) => `
-        <div class="brochure-card">
-          <div class="brochure-thumb" data-open-med="${m.id}" title="Click to inspect ${escapeHtml(m.name)} monograph">
-            <img src="${m.brochureImg}" alt="${escapeHtml(m.name)} Official Visual Aid" loading="lazy" />
-          </div>
-          <div class="brochure-body">
-            <div>
-              <h4>${escapeHtml(m.name)}</h4>
-              <span>${escapeHtml(m.dosageForm)} • ${escapeHtml(m.packSize)}</span>
-            </div>
-            <a href="${m.pdfUrl}" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
-              PDF ↗
-            </a>
-          </div>
         </div>
       `).join("");
     }
@@ -1676,7 +1685,7 @@
             <button type="button" class="btn btn-outline btn-sm" id="quickSearchCloseBtn">✕ Esc</button>
           </div>
           <div class="modal-body-scroll">
-            <input type="search" id="quickSearchModalInput" class="search-input" style="padding-left:18px;" placeholder="Type medicine (e.g. Bioipc, Pantheta), salt (Vitamin D3, Iron), or symptom..." autocomplete="off" />
+            <input type="search" id="quickSearchModalInput" class="search-input" style="padding-left:18px;" placeholder="Type medicine (e.g. BIOIPC, PANTHETA DSR), salt (Vitamin D3, Iron), or symptom..." autocomplete="off" />
             <div class="quick-search-list" id="quickSearchResultsMount"></div>
           </div>
         </div>
@@ -1701,7 +1710,7 @@
                 <p id="brandFilmDesc"></p>
               </div>
               <button type="button" class="btn btn-crimson btn-sm" id="brandFilmMedBtn" data-open-med="aadirise-d3">
-                Inspect AADIRISE® D3 →
+                Inspect AADIRISE D3 →
               </button>
             </div>
           </div>
@@ -2061,7 +2070,7 @@
     renderQuickNeeds();
     renderDivisionsShowcase();
     renderScienceLab();
-    renderPillarsAndBrochures();
+    renderPillars();
     if (document.getElementById("medicinesExplorerSection")) {
       renderExplorer();
     }
@@ -2335,7 +2344,7 @@
     renderDivisionsShowcase();
     renderScienceLab();
     initExplorerControls();
-    renderPillarsAndBrochures();
+    renderPillars();
     initEnquiryForm();
     initFaqAccordion();
     initCareersPage();
@@ -2513,7 +2522,7 @@
     renderDivisionsShowcase();
     renderScienceLab();
     initExplorerControls();
-    renderPillarsAndBrochures();
+    renderPillars();
     initEnquiryForm();
     initFaqAccordion();
     initCareersPage();
