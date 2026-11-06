@@ -1,15 +1,12 @@
 /* ==========================================================================
-   BIOPLASMA BIOLOGICALS V3 — GLOBAL PHARMA SYNTHESIS EDITION
-   Design Reference Synthesis:
-     1. Eli Lilly (lilly.com)        → Warm Alabaster Editorial Canvas, Human-First Hierarchy, Signature Ruby Punch
-     2. Merck India (merckgroup.com) → "Vibrant Science" Cellular Organic Motifs & Multi-Spectral Lab Accents on Swiss Grids
-     3. Emcure (emcure.com)          → Dynamic Corporate Hero Slider, Scale Metrics, Therapeutic Pillars & Stakeholder Architecture
+   LV BIOPLASMA BIOLOGICALS PRIVATE LIMITED — V4 CINEMA EDITION
+   (Working with Nature Through Bio-Technology for a Healthy Life)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Lilly-Inspired Warm Editorial Foundations */
+  /* Warm Editorial Foundations */
   --bg-warm: #FAF7F2;
   --bg-warm-alt: #F3EEE6;
   --bg-blush: #FBF4F3;
@@ -22,15 +19,17 @@
   --line: rgba(21, 24, 33, 0.09);
   --line-strong: rgba(21, 24, 33, 0.16);
 
-  /* Bioplasma + Emcure + Lilly + Merck Harmonized Brand Spectrum */
+  /* LV Bioplasma Brand Spectrum */
   --bio-navy: #0B2545;
-  --bio-cobalt: #0F4C81;       /* Bioplasma Blue Drop & Emcure Corporate Trust */
+  --bio-cobalt: #0F4C81;       /* Bioplasma Blue Drop */
   --bio-sky: #0284C7;
-  --lilly-crimson: #D52B1E;    /* Lilly Editorial Signature Accent */
-  --lilly-crimson-dark: #B41F14;
-  --merck-violet: #503291;     /* Merck Vibrant Science Violet */
-  --merck-magenta: #E11D64;    /* Merck Cellular Magenta */
-  --merck-teal: #0D9488;       /* Merck Bio-Cyan / Teal */
+  --bio-crimson: #D52B1E;      /* LV Bioplasma Ruby Crimson Accent */
+  --bio-crimson-dark: #B41F14;
+  --lilly-crimson: var(--bio-crimson);
+  --lilly-crimson-dark: var(--bio-crimson-dark);
+  --merck-violet: #503291;     /* Vibrant Science Violet */
+  --merck-magenta: #E11D64;    /* Cellular Magenta */
+  --merck-teal: #0D9488;       /* Bio-Cyan / Teal */
   --bio-amber: #F59E0B;        /* Bioplasma Smile Emblem */
   --bio-emerald: #15803D;      /* Bioplasma Pure Leaf Emblem */
 
@@ -122,7 +121,7 @@ ul, ol {
 }
 
 ::selection {
-  background: var(--lilly-crimson);
+  background: var(--bio-crimson);
   color: #fff;
 }
 
@@ -155,7 +154,7 @@ ul, ol {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--lilly-crimson);
+  color: var(--bio-crimson);
   margin-bottom: 14px;
 }
 
@@ -221,13 +220,13 @@ ul, ol {
 }
 
 .btn-crimson {
-  background: var(--lilly-crimson);
+  background: var(--bio-crimson);
   color: #fff;
   box-shadow: 0 10px 24px -8px rgba(213, 43, 30, 0.45);
 }
 
 .btn-crimson:hover {
-  background: var(--lilly-crimson-dark);
+  background: var(--bio-crimson-dark);
   transform: translateY(-2px);
   box-shadow: 0 14px 30px -8px rgba(213, 43, 30, 0.55);
 }
@@ -449,7 +448,7 @@ ul, ol {
 .nav-link.active {
   font-weight: 600 !important;
   color: #FFFFFF !important;
-  background: var(--lilly-crimson) !important;
+  background: var(--bio-crimson) !important;
   box-shadow: 0 4px 14px rgba(213, 43, 30, 0.35) !important;
 }
 
@@ -570,8 +569,8 @@ ul, ol {
 }
 
 .mega-med-pill:hover {
-  border-color: var(--lilly-crimson);
-  color: var(--lilly-crimson);
+  border-color: var(--bio-crimson);
+  color: var(--bio-crimson);
 }
 
 .header-actions {
@@ -656,7 +655,7 @@ ul, ol {
 
 .mobile-nav-links a.active {
   background: var(--bg-blush);
-  color: var(--lilly-crimson);
+  color: var(--bio-crimson);
 }
 
 /* ---------- HERO SECTION: Emcure Dynamic Slider + Lilly Editorial + Merck Cellular ---------- */
@@ -742,7 +741,7 @@ ul, ol {
 }
 
 .hero-headline .accent-word {
-  color: var(--lilly-crimson);
+  color: var(--bio-crimson);
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
@@ -960,7 +959,7 @@ ul, ol {
   left: 0;
   height: 3px;
   width: 0%;
-  background: var(--lilly-crimson);
+  background: var(--bio-crimson);
   transition: width 0.12s linear;
 }
 
@@ -978,7 +977,7 @@ ul, ol {
   font-family: var(--font-tech);
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--lilly-crimson);
+  color: var(--bio-crimson);
   display: block;
   margin-bottom: 3px;
 }
@@ -1111,19 +1110,19 @@ ul, ol {
   left: 0;
   width: 5px;
   height: 100%;
-  background: var(--need-accent, var(--lilly-crimson));
+  background: var(--need-accent, var(--bio-crimson));
   opacity: 0.85;
 }
 
 .need-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  border-color: var(--need-accent, var(--lilly-crimson));
+  border-color: var(--need-accent, var(--bio-crimson));
 }
 
 .need-card.active {
   background: var(--bg-blush);
-  border-color: var(--lilly-crimson);
+  border-color: var(--bio-crimson);
   box-shadow: var(--shadow-sm);
 }
 
@@ -1226,7 +1225,7 @@ ul, ol {
   background: var(--surface);
   color: var(--ink);
   box-shadow: var(--shadow-sm);
-  border-left: 4px solid var(--lilly-crimson);
+  border-left: 4px solid var(--bio-crimson);
 }
 
 .div-tab-count {
@@ -1239,7 +1238,7 @@ ul, ol {
 }
 
 .div-tab-btn.active .div-tab-count {
-  background: var(--lilly-crimson);
+  background: var(--bio-crimson);
   color: #fff;
 }
 
@@ -2163,7 +2162,7 @@ textarea.form-control {
 }
 
 .breadcrumb b {
-  color: var(--lilly-crimson);
+  color: var(--bio-crimson);
 }
 
 .subpage-hero h1 {
@@ -2180,7 +2179,7 @@ textarea.form-control {
   background: #091B32;
   color: rgba(255, 255, 255, 0.78);
   padding: clamp(54px, 7vw, 88px) 0 32px;
-  border-top: 4px solid var(--lilly-crimson);
+  border-top: 4px solid var(--bio-crimson);
 }
 
 .footer-top-grid {
@@ -2346,7 +2345,7 @@ textarea.form-control {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--lilly-crimson);
+  color: var(--bio-crimson);
   margin-bottom: 12px;
 }
 
@@ -2489,7 +2488,7 @@ textarea.form-control {
 }
 
 .qs-result-row:hover {
-  border-color: var(--lilly-crimson);
+  border-color: var(--bio-crimson);
   background: var(--surface);
 }
 
@@ -2579,7 +2578,7 @@ textarea.form-control {
 
 .mob-dock-item.active,
 .mob-dock-item:hover {
-  color: var(--lilly-crimson);
+  color: var(--bio-crimson);
 }
 
 .mob-dock-item svg {
@@ -2651,10 +2650,10 @@ textarea.form-control {
 
 
 /* ==========================================================================
-   BIOPLASMA V4 — ELI LILLY (LILLY.COM) CINEMA BACKGROUND VIDEO EDITION
-   "A Medicine Company — Putting Health Above All"
+   LV BIOPLASMA V4 — FULL-BLEED CINEMA BACKGROUND VIDEO EDITION
+   (Working with Nature Through Bio-Technology for a Healthy Life)
    Full-bleed autoplaying background video reel, transparent-to-solid header,
-   WCAG Play/Pause motion control, 4-chapter live reel dock & Brand Film Modal.
+   accessibility controls & interactive brand showcase.
    ========================================================================== */
 
 /* Dual Logo Swap Support (Light Logo over Video, Dark Logo on Solid Header) */
@@ -2707,7 +2706,7 @@ body.has-cinema-hero .site-header.scrolled {
 
 .site-header .lang-pill button.active {
   background: var(--surface);
-  color: var(--lilly-crimson);
+  color: var(--bio-crimson);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
@@ -2746,7 +2745,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .nav-link:hover {
 
 body.has-cinema-hero .site-header:not(.scrolled) .nav-link.active {
   color: #FFFFFF;
-  background: var(--lilly-crimson);
+  background: var(--bio-crimson);
   box-shadow: 0 4px 14px rgba(213, 43, 30, 0.45);
   font-weight: 600 !important;
 }
@@ -2775,7 +2774,8 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   color: #FFFFFF;
 }
 
-/* ---------- LILLY.COM FULL-BLEED BACKGROUND VIDEO HERO ---------- */
+/* ---------- FULL-BLEED BACKGROUND VIDEO HERO ---------- */
+.bio-video-hero,
 .lilly-video-hero {
   position: relative;
   width: 100%;
@@ -2817,6 +2817,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   transform: scale(1);
 }
 
+.bio-video-hero.is-paused .hero-vid-layer.is-active,
 .lilly-video-hero.is-paused .hero-vid-layer.is-active {
   transform: scale(1.015);
 }
@@ -2848,6 +2849,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 /* Main Foreground Content Grid over Video */
+.bio-hero-inner,
 .lilly-hero-inner {
   position: relative;
   z-index: 3;
@@ -2860,12 +2862,14 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   flex: 1;
 }
 
+.bio-hero-copy,
 .lilly-hero-copy {
   max-width: 760px;
   align-self: center;
 }
 
-/* Lilly "A Medicine Company" Brand Lockup Eyebrow */
+/* LV Bioplasma Brand Lockup Eyebrow */
+.bio-medicine-badge,
 .lilly-medicine-badge {
   display: inline-flex;
   align-items: center;
@@ -2920,7 +2924,8 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   color: #FDE68A;
 }
 
-/* Monumental Lilly Editorial Display Headline over Video */
+/* Monumental Display Headline over Video */
+.bio-hero-headline,
 .lilly-hero-headline {
   font-size: clamp(2.35rem, 4.2vw, 3.85rem);
   font-weight: 800;
@@ -2936,6 +2941,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   transition: opacity 0.22s ease, transform 0.22s ease;
 }
 
+.bio-hero-headline .accent-word,
 .lilly-hero-headline .accent-word {
   font-family: var(--font-serif);
   font-style: italic;
@@ -2949,6 +2955,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   padding-right: 4px;
 }
 
+.bio-hero-subtext,
 .lilly-hero-subtext {
   font-size: clamp(0.98rem, 1.15vw, 1.12rem);
   color: rgba(255, 255, 255, 0.88);
@@ -2962,7 +2969,8 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   transition: opacity 0.22s ease;
 }
 
-/* Lilly High-Contrast Hero CTA Row */
+/* High-Contrast Hero CTA Row */
+.bio-hero-ctas,
 .lilly-hero-ctas {
   display: flex;
   align-items: center;
@@ -3004,7 +3012,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: var(--lilly-crimson);
+  background: var(--bio-crimson);
   color: #FFFFFF;
   display: inline-flex;
   align-items: center;
@@ -3025,6 +3033,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 /* Translucent Cinema Trust Pills */
+.bio-trust-row,
 .lilly-trust-row {
   display: flex;
   align-items: center;
@@ -3033,6 +3042,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   max-width: 100%;
 }
 
+.bio-trust-pill,
 .lilly-trust-pill {
   display: inline-flex;
   align-items: center;
@@ -3051,12 +3061,14 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   -webkit-backdrop-filter: blur(10px);
 }
 
+.bio-trust-pill b,
 .lilly-trust-pill b {
   color: #FFFFFF;
   font-weight: 700;
 }
 
 @media (max-width: 900px) {
+  .bio-trust-row,
   .lilly-trust-row {
     flex-wrap: wrap;
     gap: 6px;
@@ -3064,12 +3076,14 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 /* ---------- RIGHT FLOATING GLASS FORMULATION SPOTLIGHT OVER VIDEO ---------- */
+.bio-spotlight-col,
 .lilly-spotlight-col {
   display: flex;
   justify-content: flex-end;
   align-self: center;
 }
 
+.bio-glass-card,
 .lilly-glass-card {
   width: 100%;
   max-width: 395px;
@@ -3089,11 +3103,13 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   transition: transform 0.3s var(--ease-out), border-color 0.3s ease;
 }
 
+.bio-glass-card:hover,
 .lilly-glass-card:hover {
   transform: translateY(-4px);
   border-color: rgba(255, 255, 255, 0.38);
 }
 
+.bio-glass-glow,
 .lilly-glass-glow {
   position: absolute;
   width: 220px;
@@ -3108,6 +3124,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   transition: background 0.5s ease;
 }
 
+.bio-glass-top,
 .lilly-glass-top {
   position: relative;
   z-index: 2;
@@ -3149,6 +3166,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   color: #FECDD3;
 }
 
+.bio-glass-packshot,
 .lilly-glass-packshot {
   position: relative;
   z-index: 2;
@@ -3174,6 +3192,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   transform: scale(1.06) translateY(-3px);
 }
 
+.bio-glass-bottom,
 .lilly-glass-bottom {
   position: relative;
   z-index: 2;
@@ -3223,12 +3242,13 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 .btn-glass-mono:hover {
-  background: var(--lilly-crimson);
+  background: var(--bio-crimson);
   color: #FFFFFF;
   transform: translateX(2px);
 }
 
 /* ---------- BOTTOM LILLY CINEMA REEL BAR & WCAG VIDEO CONTROLS ---------- */
+.bio-cinema-dock,
 .lilly-cinema-dock {
   position: relative;
   z-index: 4;
@@ -3273,7 +3293,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 .hero-side-arrow:hover {
-  background: var(--lilly-crimson);
+  background: var(--bio-crimson);
   border-color: rgba(255, 255, 255, 0.55);
   transform: translateY(-50%) scale(1.1);
   box-shadow: 0 12px 34px rgba(220, 38, 38, 0.55);
@@ -3347,7 +3367,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   left: 0;
   height: 3px;
   width: var(--chapter-progress, 0%);
-  background: linear-gradient(90deg, var(--lilly-crimson), #FB923C);
+  background: linear-gradient(90deg, var(--bio-crimson), #FB923C);
   transition: width 0.15s linear;
 }
 
@@ -3438,6 +3458,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 /* Signature Lilly Accessibility Pause / Play Motion Button */
+.bio-pause-toggle,
 .lilly-pause-toggle {
   display: inline-flex;
   align-items: center;
@@ -3456,12 +3477,14 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   white-space: nowrap;
 }
 
+.bio-pause-toggle:hover,
 .lilly-pause-toggle:hover {
   background: #FFFFFF;
   color: var(--bio-navy);
   border-color: #FFFFFF;
 }
 
+.bio-pause-toggle svg,
 .lilly-pause-toggle svg {
   width: 14px;
   height: 14px;
@@ -3488,6 +3511,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 .motion-eq i:nth-child(2) { height: 11px; animation-delay: 0.2s; }
 .motion-eq i:nth-child(3) { height: 8px; animation-delay: 0.4s; }
 
+.bio-pause-toggle.is-paused .motion-eq i,
 .lilly-pause-toggle.is-paused .motion-eq i {
   animation: none;
   height: 4px;
@@ -3688,14 +3712,17 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   .utility-bar {
     display: none;
   }
+  .bio-hero-inner,
   .lilly-hero-inner {
     grid-template-columns: 1fr;
     padding-top: 108px;
     gap: 28px;
   }
+  .bio-spotlight-col,
   .lilly-spotlight-col {
     justify-content: flex-start;
   }
+  .bio-glass-card,
   .lilly-glass-card {
     max-width: 480px;
   }
@@ -3717,6 +3744,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 @media (max-width: 780px) {
+  .bio-video-hero,
   .lilly-video-hero,
   .subpage-video-hero {
     min-height: 660px;
@@ -3729,13 +3757,17 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding: 12px 14px;
   }
+  .bio-medicine-badge .badge-sep,
   .lilly-medicine-badge .badge-sep,
+  .bio-medicine-badge .badge-tag,
   .lilly-medicine-badge .badge-tag {
     display: none;
   }
+  .bio-glass-packshot,
   .lilly-glass-packshot {
     height: 145px;
   }
+  .bio-glass-packshot img,
   .lilly-glass-packshot img {
     max-height: 135px;
   }
@@ -4144,7 +4176,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 
 .bio-cmd-link.active {
   color: #FFFFFF;
-  background: var(--lilly-crimson);
+  background: var(--bio-crimson);
   border-color: rgba(255, 255, 255, 0.26);
   box-shadow: 0 6px 18px rgba(213, 43, 30, 0.42);
 }
@@ -4194,8 +4226,8 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 .bio-cmd-close-btn:hover {
-  background: var(--lilly-crimson);
-  border-color: var(--lilly-crimson);
+  background: var(--bio-crimson);
+  border-color: var(--bio-crimson);
   transform: rotate(90deg);
 }
 
@@ -4364,8 +4396,8 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 .bio-cmd-feature-card:hover .bio-cmd-feature-arrow {
-  background: var(--lilly-crimson);
-  border-color: var(--lilly-crimson);
+  background: var(--bio-crimson);
+  border-color: var(--bio-crimson);
   transform: translateX(4px);
 }
 
@@ -4446,7 +4478,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 
 .cv-upload-zone:hover,
 .cv-upload-zone.dragover {
-  border-color: var(--lilly-crimson);
+  border-color: var(--bio-crimson);
   background: rgba(213, 43, 30, 0.03);
 }
 

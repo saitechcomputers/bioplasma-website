@@ -6,8 +6,8 @@ window.BIOPLASMA_DATA = {
   company: {
     name: "LV Bioplasma Biologicals Private Limited",
     brandName: "LV Bioplasma",
-    taglineEn: "Science-Driven Formulations for Everyday Clinical Excellence",
-    taglineHi: "बेहतर स्वास्थ्य और आधुनिक चिकित्सा के लिए उच्च-गुणवत्ता वाली दवाइयाँ",
+    taglineEn: "Working with Nature Through Bio-Technology for a Healthy Life",
+    taglineHi: "स्वस्थ जीवन के लिए जैव-प्रौद्योगिकी के माध्यम से प्रकृति के साथ कार्य",
     address: "Plot No.11, Block B, Sector-34, Gurugram, NCR - 122004, India",
     email: "admin@bioplasmabio.com",
     phone: "+91 93194 91093",

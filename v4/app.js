@@ -1,6 +1,6 @@
 /**
- * Bioplasma Biologicals Pvt. Ltd. (LV Bioplasma) — V4 Cinema Interactive Engine
- * Inspired by Eli Lilly (lilly.com) "A Medicine Company — Health Above All":
+ * LV Bioplasma Biologicals Private Limited — V4 Interactive Cinema Engine
+ * Tagline: (Working with Nature Through Bio-Technology for a Healthy Life)
  *   - Full-bleed dual-buffered crossfading background HD video reel
  *   - WCAG 2.2 Play/Pause motion accessibility control & live progress dock
  *   - Widescreen 4-chapter Brand Film Theater Modal ("Watch Our Story")
@@ -39,19 +39,19 @@
     selectedEnquiryMeds: new Set(["aadirise-d3", "pantheta-dsr", "bioipc"])
   };
 
-  /* ---------- V4 Lilly.com Cinema Hero Video Stories (6 Local HD MP4 Chapters) ---------- */
+  /* ---------- V4 Cinema Hero Video Stories (6 Local HD MP4 Chapters) ---------- */
   const HERO_SLIDES = [
     {
       num: "01",
       videoSrc: "assets/video/hero-human-life.mp4",
-      tabTitleEn: "Health Above All",
-      tabTitleHi: "स्वास्थ्य सर्वोपरि",
-      tabSubEn: "Everyday family moments",
-      tabSubHi: "हर पीढ़ी की खुशहाल सेहत",
-      tagEn: "A Medicine Company • Health Above All",
-      tagHi: "एक मेडिसिन कंपनी • स्वास्थ्य सर्वोपरि",
-      headlineEn: 'A medicine company putting <span class="accent-word">everyday health</span> above all.',
-      headlineHi: 'हर परिवार के <span class="accent-word">दैनिक स्वास्थ्य</span> को सर्वोपरि रखने वाली मेडिसिन कंपनी।',
+      tabTitleEn: "Nature & Bio-Tech",
+      tabTitleHi: "प्रकृति और बायो-टेक",
+      tabSubEn: "For a Healthy Life",
+      tabSubHi: "स्वस्थ जीवन के लिए",
+      tagEn: "LV Bioplasma Biologicals • Bio-Technology for Health",
+      tagHi: "एलवी बायोप्लाज़्मा • जैव-प्रौद्योगिकी से स्वस्थ जीवन",
+      headlineEn: 'Working with nature through <span class="accent-word">bio-technology</span> for a healthy life.',
+      headlineHi: 'स्वस्थ जीवन के लिए जैव-प्रौद्योगिकी के माध्यम से <span class="accent-word">प्रकृति के साथ कार्य</span>।',
       subEn: "Inspired by life’s meaningful moments across every generation — LV Bioplasma Biologicals pairs globally trusted actives with gentle nano, liposomal, and dual-release formulations.",
       subHi: "बचपन से बुज़ुर्गों तक हर पीढ़ी की सेहत के लिए — LV बायोप्लाज़्मा बायोलॉजिकल्स विश्व-स्तरीय तत्वों और सौम्य डिलीवरी विज्ञान से तेज़ असर वाली दवाइयाँ बनाता है।",
       glowColor: "radial-gradient(circle, rgba(245, 158, 11, 0.34) 0%, transparent 70%)",
@@ -303,10 +303,10 @@
       href: "index.html",
       label: "Home",
       eyebrow: "LV Bioplasma Biologicals",
-      title: "Putting everyday health above all.",
+      title: "Working with nature through bio-technology for a healthy life.",
       desc: "Part of an 8000 cores biotech group with 70% market share — pairing globally trusted actives with gentle nano, liposomal, and dual-release formulations.",
-      cardTitle: "A Medicine Company",
-      cardSub: "Explore our 6-scene brand cinema & healthcare divisions",
+      cardTitle: "LV Bioplasma Biologicals",
+      cardSub: "Working with Nature Through Bio-Technology for a Healthy Life",
       videoSrc: "assets/video/hero-human-life.mp4",
       quickLinks: [
         { label: "9 Formulations", href: "products.html" },
@@ -485,8 +485,8 @@
           <div class="bio-cmd-feature-scrim" aria-hidden="true"></div>
           <div class="bio-cmd-feature-content">
             <div>
-              <strong id="bioCmdCardTitle">A Medicine Company</strong>
-              <span id="bioCmdCardSub">Explore our brand cinema &amp; healthcare divisions</span>
+              <strong id="bioCmdCardTitle">LV Bioplasma Biologicals</strong>
+              <span id="bioCmdCardSub">Working with Nature Through Bio-Technology for a Healthy Life</span>
             </div>
             <span class="bio-cmd-feature-arrow" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -994,7 +994,7 @@
       if (subEl) subEl.textContent = t(slide.subEn, slide.subHi);
       if (blobEl) blobEl.style.background = slide.glowColor;
 
-      const heroCtaLink = document.querySelector("#heroCarouselRoot .lilly-hero-ctas a.btn-crimson");
+      const heroCtaLink = document.querySelector("#heroCarouselRoot .bio-hero-ctas a.btn-crimson, #heroCarouselRoot .lilly-hero-ctas a.btn-crimson");
       const heroCtaSpan = document.querySelector("[data-i18n-explore-btn]");
       if (heroCtaLink && slide.ctaHref) {
         heroCtaLink.setAttribute("href", slide.ctaHref);
@@ -1185,7 +1185,7 @@
               </div>
             </div>
             <p style="font-size:0.82rem;color:var(--ink-body);line-height:1.45;">${escapeHtml(t(m.taglineEn, m.taglineHi))}</p>
-            <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.76rem;font-weight:700;color:var(--lilly-crimson);">
+            <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.76rem;font-weight:700;color:var(--bio-crimson);">
               <span>${t("Inspect Monograph →", "पूरी जानकारी देखें →")}</span>
               <span style="color:var(--ink-muted);">${m.rxRequired ? "Rx" : "Sugar-Free"}</span>
             </div>
@@ -1688,7 +1688,7 @@
           <div class="film-modal-header">
             <div style="display:flex;align-items:center;gap:10px;">
               <span class="live-pulse-dot" aria-hidden="true"></span>
-              <strong style="font-size:0.94rem;letter-spacing:0.02em;">LV Bioplasma • A Medicine Company (4-Chapter Story Reel)</strong>
+              <strong style="font-size:0.94rem;letter-spacing:0.02em;">LV Bioplasma • Working with Nature for a Healthy Life (4-Chapter Story Reel)</strong>
             </div>
             <button type="button" class="btn btn-crimson btn-sm" id="brandFilmCloseBtn">✕ Close Reel</button>
           </div>
@@ -1697,7 +1697,7 @@
             <div class="film-caption-overlay">
               <div class="film-caption-copy">
                 <small id="brandFilmEyebrow">CHAPTER 01</small>
-                <h3 id="brandFilmTitle">A medicine company putting everyday health above all.</h3>
+                <h3 id="brandFilmTitle">Working with nature through bio-technology for a healthy life.</h3>
                 <p id="brandFilmDesc"></p>
               </div>
               <button type="button" class="btn btn-crimson btn-sm" id="brandFilmMedBtn" data-open-med="aadirise-d3">
@@ -1781,7 +1781,7 @@
             <span style="font-size:0.8rem;color:var(--ink-muted);">${escapeHtml(m.genericSummary)}</span>
           </div>
         </div>
-        <span style="font-size:0.78rem;font-weight:700;color:var(--lilly-crimson);">View →</span>
+        <span style="font-size:0.78rem;font-weight:700;color:var(--bio-crimson);">View →</span>
       </div>
     `).join("");
   }
