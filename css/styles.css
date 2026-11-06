@@ -2215,3 +2215,14 @@ textarea.form-control {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* Content Protection: Disable selection across products */
+.product-card,
+.product-card *,
+.about-brand-card,
+.about-brand-card * {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  user-select: none !important;
+}

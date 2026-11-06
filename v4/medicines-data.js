@@ -157,7 +157,7 @@ window.BIOPLASMA_DATA = {
     {
       id: "aadirise-d3",
       name: "AADIRISE D3",
-      shortTitle: "Vitamin D3 Oral Solution 60,000 I.U. (Nano Shot)",
+      shortTitle: "Vitamin D3 (Cholecalciferol) Oral Solution 60,000 I.U. Nano Shot",
       genericSummary: "Cholecalciferol 60,000 I.U. Oral Nano Solution",
       category: "bone",
       secondaryCategories: ["womens"],
@@ -172,56 +172,77 @@ window.BIOPLASMA_DATA = {
       accent: "#d97706",
       accentSoft: "#fef3c7",
       image: "assets/products/aadirise-d3.png",
-      taglineEn: "High-absorption 60,000 IU Vitamin D3 Nano Shot for stronger bones, back-pain relief & immunity.",
-      taglineHi: "मज़बूत हड्डियों, कमर दर्द से राहत और बेहतर इम्युनिटी के लिए शुगर-फ्री बटरस्कॉच विटामिन D3 नैनो शॉट।",
+      taglineEn: "The SUN VITAMIN — Fulfill the body's need for Vitamin D3.",
+      taglineHi: "द सन विटामिन — शरीर में विटामिन D3 की आवश्यकता को पूरा करे।",
       easyGuide: {
-        whatIsItEn: "A ready-to-drink 5 ml weekly/periodic Vitamin D3 booster shot using Nano Technology so your body absorbs Vitamin D easily even without heavy fatty meals.",
-        whatIsItHi: "यह 5 ml की रेडी-टू-ड्रिंक विटामिन D3 बोतल है। नैनो टेक्नोलॉजी की वजह से शरीर इसे बहुत आसानी और तेज़ी से सोख लेता है।",
-        whoIsItForEn: "Adults, elderly individuals, women, or growing patients with Vitamin D deficiency, weak bones, chronic low back pain, or low immunity.",
-        whoIsItForHi: "जिन लोगों में विटामिन D की कमी, हड्डियों में कमज़ोरी, कमर दर्द, थकान या कम इम्युनिटी हो।",
-        keyPerksEn: ["Delicious Butterscotch flavour", "100% Sugar-Free (safe for diabetics)", "No water required — ready-to-drink 5 ml bottle", "Nano-sized droplets for superior absorption"],
-        keyPerksHi: ["स्वादिष्ट बटरस्कॉच फ्लेवर", "100% शुगर-फ्री (डायबिटीज़ मरीज़ों के लिए उपयुक्त)", "बिना पानी के सीधे पीने योग्य 5 ml शॉट", "नैनो टेक्नोलॉजी से तेज़ अवशोषण"]
+        whatIsItEn: "It is used to treat and prevent Vitamin D deficiency and related conditions like Osteoporosis, Rickets, and Hypoparathyroidism.",
+        whatIsItHi: "यह विटामिन D की कमी और उससे संबंधित स्थितियों जैसे ऑस्टियोपोरोसिस, रिकेट्स और हाइपोपैराथायरायडिज्म के इलाज और रोकथाम के लिए उपयोग किया जाता है।",
+        whoIsItForEn: "Osteoporosis, Rickets, Hypoparathyroidism, Improving Calcium Absorption, Growth Retardation, Correcting Metabolic Problems, and Preventing Pre-eclampsia.",
+        whoIsItForHi: "ऑस्टियोपोरोसिस, रिकेट्स, हाइपोपैराथायरायडिज्म, कैल्शियम अवशोषण में सुधार, कमजोर विकास, मेटाबॉलिक समस्याओं और गर्भावस्था में प्री-एक्लेम्पसिया की रोकथाम के लिए।",
+        keyPerksEn: [
+          "Nano Technology & Sugar Free formulation",
+          "Butterscotch Flavour",
+          "High Vitamin D level helps reduce BP & risk of hypertension",
+          "Maintains normal blood levels of Calcium & Phosphorus",
+          "95% reduction of low back pain just within 3 months weekly supplement",
+          "6 months of treatment protects against bone loss",
+          "Improves immunity and corrects metabolic disorders",
+          "Helps in preventing Pre-eclampsia during pregnancy"
+        ],
+        keyPerksHi: [
+          "नैनो टेक्नोलॉजी और शुगर-फ्री फ़ॉर्मूला",
+          "स्वादिष्ट बटरस्कॉच फ्लेवर",
+          "उच्च विटामिन D स्तर ब्लड प्रेशर और हाइपरटेंशन का जोखिम कम करने में सहायक",
+          "रक्त में कैल्शियम और फास्फोरस का सामान्य स्तर बनाए रखे",
+          "3 महीने के साप्ताहिक सेवन से कमर दर्द में 95% तक की राहत",
+          "6 महीने का उपचार हड्डियों के नुकसान (बोन लॉस) से बचाए",
+          "इम्युनिटी सुधारे और मेटाबॉलिक विकारों को ठीक करे",
+          "गर्भावस्था के दौरान प्री-एक्लेम्पसिया की रोकथाम में सहायक"
+        ]
       },
       composition: [
-        { ingredient: "Vitamin D3 (Cholecalciferol)", detail: "Nano-emulsified Oral Solution", strength: "60,000 I.U.", rda: "Therapeutic Weekly/Periodic Dose" },
-        { ingredient: "Base & Flavour", detail: "Sugar-Free Palatable Vehicle", strength: "5 ml Shot", rda: "Butterscotch Flavour" }
+        { ingredient: "Vitamin D3 (Cholecalciferol)", detail: "Oral Solution Nano Shot", strength: "60,000 I.U.", rda: "Weekly / Periodic Therapeutic Dose" },
+        { ingredient: "Base & Flavour", detail: "Sugar-Free Butterscotch Flavoured Vehicle", strength: "5 ml Shot", rda: "Sugar-Free" }
       ],
       mechanism: [
-        { step: "01", title: "Nano-Micellar Dispersion", desc: "Nano-droplet Cholecalciferol disperses uniformly in aqueous gut fluids for rapid enterocyte uptake." },
-        { step: "02", title: "Calcium & Phosphorus Balance", desc: "Activates intestinal calcium transport proteins to maintain normal blood Calcium and Phosphorus levels." },
-        { step: "03", title: "Skeletal & Systemic Protection", desc: "Promotes bone mineralization, supports neuromuscular strength, modulates immunity, and reduces vascular/metabolic risk." }
+        { step: "01", title: "Nano Technology Absorption", desc: "Nano-sized droplet technology ensures rapid dispersion and optimal absorption." },
+        { step: "02", title: "Calcium & Phosphorus Balance", desc: "Maintains normal blood levels of Calcium & Phosphorus and improves overall intestinal calcium absorption." },
+        { step: "03", title: "Skeletal & Metabolic Support", desc: "Protects against bone loss, relieves low back pain, improves immunity, and corrects metabolic disorders." }
       ],
       highlights: [
-        "Reduces the risk of developing hypertension & lowers blood pressure supportively",
-        "Maintains normal blood levels of Calcium and Phosphorus",
-        "Clinical highlight: Weekly supplementation for 3 months supports up to 95% reduction in low back pain",
-        "6 months of supplementation helps protect against progressive bone loss",
-        "Improves immune resilience, corrects metabolic problems & helps prevent Pre-eclampsia"
+        "It is used to treat and prevent Vitamin D deficiency and related conditions like Osteoporosis, Rickets, and Hypoparathyroidism",
+        "Nano Technology — Sugar Free — Butterscotch Flavour",
+        "High Vitamin D level helps reduce BP & risk of hypertension",
+        "Maintains normal blood levels of Calcium & Phosphorus",
+        "95% reduction of low back pain just within 3 months weekly supplement",
+        "6 months of treatment protects against bone loss",
+        "Improves immunity and corrects metabolic disorders",
+        "Helps in preventing Pre-eclampsia during pregnancy"
       ],
       indications: [
-        "Osteoporosis & Age-Related Bone Loss",
-        "Rickets & Osteomalacia",
+        "Osteoporosis",
+        "Rickets",
         "Hypoparathyroidism",
-        "Improving Intestinal Calcium Absorption",
+        "Improving Calcium Absorption",
         "Growth Retardation",
-        "Correcting Vitamin D Metabolic Deficiency",
-        "Adjunctive Prevention of Pre-eclampsia in Pregnancy"
+        "Correcting Metabolic Problems",
+        "Preventing Pre-eclampsia"
       ],
-      dosage: "Typically 1 bottle (5 ml) once weekly or as directed by the Physician. Shake well before drinking.",
-      keywords: ["vitamin d", "d3", "cholecalciferol", "60000", "60k", "nano shot", "bone", "back pain", "osteoporosis", "rickets", "immunity", "butterscotch", "sugar free"]
+      dosage: "Typically 1 bottle (5 ml) weekly or as directed by the Physician. Shake well before drinking.",
+      keywords: ["vitamin d", "d3", "cholecalciferol", "60000", "60k", "nano shot", "bone", "back pain", "osteoporosis", "rickets", "butterscotch", "sugar free", "sun vitamin"]
     },
 
     {
       id: "adenocal-k2",
       name: "ADENOCAL-K2",
-      shortTitle: "Aquamin™ Marine Calcium, Magnesium, 72 Trace Minerals, Vit K2-7 & D3 Tablets",
+      shortTitle: "Aquamin Calcium + Vitamin D3 + Vitamin K2-7 Tablets",
       genericSummary: "Aquamin™ 1000 mg (Elemental Ca 330 mg + Mg 25 mg + 72 Minerals) + Vit K2-7 45 mcg + Vit D3 400 IU",
       category: "bone",
       secondaryCategories: ["womens"],
       classification: "Health Supplement",
       rxRequired: false,
       sugarFree: true,
-      flavour: "Unflavoured Small Easy-to-Digest Tablet",
+      flavour: "Small Tablet, Easy to Digest",
       dosageForm: "Film-Coated Tablet",
       packSize: "1 × 10 Tablets (AMBIO-09)",
       technology: "Aquamin™ Bio-Marine Honeycomb Matrix",
@@ -229,58 +250,74 @@ window.BIOPLASMA_DATA = {
       accent: "#0284c7",
       accentSoft: "#e0f2fe",
       image: "assets/products/adenocal-k2.png",
-      taglineEn: "Plant-based marine algae Calcium with ~86.5% bioavailability + Vitamin D3 & K2-7 so calcium reaches bones, not arteries.",
-      taglineHi: "समुद्री शैवाल से बना प्राकृतिक कैल्शियम (Aquamin™), विटामिन D3 और K2-7 के साथ — पेट पर हल्का और हड्डियों के लिए संपूर्ण पोषण।",
+      taglineEn: "Advanced Bone Nutrition Formula — Not just Calcium Replacement, Physiological Bone Nutrition.",
+      taglineHi: "एडवांस्ड बोन न्यूट्रिशन फ़ॉर्मूला — सिर्फ़ कैल्शियम की पूर्ति नहीं, हड्डियों का संपूर्ण प्राकृतिक पोषण।",
       easyGuide: {
-        whatIsItEn: "Unlike chalky rock-based calcium (calcium carbonate) that often causes gas, bloating, or constipation, ADENOCAL-K2 uses natural red marine algae calcium (Aquamin™) in small, easy-to-digest tablets.",
-        whatIsItHi: "साधारण पत्थर वाले कैल्शियम से अक्सर गैस या कब्ज़ होती है। ADENOCAL-K2 प्राकृतिक समुद्री शैवाल (Aquamin™) से बना छोटा टैबलेट है जो आसानी से पचता है।",
-        whoIsItForEn: "Pregnant & lactating mothers, post-menopausal women, elderly people, osteopenia/osteoporosis patients, and anyone intolerant to regular calcium tablets.",
-        whoIsItForHi: "गर्भवती महिलाएँ, रजोनिवृत्ति (मेनोपॉज़) के बाद की महिलाएँ, बुज़ुर्ग, कमज़ोर हड्डियों वाले मरीज़ और जिन्हें साधारण कैल्शियम पचता न हो।",
-        keyPerksEn: ["~86.5% high bioavailability", "Gentle on stomach — minimal bloating or constipation", "72 natural trace minerals + Magnesium", "Vitamin K2-7 directs calcium into bones & protects arteries"],
-        keyPerksHi: ["~86.5% उच्च अवशोषण क्षमता", "पेट में गैस या कब्ज़ नहीं करता", "मैग्नीशियम और 72 प्राकृतिक सूक्ष्म खनिज शामिल", "विटामिन K2-7 कैल्शियम को धमनियों की जगह सीधे हड्डियों में पहुँचाता है"]
+        whatIsItEn: "Marine plant-derived calcium from red algae (Lithothamnion species) with a highly porous, honeycomb structure for superior absorption. Provides calcium, magnesium, and 72 trace minerals with demonstrated high bioavailability (~86.5%), helping reduce serum PTH indicating better calcium utilisation.",
+        whatIsItHi: "लाल समुद्री शैवाल (Lithothamnion species) से प्राप्त प्राकृतिक कैल्शियम, जिसकी छिद्रयुक्त हनीकॉम्ब संरचना उच्च अवशोषण (~86.5% बायोअवेलेबिलिटी) देती है और शरीर को कैल्शियम, मैग्नीशियम व 72 प्राकृतिक ट्रेस मिनरल्स प्रदान करती है।",
+        whoIsItForEn: "Pregnant Women, Post-menopausal women, Osteopenia and osteoporosis, Elderly patients, Steroid-induced bone loss, and Patients intolerant to conventional calcium.",
+        whoIsItForHi: "गर्भवती महिलाएँ, मेनोपॉज़ के बाद की महिलाएँ, ऑस्टियोपेनिया व ऑस्टियोपोरोसिस, बुज़ुर्ग मरीज़, स्टेरॉयड के कारण हड्डियों की कमज़ोरी और जिन्हें साधारण कैल्शियम नहीं पचता।",
+        keyPerksEn: [
+          "Demonstrated high bioavailability (~86.5%)",
+          "Gentle on Stomach, Better Absorption",
+          "Provides calcium, magnesium, and 72 trace minerals",
+          "Directs Calcium to Bone, Prevents Vascular Calcification",
+          "Helps reduce serum PTH indicating better calcium utilisation",
+          "Small Tablet, Easy to Digest"
+        ],
+        keyPerksHi: [
+          "~86.5% उच्च बायोअवेलेबिलिटी प्रमाणित",
+          "पेट पर बिल्कुल हल्का — बेहतर अवशोषण",
+          "कैल्शियम, मैग्नीशियम और 72 प्राकृतिक ट्रेस मिनरल्स से भरपूर",
+          "कैल्शियम को हड्डियों में पहुँचाता है और नसों में जमने से रोकता है",
+          "बेहतर कैल्शियम उपयोग के लिए सीरम PTH कम करने में सहायक",
+          "छोटा टैबलेट — पचने में अत्यंत आसान"
+        ]
       },
       composition: [
-        { ingredient: "Aquamin™ (Red Marine Algae — Lithothamnion spp.)", detail: "Natural porous honeycomb multi-mineral complex (0.12 Kcal/tab)", strength: "1000 mg", rda: "Bio-Marine Matrix" },
-        { ingredient: "↳ Elemental Calcium (from Aquamin™)", detail: "Polymorphic: Calcite 214.9 mg + Aragonite 76.0 mg + Vaterite 39.7 mg", strength: "330 mg", rda: "33.00% RDA", rdaPct: 33 },
+        { ingredient: "Aquamin™ (Red Marine Algae — Lithothamnion species)", detail: "Natural porous honeycomb multi-mineral complex", strength: "1000 mg", rda: "Bio-Marine Matrix" },
+        { ingredient: "↳ Elemental Calcium (from Aquamin™)", detail: "Natural marine algae calcium with ~86.5% bioavailability", strength: "330 mg", rda: "33.00% RDA", rdaPct: 33 },
         { ingredient: "↳ Elemental Magnesium (from Aquamin™)", detail: "Natural marine magnesium co-factor", strength: "25 mg", rda: "5.68% RDA", rdaPct: 6 },
-        { ingredient: "↳ 72 Natural Trace Minerals", detail: "K, P, Cu, Boron, Mn, Na, Cl, Se, Sulphur & marine trace elements", strength: "35.7 mg", rda: "Natural Co-factors" },
-        { ingredient: "Vitamin K2-7 (Menaquinone-7)", detail: "Activates osteocalcin & matrix Gla-protein", strength: "45 mcg", rda: "81.81% RDA", rdaPct: 82 },
-        { ingredient: "Vitamin D3 (Cholecalciferol)", detail: "Enhances intestinal calcium uptake", strength: "400 I.U.", rda: "66.66% RDA", rdaPct: 67 }
+        { ingredient: "↳ 72 Natural Trace Minerals", detail: "Natural marine trace mineral co-factors", strength: "35.7 mg", rda: "Natural Co-factors" },
+        { ingredient: "Vitamin K2-7 (Menaquinone-7)", detail: "Directs calcium to bone & prevents vascular calcification", strength: "45 mcg", rda: "81.81% RDA", rdaPct: 82 },
+        { ingredient: "Vitamin D3 (Cholecalciferol)", detail: "Improves gut absorption & maintains serum calcium", strength: "400 I.U.", rda: "66.66% RDA", rdaPct: 67 }
       ],
       mechanism: [
-        { step: "1. ABSORB", title: "Aquamin™ Honeycomb Dissolution", desc: "High surface-area porous marine matrix dissolves smoothly in the stomach with ~86.5% bioavailability and superior GI tolerance." },
-        { step: "2. UTILISE", title: "Vitamin D3 Active Transport", desc: "400 IU Vitamin D3 upregulates intestinal calcium binding so absorbed minerals enter systemic circulation efficiently." },
-        { step: "3. DEPOSIT", title: "Vitamin K2-7 Bone Targeting", desc: "45 mcg K2-7 carboxylates Osteocalcin to lock calcium into bone matrix while inhibiting vascular arterial calcification." }
+        { step: "1. ABSORB", title: "Aquamin Calcium", desc: "Gentle on Stomach, Better Absorption with highly porous honeycomb marine red algae structure." },
+        { step: "2. UTILISE", title: "Vitamin D3", desc: "Improves Gut Absorption, Maintains Serum Calcium for efficient mineral uptake." },
+        { step: "3. DEPOSIT", title: "Vitamin K2-7", desc: "Directs Calcium to Bone, Prevents Vascular Calcification so calcium deposits safely in skeletal matrix." }
       ],
       highlights: [
-        "Trademarked Aquamin™ (Marigot Ltd., Ireland) derived from sustainable red marine algae",
-        "Small, easy-to-swallow & easy-to-digest tablet format for daily long-term adherence",
-        "Supplies 3 synergistic calcium polymorphs (Calcite, Aragonite, Vaterite) + 72 trace minerals",
-        "Prevents calcium paradox by pairing Vitamin D3 with arterial-protective Vitamin K2-7"
+        "Marine plant-derived calcium from red algae (Lithothamnion species)",
+        "Highly porous, honeycomb structure for superior absorption",
+        "Provides calcium, magnesium, and 72 trace minerals",
+        "Demonstrated high bioavailability (~86.5%)",
+        "Helps reduce serum PTH indicating better calcium utilisation",
+        "Not just Calcium Replacement — Physiological Bone Nutrition"
       ],
       indications: [
-        "Pregnancy & Lactation Calcium Demand",
-        "Post-Menopausal Bone Density Support",
-        "Osteopenia & Osteoporosis Management",
-        "Elderly Skeletal & Joint Integrity",
-        "Steroid-Induced Bone Loss",
-        "Patients Intolerant to Conventional Rock Calcium"
+        "Pregnant Women",
+        "Post-menopausal women",
+        "Osteopenia and osteoporosis",
+        "Elderly patients",
+        "Steroid-induced bone loss",
+        "Patients intolerant to conventional calcium"
       ],
-      dosage: "1 Tablet once or twice daily after meals, or as advised by the Healthcare Professional.",
-      keywords: ["calcium", "aquamin", "k2", "k2-7", "magnesium", "minerals", "bone", "pregnancy", "menopause", "osteopenia", "osteoporosis", "joint", "adenocal"]
+      dosage: "1 Tablet once or twice daily after meals, or as directed by the Physician.",
+      keywords: ["calcium", "aquamin", "k2", "k2-7", "magnesium", "minerals", "bone", "pregnancy", "menopause", "osteopenia", "osteoporosis", "adenocal"]
     },
 
     {
       id: "argiluck",
       name: "ARGILUCK",
-      shortTitle: "L-Arginine IP 3 g & Proanthocyanidin 75 mg Oral Granules Sachet",
+      shortTitle: "Supporting Endothelial Function & Microcirculation in Women — L-Arginine + Proanthocyanidin Sachet",
       genericSummary: "L-Arginine IP 3 g + Proanthocyanidin 75 mg Sugar-Free Granules",
       category: "womens",
       secondaryCategories: [],
-      classification: "Prescription / Maternal Vascular Support",
+      classification: "Gynecological Nutritional Therapy",
       rxRequired: false,
       sugarFree: true,
-      flavour: "Cranberry Flavour",
+      flavour: "Sugar-Free Cranberry Granules",
       dosageForm: "Oral Granules Sachet",
       packSize: "10 Sachets × 5.5 g",
       technology: "Nitric Oxide + Endothelial Antioxidant Synergy",
@@ -288,372 +325,478 @@ window.BIOPLASMA_DATA = {
       accent: "#e11d48",
       accentSoft: "#ffe4e6",
       image: "assets/products/argiluck.png",
-      taglineEn: "Dual-action Nitric Oxide precursor + antioxidant sachet supporting healthy uteroplacental blood flow in pregnancy.",
-      taglineHi: "गर्भावस्था में बेहतर रक्त संचार (ब्लड फ्लो) और शिशु के पोषण के लिए शुगर-फ्री क्रैनबेरी फ्लेवर सैशे।",
+      taglineEn: "Supporting Endothelial Function & Microcirculation in Women — Provides 3 g L-Arginine with antioxidant support.",
+      taglineHi: "महिलाओं में एंडोथीलियल कार्य और माइक्रो-सर्कुलेशन को समर्थन — 3 ग्राम एल-आर्जिनिन और एंटीऑक्सीडेंट सुरक्षा।",
       easyGuide: {
-        whatIsItEn: "A refreshing cranberry-flavoured, sugar-free drink mix sachet containing L-Arginine (3 g) and Proanthocyanidin (75 mg) that relaxes blood vessels and supports healthy blood & nutrient flow.",
-        whatIsItHi: "यह क्रैनबेरी स्वाद वाला शुगर-फ्री पाउडर सैशे है जिसे पानी में घोलकर पिया जाता है। यह रक्त नलिकाओं को आराम देकर गर्भनाल (प्लेसेंटा) तक रक्त प्रवाह बेहतर बनाता है।",
-        whoIsItForEn: "Commonly prescribed by obstetricians/gynecologists for expectant mothers needing uteroplacental blood flow support, fetal growth (IUGR) care, or vascular endothelial support.",
-        whoIsItForHi: "गर्भवती महिलाओं में रक्त प्रवाह सुधारने, हाई-रिस्क प्रेग्नेंसी और शिशु के समुचित विकास (IUGR सपोर्ट) के लिए डॉक्टर द्वारा दिया जाता है।",
-        keyPerksEn: ["Refreshing Cranberry flavour reduces pregnancy taste aversion", "Sugar-Free granules (safe in gestational sugar monitoring)", "Full 3 g clinical strength of IP-grade L-Arginine", "75 mg Proanthocyanidin protects blood vessels from oxidative stress"],
-        keyPerksHi: ["स्वादिष्ट क्रैनबेरी फ्लेवर (जी मिचलाने में भी लेना आसान)", "शुगर-फ्री फ़ॉर्मूला", "3 ग्राम शुद्ध L-Arginine IP", "एंटीऑक्सीडेंट सुरक्षा के साथ बेहतर रक्त संचार"]
+        whatIsItEn: "ARGILUCK is designed as an adjunct nutritional therapy to support uteroplacental blood flow, endothelial health, and antioxidant balance in gynecological practice.",
+        whatIsItHi: "ARGILUCK स्त्री रोग और प्रसूति अभ्यास में गर्भनाल तक रक्त प्रवाह, एंडोथीलियल स्वास्थ्य और एंटीऑक्सीडेंट संतुलन को समर्थन देने के लिए डिज़ाइन की गई न्यूट्रिशनल थेरेपी है।",
+        whoIsItForEn: "Impaired uteroplacental circulation, High-risk pregnancy with endothelial dysfunction, Recurrent pregnancy loss (vascular factors), and Intrauterine growth restriction (IUGR) – Adjunctive Support.",
+        whoIsItForHi: "कमजोर यूटरोप्लेसेंटल रक्त प्रवाह, हाई-रिस्क प्रेग्नेंसी, बार-बार गर्भपात (संवहनी कारण) और गर्भ में शिशु का कम विकास (IUGR) की स्थिति में।",
+        keyPerksEn: [
+          "L-Arginine: Precursor of Nitric Oxide – Improves vasodilation and blood flow",
+          "Proanthocyanidin: Potent antioxidant – Protects endothelium and stabilizes Nitric Oxide",
+          "Net Effect: Improved endothelial function and microcirculation",
+          "Provides 3 g L-Arginine with antioxidant support to help optimize nitric oxide availability and uteroplacental perfusion",
+          "Dosage: As directed by the Physician"
+        ],
+        keyPerksHi: [
+          "एल-आर्जिनिन: नाइट्रिक ऑक्साइड का स्रोत — रक्त नलिकाओं को चौड़ा कर रक्त प्रवाह सुधारे",
+          "प्रोएंथोसायनिडिन: शक्तिशाली एंटीऑक्सीडेंट — एंडोथीलियम की रक्षा करे और नाइट्रिक ऑक्साइड को स्थिर रखे",
+          "कुल प्रभाव: एंडोथीलियल कार्य और माइक्रो-सर्कुलेशन में सुधार",
+          "यूटरोप्लेसेंटल परफ्यूज़न को अनुकूलित करने के लिए 3 ग्राम एल-आर्जिनिन युक्त",
+          "खुराक: चिकित्सक के निर्देशानुसार"
+        ]
       },
       composition: [
-        { ingredient: "L-Arginine IP", detail: "Physiological precursor of Nitric Oxide (NO)", strength: "3 g (3000 mg)", rda: "Per 5.5 g Sachet" },
-        { ingredient: "Proanthocyanidin", detail: "Potent polyphenolic vascular antioxidant", strength: "75 mg", rda: "Per 5.5 g Sachet" },
-        { ingredient: "Excipients & Colour", detail: "Sugar-Free Cranberry Granules (Colour: Ponceau 4R)", strength: "q.s.", rda: "Oral Reconstitution" }
+        { ingredient: "L-Arginine IP", detail: "Precursor of Nitric Oxide — Improves vasodilation and blood flow", strength: "3 g (3000 mg)", rda: "Per Sachet" },
+        { ingredient: "Proanthocyanidin", detail: "Potent antioxidant — Protects endothelium and stabilizes Nitric Oxide", strength: "75 mg", rda: "Per Sachet" },
+        { ingredient: "Sugar-Free Base", detail: "Excipients & Colour", strength: "q.s. to 5.5 g", rda: "Sugar-Free" }
       ],
       mechanism: [
-        { step: "01", title: "Nitric Oxide Biosynthesis", desc: "L-Arginine serves as the direct substrate for endothelial Nitric Oxide Synthase (eNOS), generating Nitric Oxide (NO)." },
-        { step: "02", title: "Smooth Vasodilation", desc: "Nitric Oxide relaxes vascular smooth muscle, lowering uterine artery resistance and improving uteroplacental perfusion." },
-        { step: "03", title: "Endothelial Protection", desc: "Proanthocyanidin scavenges reactive oxygen species (ROS), preventing premature NO breakdown and protecting maternal endothelium." }
+        { step: "01", title: "L-Arginine Vasodilation", desc: "Precursor of Nitric Oxide – Improves vasodilation and blood flow." },
+        { step: "02", title: "Proanthocyanidin Protection", desc: "Potent antioxidant – Protects endothelium and stabilizes Nitric Oxide." },
+        { step: "03", title: "Net Clinical Effect", desc: "Improved endothelial function and microcirculation to help optimize uteroplacental perfusion." }
       ],
       highlights: [
-        "Synergistic combination of 3 g L-Arginine IP + 75 mg Proanthocyanidin per 5.5 g sachet",
-        "Palatable Sugar-Free Cranberry flavour improves daily compliance in expectant mothers",
-        "Supports healthy amniotic fluid index & fetal nutrient-oxygen delivery under medical care",
-        "Protects vascular endothelium against oxidative stress"
+        "Supporting Endothelial Function & Microcirculation in Women",
+        "Designed as an adjunct nutritional therapy to support uteroplacental blood flow, endothelial health, and antioxidant balance",
+        "L-Arginine: Precursor of Nitric Oxide – Improves vasodilation and blood flow",
+        "Proanthocyanidin: Potent antioxidant – Protects endothelium and stabilizes Nitric Oxide",
+        "Net Effect: Improved endothelial function and microcirculation",
+        "Provides 3 g L-Arginine with antioxidant support to help optimize nitric oxide availability and uteroplacental perfusion"
       ],
       indications: [
-        "Impaired Uteroplacental Circulation",
-        "High-Risk Pregnancy with Endothelial Dysfunction",
-        "Recurrent Pregnancy Loss (Vascular Factors)",
-        "Intrauterine Growth Restriction (IUGR) Adjunctive Support"
+        "Impaired uteroplacental circulation",
+        "High-risk pregnancy with endothelial dysfunction",
+        "Recurrent pregnancy loss (vascular factors)",
+        "Intrauterine growth restriction (IUGR) – Adjunctive Support"
       ],
-      dosage: "Dissolve contents of 1 sachet (5.5 g) in half a glass of water (~100–150 ml) and consume as directed by the Physician.",
-      keywords: ["arginine", "l-arginine", "proanthocyanidin", "sachet", "pregnancy", "iugr", "placenta", "blood flow", "cranberry", "sugar free", "argiluck"]
+      dosage: "As directed by the Physician. Dissolve the contents of one sachet in water and consume.",
+      keywords: ["l-arginine", "proanthocyanidin", "pregnancy", "uteroplacental", "blood flow", "iugr", "endothelial", "nitric oxide", "argiluck"]
     },
 
     {
       id: "bioipc",
       name: "BIOIPC",
-      shortTitle: "Liposomal Iron, Quatrefolic®, Active Vit B6 (P5P), Vit B12 & Glycine Tablets",
-      genericSummary: "Elemental Iron 27 mg (Liposomal) + Quatrefolic® 655 mcg + P5P 2.3 mg + Vit B12 2.45 mcg + Glycine 10 mg",
+      shortTitle: "Liposomal Iron with Active Hematinics (AMBIO-15)",
+      genericSummary: "Elemental Iron (Liposomal) 27 mg + Quatrefolic® Active Folate + P5P + Vit B12 + Glycine",
       category: "hematinic",
       secondaryCategories: ["womens"],
-      classification: "Health Supplement (Advanced Hematinic)",
+      classification: "Hematinic Supplement",
       rxRequired: false,
       sugarFree: true,
-      flavour: "No Metallic Taste or Odor (Small Tablet)",
-      dosageForm: "Small Easy-to-Digest Tablet",
-      packSize: "10 Tablets (AMBIO-15)",
-      technology: "Liposomal Iron + Quatrefolic® 4th-Gen Folate",
-      techBadge: "LIPOSOMAL IRON + FOLATE",
+      flavour: "Small Tablet, Easy to Digest",
+      dosageForm: "Film-Coated Tablet",
+      packSize: "1 × 10 Tablets (AMBIO-15)",
+      technology: "Liposomal Iron Technology",
+      techBadge: "LIPOSOMAL IRON TECH",
       accent: "#b91c1c",
       accentSoft: "#fee2e2",
       image: "assets/products/bioipc.png",
-      taglineEn: "Next-gen Liposomal Iron + Quatrefolic® delivering 100% maternal RDA without nausea, constipation, or metallic aftertaste.",
-      taglineHi: "बिना कब्ज़, बिना मतली और बिना धातु जैसे स्वाद के हीमोग्लोबिन बढ़ाने वाला आधुनिक लिपोसोमल आयरन और Quatrefolic® टैबलेट।",
+      taglineEn: "Effective Iron Correction without the GI Burden — High Absorption, Gentle on Stomach, Better Compliance.",
+      taglineHi: "बिना पेट की तकलीफ़ के प्रभावी आयरन पूर्ति — उच्च अवशोषण, पेट पर हल्का, बेहतर अनुपालन।",
       easyGuide: {
-        whatIsItEn: "Regular iron tablets irritate the stomach lining and cause nausea, dark stools, or constipation. BIOIPC wraps iron inside tiny protective liposomes and pairs it with active folate (Quatrefolic®), active B6, B12, and Glycine.",
-        whatIsItHi: "साधारण आयरन की गोलियों से अक्सर पेट दर्द, मतली या कब्ज़ होती है। BIOIPC में आयरन एक सुरक्षित लिपोसोमल परत के अंदर होता है जो पेट को परेशान किए बिना तेज़ी से खून (हीमोग्लोबिन) बढ़ाता है।",
-        whoIsItForEn: "Pregnant & breastfeeding women, women with heavy periods, teens/adults with iron-deficiency anemia, fatigue, or intolerance to standard ferrous sulfate/fumarate.",
-        whoIsItForHi: "गर्भवती एवं स्तनपान कराने वाली महिलाएँ, एनीमिया (खून की कमी), कमज़ोरी/थकान वाले मरीज़, और जिन्हें साधारण आयरन सूट नहीं करता।",
-        keyPerksEn: ["Zero metallic taste or unpleasant smell", "Minimal nausea, gastritis, or constipation", "No interaction with food or calcium — flexible dosing", "100% Maternal RDA of Iron, Active Folate, B6 & B12"],
-        keyPerksHi: ["धातु जैसा कड़वा स्वाद या गंध बिल्कुल नहीं", "मतली, एसिडिटी या कब्ज़ की शिकायत नहीं", "भोजन के साथ भी असर कम नहीं होता", "आयरन, सक्रिय फोलेट, B6 और B12 का 100% RDA"]
+        whatIsItEn: "Iron is encapsulated in a phospholipid liposome that protects it from gastric acid. The iron reaches the small intestine intact and is released at the main absorption site, resulting in higher bioavailability and reduced gastrointestinal irritation.",
+        whatIsItHi: "आयरन को फॉस्फोलिपिड लिपोसोम में सुरक्षित किया गया है जो इसे पेट के एसिड से बचाता है। आयरन छोटी आंत में सुरक्षित पहुँचकर मुख्य अवशोषण स्थल पर रिलीज़ होता है, जिससे उच्च अवशोषण मिलता है और पेट में जलन नहीं होती।",
+        whoIsItForEn: "Complete Hematinic Support for individuals with Iron Deficiency, Pregnancy & Lactation demands, and Patients intolerant to conventional oral iron.",
+        whoIsItForHi: "गर्भावस्था, स्तनपान और खून की कमी (एनीमिया) के मरीज़ जिन्हें साधारण आयरन से उल्टी, मतली, कब्ज़ या पेट दर्द की समस्या होती है।",
+        keyPerksEn: [
+          "Minimal nausea, constipation, and epigastric discomfort",
+          "No metallic taste or odor",
+          "No interaction with food or calcium",
+          "Reduced oxidative stress — Better patient compliance",
+          "Clinical studies demonstrate significant ferritin improvement and hemoglobin rise comparable to IV iron",
+          "Small Tablet, Easy to Digest"
+        ],
+        keyPerksHi: [
+          "मतली, कब्ज़ और पेट दर्द की न्यूनतम संभावना",
+          "मुंह में कोई कड़वा या धातु जैसा स्वाद नहीं",
+          "भोजन या कैल्शियम के साथ कोई प्रतिकूल प्रभाव नहीं",
+          "कम ऑक्सीडेटिव तनाव — बेहतर रोगी अनुपालन",
+          "क्लीनिकल अध्ययनों में फेरिटिन और हीमोग्लोबिन में IV आयरन जैसी उत्कृष्ट वृद्धि प्रमाणित",
+          "छोटा टैबलेट — पचने में अत्यंत आसान"
+        ]
       },
       composition: [
-        { ingredient: "Elemental Iron (Liposomal)", detail: "As Ferric Pyrophosphate / Diphosphate Liposomal Complex 337.5 mg", strength: "27 mg", rda: "100% RDA (Pregnancy)", rdaPct: 100 },
-        { ingredient: "Quatrefolic® (Active 5-MTHF)", detail: "(6S)-5-Methyltetrahydrofolic acid, glucosamine salt (eq. to 570 mcg Folate)", strength: "655 mcg", rda: "100% RDA", rdaPct: 100 },
-        { ingredient: "Vitamin B6 (Pyridoxal-5-Phosphate / P5P)", detail: "Bioactive co-enzyme B6 form", strength: "2.3 mg", rda: "100% RDA", rdaPct: 100 },
-        { ingredient: "Vitamin B12 (Cyanocobalamin)", detail: "Supports RBC maturation & neurological health", strength: "2.45 mcg", rda: "100% RDA", rdaPct: 100 },
-        { ingredient: "Glycine", detail: "Essential amino acid substrate for heme porphyrin synthesis (0.263 Kcal, Sugar 0.00 g)", strength: "10 mg", rda: "Heme Co-factor" }
+        { ingredient: "Elemental Iron (Liposomal)", detail: "Hemoglobin Synthesis — Encapsulated in Phospholipid Liposome", strength: "27 mg", rda: "100% RDA (Pregnancy)" },
+        { ingredient: "Quatrefolic® (Active Folate)", detail: "DNA Synthesis and Erythropoiesis", strength: "655 mcg", rda: "100% RDA" },
+        { ingredient: "P5P (Active Vitamin B6)", detail: "Heme Synthesis (Pyridoxal-5-Phosphate)", strength: "2.3 mg", rda: "100% RDA" },
+        { ingredient: "Vitamin B12", detail: "RBC Maturation", strength: "2.45 mcg", rda: "100% RDA" },
+        { ingredient: "Glycine", detail: "Structural Support for Heme", strength: "10 mg", rda: "Heme Substrate" }
       ],
       mechanism: [
-        { step: "01", title: "Gastric Acid Bypass", desc: "Phospholipid bilayer liposome shields Ferric Pyrophosphate from stomach acid, preventing free-iron mucosal irritation." },
-        { step: "02", title: "Intact M-Cell / Enterocyte Absorption", desc: "Liposomes are absorbed intact across the small intestine without food/phytate/calcium chelation blockade." },
-        { step: "03", title: "Complete Heme & RBC Synthesis", desc: "Quatrefolic® (bypassing MTHFR polymorphism) + P5P + B12 + Glycine drive rapid hemoglobin and serum ferritin restoration." }
+        { step: "01", title: "Liposomal Protection", desc: "Phospholipid liposome protects iron from gastric acid, preventing epigastric irritation." },
+        { step: "02", title: "Intact Intestinal Delivery", desc: "Reaches the small intestine intact and releases at the main absorption site for higher bioavailability." },
+        { step: "03", title: "Complete Hematinic Synthesis", desc: "Active Folate (Quatrefolic®), P5P, B12, and Glycine synergize for rapid hemoglobin synthesis and RBC maturation." }
       ],
       highlights: [
-        "Clinically robust Hemoglobin & Serum Ferritin rise comparable to parenteral therapy in mild-moderate deficiency",
-        "Contains genuine Quatrefolic® — immediately bioavailable active folate without DHFR/MTHFR conversion bottlenecks",
-        "Includes Glycine (10 mg) + Active P5P (2.3 mg), the exact biochemical substrates for δ-ALA synthase heme formation",
-        "0.00 g Sugar, ultra-low 0.263 Kcal per small easy-to-digest tablet"
+        "High Absorption, Gentle on Stomach, Better Compliance",
+        "Iron is encapsulated in a phospholipid liposome that protects it from gastric acid",
+        "The iron reaches the small intestine intact and is released at the main absorption site",
+        "Minimal nausea, constipation, and epigastric discomfort; No metallic taste or odor; No interaction with food or calcium",
+        "Complete Hematinic Support: Elemental Iron (27 mg), Quatrefolic® (Active Folate), P5P, Vitamin B12, and Glycine",
+        "Clinical studies on liposomal iron demonstrate significant ferritin improvement, hemoglobin rise comparable to IV iron and excellent tolerability even with long-term use",
+        "Effective Iron Correction without the GI Burden — Small Tablet, Easy to Digest"
       ],
       indications: [
-        "Iron Deficiency Anemia (IDA)",
-        "Pregnancy & Lactation Nutritional Anemia Prophylaxis",
-        "Pre-conception Neural & Folate Optimization",
-        "Menorrhagia & Nutritional Fatigue",
-        "Post-Surgical / Convalescent Hemoglobin Recovery",
-        "Patients Intolerant to Conventional Oral Iron Salts"
+        "Iron Deficiency Anemia",
+        "Pregnancy & Lactation Iron Demands",
+        "Nutritional Hematinic Deficiency",
+        "Patients Intolerant to Conventional Oral Iron Salts",
+        "Post-Operative or Chronic Blood Loss Recovery"
       ],
-      dosage: "1 Tablet daily with water (with or without meals), or as directed by the Healthcare Professional.",
-      keywords: ["iron", "hemoglobin", "hb", "anemia", "folic acid", "folate", "quatrefolic", "liposomal", "b12", "b6", "pregnancy", "fatigue", "bioipc"]
+      dosage: "1 Tablet daily after meals, or as directed by the Physician.",
+      keywords: ["iron", "liposomal iron", "bioipc", "quatrefolic", "folate", "p5p", "b12", "glycine", "anemia", "hemoglobin", "pregnancy iron"]
     },
 
     {
       id: "dydrofy",
       name: "DYDROFY",
-      shortTitle: "Dydrogesterone IP (Micronized) 10 mg Film-Coated Oral Tablets",
-      genericSummary: "Micronized Dydrogesterone IP 10 mg Oral Tablet",
+      shortTitle: "Dydrogesterone Tablets IP 10 mg",
+      genericSummary: "Dydrogesterone IP 10 mg Film-Coated Oral Tablets",
       category: "womens",
       secondaryCategories: [],
-      classification: "Prescription Medicine (Rx)",
+      classification: "Prescription / Hormonal Therapy",
       rxRequired: true,
       sugarFree: true,
-      flavour: "Film-Coated Unflavoured Tablet",
-      dosageForm: "Film-Coated Tablet",
+      flavour: "Unflavoured Oral Tablet",
+      dosageForm: "Film-coated oral tablet",
       packSize: "1 × 10 Tablets",
-      technology: "Micronized Selective Retroprogesterone",
-      techBadge: "MICRONIZED PROGESTOGEN",
-      accent: "#be185d",
-      accentSoft: "#fce7f3",
+      technology: "IP-Grade Micronized Retroprogesterone",
+      techBadge: "IP-GRADE RETROPROGESTERONE",
+      accent: "#9333ea",
+      accentSoft: "#f3e8ff",
       image: "assets/products/dydrofy.png",
-      taglineEn: "Precision IP-grade Micronized Dydrogesterone 10 mg for luteal support, menstrual regulation & pregnancy maintenance.",
-      taglineHi: "मासिक धर्म चक्र के संतुलन और शुरुआती गर्भावस्था की सुरक्षा के लिए डॉक्टर की सलाह से दी जाने वाली माइक्रोनाइज़्ड डाइड्रोजेस्टेरोन 10 mg टैबलेट।",
+      taglineEn: "Protect Precious Moment with Dydrogesterone Tablets 10mg.",
+      taglineHi: "प्रोटेक्ट प्रेशियस मोमेंट — डायड्रोजेस्टेरोन टैबलेट 10mg के साथ मातृत्व की सुरक्षा।",
       easyGuide: {
-        whatIsItEn: "DYDROFY contains 10 mg of Micronized Dydrogesterone, an oral hormone structurally close to natural progesterone that prepares and supports a healthy uterine lining.",
-        whatIsItHi: "DYDROFY में 10 mg माइक्रोनाइज़्ड डाइड्रोजेस्टेरोन होता है, जो शरीर के प्राकृतिक प्रोजेस्टेरोन हार्मोन की तरह गर्भाशय की परत को मज़बूती देता है।",
-        whoIsItForEn: "Strictly prescribed by Gynecologists for threatened/recurrent miscarriage support, IVF/luteal support, irregular cycles, endometriosis, or progesterone deficiency.",
-        whoIsItForHi: "स्त्री-रोग विशेषज्ञ (गायनेकोलॉजिस्ट) द्वारा गर्भपात के खतरे को कम करने, अनियमित पीरियड्स, या प्रोजेस्टेरोन की कमी के इलाज में दी जाती है।",
-        keyPerksEn: ["Micronized particle size for reliable oral absorption", "Selective progesterone receptor action without androgenic effects", "Generally does not inhibit normal ovulation at therapeutic doses", "Standard 10 mg IP-grade precision film-coated tablet"],
-        keyPerksHi: ["बेहतर अवशोषण के लिए माइक्रोनाइज़्ड तकनीक", "केवल प्रोजेस्टेरोन रिसेप्टर्स पर सटीक कार्य", "सामान्य ओव्यूलेशन प्रक्रिया में बाधा नहीं डालती", "केवल पंजीकृत डॉक्टर के पर्चे (Rx) पर लें"]
+        whatIsItEn: "Dydrogesterone works by binding to progesterone receptors in the uterus, causing changes in the lining (endometrium) to support pregnancy or ensure a normal menstrual cycle. Unlike some other progestins, it generally does not inhibit ovulation at therapeutic doses.",
+        whatIsItHi: "डायड्रोजेस्टेरोन गर्भाशय में प्रोजेस्टेरोन रिसेप्टर्स से जुड़कर एंडोमेट्रियम में सुरक्षात्मक बदलाव लाता है ताकि गर्भावस्था को सहारा मिले या सामान्य मासिक चक्र सुनिश्चित हो सके। यह ओव्यूलेशन को बाधित नहीं करता।",
+        whoIsItForEn: "DESIGNED FOR PHYSICIAN-DIRECTED PROGESTERONE THERAPY — Threatened miscarriage, habitual abortion, and progesterone deficiency conditions.",
+        whoIsItForHi: "गर्भपात के खतरे (थ्रेटेंड अबॉर्शन), बार-बार होने वाले गर्भपात, ल्यूटियल फेज सपोर्ट और प्रोजेस्टेरोन की कमी से जुड़े विकारों में डॉक्टर के परामर्श पर।",
+        keyPerksEn: [
+          "IP-GRADE DYDROGESTERONE",
+          "STANDARD 10 MG FORMULATION",
+          "DESIGNED FOR PHYSICIAN-DIRECTED PROGESTERONE THERAPY",
+          "Does not inhibit ovulation at therapeutic doses",
+          "High selective progestogenic activity with minimal androgenic side effects"
+        ],
+        keyPerksHi: [
+          "IP-ग्रेड डायड्रोजेस्टेरोन की शुद्धता",
+          "मानक 10 mg चिकित्सीय फ़ॉर्मूलेशन",
+          "विशेषज्ञ डॉक्टरों द्वारा निर्देशित प्रोजेस्टेरोन थेरेपी",
+          "थेराप्यूटिक डोज़ पर ओव्यूलेशन बाधित नहीं करता",
+          "उच्च चयनात्मक प्रोजेस्टेशनल प्रभाव"
+        ]
       },
       composition: [
-        { ingredient: "Dydrogesterone IP (Micronized)", detail: "Orally active selective retroprogesterone", strength: "10 mg", rda: "Rx Therapeutic Strength" },
-        { ingredient: "Excipients & Film Coating", detail: "Colour: Titanium Dioxide IP", strength: "q.s.", rda: "Per Film-Coated Tablet" }
+        { ingredient: "Dydrogesterone IP", detail: "Selective Retroprogesterone Receptor Agonist", strength: "10 mg", rda: "IP Grade" },
+        { ingredient: "Excipients", detail: "Colour: Titanium Dioxide IP", strength: "q.s.", rda: "Film-Coated Tablet" }
       ],
       mechanism: [
-        { step: "01", title: "Micronized Oral Bioavailability", desc: "Reduced particle size maximizes dissolution rate and predictable oral systemic absorption." },
-        { step: "02", title: "Selective Progesterone Receptor Binding", desc: "Binds specifically to uterine progesterone receptors without estrogenic, androgenic, or glucocorticoid cross-activity." },
-        { step: "03", title: "Secretory Endometrial Stabilization", desc: "Transitions proliferative endometrium into a receptive secretory state, supporting implantation and regular menstrual shedding." }
+        { step: "01", title: "Selective Receptor Binding", desc: "Binds selectively to uterine progesterone receptors without androgenic side effects." },
+        { step: "02", title: "Endometrial Transformation", desc: "Transforms proliferative endometrium into a fully receptive secretory lining supporting pregnancy or normal menstrual cycle." },
+        { step: "03", title: "Luteal & Gestational Support", desc: "Supports pregnancy without inhibiting ovulation at therapeutic doses." }
       ],
       highlights: [
-        "IP-Grade Micronized Dydrogesterone 10 mg formulation",
-        "Orally convenient alternative to painful intramuscular or messy vaginal progesterone regimens",
-        "Generally does not suppress ovulation or alter basal body temperature at standard therapeutic doses",
-        "Manufactured for strict physician-directed gynecological & obstetric protocols"
+        "Protect Precious Moment with Dydrogesterone Tablets 10mg",
+        "IP-GRADE DYDROGESTERONE standard 10 mg formulation",
+        "DESIGNED FOR PHYSICIAN-DIRECTED PROGESTERONE THERAPY",
+        "Dydrogesterone works by binding to progesterone receptors in the uterus",
+        "Causes changes in the lining (endometrium) to support pregnancy or ensure a normal menstrual cycle",
+        "Unlike some other progestins, it generally does not inhibit ovulation at therapeutic doses"
       ],
       indications: [
-        "Threatened Miscarriage & Recurrent Pregnancy Loss (Luteal Deficiency)",
-        "Luteal Phase Support in Infertility / ART Cycles",
-        "Dysfunctional Uterine Bleeding & Irregular Menstrual Cycles",
-        "Secondary Amenorrhoea & Dysmenorrhoea",
-        "Endometriosis & Premenstrual Syndrome (Physician-Directed)"
+        "Threatened Miscarriage",
+        "Habitual / Recurrent Pregnancy Loss",
+        "Luteal Phase Support in Assisted Reproduction",
+        "Dysfunctional Uterine Bleeding",
+        "Dysmenorrhea & Endometriosis Management",
+        "Secondary Amenorrhea"
       ],
-      dosage: "Strictly as directed by the Gynecologist / Registered Medical Practitioner (schedule varies by clinical indication).",
-      keywords: ["dydrogesterone", "progesterone", "dydrofy", "10mg", "pregnancy", "miscarriage", "luteal", "periods", "menstrual", "endometriosis", "gynae", "rx"]
+      dosage: "As directed by the Gynecologist / Physician. Swallow whole with water.",
+      keywords: ["dydrogesterone", "dydrofy", "progesterone", "pregnancy", "miscarriage", "habitual abortion", "luteal phase", "hormone", "10mg"]
     },
 
     {
       id: "novacaine",
       name: "NOVACAINE",
-      shortTitle: "Oxetacaine IP, Aluminium Hydroxide & Magnesium Hydroxide Anesthetic-Antacid Oral Gel",
-      genericSummary: "Per 5 ml: Oxetacaine IP 10 mg + Aluminium Hydroxide IP 291 mg + Magnesium Hydroxide IP 98 mg",
+      shortTitle: "Anesthetic-Antacid Gel (Sugar Free Oral Gel - Contains Sorbitol) 200ml",
+      genericSummary: "Oxetacaine IP 10 mg + Aluminium Hydroxide IP 291 mg + Magnesium Hydroxide IP 98 mg per 5 ml",
       category: "gastro",
       secondaryCategories: [],
       classification: "Anesthetic-Antacid Oral Gel",
       rxRequired: false,
       sugarFree: true,
-      flavour: "Cooling Mint Flavour",
-      dosageForm: "Oral Gel (Suspension)",
-      packSize: "200 ml Amber/Protected Bottle",
-      technology: "Triple-Action Mucosal Soothing & Acid Neutralization",
-      techBadge: "TRIPLE-ACTION GEL",
-      accent: "#0d9488",
-      accentSoft: "#ccfbf1",
+      flavour: "Sugar Free Mint Flavour (Contains Sorbitol)",
+      dosageForm: "Oral Suspension / Gel",
+      packSize: "200 ml Bottle",
+      technology: "Dual Acid Neutralization + Mucosal Anesthetic Coating",
+      techBadge: "ANESTHETIC-ANTACID GEL",
+      accent: "#0891b2",
+      accentSoft: "#cffafe",
       image: "assets/products/novacaine.png",
-      taglineEn: "Fast-acting Mint Sugar-Free Anesthetic-Antacid Gel that numbs burning stomach pain & neutralizes excess acid.",
-      taglineHi: "तेज़ एसिडिटी, पेट व सीने की जलन और अल्सर के दर्द में तुरंत ठंडक और आराम देने वाला शुगर-फ्री मिंट जेल।",
+      taglineEn: "Immediate symptomatic relief with sustained control of Gastric Acidity, Especially useful in Painful Acidity and Gastritis.",
+      taglineHi: "तेज़ दर्द और एसिडिटी में तुरंत आराम के साथ लंबे समय तक एसिड नियंत्रण — विशेष रूप से दर्दनाक एसिडिटी और गैस्ट्राइटिस में उपयोगी।",
       easyGuide: {
-        whatIsItEn: "When acidity causes sharp burning pain in the chest or upper stomach, plain antacids may not stop the pain fast enough. NOVACAINE combines two balanced antacids with Oxetacaine to soothe burning pain rapidly.",
-        whatIsItHi: "जब एसिडिटी के कारण सीने या पेट में तेज़ जलन और दर्द हो, तब NOVACAINE जेल न सिर्फ़ एसिड को शांत करता है बल्कि दर्द और जलन को भी तुरंत सुन्न कर आराम देता है।",
-        whoIsItForEn: "Adults suffering from painful hyperacidity, severe heartburn, gastritis, acid reflux, peptic ulcer discomfort, or painkiller-induced stomach irritation — including diabetic patients.",
-        whoIsItForHi: "तेज़ एसिडिटी, खट्टी डकार, सीने की जलन, गैस्ट्राइटिस, पेट के छाले (अल्सर) या पेनकिलर दवाओं से होने वाली पेट की जलन — शुगर मरीज़ों के लिए भी सुरक्षित।",
-        keyPerksEn: ["Rapid numbing relief from acute burning pain", "Balanced Aluminium + Magnesium prevents constipation/diarrhoea", "Refreshing cooling Mint flavour", "Sugar-Free sorbitol base — suitable for diabetics"],
-        keyPerksHi: ["जलन और पेट दर्द में तेज़ आराम", "कब्ज़ या दस्त न होने देने वाला संतुलित फ़ॉर्मूला", "ठंडा ताज़ा मिंट (पुदीना) फ्लेवर", "शुगर-फ्री (डायबिटिक मरीज़ों के लिए सुरक्षित)"]
+        whatIsItEn: "An anesthetic–Antacid gel offering immediate symptomatic relief with sustained control of Gastric Acidity, Especially useful in Painful Acidity and Gastritis.",
+        whatIsItHi: "यह एनेस्थेटिक-एंटासिड जेल है जो दर्दनाक एसिडिटी और गैस्ट्राइटिस में तुरंत दर्द व जलन शांत करता है और लंबे समय तक एसिड को नियंत्रित रखता है।",
+        whoIsItForEn: "Acid Peptic Disease & Gastritis, GERD / Reflux Esophagitis, Peptic Ulcer Disease, Painful Hyperacidity & Heartburn, and Drug-Induced Gastric Irritation (NSAIDs, Steroids).",
+        whoIsItForHi: "एसिड पेप्टिक रोग और गैस्ट्राइटिस, जीईआरडी/रिफ्लक्स, पेप्टिक अल्सर, सीने में दर्दनाक जलन और दवाओं से होने वाली पेट की जलन में।",
+        keyPerksEn: [
+          "Rapid relief from Burning and Pain",
+          "Sustained Antacid Action",
+          "Gel formulation for better Mucosal Coating",
+          "Sugar-Free – Suitable for Diabetic Patients",
+          "Good GI Tolerability"
+        ],
+        keyPerksHi: [
+          "जलन और पेट दर्द से त्वरित राहत",
+          "लंबे समय तक रहने वाली एंटासिड क्रिया",
+          "पेट की भीतरी दीवार पर बेहतर सुरक्षात्मक परत (म्यूकोसल कोटिंग)",
+          "शुगर-फ्री — डायबिटीज़ के मरीज़ों के लिए पूरी तरह उपयुक्त",
+          "उत्कृष्ट पाचन सहनशीलता"
+        ]
       },
       composition: [
-        { ingredient: "Oxetacaine IP", detail: "Topical mucosal local anesthetic active even at pH 1–2", strength: "10 mg", rda: "Per 5 ml" },
-        { ingredient: "Aluminium Hydroxide IP", detail: "Added as Aluminium Hydroxide Paste eq. to dried gel (sustained neutralization)", strength: "291 mg", rda: "Per 5 ml" },
-        { ingredient: "Magnesium Hydroxide IP", detail: "Added as Magnesium Hydroxide Paste (fast-acting acid neutralization)", strength: "98 mg", rda: "Per 5 ml" },
-        { ingredient: "Sugar-Free Mint Gel Base", detail: "Contains Sorbitol — suitable for diabetic patients", strength: "q.s. to 5 ml", rda: "200 ml Bottle" }
+        { ingredient: "Oxetacaine IP", detail: "Local anesthetic providing rapid relief from epigastric pain and burning; remains effective even in highly acidic pH", strength: "10 mg", rda: "Per 5 ml" },
+        { ingredient: "Aluminium Hydroxide IP", detail: "Slow-acting antacid for sustained acid neutralization (as Paste eq. to dried gel)", strength: "291 mg", rda: "Per 5 ml" },
+        { ingredient: "Magnesium Hydroxide IP", detail: "Fast-acting antacid; balances aluminium-induced constipation (as Paste)", strength: "98 mg", rda: "Per 5 ml" },
+        { ingredient: "Sugar Free Gel Base", detail: "Contains Sorbitol — Suitable for Diabetic Patients", strength: "q.s. to 5 ml", rda: "200 ml Bottle" }
       ],
       mechanism: [
-        { step: "01", title: "Immediate Acid Neutralization", desc: "Magnesium Hydroxide rapidly raises gastric pH on contact while balancing bowel motility." },
-        { step: "02", title: "Sustained Mucosal Coating", desc: "Aluminium Hydroxide provides prolonged acid buffering and forms a soothing protective coat over inflamed mucosa." },
-        { step: "03", title: "Acid-Stable Topical Analgesia", desc: "Oxetacaine remains unionized even in strongly acidic gastric fluid, calming irritated esophageal and gastric nerve endings." }
+        { step: "01", title: "Oxetacaine Local Anesthesia", desc: "Local anesthetic providing rapid relief from epigastric pain and burning; remains effective even in highly acidic pH." },
+        { step: "02", title: "Aluminium Hydroxide", desc: "Slow-acting antacid for sustained acid neutralization." },
+        { step: "03", title: "Magnesium Hydroxide", desc: "Fast-acting antacid; balances aluminium-induced constipation." },
+        { step: "04", title: "Overall Effect", desc: "Immediate pain relief with prolonged acid control." }
       ],
       highlights: [
-        "Triple-mechanism relief: Fast Antacid + Sustained Antacid + Mucosal Local Anesthetic",
-        "Balanced Mg(OH)2 + Al(OH)3 ratio minimizes aluminium-induced constipation",
-        "Sugar-Free (Sorbitol-sweetened) cooling Mint suspension ideal for diabetic & calorie-conscious adults",
-        "Best taken undiluted so the soothing gel coats the esophagus and stomach lining"
+        "An anesthetic–Antacid gel offering immediate symptomatic relief with sustained control of Gastric Acidity",
+        "Especially useful in Painful Acidity and Gastritis",
+        "Rapid relief from Burning and Pain",
+        "Sustained Antacid Action with gel formulation for better Mucosal Coating",
+        "Sugar-Free – Suitable for Diabetic Patients",
+        "Good GI Tolerability"
       ],
       indications: [
-        "Acid Peptic Disease & Acute/Chronic Gastritis",
+        "Acid Peptic Disease & Gastritis",
         "GERD / Reflux Esophagitis",
-        "Peptic Ulcer Disease (Gastric & Duodenal)",
-        "Painful Hyperacidity & Severe Heartburn",
-        "Drug-Induced Gastric Irritation (NSAIDs, Steroids, Antibiotics)"
+        "Peptic Ulcer Disease",
+        "Painful Hyperacidity & Heartburn",
+        "Drug-Induced Gastric Irritation (NSAIDs, Steroids)"
       ],
-      dosage: "5–10 ml (1–2 teaspoons) 3–4 times daily, preferably 15 minutes before meals and at bedtime, taken undiluted (avoid drinking water immediately after), or as directed by the Physician.",
-      keywords: ["antacid", "gel", "syrup", "acidity", "heartburn", "burning", "ulcer", "gastritis", "gerd", "oxetacaine", "mint", "sugar free", "novacaine"]
+      dosage: "5-10 ml, 3-4 times daily, Preferably 15 minutes before meals & at bedtime. To be taken undiluted or as directed by the physician.",
+      keywords: ["novacaine", "oxetacaine", "aluminium hydroxide", "magnesium hydroxide", "antacid", "gastritis", "heartburn", "acidity", "ulcer", "sugar free gel"]
     },
 
     {
       id: "pantheta-dsr",
       name: "PANTHETA DSR",
-      shortTitle: "Pantoprazole 40 mg (EC) + Domperidone 10 mg (IR) + Domperidone 20 mg (SR) Capsules",
-      genericSummary: "Pantoprazole 40 mg EC + Domperidone 30 mg (10 mg IR + 20 mg SR) Tablet-in-Capsule",
+      shortTitle: "Pantoprazole 40mg (EC) + Domperidone 10mg (IR) + Domperidone 20mg (SR) Capsules",
+      genericSummary: "Pantoprazole Sodium 40 mg (EC) + Domperidone 30 mg (10 mg IR + 20 mg SR)",
       category: "gastro",
       secondaryCategories: [],
-      classification: "Prescription Medicine (Rx)",
+      classification: "Proton Pump Inhibitor & Prokinetic",
       rxRequired: true,
       sugarFree: true,
-      flavour: "Hard Gelatin Capsule (Tablet-in-Capsule)",
-      dosageForm: "Capsule (EC + IR + SR)",
+      flavour: "Oral Capsule",
+      dosageForm: "Tablet in Capsule",
       packSize: "10 × 10 Capsules",
-      technology: "Tablet-in-Capsule (EC + Dual IR/SR Release)",
-      techBadge: "EC + IR/SR CAPSULE",
-      accent: "#0369a1",
-      accentSoft: "#e0f2fe",
+      technology: "Tablet in Capsule Technology (EC + IR + SR)",
+      techBadge: "TABLET IN CAPSULE",
+      accent: "#0d9488",
+      accentSoft: "#ccfbf1",
       image: "assets/products/pantheta-dsr.png",
-      taglineEn: "Precision Tablet-in-Capsule technology splitting Domperidone into 10 mg IR + 20 mg SR alongside 40 mg EC Pantoprazole.",
-      taglineHi: "एसिडिटी, खट्टी डकार, उल्टी और पेट फूलने से तुरंत व पूरे दिन राहत के लिए आधुनिक टैबलेट-इन-कैप्सूल (Pantoprazole DSR)।",
+      taglineEn: "The Perfect 'Gastric Motility' Control Combination — Tablet in Capsule Technology.",
+      taglineHi: "द परफेक्ट 'गैस्ट्रिक मोटिलिटी' कंट्रोल कॉम्बिनेशन — टैबलेट इन कैप्सूल टेक्नोलॉजी।",
       easyGuide: {
-        whatIsItEn: "Unlike ordinary DSR capsules that release Domperidone only slowly, PANTHETA DSR uses advanced Tablet-in-Capsule technology: 10 mg Immediate Release for quick nausea/bloating relief + 20 mg Sustained Release + 40 mg Enteric-Coated Pantoprazole for all-day acid control.",
-        whatIsItHi: "साधारण DSR कैप्सूल की तुलना में PANTHETA DSR में आधुनिक 'टैबलेट-इन-कैप्सूल' तकनीक है — 10 mg तुरंत असर करता है और 20 mg धीरे-धीरे पूरे दिन उल्टी, गैस और एसिडिटी से बचाता है।",
-        whoIsItForEn: "Prescribed for patients with GERD (acid reflux), sour belching, morning nausea/vomiting, bloated heaviness after meals, and gastric ulcers.",
-        whoIsItForHi: "जिन मरीज़ों को बार-बार एसिड रिफ्लक्स (GERD), खट्टी डकारें, जी मिचलाना/उल्टी, पेट में भारीपन या अल्सर की समस्या हो।",
-        keyPerksEn: ["3-component precision Tablet-in-Capsule engineering", "Fast onset against nausea via 10 mg IR Domperidone", "All-day reflux shield via 20 mg SR Domperidone + 40 mg EC Pantoprazole", "Convenient once-daily morning empty-stomach dosing"],
-        keyPerksHi: ["उन्नत टैबलेट-इन-कैप्सूल तकनीक", "जी मिचलाने और भारीपन में तेज़ आराम (10 mg IR)", "पूरे दिन एसिड नियंत्रण (40 mg EC + 20 mg SR)", "सुबह खाली पेट दिन में सिर्फ़ 1 कैप्सूल (डॉक्टर के अनुसार)"]
+        whatIsItEn: "This combination is used to treat conditions related to stomach acid and motility issues.",
+        whatIsItHi: "यह संयोजन पेट के एसिड और गतिशीलता (मोटिलिटी) से संबंधित विकारों के उपचार के लिए उपयोग किया जाता है।",
+        whoIsItForEn: "GERD, DYSPEPSIA, VOMITING, G.I. ULCER, HEART BURN.",
+        whoIsItForHi: "जीईआरडी (एसिड रिफ्लक्स), बदहजमी (डिस्पेप्सिया), उल्टी/जी मिचलाना, पेट के अल्सर और सीने में जलन में।",
+        keyPerksEn: [
+          "Tablet in Capsule Technology",
+          "Pantoprazole 40mg (EC): Designed to dissolve in small intestine; treats GERD, peptic ulcers & other acid-related problems",
+          "Domperidone 10mg (IR): Released quickly to relieve nausea and vomiting by improving movement of stomach and intestines",
+          "Domperidone 20mg (SR): Released slowly over time to provide longer-lasting relief from nausea and vomiting",
+          "This combination is used to treat conditions related to stomach acid and motility issues"
+        ],
+        keyPerksHi: [
+          "टैबलेट इन कैप्सूल आधुनिक तकनीक",
+          "पैंटोप्राजोल 40mg (EC): आंत में घुलकर एसिडिटी और अल्सर का इलाज करता है",
+          "डोमपेरिडोन 10mg (IR): तुरंत घुलकर मतली और उल्टी को शांत करता है",
+          "डोमपेरिडोन 20mg (SR): धीरे-धीरे घुलकर पूरे दिन उल्टी और भारीपन से बचाता है",
+          "एसिड नियंत्रण और पेट की गतिशीलता दोनों पर एक साथ काम करता है"
+        ]
       },
       composition: [
-        { ingredient: "Pantoprazole Sodium (Enteric Coated — EC)", detail: "Selective Proton Pump Inhibitor; low CYP450 drug-interaction profile", strength: "40 mg", rda: "EC Core" },
-        { ingredient: "Domperidone (Immediate Release — IR)", detail: "Rapid prokinetic & antiemetic onset", strength: "10 mg", rda: "IR Fraction" },
-        { ingredient: "Domperidone (Sustained Release — SR)", detail: "Prolonged LES tone & gastric emptying control", strength: "20 mg", rda: "SR Fraction" }
+        { ingredient: "Pantoprazole 40mg (EC)", detail: "Enteric Coated — Dissolves in small intestine; treats GERD & peptic ulcers", strength: "40 mg", rda: "EC Fraction" },
+        { ingredient: "Domperidone 10mg (IR)", detail: "Immediate Release — Relieves nausea and vomiting quickly", strength: "10 mg", rda: "IR Fraction" },
+        { ingredient: "Domperidone 20mg (SR)", detail: "Sustained Release — Provides longer-lasting relief from nausea and vomiting", strength: "20 mg", rda: "SR Fraction" }
       ],
       mechanism: [
-        { step: "PHASE 1 (IR)", title: "Immediate Prokinetic Relief (10 mg IR)", desc: "Releases promptly to tighten the lower esophageal sphincter (LES), relieve nausea, and initiate gastric emptying." },
-        { step: "PHASE 2 (EC)", title: "Acid-Protected PPI Activation (40 mg EC)", desc: "Enteric-coated Pantoprazole bypasses gastric degradation and irreversibly inhibits H+/K+-ATPase proton pumps." },
-        { step: "PHASE 3 (SR)", title: "Sustained Anti-Reflux Protection (20 mg SR)", desc: "Maintains steady prokinetic plasma levels across post-meal windows to prevent daytime & nocturnal regurgitation." }
+        { step: "01", title: "Pantoprazole 40mg (EC)", desc: "EC Stands for enteric coating, meaning the medication is designed to dissolve in the small intestine rather than the stomach. It is used to treat conditions like GERD, peptic ulcers & other acid-related problems." },
+        { step: "02", title: "Domperidone 10mg (IR)", desc: "IR Stands for immediate release, meaning the medication is released quickly into the body. It helps to relieve nausea and vomiting by improving the movement of the stomach and intestines." },
+        { step: "03", title: "Domperidone 20mg (SR)", desc: "SR Stands for sustained release, meaning the medication is released slowly over time. This extended release can provide longer-lasting relief from nausea and vomiting." }
       ],
       highlights: [
-        "Advanced Tablet-in-Capsule architecture prevents cross-interaction between PPI & prokinetic units",
-        "Splits 30 mg Domperidone intelligently into 10 mg IR (fast relief) + 20 mg SR (sustained coverage)",
-        "Pantoprazole 40 mg offers predictable bioavailability and minimal hepatic drug-drug interactions",
-        "High-barrier 10 × 10 Alu-strip/blister packaging preserves moisture sensitivity"
+        "The Perfect 'Gastric Motility' Control Combination",
+        "Tablet in Capsule Technology",
+        "Pantoprazole 40mg (EC) + Domperidone 10mg (IR) + Domperidone 20mg (SR) Capsules",
+        "This combination is used to treat conditions related to stomach acid and motility issues",
+        "EC designed to dissolve in small intestine; IR released quickly; SR released slowly over time"
       ],
       indications: [
-        "Gastroesophageal Reflux Disease (GERD)",
-        "Functional & Non-Ulcer Dyspepsia",
-        "Nausea & Vomiting Associated with Acid Peptic Disorders",
-        "Gastric & Duodenal G.I. Ulcers",
-        "Chronic Heartburn & Post-Prandial Bloating"
+        "GERD",
+        "DYSPEPSIA",
+        "VOMITING",
+        "G.I. ULCER",
+        "HEART BURN"
       ],
-      dosage: "1 Capsule once daily, 30–60 minutes before breakfast (swallow whole with water; do not crush or chew), strictly as prescribed by the Physician.",
-      keywords: ["pantoprazole", "domperidone", "dsr", "pantheta", "gerd", "acidity", "gas", "reflux", "vomiting", "nausea", "ulcer", "heartburn", "capsule", "rx"]
+      dosage: "1 Capsule daily, preferably in the morning before breakfast, or as directed by the Physician.",
+      keywords: ["pantheta dsr", "pantoprazole", "domperidone", "gerd", "dyspepsia", "vomiting", "gi ulcer", "heart burn", "tablet in capsule", "acid reflux"]
     },
 
     {
       id: "rabtheta-dsr",
       name: "RABTHETA DSR",
-      shortTitle: "Rabeprazole Sodium 20 mg (EC) + Domperidone 10 mg (IR) + Domperidone 20 mg (SR) Capsules",
-      genericSummary: "Rabeprazole Sodium 20 mg EC + Domperidone 30 mg (10 mg IR + 20 mg SR) Tablet-in-Capsule",
+      shortTitle: "Rabeprazole Sodium 20mg (EC) + Domperidone 10mg (IR) + Domperidone 20mg (SR) Capsules",
+      genericSummary: "Rabeprazole Sodium 20 mg (EC) + Domperidone 30 mg (10 mg IR + 20 mg SR)",
       category: "gastro",
       secondaryCategories: [],
-      classification: "Prescription Medicine (Rx)",
+      classification: "Proton Pump Inhibitor & Prokinetic",
       rxRequired: true,
       sugarFree: true,
-      flavour: "Hard Gelatin Capsule (Tablet-in-Capsule)",
-      dosageForm: "Capsule (EC + IR + SR)",
+      flavour: "Oral Capsule",
+      dosageForm: "Tablet in Capsule",
       packSize: "10 × 10 Capsules",
-      technology: "High-pKa Fast PPI + Dual IR/SR Tablet-in-Capsule",
-      techBadge: "FAST PPI + IR/SR CAPSULE",
-      accent: "#4f46e5",
-      accentSoft: "#e0e7ff",
+      technology: "Tablet in Capsule Technology (EC + IR + SR)",
+      techBadge: "TABLET IN CAPSULE",
+      accent: "#2563eb",
+      accentSoft: "#dbeafe",
       image: "assets/products/rabtheta-dsr.png",
-      taglineEn: "Fast-activating Rabeprazole 20 mg (EC) + dual-phase Domperidone (10 mg IR + 20 mg SR) for erosive reflux & severe hyperacidity.",
-      taglineHi: "तीव्र एसिड रिफ्लक्स, इसोफेजाइटिस, अल्सर और उल्टी पर दिन-पहले (Day-1) से तेज़ नियंत्रण के लिए Rabeprazole DSR टैबलेट-इन-कैप्सूल।",
+      taglineEn: "Get assured relief from GERD, Chronic Gastritis & Dyspepsia — Tablet in Capsule Technology.",
+      taglineHi: "जीईआरडी, क्रोनिक गैस्ट्राइटिस और डिस्पेप्सिया से निश्चित राहत — टैबलेट इन कैप्सूल टेक्नोलॉजी।",
       easyGuide: {
-        whatIsItEn: "RABTHETA DSR pairs fast-activating Rabeprazole (20 mg EC) with split-release Domperidone (10 mg Immediate Release + 20 mg Sustained Release) inside a precision Tablet-in-Capsule for potent Day-1 acid & reflux control.",
-        whatIsItHi: "RABTHETA DSR में तेज़ी से काम करने वाला रेबेप्राज़ोल (20 mg EC) और दोहरे रिलीज़ वाला डोम्पेरिडोन (10 mg IR + 20 mg SR) है, जो पहले ही दिन से तेज़ एसिडिटी और उल्टी पर नियंत्रण देता है।",
-        whoIsItForEn: "Prescribed for patients with severe GERD, erosive esophagitis, night-time acid reflux, peptic ulcers, chronic gastritis, or Zollinger-Ellison hypersecretory states.",
-        whoIsItForHi: "गंभीर एसिड रिफ्लक्स, खाने की नली में सूजन/छाले (इसोफेजाइटिस), पेप्टिक अल्सर, रात में खट्टा पानी ऊपर आने और उल्टी की शिकायत वाले मरीज़ों के लिए।",
-        keyPerksEn: ["High-pKa Rabeprazole for rapid Day-1 proton pump blockade", "10 mg IR Domperidone stops nausea & fullness quickly", "20 mg SR Domperidone prevents reflux throughout the day", "Non-enzymatic metabolism minimizes CYP2C19 variability"],
-        keyPerksHi: ["रेबेप्राज़ोल द्वारा पहले दिन से तेज़ एसिड दमन", "10 mg IR से उल्टी व भारीपन में तुरंत राहत", "20 mg SR से दिन-रात रिफ्लक्स से सुरक्षा", "केवल पंजीकृत डॉक्टर की सलाह (Rx) से लें"]
+        whatIsItEn: "The combination is prescribed for more effective management of GERD and other conditions where acid reflux, nausea and vomiting are significant symptoms.",
+        whatIsItHi: "यह संयोजन जीईआरडी और उन स्थितियों के अधिक प्रभावी प्रबंधन के लिए निर्धारित किया जाता है जहाँ एसिड रिफ्लक्स, जी मिचलाना और उल्टी प्रमुख लक्षण होते हैं।",
+        whoIsItForEn: "GERD, Acid Reflux, Peptic Ulcers, Dyspepsia, Nausea & Vomiting, Zollinger-Ellison Syndrome.",
+        whoIsItForHi: "जीईआरडी, एसिड रिफ्लक्स, पेप्टिक अल्सर, बदहजमी (डिस्पेप्सिया), मतली और उल्टी, तथा ज़ोलिंगर-एलिसन सिंड्रोम में।",
+        keyPerksEn: [
+          "Tablet in Capsule Technology",
+          "Rabeprazole Sodium 20mg (EC): Designed to dissolve in small intestine; treats GERD, peptic ulcers & erosive esophagitis",
+          "Domperidone 10mg (IR): Released quickly into the body to relieve nausea and vomiting",
+          "Domperidone 20mg (SR): Released slowly over time to provide longer-lasting relief from nausea and vomiting",
+          "Get assured relief from GERD, Chronic Gastritis & Dyspepsia"
+        ],
+        keyPerksHi: [
+          "टैबलेट इन कैप्सूल अत्याधुनिक तकनीक",
+          "रेबेप्राजोल सोडियम 20mg (EC): आंत में घुलकर अल्सर और इसोफैगिटिस को ठीक करता है",
+          "डोमपेरिडोन 10mg (IR): तुरंत घुलकर मतली और उल्टी पर तुरंत नियंत्रण देता है",
+          "डोमपेरिडोन 20mg (SR): दिनभर रिफ्लक्स और उल्टी से सुरक्षा प्रदान करता है",
+          "जीईआरडी, क्रोनिक गैस्ट्राइटिस और डिस्पेप्सिया से निश्चित राहत"
+        ]
       },
       composition: [
-        { ingredient: "Rabeprazole Sodium (Enteric Coated — EC)", detail: "High-pKa (~5.0) fast-activating Proton Pump Inhibitor", strength: "20 mg", rda: "EC Core" },
-        { ingredient: "Domperidone (Immediate Release — IR)", detail: "Fast onset gastroprokinetic & antiemetic unit", strength: "10 mg", rda: "IR Fraction" },
-        { ingredient: "Domperidone (Sustained Release — SR)", detail: "Extended gastro-esophageal motility control", strength: "20 mg", rda: "SR Fraction" }
+        { ingredient: "Rabeprazole Sodium 20mg (EC)", detail: "Enteric Coated — Treats GERD, peptic ulcers & erosive esophagitis", strength: "20 mg", rda: "EC Fraction" },
+        { ingredient: "Domperidone 10mg (IR)", detail: "Immediate Release — Relieves nausea and vomiting quickly", strength: "10 mg", rda: "IR Fraction" },
+        { ingredient: "Domperidone 20mg (SR)", detail: "Sustained Release — Provides longer-lasting relief from nausea and vomiting", strength: "20 mg", rda: "SR Fraction" }
       ],
       mechanism: [
-        { step: "PHASE 1 (IR)", title: "Rapid Prokinetic Kickstart (10 mg IR)", desc: "Enhances antroduodenal contractions and LES pressure quickly to halt regurgitation and nausea." },
-        { step: "PHASE 2 (EC)", title: "Rapid High-pKa Acid Suppression (20 mg EC)", desc: "Rabeprazole converts rapidly into its active sulfenamide form across a wider pH range for potent Day-1 acid control." },
-        { step: "PHASE 3 (SR)", title: "Round-the-Clock Reflux Barrier (20 mg SR)", desc: "Sustained Domperidone release prevents delayed gastric stasis and nocturnal acid breakthrough." }
+        { step: "01", title: "Rabeprazole Sodium 20mg (EC)", desc: "EC Stands for enteric coating, meaning the medication is designed to dissolve in the small intestine rather than the stomach. It is used to treat conditions like GERD, peptic ulcers (gastric and duodenal) and erosive esophagitis caused by acid reflux." },
+        { step: "02", title: "Domperidone 10mg (IR)", desc: "IR Stands for immediate release, meaning the medication is released quickly into the body. It helps to relieve nausea and vomiting by improving the movement of the stomach and intestines." },
+        { step: "03", title: "Domperidone 20mg (SR)", desc: "SR Stands for sustained release, meaning the medication is released slowly over time. This extended release can provide longer-lasting relief from nausea and vomiting." }
       ],
       highlights: [
-        "Precision Tablet-in-Capsule engineering combining 20 mg EC + 10 mg IR + 20 mg SR",
-        "Predominantly non-enzymatic metabolism ensures consistent acid control across patient genotypes",
-        "Ideal for erosive esophagitis, refractory GERD, and hypersecretory acid conditions",
-        "10 × 10 institutional & retail blister presentation"
+        "Rabeprazole Sodium 20mg (EC) + Domperidone 10mg (IR) + Domperidone 20mg (SR) Capsules",
+        "Tablet in Capsule Technology",
+        "Get assured relief from GERD, Chronic Gastritis & Dyspepsia",
+        "The combination is prescribed for more effective management of GERD and other conditions where acid reflux, nausea and vomiting are significant symptoms",
+        "EC designed to dissolve in small intestine; IR released quickly; SR released slowly over time"
       ],
       indications: [
-        "GERD & Nocturnal Acid Reflux",
-        "Peptic Ulcers (Gastric & Duodenal) & Erosive Esophagitis",
-        "Chronic Gastritis & Dyspepsia",
-        "Nausea & Vomiting Associated with Acid Reflux",
+        "GERD",
+        "Acid Reflux",
+        "Peptic Ulcers",
+        "Dyspepsia",
+        "Nausea & Vomiting",
         "Zollinger-Ellison Syndrome"
       ],
-      dosage: "1 Capsule once daily before morning meal (swallow whole; do not open, chew, or crush), strictly under Medical Supervision.",
-      keywords: ["rabeprazole", "domperidone", "dsr", "rabtheta", "gerd", "reflux", "esophagitis", "ulcer", "gastritis", "zollinger", "vomiting", "acidity", "rx"]
+      dosage: "1 Capsule daily, preferably in the morning before breakfast, or as directed by the Physician.",
+      keywords: ["rabtheta dsr", "rabeprazole", "domperidone", "gerd", "acid reflux", "peptic ulcers", "dyspepsia", "nausea", "vomiting", "zollinger-ellison", "tablet in capsule"]
     },
 
     {
       id: "preimmune-aqua",
       name: "PRE IMMUNE AQUA",
-      shortTitle: "Bacillus Clausii Spores Oral Suspension (2 Billion Spores / 5 ml)",
-      genericSummary: "Bacillus clausii Spores 2 Billion per 5 ml Ready-to-Drink Oral Suspension",
+      shortTitle: "Bacillus Clausii Spores Suspension (Each 5ml oral suspension contains 2 billion spores)",
+      genericSummary: "Bacillus Clausii Spores 2 Billion / 5 ml Oral Suspension",
       category: "probiotic",
       secondaryCategories: ["gastro"],
-      classification: "Probiotic Oral Suspension",
+      classification: "Oral Probiotic Spore Suspension",
       rxRequired: false,
       sugarFree: true,
-      flavour: "Tasteless & Odorless Pure Aqua Suspension",
-      dosageForm: "Ready-to-Drink 5 ml Mini Suspension",
-      packSize: "5 ml Oral Mini-Suspension Vial",
-      technology: "Heat & Acid-Resistant Spore Probiotic",
-      techBadge: "2B SPORE PROBIOTIC",
-      accent: "#7c3aed",
-      accentSoft: "#f3e8ff",
+      flavour: "Tasteless Aqueous Suspension (Oral use only — DO NOT INJECT)",
+      dosageForm: "Oral Suspension Mini Bottle",
+      packSize: "10 × 5 ml Mini Bottles",
+      technology: "Gastric-Acid Resistant Spore Technology",
+      techBadge: "2 BILLION SPORES",
+      accent: "#16a34a",
+      accentSoft: "#dcfce7",
       image: "assets/products/preimmune-aqua.png",
-      taglineEn: "2 Billion acid-resistant Bacillus clausii spores in a tasteless ready-to-drink 5 ml vial for gut flora & immune defense.",
-      taglineHi: "दस्त, एंटीबायोटिक के साइड-इफेक्ट और पाचन सुधारने के लिए बिना स्वाद वाला 5 ml रेडी-टू-ड्रिंक प्रोबायोटिक सस्पेंशन (बच्चों और बड़ों दोनों के लिए आसान)।",
+      taglineEn: "The Best and Most Advanced PROBIOTIC — Preimmune Aqua is used to treat diarrhea caused due to infections, medicines, consumption of poisonous substances etc.",
+      taglineHi: "द बेस्ट एंड मोस्ट एडवांस्ड प्रोबायोटिक — संक्रमण, दवाओं या दूषित पदार्थों से होने वाले दस्त के उपचार के लिए।",
       easyGuide: {
-        whatIsItEn: "Antibiotics and stomach infections wipe out good gut bacteria, causing loose motions and weakness. PRE IMMUNE AQUA delivers 2 Billion resilient good probiotic spores in a water-like, tasteless 5 ml mini bottle that even fussy kids take effortlessly.",
-        whatIsItHi: "एंटीबायोटिक दवाओं या पेट के इन्फेक्शन से आंतों के अच्छे बैक्टीरिया खत्म हो जाते हैं जिससे दस्त लगते हैं। PRE IMMUNE AQUA में पानी जैसा बेस्वाद 5 ml लिक्विड होता है जिसे बच्चे और बड़े बिना किसी परेशानी के पी सकते हैं।",
-        whoIsItForEn: "Infants, children, adults, and elderly individuals experiencing loose motions (diarrhoea), taking antibiotics, recovering from stomach flu (gastroenteritis), or managing IBS/IBD.",
-        whoIsItForHi: "शिशुओं, बच्चों और बड़ों में दस्त (डायरिया), एंटीबायोटिक से होने वाले लूज़ मोशन, रोटावायरस इन्फेक्शन और कमज़ोर पाचन के लिए।",
-        keyPerksEn: ["Tasteless & odorless like plain water — zero fuss for children", "2 Billion heat- & acid-resistant Bacillus clausii spores", "Survives stomach acid to reach intestines alive", "Boosts protective IL-10 gut immunity & lactose digestion"],
-        keyPerksHi: ["बिल्कुल पानी जैसा बेस्वाद — बच्चों को पिलाना बेहद आसान", "2 बिलियन मज़बूत Bacillus clausii स्पोर्स", "पेट के एसिड में नष्ट हुए बिना सीधे आंतों तक पहुँचता है", "पाचन और आंतों की रोग-प्रतिरोधक क्षमता बढ़ाता है"]
+        whatIsItEn: "Preimmune Aqua is used to treat diarrhea caused due to infections, medicines, consumption of poisonous substances etc.",
+        whatIsItHi: "प्रीइम्यून एक्वा संक्रमण, एंटीबायोटिक दवाओं या विषाक्त पदार्थों के सेवन से होने वाले दस्त (डायरिया) के इलाज के लिए उपयोग किया जाता है।",
+        whoIsItForEn: "Antibiotic Induced Diarrhea, Acute Gastroenteritis, Rotaviral Diarrhoea, Acute Diarrhoea, and IBS / IBD.",
+        whoIsItForHi: "एंटीबायोटिक से होने वाले दस्त, एक्यूट गैस्ट्रोएंटेराइटिस, रोटावायरल डायरिया, तीव्र दस्त और आईबीएस / आईबीडी (IBS / IBD) में।",
+        keyPerksEn: [
+          "Suppresses pro-inflammatory Cytokines",
+          "Selectively stimulates the growth and activities of intestinal micro flora",
+          "Stimulates protective Cytokines like interleutin-10",
+          "Stimulates digestion of lactose in food",
+          "Strengthens the intestinal barrier function by maintaining natural balance of intestinal micro flora",
+          "Enhances digestion and intrinsic strength of immune system"
+        ],
+        keyPerksHi: [
+          "प्रो-इंफ्लेमेटरी साइटोकाइन्स को दबाकर आंतों की सूजन कम करता है",
+          "आंतों के लाभकारी मित्र बैक्टीरिया की वृद्धि और गतिविधियों को उत्तेजित करता है",
+          "सुरक्षात्मक साइटोकाइन्स (जैसे इंटरल्यूकिन-10) को सक्रिय करता है",
+          "भोजन में लैक्टोज के पाचन को आसान बनाता है",
+          "आंतों के प्राकृतिक संतुलन को बनाए रखकर आंतों की सुरक्षात्मक परत को मजबूत करता है",
+          "पाचन क्रिया और शरीर की प्रतिरक्षा प्रणाली (इम्युनिटी) की आंतरिक शक्ति को बढ़ाता है"
+        ]
       },
       composition: [
-        { ingredient: "Bacillus clausii Spores", detail: "Poly-antibiotic & gastric-acid resistant probiotic spores", strength: "2 Billion Spores", rda: "Per 5 ml Mini Vial" },
-        { ingredient: "Aqueous Vehicle", detail: "Purified tasteless, sugar-free oral suspension medium (Oral use only — DO NOT INJECT)", strength: "q.s. to 5 ml", rda: "Ready-to-Drink" }
+        { ingredient: "Bacillus clausii Spores", detail: "Gastric acid & antibiotic resistant probiotic spores", strength: "2 Billion Spores", rda: "Per 5 ml Mini Bottle" },
+        { ingredient: "Purified Aqueous Vehicle", detail: "Tasteless, sugar-free oral suspension medium (Oral use only — DO NOT INJECT)", strength: "q.s. to 5 ml", rda: "Oral Suspension" }
       ],
       mechanism: [
-        { step: "01", title: "Gastric Barrier Survival", desc: "Endospore shell protects Bacillus clausii through harsh gastric pH and bile salts without refrigeration dependency." },
-        { step: "02", title: "Microflora Restoration & Enzyme Support", desc: "Germinates in the intestine to restore commensal flora, produce B-vitamins, and aid digestion (including lactose breakdown)." },
-        { step: "03", title: "Mucosal Barrier & Cytokine Modulation", desc: "Strengthens tight-junction gut barrier, stimulates protective Interleukin-10 (IL-10), and downregulates pro-inflammatory cytokines." }
+        { step: "01", title: "Survival Through Gastric Barrier", desc: "Spore format protects Bacillus clausii against stomach acid and antibiotics, reaching the intestine intact." },
+        { step: "02", title: "Microflora Restoration", desc: "Selectively stimulates the growth and activities of intestinal micro flora and strengthens the intestinal barrier function." },
+        { step: "03", title: "Cytokine & Immune Modulation", desc: "Suppresses pro-inflammatory Cytokines, stimulates protective Cytokines like interleutin-10, and enhances digestion." }
       ],
       highlights: [
-        "Selectively stimulates healthy intestinal microflora even alongside oral antibiotic courses",
-        "Enhances enzymatic digestion (especially in lactose-sensitive individuals) & intrinsic mucosal immunity",
-        "Stimulates anti-inflammatory Interleukin-10 while suppressing pro-inflammatory gut cytokines",
-        "Convenient shake-twist-drink 5 ml oral mini vial (For Oral Administration Only)"
+        "The Best and Most Advanced PROBIOTIC",
+        "Preimmune Aqua is used to treat diarrhea caused due to infections, medicines, consumption of poisonous substances etc.",
+        "Globally Recommended In: Antibiotic Induced Diarrhea, Acute Gastroenteritis, Rotaviral Diarrhoea, Acute Diarrhoea, IBS / IBD",
+        "Suppresses pro-inflammatory Cytokines",
+        "Selectively stimulates the growth and activities of intestinal micro flora",
+        "Stimulates protective Cytokines like interleutin-10",
+        "Stimulates digestion of lactose in food",
+        "Strengthens the intestinal barrier function by maintaining natural balance of intestinal micro flora",
+        "Enhances digestion and intrinsic strength of immune system"
       ],
       indications: [
-        "Antibiotic-Induced Diarrhea (AAD)",
+        "Antibiotic Induced Diarrhea",
         "Acute Gastroenteritis",
-        "Rotaviral Diarrhoea in Pediatrics",
-        "Acute & Persistent Diarrhoea",
-        "Adjunctive Gut Flora Support in IBS / IBD"
+        "Rotaviral Diarrhoea",
+        "Acute Diarrhoea",
+        "IBS / IBD"
       ],
-      dosage: "Shake mini vial well, twist off cap, and drink directly (or mix with milk/water/juice at room temperature) as directed by the Pediatrician / Physician. For Oral Use Only.",
-      keywords: ["probiotic", "bacillus clausii", "spores", "diarrhea", "diarrhoea", "loose motion", "antibiotic", "gut", "kids", "pediatric", "ibs", "ibd", "preimmune", "aqua"]
+      dosage: "1 to 2 mini bottles daily or as directed by the Physician. Take orally. DO NOT INJECT. Shake well before drinking.",
+      keywords: ["preimmune aqua", "bacillus clausii", "probiotic", "diarrhea", "loose motion", "antibiotic diarrhea", "rotavirus", "gastroenteritis", "ibs", "ibd", "spores", "2 billion"]
     }
   ]
 };

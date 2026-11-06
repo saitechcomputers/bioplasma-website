@@ -4657,3 +4657,43 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 
+
+
+/* =====================================================================
+   STRICT CONTENT PROTECTION: DISABLE SELECTION & COPYING ON ALL PRODUCTS
+   ===================================================================== */
+.med-card,
+.med-card *,
+.medicines-grid,
+.medicines-grid *,
+.clinical-table-wrap,
+.clinical-table-wrap *,
+.modal-window,
+.modal-window *,
+#monographModalBackdrop,
+#monographModalBackdrop *,
+#monographModalBody,
+#monographModalBody *,
+#explorerMount,
+#explorerMount *,
+.needs-bento-grid,
+.needs-bento-grid *,
+.easy-patient-box,
+.easy-patient-box *,
+.monograph-hero,
+.monograph-hero * {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+.med-card ::selection,
+.modal-window ::selection,
+#monographModalBody ::selection,
+#explorerMount ::selection,
+.medicines-grid ::selection {
+  background: transparent !important;
+  color: inherit !important;
+}

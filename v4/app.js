@@ -1514,15 +1514,17 @@
   function renderPillars() {
     const pillarsMount = document.getElementById("pillarsEditorialMount");
     if (pillarsMount) {
-      const svgs = [
-        `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>`,
-        `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>`,
-        `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>`
+      const symbols = [
+        "assets/brand/emblem-symbol-1.png",
+        "assets/brand/emblem-symbol-2.png",
+        "assets/brand/emblem-symbol-3.png"
       ];
       pillarsMount.innerHTML = DATA.company.pillars.map((p, idx) => `
         <div class="pillar-card" style="--p-color:${p.color}">
           <div class="pillar-num-row">
-            <div class="pillar-icon-circle">${svgs[idx]}</div>
+            <div class="pillar-icon-circle">
+              <img src="${symbols[idx]}" alt="Symbol 0${idx + 1}" style="width:30px;height:30px;object-fit:contain;display:block;" />
+            </div>
             <span class="pillar-num">SYMBOL 0${idx + 1}</span>
           </div>
           <h3>${escapeHtml(t(p.titleEn, p.titleHi))}</h3>
@@ -2388,5 +2390,22 @@
     initCareersPage();
     syncLanguageUI();
     initSeamlessTransitions();
+    /* Strict Content Protection: Prevent selection, copying, and cut across all products & monographs */
+    ["selectstart", "copy", "cut"].forEach(evt => {
+      document.addEventListener(evt, e => {
+        if (e.target && e.target.closest && e.target.closest("#explorerMount, .med-card, #monographModalBackdrop, .modal-window, #monographModalBody, .clinical-table-wrap, .needs-bento-grid")) {
+          e.preventDefault();
+          return false;
+        }
+      }, true);
+    });
+    document.addEventListener("contextmenu", e => {
+      if (e.target && e.target.closest && e.target.closest("#explorerMount, .med-card, #monographModalBackdrop, .modal-window, #monographModalBody, .clinical-table-wrap")) {
+        if (!e.target.closest("button, a, input, select")) {
+          e.preventDefault();
+        }
+      }
+    }, true);
+
   });
 })();
