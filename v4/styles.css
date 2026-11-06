@@ -3904,7 +3904,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  padding: 9px 22px 9px 18px;
+  padding: 8px 18px 8px 18px;
   border-radius: 999px;
   background: linear-gradient(135deg, rgba(7, 20, 40, 0.95) 0%, rgba(12, 34, 66, 0.93) 100%);
   border: 1px solid rgba(255, 255, 255, 0.22);
@@ -3914,7 +3914,6 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
     0 16px 38px -10px rgba(4, 12, 24, 0.58),
     0 0 0 1px rgba(213, 43, 30, 0.18) inset;
   color: #FFFFFF;
-  cursor: pointer;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -3949,6 +3948,21 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   transform: translate3d(0, -1px, 0) scale(1.02);
 }
 
+.bio-float-pill-brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.bio-float-pill-brand:hover {
+  opacity: 0.92;
+  transform: scale(1.02);
+}
+
 .bio-float-pill-logo {
   height: 42px;
   width: auto;
@@ -3968,26 +3982,40 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
-  width: 22px;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  margin: -4px -6px -4px -2px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.bio-float-pill-burger:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .bio-float-pill-burger i {
   display: block;
   height: 2px;
-  width: 100%;
+  width: 20px;
   border-radius: 2px;
   background: #FFFFFF;
   transition: transform 0.22s ease, width 0.22s ease, background-color 0.22s ease;
 }
 
 .bio-float-pill-burger i:nth-child(2) {
-  width: 78%;
+  width: 14px;
   background: #FCA5A5;
 }
 
-.bio-float-pill:hover .bio-float-pill-burger i:nth-child(2) {
-  width: 100%;
+.bio-float-pill:hover .bio-float-pill-burger i:nth-child(2),
+.bio-float-pill-burger:hover i:nth-child(2) {
+  width: 20px;
   background: #38BDF8;
 }
 
@@ -4045,6 +4073,11 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   visibility: visible;
   pointer-events: auto;
   transform: translate3d(-50%, 0, 0) scale(1);
+}
+
+.bio-cmd-panel.is-opening,
+.bio-cmd-panel.is-opening * {
+  pointer-events: none !important;
 }
 
 .bio-cmd-glow {
@@ -4355,11 +4388,25 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   .bio-float-pill {
     top: 12px;
     left: 14px;
-    padding: 7px 16px 7px 14px;
+    padding: 6px 14px 6px 12px;
     gap: 10px;
   }
   .bio-float-pill-logo {
     height: 34px;
+  }
+  .bio-float-pill-burger {
+    width: 30px;
+    height: 30px;
+  }
+  .bio-float-pill-burger i {
+    width: 18px;
+  }
+  .bio-float-pill-burger i:nth-child(2) {
+    width: 12px;
+  }
+  .bio-float-pill:hover .bio-float-pill-burger i:nth-child(2),
+  .bio-float-pill-burger:hover i:nth-child(2) {
+    width: 18px;
   }
   .bio-cmd-panel {
     top: 10px;

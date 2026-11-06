@@ -405,22 +405,32 @@
     progTrack.innerHTML = `<div class="bio-scroll-progress-fill" id="bioScrollProgressFill"></div>`;
     document.body.appendChild(progTrack);
 
-    // 2. Compact Top-Left Floating Bioplasma Logo Pill (Appears when Top Header Hides on Scroll)
-    const pillBtn = document.createElement("button");
-    pillBtn.type = "button";
-    pillBtn.id = "bioplasmaFloatPill";
-    pillBtn.className = "bio-float-pill";
-    pillBtn.setAttribute("aria-label", "Open LV Bioplasma Navigation Menu");
-    pillBtn.setAttribute("aria-expanded", "false");
-    pillBtn.setAttribute("aria-controls", "bioplasmaCommandMenu");
-    pillBtn.innerHTML = `
-      <img src="assets/brand/logo-footer-light.png" alt="LV Bioplasma" class="bio-float-pill-logo" />
+    // 2. Compact Top-Left Floating Bioplasma Logo Capsule Pill (Appears when Top Header Hides on Scroll)
+    const pillEl = document.createElement("div");
+    pillEl.id = "bioplasmaFloatPill";
+    pillEl.className = "bio-float-pill";
+    pillEl.setAttribute("role", "region");
+    pillEl.setAttribute("aria-label", "LV Bioplasma Quick Navigation");
+    pillEl.innerHTML = `
+      <a href="index.html" class="bio-float-pill-brand" aria-label="LV Bioplasma Home">
+        <img src="assets/brand/logo-footer-light.png" alt="LV Bioplasma" class="bio-float-pill-logo" />
+      </a>
       <span class="bio-float-pill-sep" aria-hidden="true"></span>
-      <span class="bio-float-pill-burger" aria-hidden="true">
+      <button type="button" class="bio-float-pill-burger" id="bioFloatPillBurger" aria-label="Open LV Bioplasma Navigation Menu" aria-expanded="false" aria-controls="bioplasmaCommandMenu">
         <i></i><i></i><i></i>
-      </span>
+      </button>
     `;
-    document.body.appendChild(pillBtn);
+    document.body.appendChild(pillEl);
+
+    const pillBrandLink = pillEl.querySelector(".bio-float-pill-brand");
+    const burgerBtn = pillEl.querySelector("#bioFloatPillBurger");
+
+    pillBrandLink?.addEventListener("click", (e) => {
+      if (getCurrentPageFilename() === "index.html") {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
 
     // 3. Backdrop + Bespoke LV Bioplasma Floating Command Panel
     const backdrop = document.createElement("div");
@@ -488,8 +498,6 @@
     document.body.appendChild(panel);
 
     let cmdOpen = false;
-    let hoverOpenTimer = null;
-    let hoverCloseTimer = null;
     const hasFinePointer = () => window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
     function renderCmdShowcase(idx) {
@@ -542,16 +550,24 @@
       renderCmdShowcase(activeIdx);
     }
 
+    let lastOpenedAt = 0;
+
     function openCommandMenu() {
-      clearTimeout(hoverCloseTimer);
       if (cmdOpen) return;
       cmdOpen = true;
+      lastOpenedAt = Date.now();
       syncActivePageInCmd();
       panel.classList.add("is-open");
+      panel.classList.add("is-opening");
       panel.setAttribute("aria-hidden", "false");
       backdrop.classList.add("is-open");
-      pillBtn.classList.add("is-menu-open");
-      pillBtn.setAttribute("aria-expanded", "true");
+      pillEl.classList.add("is-menu-open");
+      if (burgerBtn) burgerBtn.setAttribute("aria-expanded", "true");
+
+      setTimeout(() => {
+        panel.classList.remove("is-opening");
+      }, 420);
+
       const vidEl = document.getElementById("bioCmdFeatureVideo");
       if (vidEl && !prefersReducedMotion) {
         vidEl.muted = true;
@@ -560,15 +576,14 @@
     }
 
     function closeCommandMenu() {
-      clearTimeout(hoverOpenTimer);
-      clearTimeout(hoverCloseTimer);
       if (!cmdOpen) return;
       cmdOpen = false;
       panel.classList.remove("is-open");
+      panel.classList.remove("is-opening");
       panel.setAttribute("aria-hidden", "true");
       backdrop.classList.remove("is-open");
-      pillBtn.classList.remove("is-menu-open");
-      pillBtn.setAttribute("aria-expanded", "false");
+      pillEl.classList.remove("is-menu-open");
+      if (burgerBtn) burgerBtn.setAttribute("aria-expanded", "false");
       const vidEl = document.getElementById("bioCmdFeatureVideo");
       if (vidEl) vidEl.pause();
     }
@@ -576,34 +591,21 @@
     closeCommandMenuFn = closeCommandMenu;
     syncCommandMenuActiveFn = syncActivePageInCmd;
 
-    // Click & Hover interactions on Bioplasma Pill & Command Panel
-    pillBtn.addEventListener("click", (e) => {
+    // Toggle menu exclusively on click of burger or pill area (no jarring hover-open)
+    burgerBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
       e.stopPropagation();
       if (cmdOpen) closeCommandMenu();
       else openCommandMenu();
     });
 
-    pillBtn.addEventListener("mouseenter", () => {
-      if (!hasFinePointer()) return;
-      clearTimeout(hoverCloseTimer);
-      hoverOpenTimer = setTimeout(openCommandMenu, 75);
-    });
-
-    pillBtn.addEventListener("mouseleave", () => {
-      if (!hasFinePointer()) return;
-      clearTimeout(hoverOpenTimer);
-      hoverCloseTimer = setTimeout(closeCommandMenu, 260);
-    });
-
-    panel.addEventListener("mouseenter", () => {
-      if (!hasFinePointer()) return;
-      clearTimeout(hoverCloseTimer);
-    });
-
-    panel.addEventListener("mouseleave", () => {
-      if (!hasFinePointer()) return;
-      clearTimeout(hoverCloseTimer);
-      hoverCloseTimer = setTimeout(closeCommandMenu, 240);
+    pillEl.addEventListener("click", (e) => {
+      // If user clicked the brand logo link, allow normal navigation
+      if (e.target.closest(".bio-float-pill-brand")) return;
+      e.preventDefault();
+      e.stopPropagation();
+      if (cmdOpen) closeCommandMenu();
+      else openCommandMenu();
     });
 
     // Hovering any of the 6 headings dynamically updates showcase preview
@@ -613,14 +615,35 @@
       lnk.addEventListener("focus", () => renderCmdShowcase(idx));
     });
 
-    // Close on X button, backdrop click, or clicking any nav link inside panel
+    // Close on X button or backdrop click
     document.getElementById("bioCmdCloseBtn")?.addEventListener("click", closeCommandMenu);
     backdrop.addEventListener("click", closeCommandMenu);
+
+    // Capture phase event listener on command panel to completely block accidental ghost clicks
     panel.addEventListener("click", (e) => {
+      // 1. Guard against ghost clicks or accidental clicks while opening
+      if (Date.now() - lastOpenedAt < 420) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+
+      // 2. If user intentionally clicked brand logo inside open command menu
+      const brandTarget = e.target.closest(".bio-cmd-brand");
+      if (brandTarget) {
+        closeCommandMenu();
+        if (getCurrentPageFilename() === "index.html") {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        return;
+      }
+
+      // 3. Normal navigation links or search trigger
       if (e.target.closest("[data-cmd-nav]") || e.target.closest("[data-open-quick-search]")) {
         closeCommandMenu();
       }
-    });
+    }, true);
 
     // Scroll Progress + Top Header Collapse Engine
     const header = document.getElementById("siteHeader");
@@ -643,7 +666,7 @@
           document.getElementById("mobileNavDrawer")?.classList.remove("open");
         }
       }
-      pillBtn.classList.toggle("is-visible", collapseHeader);
+      pillEl.classList.toggle("is-visible", collapseHeader);
 
       if (!collapseHeader && cmdOpen) {
         closeCommandMenu();
