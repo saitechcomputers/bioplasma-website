@@ -339,7 +339,7 @@
       cardSub: "Working with Nature Through Bio-Technology for a Healthy Life",
       videoSrc: "assets/video/hero-human-life.mp4",
       quickLinks: [
-        { label: "9 Formulations", href: "products.html" },
+        { label: "Formulations", href: "products.html" },
         { label: "Delivery Science", href: "science.html" }
       ]
     },
@@ -360,15 +360,15 @@
     {
       href: "products.html",
       label: "Products",
-      eyebrow: "Complete 9-Medicine Formulary",
+      eyebrow: "Complete Medicine Formulary",
       title: "Evidence-backed medicines across 5 specialties.",
-      desc: "Click any product below to inspect its clinical monograph, or open the interactive formulary to filter & compare all 9 formulations.",
-      cardTitle: "Complete Formulary (9)",
+      desc: "Click any product below to inspect its clinical monograph, or open the interactive formulary to filter & compare all formulations.",
+      cardTitle: "Complete Formulary",
       cardSub: "AADIRISE D3 • BIOIPC • ADENOCAL-K2 • PANTHETA DSR & MORE",
       videoSrc: "assets/video/hero-capsule-gmp.mp4",
       quickLinks: [
         ...(DATA.medicines || []).map((m) => ({ label: m.name, medId: m.id })),
-        { label: "View All 9 Formulations", href: "products.html", isPrimary: true }
+        { label: "View All Formulations", href: "products.html", isPrimary: true }
       ]
     },
     {
@@ -715,81 +715,13 @@
     window.addEventListener("resize", updateScrollState, { passive: true });
   }
 
-  function injectProductsMegaMenu() {
-    const prodLink = document.querySelector('.primary-nav a.nav-link[href^="products.html"]');
-    if (!prodLink) return;
-    const navItem = prodLink.closest(".nav-item");
-    if (!navItem || navItem.querySelector(".mega-dropdown")) return;
-
-    navItem.classList.add("has-mega-menu");
-    if (!prodLink.querySelector(".nav-caret-svg")) {
-      prodLink.insertAdjacentHTML(
-        "beforeend",
-        `<svg class="nav-caret-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" style="margin-left:3px;opacity:0.82;"><polyline points="6 9 12 15 18 9"/></svg>`
-      );
-    }
-
-    const divColors = {
-      gastro: "#0284C7",
-      bone: "#F59E0B",
-      womens: "#E11D48",
-      iron: "#DC2626",
-      gut: "#7C3AED"
-    };
-
-    const divHtml = DIVISIONS_META.map((d) => `
-      <a href="products.html?category=${encodeURIComponent(d.id)}" class="mega-div-link">
-        <span class="mega-dot" style="background:${divColors[d.id] || "#D52B1E"}"></span>
-        <div>
-          <strong>${escapeHtml(d.titleEn)}</strong>
-          <span>${d.medIds.length} Specialized Formulation${d.medIds.length > 1 ? "s" : ""}</span>
-        </div>
-      </a>
-    `).join("");
-
-    const medPillsHtml = (DATA.medicines || []).map((m) => `
-      <button type="button" class="mega-med-pill" data-open-med="${escapeHtml(m.id)}">
-        ${escapeHtml(m.name)}
-      </button>
-    `).join("");
-
-    const megaEl = document.createElement("div");
-    megaEl.className = "mega-dropdown";
-    megaEl.setAttribute("aria-label", "Products Formulary Quick Menu");
-    megaEl.innerHTML = `
-      <div class="mega-grid">
-        <div>
-          <div class="mega-col-title">5 Therapeutic Divisions</div>
-          <div class="mega-div-list">${divHtml}</div>
-        </div>
-        <div class="mega-QuickMeds">
-          <div>
-            <div class="mega-col-title">All 9 Products (Click to Inspect)</div>
-            <div class="mega-med-pills">${medPillsHtml}</div>
-          </div>
-          <a href="products.html" class="btn btn-crimson btn-sm" style="width:100%;justify-content:center;">
-            Open Full 9-Medicine Formulary →
-          </a>
-        </div>
-      </div>
-    `;
-    navItem.appendChild(megaEl);
-
-    // Close mega dropdown cleanly when any link/button inside is clicked
-    megaEl.addEventListener("click", () => {
-      megaEl.classList.add("force-hide");
-      setTimeout(() => megaEl.classList.remove("force-hide"), 350);
-    });
-  }
-
   /* ---------- Sticky / Transparent-to-Solid Header & Nav ---------- */
   function initHeaderAndNav() {
     try {
       localStorage.removeItem("bioplasma_v4_lang");
     } catch (_) {}
 
-    injectProductsMegaMenu();
-    initLillyScrollNav();
+        initLillyScrollNav();
 
     const mobToggle = document.getElementById("mobileMenuToggle");
     const mobDrawer = document.getElementById("mobileNavDrawer");
@@ -1486,8 +1418,8 @@
     if (statusStrip && statusText) {
       statusStrip.classList.toggle("visible", Boolean(isFiltered));
       statusText.textContent = t(
-        `Showing ${filtered.length} of ${DATA.medicines.length} LV Bioplasma formulations`,
-        `कुल ${DATA.medicines.length} में से ${filtered.length} दवाइयाँ दिखाई जा रही हैं`
+        `Showing ${filtered.length} LV Bioplasma formulations`,
+        `${filtered.length} दवाइयाँ दिखाई जा रही हैं`
       );
     }
 
@@ -1495,7 +1427,7 @@
       gridMount.innerHTML = `
         <div style="text-align:center;padding:56px 20px;background:var(--surface);border-radius:var(--radius-lg);border:1px solid var(--line-strong);">
           <h3 style="font-size:1.25rem;margin-bottom:8px;">${t("No matching formulations found", "कोई मिलान वाली दवाई नहीं मिली")}</h3>
-          <p style="color:var(--ink-muted);margin-bottom:18px;">${t("Try clearing your search term or resetting active filters to view all 9 LV Bioplasma medicines.", "सभी 9 LV बायोप्लाज्मा दवाइयाँ देखने के लिए फ़िल्टर रीसेट करें।")}</p>
+          <p style="color:var(--ink-muted);margin-bottom:18px;">${t("Try clearing your search term or resetting active filters to view all LV Bioplasma medicines.", "सभी LV बायोप्लाज्मा दवाइयाँ देखने के लिए फ़िल्टर रीसेट करें।")}</p>
         </div>
       `;
       return;
@@ -2039,7 +1971,7 @@
       const city = document.getElementById("enqCity")?.value.trim() || "";
       const email = document.getElementById("enqEmail")?.value.trim() || "Not provided";
       const msg = document.getElementById("enqMessage")?.value.trim() || "Please share literature and partnership details.";
-      const selectedNames = Array.from(state.selectedEnquiryMeds).map((id) => getMedById(id).name).join(", ") || "Full 9-Product Portfolio";
+      const selectedNames = Array.from(state.selectedEnquiryMeds).map((id) => getMedById(id).name).join(", ") || "Full Product Portfolio";
 
       const subject = `[LV Bioplasma Enquiry] ${role} — ${name} (${city})`;
       const body = [

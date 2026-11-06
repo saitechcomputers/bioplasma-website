@@ -1,6 +1,6 @@
 /**
  * LV Bioplasma Biologicals Private Limited — Verified Product & Corporate Dataset
- * Source: Official Clinical Formulations & Carton Specifications (All 9 Formulations)
+ * Source: Official Clinical Formulations & Carton Specifications (Specialized Formulations)
  */
 window.BIOPLASMA_DATA = {
   company: {
@@ -45,7 +45,7 @@ window.BIOPLASMA_DATA = {
   },
 
   categories: [
-    { id: "all", labelEn: "All Medicines (9)", labelHi: "सभी दवाइयाँ (9)", icon: "grid" },
+    { id: "all", labelEn: "All Medicines", labelHi: "सभी दवाइयाँ", icon: "grid" },
     { id: "gastro", labelEn: "Gastro & Acid Care", labelHi: "गैस, एसिडिटी और पेट", icon: "stomach" },
     { id: "bone", labelEn: "Bone, Calcium & Vit D3", labelHi: "हड्डियाँ, कैल्शियम और विटामिन D3", icon: "bone" },
     { id: "womens", labelEn: "Women's & Maternal Care", labelHi: "महिला एवं गर्भावस्था देखभाल", icon: "heart" },
