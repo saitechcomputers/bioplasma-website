@@ -149,7 +149,7 @@
     },
     {
       num: "05",
-      videoSrc: "assets/video/hero-careers.mp4",
+      videoSrc: "assets/video/hero-careers.mp4?v=2",
       tabTitleEn: "Careers",
       tabTitleHi: "करियर व अवसर",
       tabSubEn: "Grow with 8000 Cores Group",
@@ -362,13 +362,13 @@
       label: "Products",
       eyebrow: "Complete 9-Medicine Formulary",
       title: "Evidence-backed medicines across 5 specialties.",
-      desc: "Browse, filter, and compare all 9 formulations across Gastroenterology, Bone & D3, Gynecology, Liposomal Anemia Care, and Spore Probiotics.",
-      cardTitle: "Complete Formulary",
+      desc: "Click any product below to inspect its clinical monograph, or open the interactive formulary to filter & compare all 9 formulations.",
+      cardTitle: "Complete Formulary (9)",
       cardSub: "AADIRISE D3 • BIOIPC • ADENOCAL-K2 • PANTHETA DSR & MORE",
       videoSrc: "assets/video/hero-capsule-gmp.mp4",
       quickLinks: [
-        { label: "All 9 Medicines", href: "products.html" },
-        { label: "Compare Formulations", href: "products.html#medicinesExplorerSection" }
+        ...(DATA.medicines || []).map((m) => ({ label: m.name, medId: m.id })),
+        { label: "View All 9 Formulations", href: "products.html", isPrimary: true }
       ]
     },
     {
@@ -393,7 +393,7 @@
       desc: "Join LV Bioplasma across Field Sales, Product Management (PMT), Quality Assurance, and Corporate Operations at Gurugram NCR & pan-India.",
       cardTitle: "Careers & Open Roles",
       cardSub: "Merit-based growth • Apply online with your CV",
-      videoSrc: "assets/video/hero-careers.mp4",
+      videoSrc: "assets/video/hero-careers.mp4?v=2",
       quickLinks: [
         { label: "Open Positions", href: "careers.html#openings" },
         { label: "Quick Apply", href: "careers.html#applyFormSection" }
@@ -435,15 +435,16 @@
     progTrack.innerHTML = `<div class="bio-scroll-progress-fill" id="bioScrollProgressFill"></div>`;
     document.body.appendChild(progTrack);
 
-    // 2. Compact Top-Left Floating Bioplasma Logo Capsule Pill (Appears when Top Header Hides on Scroll)
+    // 2. Signature Top-Center Floating Bioplasma Logo Capsule Island (Appears when Top Header Hides on Scroll)
     const pillEl = document.createElement("div");
     pillEl.id = "bioplasmaFloatPill";
     pillEl.className = "bio-float-pill";
     pillEl.setAttribute("role", "region");
     pillEl.setAttribute("aria-label", "LV Bioplasma Quick Navigation");
     pillEl.innerHTML = `
+      <span class="bio-float-pill-aura" aria-hidden="true"></span>
       <a href="index.html" class="bio-float-pill-brand" aria-label="LV Bioplasma Home">
-        <img src="assets/brand/logo-footer-light.png" alt="LV Bioplasma" class="bio-float-pill-logo" />
+        <img src="assets/brand/logo-footer-light.png?v=3" alt="LV Bioplasma" class="bio-float-pill-logo" />
       </a>
       <span class="bio-float-pill-sep" aria-hidden="true"></span>
       <button type="button" class="bio-float-pill-burger" id="bioFloatPillBurger" aria-label="Open LV Bioplasma Navigation Menu" aria-expanded="false" aria-controls="bioplasmaCommandMenu">
@@ -477,7 +478,7 @@
       <div class="bio-cmd-glow" aria-hidden="true"></div>
       <div class="bio-cmd-top">
         <a href="index.html" class="bio-cmd-brand" data-cmd-nav>
-          <img src="assets/brand/logo-footer-light.png" alt="LV Bioplasma Biologicals Private Limited" />
+          <img src="assets/brand/logo-footer-light.png?v=3" alt="LV Bioplasma Biologicals Private Limited" />
         </a>
 
         <nav class="bio-cmd-nav" aria-label="Floating Primary Navigation">
@@ -549,9 +550,13 @@
       if (cardSubEl) cardSubEl.textContent = item.cardSub;
 
       if (chipsEl) {
-        chipsEl.innerHTML = (item.quickLinks || []).map(q =>
-          `<a href="${q.href}" class="bio-cmd-chip" data-cmd-nav>${escapeHtml(q.label)} →</a>`
-        ).join("");
+        chipsEl.innerHTML = (item.quickLinks || []).map((q) => {
+          if (q.medId) {
+            return `<button type="button" class="bio-cmd-chip bio-cmd-med-chip" data-open-med="${escapeHtml(q.medId)}">${escapeHtml(q.label)}</button>`;
+          }
+          const extraCls = q.isPrimary ? " bio-cmd-chip-primary" : "";
+          return `<a href="${q.href}" class="bio-cmd-chip${extraCls}" data-cmd-nav>${escapeHtml(q.label)} →</a>`;
+        }).join("");
       }
 
       if (vidEl) {
@@ -669,8 +674,8 @@
         return;
       }
 
-      // 3. Normal navigation links or search trigger
-      if (e.target.closest("[data-cmd-nav]") || e.target.closest("[data-open-quick-search]")) {
+      // 3. Normal navigation links, monograph product chips, or search trigger
+      if (e.target.closest("[data-cmd-nav]") || e.target.closest("[data-open-quick-search]") || e.target.closest("[data-open-med]")) {
         closeCommandMenu();
       }
     }, true);
@@ -710,12 +715,80 @@
     window.addEventListener("resize", updateScrollState, { passive: true });
   }
 
+  function injectProductsMegaMenu() {
+    const prodLink = document.querySelector('.primary-nav a.nav-link[href^="products.html"]');
+    if (!prodLink) return;
+    const navItem = prodLink.closest(".nav-item");
+    if (!navItem || navItem.querySelector(".mega-dropdown")) return;
+
+    navItem.classList.add("has-mega-menu");
+    if (!prodLink.querySelector(".nav-caret-svg")) {
+      prodLink.insertAdjacentHTML(
+        "beforeend",
+        `<svg class="nav-caret-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" style="margin-left:3px;opacity:0.82;"><polyline points="6 9 12 15 18 9"/></svg>`
+      );
+    }
+
+    const divColors = {
+      gastro: "#0284C7",
+      bone: "#F59E0B",
+      womens: "#E11D48",
+      iron: "#DC2626",
+      gut: "#7C3AED"
+    };
+
+    const divHtml = DIVISIONS_META.map((d) => `
+      <a href="products.html?category=${encodeURIComponent(d.id)}" class="mega-div-link">
+        <span class="mega-dot" style="background:${divColors[d.id] || "#D52B1E"}"></span>
+        <div>
+          <strong>${escapeHtml(d.titleEn)}</strong>
+          <span>${d.medIds.length} Specialized Formulation${d.medIds.length > 1 ? "s" : ""}</span>
+        </div>
+      </a>
+    `).join("");
+
+    const medPillsHtml = (DATA.medicines || []).map((m) => `
+      <button type="button" class="mega-med-pill" data-open-med="${escapeHtml(m.id)}">
+        ${escapeHtml(m.name)}
+      </button>
+    `).join("");
+
+    const megaEl = document.createElement("div");
+    megaEl.className = "mega-dropdown";
+    megaEl.setAttribute("aria-label", "Products Formulary Quick Menu");
+    megaEl.innerHTML = `
+      <div class="mega-grid">
+        <div>
+          <div class="mega-col-title">5 Therapeutic Divisions</div>
+          <div class="mega-div-list">${divHtml}</div>
+        </div>
+        <div class="mega-QuickMeds">
+          <div>
+            <div class="mega-col-title">All 9 Products (Click to Inspect)</div>
+            <div class="mega-med-pills">${medPillsHtml}</div>
+          </div>
+          <a href="products.html" class="btn btn-crimson btn-sm" style="width:100%;justify-content:center;">
+            Open Full 9-Medicine Formulary →
+          </a>
+        </div>
+      </div>
+    `;
+    navItem.appendChild(megaEl);
+
+    // Close mega dropdown cleanly when any link/button inside is clicked
+    megaEl.addEventListener("click", () => {
+      megaEl.classList.add("force-hide");
+      setTimeout(() => megaEl.classList.remove("force-hide"), 350);
+    });
+  }
+
   /* ---------- Sticky / Transparent-to-Solid Header & Nav ---------- */
   function initHeaderAndNav() {
     try {
       localStorage.removeItem("bioplasma_v4_lang");
     } catch (_) {}
 
+    injectProductsMegaMenu();
     initLillyScrollNav();
 
     const mobToggle = document.getElementById("mobileMenuToggle");
@@ -2040,8 +2113,8 @@
     const need = params.get("need");
     const openMed = params.get("open");
 
-    if (cat) state.category = cat;
-    if (need) state.quickNeedId = need;
+    state.category = cat || "all";
+    state.quickNeedId = need || null;
     if (openMed && DATA.medicines.some((m) => m.id === openMed)) {
       setTimeout(() => openMonographModal(openMed), 180);
     }

@@ -463,24 +463,35 @@ ul, ol {
 /* Mega Dropdown (Merck / Lilly style) */
 .mega-dropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%) translateY(8px);
-  width: 680px;
-  background: var(--surface);
-  border: 1px solid var(--line-strong);
+  width: min(720px, calc(100vw - 32px));
+  background: #FFFFFF !important;
+  color: var(--ink) !important;
+  border: 1px solid rgba(11, 37, 69, 0.14);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 28px 64px -14px rgba(7, 19, 36, 0.34);
   padding: 24px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.22s ease, transform 0.22s var(--ease-out), visibility 0.22s;
-  z-index: 120;
+  z-index: 260;
+  text-align: left;
 }
 
-.nav-item:hover .mega-dropdown,
-.nav-item:focus-within .mega-dropdown {
+.mega-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 16px;
+}
+
+.nav-item:hover .mega-dropdown:not(.force-hide),
+.nav-item:focus-within .mega-dropdown:not(.force-hide) {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -1641,6 +1652,43 @@ ul, ol {
 
 .filter-status-strip.visible {
   display: flex;
+}
+
+/* Distinct Clinical Glacial-Sapphire Backdrop for 9-Medicine Explorer */
+#medicinesExplorerSection {
+  position: relative;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(2, 132, 199, 0.14) 0%, transparent 42%),
+    radial-gradient(circle at 90% 16%, rgba(213, 43, 30, 0.08) 0%, transparent 38%),
+    radial-gradient(circle at 50% 92%, rgba(16, 185, 129, 0.09) 0%, transparent 44%),
+    linear-gradient(180deg, #DCE9F7 0%, #E7F1FC 48%, #D8E6F5 100%);
+  border-top: 1px solid rgba(15, 76, 129, 0.14);
+  border-bottom: 1px solid rgba(15, 76, 129, 0.14);
+}
+
+#medicinesExplorerSection .explorer-toolbar {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(15, 76, 129, 0.16);
+  box-shadow: 0 14px 34px -14px rgba(11, 37, 69, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+#medicinesExplorerSection .med-card {
+  background: #FFFFFF;
+  border-color: rgba(15, 76, 129, 0.14);
+  box-shadow: 0 14px 32px -12px rgba(11, 37, 69, 0.12);
+}
+
+#medicinesExplorerSection .med-card:hover {
+  box-shadow: 0 22px 46px -12px rgba(11, 37, 69, 0.22);
+}
+
+/* Permanently hide video pause buttons across all pages */
+.bio-pause-toggle,
+.lilly-pause-toggle,
+#subpageVideoToggleBtn,
+#heroVideoToggleBtn {
+  display: none !important;
 }
 
 /* 9 Medicine Cards Grid */
@@ -3914,60 +3962,126 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   pointer-events: none !important;
 }
 
-/* Compact Top-Left Floating Bioplasma Logo Capsule Pill */
+/* Signature Top-Center Floating Bioplasma Logo Island with Animated Aura & Glass Sheen */
+@keyframes bioPillAura {
+  0%, 100% {
+    opacity: 0.72;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes bioPillSheen {
+  0%, 18% {
+    transform: translateX(-140%) skewX(-22deg);
+    opacity: 0;
+  }
+  26% {
+    opacity: 0.85;
+  }
+  44% {
+    transform: translateX(240%) skewX(-22deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(240%) skewX(-22deg);
+    opacity: 0;
+  }
+}
+
 .bio-float-pill {
   position: fixed;
-  top: 18px;
-  left: clamp(16px, 3vw, 40px);
+  top: 16px;
+  left: 50%;
+  right: auto;
   z-index: 245;
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  padding: 8px 18px 8px 18px;
+  gap: 18px;
+  padding: 11px 26px 11px 24px;
   border-radius: 999px;
-  background: linear-gradient(135deg, rgba(7, 20, 40, 0.95) 0%, rgba(12, 34, 66, 0.93) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(18px) saturate(145%);
-  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  border: 2px solid transparent;
+  background:
+    linear-gradient(135deg, rgba(6, 18, 36, 0.96) 0%, rgba(12, 35, 68, 0.95) 55%, rgba(8, 24, 48, 0.96) 100%) padding-box,
+    linear-gradient(120deg, #FF3B30 0%, #38BDF8 38%, #10B981 70%, #FF3B30 100%) border-box;
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
   box-shadow:
-    0 16px 38px -10px rgba(4, 12, 24, 0.58),
-    0 0 0 1px rgba(213, 43, 30, 0.18) inset;
+    0 22px 50px -10px rgba(4, 12, 24, 0.72),
+    0 0 26px rgba(56, 189, 248, 0.26),
+    0 0 18px rgba(213, 43, 30, 0.24),
+    0 1px 0 rgba(255, 255, 255, 0.22) inset;
   color: #FFFFFF;
+  overflow: hidden;
+  isolation: isolate;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translate3d(-18px, -12px, 0) scale(0.92);
+  transform: translate3d(-50%, -22px, 0) scale(0.92);
   transition:
     opacity 0.34s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
     visibility 0.34s ease,
-    border-color 0.22s ease,
-    box-shadow 0.24s ease;
+    box-shadow 0.26s ease;
+}
+
+.bio-float-pill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 44%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: bioPillSheen 5.5s ease-in-out infinite;
+}
+
+.bio-float-pill-aura {
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 25% 50%, rgba(213, 43, 30, 0.22), transparent 60%),
+              radial-gradient(circle at 80% 50%, rgba(56, 189, 248, 0.24), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+  animation: bioPillAura 3.6s ease-in-out infinite;
 }
 
 .bio-float-pill.is-visible {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(-50%, 0, 0) scale(1);
 }
 
 .bio-float-pill.is-menu-open {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translate3d(0, -6px, 0) scale(0.96);
+  transform: translate3d(-50%, -8px, 0) scale(0.96);
 }
 
 .bio-float-pill:hover {
-  border-color: rgba(255, 255, 255, 0.46);
   box-shadow:
-    0 20px 44px -10px rgba(4, 12, 24, 0.72),
-    0 0 22px rgba(213, 43, 30, 0.32);
-  transform: translate3d(0, -1px, 0) scale(1.02);
+    0 26px 58px -10px rgba(4, 12, 24, 0.82),
+    0 0 34px rgba(56, 189, 248, 0.44),
+    0 0 26px rgba(213, 43, 30, 0.38);
+  transform: translate3d(-50%, -2px, 0) scale(1.035);
 }
 
 .bio-float-pill-brand {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -3978,64 +4092,72 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 .bio-float-pill-brand:hover {
-  opacity: 0.92;
+  opacity: 0.95;
   transform: scale(1.02);
 }
 
 .bio-float-pill-logo {
-  height: 42px;
+  height: 58px;
   width: auto;
+  max-width: 250px;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.42));
 }
 
 .bio-float-pill-sep {
-  width: 1px;
-  height: 24px;
-  background: rgba(255, 255, 255, 0.22);
+  position: relative;
+  z-index: 2;
+  width: 1.5px;
+  height: 36px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.38), transparent);
   flex-shrink: 0;
 }
 
 .bio-float-pill-burger {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-  width: 34px;
-  height: 34px;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
   padding: 0;
-  margin: -4px -6px -4px -2px;
-  background: transparent;
-  border: none;
+  margin: -2px -6px -2px 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  border-radius: 50%;
+  transition: background-color 0.22s ease, border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
 }
 
 .bio-float-pill-burger:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(213, 43, 30, 0.88);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 18px rgba(213, 43, 30, 0.55);
+  transform: scale(1.06);
 }
 
 .bio-float-pill-burger i {
   display: block;
-  height: 2px;
-  width: 20px;
-  border-radius: 2px;
+  height: 2.4px;
+  width: 22px;
+  border-radius: 3px;
   background: #FFFFFF;
   transition: transform 0.22s ease, width 0.22s ease, background-color 0.22s ease;
 }
 
 .bio-float-pill-burger i:nth-child(2) {
-  width: 14px;
-  background: #FCA5A5;
+  width: 15px;
+  background: #38BDF8;
 }
 
 .bio-float-pill:hover .bio-float-pill-burger i:nth-child(2),
 .bio-float-pill-burger:hover i:nth-child(2) {
-  width: 20px;
-  background: #38BDF8;
+  width: 22px;
+  background: #FDE68A;
 }
 
 /* Dimmed Glass Backdrop Behind Expanded Command Menu */
@@ -4080,7 +4202,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   visibility: hidden;
   pointer-events: none;
   transform: translate3d(-50%, -18px, 0) scale(0.97);
-  transform-origin: top left;
+  transform-origin: top center;
   transition:
     opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
@@ -4299,6 +4421,27 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   border-color: #FFFFFF;
 }
 
+.bio-cmd-med-chip {
+  color: #FFFFFF;
+  background: rgba(56, 189, 248, 0.14);
+  border-color: rgba(56, 189, 248, 0.36);
+  font-family: var(--font-tech);
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+.bio-cmd-med-chip:hover {
+  background: var(--bio-crimson);
+  color: #FFFFFF;
+  border-color: var(--bio-crimson);
+}
+
+.bio-cmd-chip-primary {
+  background: var(--bio-crimson);
+  color: #FFFFFF;
+  border-color: var(--bio-crimson);
+}
+
 .bio-cmd-feature-card {
   position: relative;
   min-height: 210px;
@@ -4406,26 +4549,30 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 @media (max-width: 680px) {
   .bio-float-pill {
     top: 12px;
-    left: 14px;
-    padding: 6px 14px 6px 12px;
-    gap: 10px;
+    left: 50%;
+    padding: 8px 18px 8px 16px;
+    gap: 12px;
   }
   .bio-float-pill-logo {
-    height: 34px;
+    height: 44px;
+    max-width: 195px;
+  }
+  .bio-float-pill-sep {
+    height: 28px;
   }
   .bio-float-pill-burger {
-    width: 30px;
-    height: 30px;
+    width: 38px;
+    height: 38px;
   }
   .bio-float-pill-burger i {
-    width: 18px;
+    width: 19px;
   }
   .bio-float-pill-burger i:nth-child(2) {
-    width: 12px;
+    width: 13px;
   }
   .bio-float-pill:hover .bio-float-pill-burger i:nth-child(2),
   .bio-float-pill-burger:hover i:nth-child(2) {
-    width: 18px;
+    width: 19px;
   }
   .bio-cmd-panel {
     top: 10px;
