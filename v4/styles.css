@@ -1961,57 +1961,68 @@ ul, ol {
 /* ---------- STAKEHOLDER / PARTNER ENQUIRY SECTION ---------- */
 .partner-split {
   display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
-  gap: clamp(28px, 4vw, 52px);
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 3.8vw, 44px);
+  align-items: stretch;
 }
 
 .partner-info-card {
-  background: var(--bio-navy);
+  background: linear-gradient(165deg, #07152B 0%, #0B2245 55%, #071730 100%);
   color: #fff;
   border-radius: var(--radius-xl);
   padding: clamp(28px, 4vw, 44px);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .partner-info-card::before {
   content: "";
   position: absolute;
-  width: 320px;
-  height: 320px;
-  right: -100px;
-  bottom: -100px;
+  width: 340px;
+  height: 340px;
+  right: -90px;
+  bottom: -90px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(213, 43, 30, 0.28), transparent 70%);
+  pointer-events: none;
 }
 
 .partner-info-card h3 {
-  font-size: clamp(1.6rem, 2.8vw, 2.25rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.15rem);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.2;
   margin-bottom: 14px;
+  color: #FFFFFF;
 }
 
 .partner-info-card > p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.95rem;
-  margin-bottom: 28px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  margin-bottom: 24px;
 }
 
 .hq-details-stack {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   position: relative;
   z-index: 1;
+  margin-top: auto;
 }
 
 .hq-detail-item {
-  padding: 14px 16px;
+  padding: 13px 16px;
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .hq-detail-item small {
@@ -2035,8 +2046,13 @@ ul, ol {
   background: var(--surface);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-xl);
-  padding: clamp(26px, 3.8vw, 42px);
+  padding: clamp(28px, 4vw, 44px);
   box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .form-grid-2 {
@@ -2047,6 +2063,15 @@ ul, ol {
 
 .form-group {
   margin-bottom: 16px;
+}
+
+/* Compare Feature & Chips Permanently Disabled per user request */
+.compare-check-btn,
+.compare-dock,
+#compareDock,
+#compareModalBackdrop,
+.med-chip-selector {
+  display: none !important;
 }
 
 .form-label {

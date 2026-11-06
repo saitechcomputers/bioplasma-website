@@ -1478,8 +1478,7 @@
     gridMount.innerHTML = `
       <div class="medicines-grid">
         ${filtered.map((m) => {
-          const inCompare = state.compareIds.includes(m.id);
-          return `
+                    return `
             <article class="med-card" style="--med-accent:${m.accent}">
               <div class="med-card-visual" data-open-med="${m.id}" title="Click to inspect full monograph">
                 <div class="med-badges-top">
@@ -1496,15 +1495,10 @@
                 <div class="med-card-salt">${escapeHtml(m.genericSummary)}</div>
                 <p class="med-card-desc">${escapeHtml(t(m.taglineEn, m.taglineHi))}</p>
                 <div class="med-card-actions">
-                  <button type="button" class="btn btn-cobalt btn-sm" data-open-med="${m.id}">
+                  <button type="button" class="btn btn-cobalt btn-sm" data-open-med="${m.id}" style="width:100%;justify-content:center;">
                     ${t("Full Monograph", "पूरी जानकारी")}
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                   </button>
-                  <div style="display:flex;gap:6px;align-items:center;">
-                    <button type="button" class="compare-check-btn ${inCompare ? "selected" : ""}" data-toggle-compare="${m.id}">
-                      ${inCompare ? "✓ Compared" : "+ Compare"}
-                    </button>
-                  </div>
                 </div>
               </div>
             </article>
@@ -1513,119 +1507,7 @@
       </div>
     `;
 
-    gridMount.querySelectorAll("[data-toggle-compare]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        toggleCompareMedicine(btn.getAttribute("data-toggle-compare"));
-      });
-    });
-  }
 
-  /* ---------- Side-by-Side Formulation Comparator ---------- */
-  function toggleCompareMedicine(medId) {
-    const idx = state.compareIds.indexOf(medId);
-    if (idx >= 0) {
-      state.compareIds.splice(idx, 1);
-    } else {
-      if (state.compareIds.length >= 3) {
-        state.compareIds.shift();
-      }
-      state.compareIds.push(medId);
-    }
-    renderExplorer();
-    syncCompareDock();
-  }
-
-  function syncCompareDock() {
-    let dock = document.getElementById("compareDock");
-    if (!dock) {
-      dock = document.createElement("div");
-      dock.id = "compareDock";
-      dock.className = "compare-dock";
-      document.body.appendChild(dock);
-    }
-
-    if (state.compareIds.length === 0) {
-      dock.classList.remove("visible");
-      return;
-    }
-
-    dock.classList.add("visible");
-    dock.innerHTML = `
-      <div class="compare-dock-pills">
-        ${state.compareIds.map((id) => {
-          const m = getMedById(id);
-          return `<span class="compare-pill-tag">${escapeHtml(m.name)} <button type="button" data-rm-cmp="${id}" aria-label="Remove" style="color:#FCA5A5;font-weight:800;">✕</button></span>`;
-        }).join("")}
-      </div>
-      <button type="button" class="btn btn-crimson btn-sm" id="openCompareModalBtn">
-        ${t(`Compare (${state.compareIds.length})`, `तुलना करें (${state.compareIds.length})`)}
-      </button>
-      <button type="button" class="btn btn-ghost-light btn-sm" id="clearCompareAllBtn">${t("Clear", "हटाएँ")}</button>
-    `;
-
-    dock.querySelectorAll("[data-rm-cmp]").forEach((b) => {
-      b.addEventListener("click", () => toggleCompareMedicine(b.getAttribute("data-rm-cmp")));
-    });
-    dock.querySelector("#openCompareModalBtn")?.addEventListener("click", openCompareModal);
-    dock.querySelector("#clearCompareAllBtn")?.addEventListener("click", () => {
-      state.compareIds = [];
-      renderExplorer();
-      syncCompareDock();
-    });
-  }
-
-  function openCompareModal() {
-    ensureSharedModals();
-    const backdrop = document.getElementById("compareModalBackdrop");
-    const body = document.getElementById("compareModalBody");
-    if (!backdrop || !body) return;
-
-    const meds = state.compareIds.map((id) => getMedById(id));
-    body.innerHTML = `
-      <div class="clinical-table-wrap">
-        <table class="clinical-table">
-          <thead>
-            <tr>
-              <th>Specification</th>
-              ${meds.map((m) => `<th>${escapeHtml(m.name)}</th>`).join("")}
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Packshot</strong></td>
-              ${meds.map((m) => `<td><img src="${m.image}" alt="${escapeHtml(m.name)}" style="height:95px;object-fit:contain;" /></td>`).join("")}
-            </tr>
-            <tr>
-              <td><strong>Active Composition</strong></td>
-              ${meds.map((m) => `<td>${escapeHtml(m.genericSummary)}</td>`).join("")}
-            </tr>
-            <tr>
-              <td><strong>Delivery Platform</strong></td>
-              ${meds.map((m) => `<td><span class="med-tech-chip">${escapeHtml(m.technology)}</span></td>`).join("")}
-            </tr>
-            <tr>
-              <td><strong>Dosage Form &amp; Pack</strong></td>
-              ${meds.map((m) => `<td>${escapeHtml(m.dosageForm)} (${escapeHtml(m.packSize)})</td>`).join("")}
-            </tr>
-            <tr>
-              <td><strong>Regulatory / Sugar Status</strong></td>
-              ${meds.map((m) => `<td>${m.rxRequired ? "<strong style='color:#BE123C;'>Rx Prescription</strong>" : "OTC / Supplement"} • ${m.sugarFree ? "100% Sugar-Free" : "Standard"}</td>`).join("")}
-            </tr>
-            <tr>
-              <td><strong>Primary Indications</strong></td>
-              ${meds.map((m) => `<td>${(m.indications || []).slice(0, 4).map(escapeHtml).join("; ")}</td>`).join("")}
-            </tr>
-            <tr>
-              <td><strong>Monograph</strong></td>
-              ${meds.map((m) => `<td><button type="button" class="btn btn-cobalt btn-sm" data-open-med="${m.id}">Open Monograph →</button></td>`).join("")}
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    `;
-
-    backdrop.classList.add("open");
-    document.body.style.overflow = "hidden";
   }
 
   /* ---------- Three-Symbol Emblem Pillars ---------- */
@@ -1671,16 +1553,7 @@
         </div>
       </div>
 
-      <!-- Compare Modal -->
-      <div class="modal-backdrop" id="compareModalBackdrop" role="dialog" aria-modal="true" aria-label="Compare Formulations">
-        <div class="modal-window">
-          <div class="modal-header-bar">
-            <strong style="font-size:1rem;">Side-by-Side Formulation Comparison</strong>
-            <button type="button" class="btn btn-crimson btn-sm" id="compareCloseBtn">✕ Close</button>
-          </div>
-          <div class="modal-body-scroll" id="compareModalBody"></div>
-        </div>
-      </div>
+</div>
 
       <!-- Global Quick Search Modal -->
       <div class="modal-backdrop" id="quickSearchBackdrop" role="dialog" aria-modal="true" aria-label="Quick Search">
@@ -1727,8 +1600,7 @@
     document.body.insertAdjacentHTML("beforeend", modalHtml);
 
     document.getElementById("monoCloseBtn")?.addEventListener("click", closeAllModals);
-    document.getElementById("compareCloseBtn")?.addEventListener("click", closeAllModals);
-    document.getElementById("quickSearchCloseBtn")?.addEventListener("click", closeAllModals);
+        document.getElementById("quickSearchCloseBtn")?.addEventListener("click", closeAllModals);
     document.getElementById("brandFilmCloseBtn")?.addEventListener("click", closeAllModals);
     document.getElementById("monoPrevBtn")?.addEventListener("click", () => stepMonographModal(-1));
     document.getElementById("monoNextBtn")?.addEventListener("click", () => stepMonographModal(1));
@@ -1739,7 +1611,7 @@
       loadBrandFilmChapter(nextChapter);
     });
 
-    ["monographModalBackdrop", "compareModalBackdrop", "quickSearchBackdrop", "brandFilmBackdrop"].forEach((id) => {
+    ["monographModalBackdrop", "quickSearchBackdrop", "brandFilmBackdrop"].forEach((id) => {
       const el = document.getElementById(id);
       el?.addEventListener("click", (e) => {
         if (e.target === el) closeAllModals();
@@ -1754,7 +1626,7 @@
     const filmPlayer = document.getElementById("brandFilmPlayer");
     if (filmPlayer) filmPlayer.pause();
 
-    ["monographModalBackdrop", "compareModalBackdrop", "quickSearchBackdrop", "brandFilmBackdrop"].forEach((id) => {
+    ["monographModalBackdrop", "quickSearchBackdrop", "brandFilmBackdrop"].forEach((id) => {
       document.getElementById(id)?.classList.remove("open");
     });
     document.body.style.overflow = "";
@@ -1946,23 +1818,7 @@
       state.selectedEnquiryMeds.add(urlMed);
     }
 
-    function renderChips() {
-      if (!chipsMount) return;
-      chipsMount.innerHTML = DATA.medicines.map((m) => {
-        const active = state.selectedEnquiryMeds.has(m.id);
-        return `<button type="button" class="med-form-chip ${active ? "active" : ""}" data-enq-med="${m.id}">${active ? "✓ " : "+ "}${escapeHtml(m.name)}</button>`;
-      }).join("");
-
-      chipsMount.querySelectorAll(".med-form-chip").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const id = btn.getAttribute("data-enq-med");
-          if (state.selectedEnquiryMeds.has(id)) state.selectedEnquiryMeds.delete(id);
-          else state.selectedEnquiryMeds.add(id);
-          renderChips();
-        });
-      });
-    }
-    renderChips();
+// Chips selector removed per user request
 
     function buildEnquiryPayload() {
       const name = document.getElementById("enqName")?.value.trim() || "";
@@ -1982,8 +1838,7 @@
         `Phone / WhatsApp: ${phone}`,
         `City & State: ${city}`,
         `Email: ${email}`,
-        `Formulations of Interest: ${selectedNames}`,
-        ``,
+                ``,
         `Requirement / Message:`,
         msg
       ].join("\n");
