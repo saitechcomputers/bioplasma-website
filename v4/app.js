@@ -2735,6 +2735,55 @@
     isNavigating = false;
   }
 
+    function initNavScrollSpy() {
+    const navLinks = document.querySelectorAll('.primary-nav .nav-link, .mobile-nav-links a, .mobile-bottom-bar a');
+    const sections = [
+      document.getElementById('heroCarouselRoot'),
+      document.getElementById('medicinesExplorerSection'),
+      document.getElementById('vibrantScienceSection'),
+      document.getElementById('careersSection'),
+      document.getElementById('homeConnectSection'),
+      document.getElementById('aboutUsSection')
+    ].filter(Boolean);
+
+    if (sections.length === 0) return;
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPos = window.scrollY + 160;
+          let currentId = '';
+
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const sec = sections[i];
+            if (scrollPos >= sec.offsetTop) {
+              currentId = sec.id;
+              break;
+            }
+          }
+
+          if (!currentId && window.scrollY < 250 && sections[0]) {
+            currentId = sections[0].id;
+          }
+
+          if (currentId) {
+            navLinks.forEach((link) => {
+              const href = link.getAttribute('href') || '';
+              if (href === `#${currentId}` || href.endsWith(`#${currentId}`)) {
+                link.classList.add('active');
+              } else if (href.startsWith('#') || href.includes('#')) {
+                link.classList.remove('active');
+              }
+            });
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
   function initSeamlessTransitions() {
     preloadSitePages();
 
@@ -2746,13 +2795,30 @@
       const href = anchor.getAttribute('href');
       if (!href) return;
 
+      if (href.startsWith('#')) {
+        const mobDrawer = document.getElementById('mobileNavDrawer');
+        if (mobDrawer && mobDrawer.classList.contains('open')) {
+          mobDrawer.classList.remove('open');
+          const mobToggle = document.getElementById('mobileMenuToggle');
+          if (mobToggle) mobToggle.setAttribute('aria-expanded', 'false');
+        }
+        const targetEl = document.querySelector(href);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (history.pushState) {
+            history.pushState(null, '', href);
+          }
+        }
+        return;
+      }
+
       if (
         href.startsWith('http://') ||
         href.startsWith('https://') ||
         href.startsWith('mailto:') ||
         href.startsWith('tel:') ||
-        href.startsWith('javascript:') ||
-        href.startsWith('#')
+        href.startsWith('javascript:')
       ) {
         return;
       }
@@ -2791,6 +2857,7 @@
     syncRoleButtonsAndForms();
     syncLanguageUI();
     initContinuousScrollReveal();
+    initNavScrollSpy();
     initSeamlessTransitions();
     /* Strict Content Protection: Prevent selection, copying, and cut across all products & monographs (never block form inputs) */
     ["selectstart", "copy", "cut"].forEach(evt => {
