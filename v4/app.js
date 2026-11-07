@@ -2561,15 +2561,25 @@
   }
 
   function updateActiveNav(targetFilename) {
-    const fn = targetFilename === '' ? 'index.html' : targetFilename;
-    document.querySelectorAll('.primary-nav .nav-link').forEach(link => {
+    const fn = (targetFilename === '' || targetFilename === 'index.html' || targetFilename === './') ? 'index.html' : targetFilename;
+    const allLinks = document.querySelectorAll('.primary-nav .nav-link, .mobile-nav-links a, .mobile-bottom-bar a');
+    allLinks.forEach((link) => link.classList.remove('active'));
+
+    let matched = false;
+    allLinks.forEach((link) => {
       const href = link.getAttribute('href')?.split('?')[0].split('#')[0] || '';
-      link.classList.toggle('active', href === fn);
+      const cleanHref = href === '' ? 'index.html' : href;
+      if (cleanHref === fn && !matched) {
+        link.classList.add('active');
+        matched = true;
+      }
     });
-    document.querySelectorAll('.mobile-nav-links a, .mobile-bottom-bar a.mob-dock-item').forEach(link => {
-      const href = link.getAttribute('href')?.split('?')[0].split('#')[0] || '';
-      link.classList.toggle('active', href === fn);
-    });
+
+    if (!matched && fn === 'index.html') {
+      const homeLink = document.querySelector('.primary-nav .nav-link[href*="heroCarouselRoot"], .primary-nav .nav-link[href="index.html"]');
+      if (homeLink) homeLink.classList.add('active');
+    }
+
     if (syncCommandMenuActiveFn) syncCommandMenuActiveFn(fn);
     if (closeCommandMenuFn) closeCommandMenuFn();
   }
@@ -2631,6 +2641,17 @@
     const siteHeaderEl = document.getElementById('siteHeader');
     if (siteHeaderEl) {
       siteHeaderEl.classList.toggle('scrolled', isSolidHeaderPage);
+    }
+
+    const newHeader = doc.querySelector('header.site-header');
+    const curHeader = document.querySelector('header.site-header');
+    if (newHeader && curHeader) {
+      const newNav = newHeader.querySelector('.primary-nav');
+      const curNav = curHeader.querySelector('.primary-nav');
+      if (newNav && curNav) curNav.innerHTML = newNav.innerHTML;
+      const newMobLinks = newHeader.querySelector('.mobile-nav-links');
+      const curMobLinks = curHeader.querySelector('.mobile-nav-links');
+      if (newMobLinks && curMobLinks) curMobLinks.innerHTML = newMobLinks.innerHTML;
     }
 
     const newMain = doc.querySelector('main');
@@ -2702,12 +2723,11 @@
           }
 
           if (currentId) {
+            navLinks.forEach((link) => link.classList.remove('active'));
             navLinks.forEach((link) => {
               const href = link.getAttribute('href') || '';
               if (href === `#${currentId}` || href.endsWith(`#${currentId}`)) {
                 link.classList.add('active');
-              } else if (href.startsWith('#') || href.includes('#')) {
-                link.classList.remove('active');
               }
             });
           }
@@ -2728,6 +2748,12 @@
 
       const href = anchor.getAttribute('href');
       if (!href) return;
+
+      // Enforce single active tab on click
+      if (anchor.classList.contains('nav-link') || anchor.closest('.primary-nav, .mobile-nav-links, .mobile-bottom-bar')) {
+        document.querySelectorAll('.primary-nav .nav-link, .mobile-nav-links a, .mobile-bottom-bar a').forEach((l) => l.classList.remove('active'));
+        anchor.classList.add('active');
+      }
 
       if (href.startsWith('#')) {
         const mobDrawer = document.getElementById('mobileNavDrawer');
