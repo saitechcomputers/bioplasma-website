@@ -224,15 +224,18 @@ ul, ol {
 }
 
 .btn-crimson {
-  background: var(--bio-crimson);
-  color: #fff;
-  box-shadow: 0 10px 24px -8px rgba(213, 43, 30, 0.45);
+  background: #F59E0B !important;
+  color: #091B32 !important;
+  font-weight: 700 !important;
+  border: 1px solid #D97706 !important;
+  box-shadow: 0 8px 24px -4px rgba(245, 158, 11, 0.55) !important;
 }
 
 .btn-crimson:hover {
-  background: var(--bio-crimson-dark);
+  background: #E58E00 !important;
+  color: #091B32 !important;
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px -8px rgba(213, 43, 30, 0.55);
+  box-shadow: 0 12px 28px -4px rgba(245, 158, 11, 0.7) !important;
 }
 
 .btn-cobalt {
@@ -370,7 +373,8 @@ ul, ol {
   top: 0 !important;
   left: 0 !important;
   z-index: 100 !important;
-  background: linear-gradient(90deg, #F59E0B 0%, #0F4C81 50%, #00A658 100%) !important;
+  background: linear-gradient(90deg, #F59E0B 0%, #38BDF8 50%, #00A658 100%) !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4) !important;
 }
 
 .header-inner {
@@ -2248,7 +2252,7 @@ textarea.form-control {
   color: rgba(255, 255, 255, 0.78);
   padding: clamp(54px, 7vw, 88px) 0 32px;
   border-top: 4px solid transparent;
-  border-image: linear-gradient(90deg, #F59E0B 0%, #0F4C81 50%, #00A658 100%) 1 !important;
+  border-image: linear-gradient(90deg, #F59E0B 0%, #38BDF8 50%, #00A658 100%) 1 !important;
 }
 
 .footer-top-grid {
@@ -4047,7 +4051,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   height: 100%;
   transform: scaleX(0);
   transform-origin: left center;
-  background: linear-gradient(90deg, #D52B1E 0%, #F59E0B 32%, #0EA5E9 68%, #10B981 100%);
+  background: linear-gradient(90deg, #F59E0B 0%, #38BDF8 50%, #00A658 100%) !important;
   box-shadow: 0 0 12px rgba(213, 43, 30, 0.65), 0 0 8px rgba(14, 165, 233, 0.45);
   transition: transform 0.08s linear;
   will-change: transform;
