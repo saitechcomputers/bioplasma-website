@@ -2741,7 +2741,6 @@
       document.getElementById('heroCarouselRoot'),
       document.getElementById('medicinesExplorerSection'),
       document.getElementById('vibrantScienceSection'),
-      document.getElementById('careersSection'),
       document.getElementById('homeConnectSection'),
       document.getElementById('aboutUsSection')
     ].filter(Boolean);
