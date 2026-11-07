@@ -665,53 +665,7 @@
     return { curIdx, curItem, nextIdx, nextItem };
   }
 
-  function renderInfiniteNextPortal() {
-    const mount = document.getElementById("infiniteNextPageMount");
-    if (!mount) return;
 
-    const { curIdx, curItem, nextIdx, nextItem } = getNextPageInLoop();
-    const prof = getActiveRoleProfile();
-
-    mount.innerHTML = `
-      <section class="infinite-next-portal" aria-label="Seamless Next Page Continuity">
-        <div class="container">
-          <div class="infinite-portal-card">
-            <div>
-              <div class="infinite-step-pills">
-                ${INFINITE_JOURNEY_SEQUENCE.map((step, i) => `
-                  <a href="${step.file}" class="infinite-step-dot ${i === curIdx ? "current" : (i === nextIdx ? "next" : "")}">
-                    ${step.step} • ${escapeHtml(step.short)}
-                  </a>
-                `).join("")}
-              </div>
-              <div style="font-family:var(--font-tech);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7DD3FC;margin-bottom:6px;">
-                INFINITE CONTINUITY • NEXT CHAPTER (${escapeHtml(prof.shortLabel.toUpperCase())} MODE)
-              </div>
-              <h3>${escapeHtml(curItem.nextTitle)}</h3>
-              <p>${escapeHtml(curItem.nextDesc)}</p>
-
-              <div class="infinite-glide-bar-wrap" aria-hidden="true">
-                <div class="infinite-glide-track">
-                  <div class="infinite-glide-fill" id="infiniteGlideFill"></div>
-                </div>
-                <span class="infinite-glide-hint">Scroll down at bottom or click to glide →</span>
-              </div>
-            </div>
-
-            <div style="display:flex;flex-direction:column;gap:10px;align-items:stretch;">
-              <a href="${nextItem.file}" class="btn btn-crimson" style="white-space:nowrap;justify-content:center;">
-                <span>Continue to ${escapeHtml(nextItem.short)}</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <button type="button" class="btn btn-outline btn-sm" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="border-color:rgba(255,255,255,0.28);color:#FFFFFF;justify-content:center;">
-                ↑ Back to Top
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    `;
-  }
 
   let revealObserver = null;
   function initContinuousScrollReveal() {
@@ -735,48 +689,7 @@
     });
   }
 
-  function initInfiniteBottomWheelGlide() {
-    if (window.__bioInfiniteWheelBound) return;
-    window.__bioInfiniteWheelBound = true;
 
-    let wheelCharge = 0;
-    let decayTimer = null;
-
-    window.addEventListener("wheel", (e) => {
-      if (isNavigating) return;
-      if (document.querySelector(".modal-backdrop.open")) return;
-      const activeTag = document.activeElement?.tagName;
-      if (["INPUT", "TEXTAREA", "SELECT"].includes(activeTag)) return;
-
-      const fillEl = document.getElementById("infiniteGlideFill");
-      if (!fillEl) return;
-
-      const docEl = document.documentElement;
-      const atBottom = (window.innerHeight + window.scrollY) >= (docEl.scrollHeight - 10);
-
-      if (atBottom && e.deltaY > 12) {
-        wheelCharge = Math.min(100, wheelCharge + 34);
-        fillEl.style.width = `${wheelCharge}%`;
-
-        clearTimeout(decayTimer);
-        decayTimer = setTimeout(() => {
-          wheelCharge = 0;
-          const f = document.getElementById("infiniteGlideFill");
-          if (f) f.style.width = "0%";
-        }, 1100);
-
-        if (wheelCharge >= 100) {
-          wheelCharge = 0;
-          fillEl.style.width = "100%";
-          const { nextItem } = getNextPageInLoop();
-          navigateSeamlessly(nextItem.file, true);
-        }
-      } else if (e.deltaY < -5 && wheelCharge > 0) {
-        wheelCharge = 0;
-        fillEl.style.width = "0%";
-      }
-    }, { passive: true });
-  }
 
   function renderMonographStakeholderSuite(m) {
     const shAll = m.stakeholders || {};
@@ -861,7 +774,6 @@
 
     renderStakeholderDock();
     renderStakeholderHub();
-    renderInfiniteNextPortal();
     if (document.getElementById("medicinesExplorerSection")) {
       renderExplorer();
     }
@@ -2849,7 +2761,6 @@
     renderStakeholderDock();
     renderStakeholderHub();
     renderInfiniteMarquee();
-    renderInfiniteNextPortal();
     initSubpageVideo();
     initHeroVideoCinema();
     renderQuickNeeds();
@@ -3043,7 +2954,6 @@
     renderStakeholderDock();
     renderStakeholderHub();
     renderInfiniteMarquee();
-    renderInfiniteNextPortal();
     initHeroVideoCinema();
     initSubpageVideo();
     initFloatingContactWidget();
@@ -3058,7 +2968,6 @@
     syncRoleButtonsAndForms();
     syncLanguageUI();
     initContinuousScrollReveal();
-    initInfiniteBottomWheelGlide();
     initSeamlessTransitions();
     /* Strict Content Protection: Prevent selection, copying, and cut across all products & monographs (never block form inputs) */
     ["selectstart", "copy", "cut"].forEach(evt => {

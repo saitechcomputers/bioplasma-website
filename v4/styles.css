@@ -5599,6 +5599,11 @@ body.has-solid-header .site-header .brand-logo .logo-on-solid {
   background: var(--bg-warm);
 }
 
+#homeConnectSection.contact-form-hero {
+  padding-top: clamp(48px, 6vw, 76px) !important;
+  padding-bottom: clamp(48px, 6vw, 76px) !important;
+}
+
 .contact-header-row {
   display: flex;
   align-items: flex-end;
