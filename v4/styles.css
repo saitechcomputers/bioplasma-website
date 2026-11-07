@@ -363,7 +363,14 @@ ul, ol {
 
 /* Replaced by live left-to-right scroll progress bar (#bioScrollProgressTrack) */
 .header-accent-line {
-  display: none;
+  display: block !important;
+  height: 3.5px !important;
+  width: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 100 !important;
+  background: linear-gradient(90deg, #F59E0B 0%, #0F4C81 50%, #00A658 100%) !important;
 }
 
 .header-inner {
@@ -2188,7 +2195,8 @@ textarea.form-control {
   background: #091B32;
   color: rgba(255, 255, 255, 0.78);
   padding: clamp(54px, 7vw, 88px) 0 32px;
-  border-top: 4px solid var(--bio-crimson);
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, #F59E0B 0%, #0F4C81 50%, #00A658 100%) 1 !important;
 }
 
 .footer-top-grid {
