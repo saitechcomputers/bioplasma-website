@@ -35,7 +35,7 @@ window.BIOPLASMA_DATA = {
       },
       {
         icon: "leaf",
-        color: "#16a34a",
+        color: "#00A658",
         titleEn: "Bio-Pure Ingredients",
         titleHi: "शुद्ध और सुरक्षित तत्व",
         descEn: "Sourced from clinically trusted actives including Marine Aquamin™, Quatrefolic®, and IP-grade molecules.",
