@@ -1380,7 +1380,14 @@
     const mount = document.getElementById("quickNeedsMount");
     if (!mount) return;
 
-    const icons = ["💧", "🦴", "🤱", "🩸", "🛡️", "🍃"];
+    const icons = [
+      `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>`,
+      `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 5a2 2 0 1 0-2-2 2 2 0 0 0-2 2v2H8V5a2 2 0 1 0-2-2 2 2 0 0 0-2 2 2 2 0 0 0 2 2h2v10H6a2 2 0 1 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2v-2h6v2a2 2 0 1 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2h-2V7h2a2 2 0 0 0 2-2z"/></svg>`,
+      `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`,
+      `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
+      `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>`,
+      `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>`
+    ];
     mount.innerHTML = DATA.quickNeeds.map((need, idx) => {
       const medNames = need.medicineIds.map((id) => getMedById(id).name);
       const isActive = state.quickNeedId === need.id;
@@ -1811,7 +1818,7 @@
               <button type="button" class="btn btn-outline btn-sm" id="monoNextBtn">Next →</button>
             </div>
             <div style="display:flex;gap:8px;align-items:center;">
-              <button type="button" class="btn btn-crimson btn-sm" id="monoCloseBtn">✕ Close</button>
+              <button type="button" class="btn btn-crimson btn-sm" id="monoCloseBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:4px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Close</button>
             </div>
           </div>
           <div class="modal-body-scroll" id="monographModalBody"></div>
@@ -1823,7 +1830,7 @@
         <div class="modal-window" style="max-width:680px;">
           <div class="modal-header-bar">
             <strong style="font-size:0.96rem;">Search LV Bioplasma Formulary &amp; Symptoms</strong>
-            <button type="button" class="btn btn-outline btn-sm" id="quickSearchCloseBtn">✕ Esc</button>
+            <button type="button" class="btn btn-outline btn-sm" id="quickSearchCloseBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:4px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Esc</button>
           </div>
           <div class="modal-body-scroll">
             <input type="search" id="quickSearchModalInput" class="search-input" style="padding-left:18px;" placeholder="Type medicine (e.g. BIOIPC, PANTHETA DSR), salt (Vitamin D3, Iron), or symptom..." autocomplete="off" />
@@ -1840,7 +1847,7 @@
               <span class="live-pulse-dot" aria-hidden="true"></span>
               <strong style="font-size:0.94rem;letter-spacing:0.02em;">LV Bioplasma • Working with Nature for a Healthy Life (4-Chapter Story Reel)</strong>
             </div>
-            <button type="button" class="btn btn-crimson btn-sm" id="brandFilmCloseBtn">✕ Close Reel</button>
+            <button type="button" class="btn btn-crimson btn-sm" id="brandFilmCloseBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:4px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Close Reel</button>
           </div>
           <div class="film-stage-wrap">
             <video id="brandFilmPlayer" controls muted playsinline preload="metadata"></video>
@@ -1998,7 +2005,7 @@
           <div>
             <strong style="display:block;margin-bottom:8px;font-size:0.88rem;">${t("Key Compliance Benefits", "मुख्य लाभ")}</strong>
             <ul style="display:flex;flex-direction:column;gap:7px;">
-              ${perks.map((pk) => `<li style="font-size:0.85rem;color:var(--ink-body);display:flex;gap:8px;"><span style="color:var(--bio-emerald);font-weight:800;">✓</span><span>${escapeHtml(pk)}</span></li>`).join("")}
+              ${perks.map((pk) => `<li style="font-size:0.85rem;color:var(--ink-body);display:flex;align-items:flex-start;gap:8px;"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--bio-emerald)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg><span>${escapeHtml(pk)}</span></li>`).join("")}
             </ul>
           </div>
         </div>
@@ -2497,9 +2504,9 @@
           `Notes: ${notes}`;
 
         navigator.clipboard.writeText(text).then(() => {
-          const orig = copyBtn.innerText;
-          copyBtn.innerText = "✓ Copied!";
-          setTimeout(() => { copyBtn.innerText = orig; }, 2000);
+          const orig = copyBtn.innerHTML;
+          copyBtn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:4px;"><polyline points="20 6 9 17 4 12"/></svg>Copied!`;
+          setTimeout(() => { copyBtn.innerHTML = orig; }, 2000);
         }).catch(() => {
           alert("Application text copied. Please send your CV to admin@bioplasmabio.com");
         });
