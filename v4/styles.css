@@ -475,8 +475,8 @@ ul, ol {
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.5) !important;
 }
 
-/* On hover: 3-color underline smoothly animates in */
-.nav-link:hover::after {
+/* On hover of inactive links: 3-color underline smoothly animates in */
+.nav-link:not(.active):hover::after {
   transform: scaleX(1) !important;
   opacity: 1 !important;
 }
@@ -496,11 +496,20 @@ ul, ol {
   position: relative !important;
 }
 
-.nav-link.active::after {
-  transform: scaleX(1) !important;
-  opacity: 1 !important;
-  background: linear-gradient(90deg, #F59E0B 0%, #0F4C81 50%, #00A658 100%) !important;
-  box-shadow: 0 1px 4px rgba(15, 76, 129, 0.4) !important;
+/* Active tab is strictly pure yellow/amber only: NO 3-color underline */
+.nav-link.active::after,
+.nav-link.active:hover::after {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: scaleX(0) !important;
+  content: none !important;
+  box-shadow: none !important;
+}
+
+.nav-link.active:hover {
+  background: #F59E0B !important;
+  color: #091B32 !important;
 }
 
 .header-actions {
@@ -2819,11 +2828,22 @@ body.has-cinema-hero .site-header:not(.scrolled) .nav-link.active {
   font-weight: 700 !important;
 }
 
-body.has-cinema-hero .site-header:not(.scrolled) .nav-link.active::after {
-  transform: scaleX(1) !important;
-  opacity: 1 !important;
-  background: linear-gradient(90deg, #F59E0B 0%, #38BDF8 50%, #00A658 100%) !important;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6) !important;
+body.has-cinema-hero .site-header:not(.scrolled) .nav-link.active::after,
+body.has-cinema-hero .site-header:not(.scrolled) .nav-link.active:hover::after,
+.site-header.scrolled .nav-link.active::after,
+.site-header.scrolled .nav-link.active:hover::after {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: scaleX(0) !important;
+  content: none !important;
+  box-shadow: none !important;
+}
+
+body.has-cinema-hero .site-header:not(.scrolled) .nav-link.active:hover,
+.site-header.scrolled .nav-link.active:hover {
+  background: #F59E0B !important;
+  color: #091B32 !important;
 }
 
 /* Scrolled Header Active Tab */
