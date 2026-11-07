@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" />
   <link rel="preload" as="video" href="assets/video/hero-human-life.mp4" type="video/mp4" />
-  <link rel="stylesheet" href="styles.css?v=4.8" />
+  <link rel="stylesheet" href="styles.css?v=4.9" />
 
   <script type="application/ld+json">
   {
@@ -253,6 +253,60 @@
       </div>
     </section>
 
+<!-- =====================================================================
+         COMPLETE SPECIALIZED FORMULARY & COMPARATOR
+         ===================================================================== -->
+    <section class="section" id="medicinesExplorerSection">
+      <div class="container">
+        <div class="section-head-split">
+          <div>
+            <span class="eyebrow">Complete Product Portfolio</span>
+            <h2 class="section-heading">Explore our <span class="editorial-serif">specialized formulations.</span></h2>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:0.82rem;font-weight:700;color:var(--ink-muted);">View:</span>
+            <div class="view-mode-switch" role="group" aria-label="Display Mode">
+              <button type="button" class="active" data-view-mode="grid">Cards</button>
+              <button type="button" data-view-mode="table">Clinical Index</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search, Dosage, Sugar-Free & Category Toolbar -->
+        <div class="explorer-toolbar">
+          <div class="toolbar-row-top">
+            <div class="search-field-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <label for="explorerSearchInput" class="sr-only">Search Medicines</label>
+              <input type="search" id="explorerSearchInput" class="search-input" placeholder="Search brand, active salt (Vitamin D3, Liposomal Iron, Pantoprazole), or symptom..." autocomplete="off" />
+              <button type="button" class="clear-search-x" id="explorerSearchClear" aria-label="Clear Search">✕</button>
+            </div>
+
+            <div>
+              <label for="explorerDosageSelect" class="sr-only">Filter by Dosage Form</label>
+              <select id="explorerDosageSelect" class="toolbar-select"></select>
+            </div>
+
+            <button type="button" class="toggle-chip-btn" id="explorerSugarBtn">
+              <span>🍃</span>
+              <span>Sugar-Free Only</span>
+            </button>
+          </div>
+
+          <div class="category-pills-bar" id="explorerCategoryPills"></div>
+        </div>
+
+        <!-- Active Filter Banner -->
+        <div class="filter-status-strip" id="explorerFilterStatus">
+          <span id="explorerFilterStatusText">Showing filtered formulations</span>
+          <button type="button" class="btn btn-outline btn-sm" id="resetExplorerFiltersBtn">Reset All Filters</button>
+        </div>
+
+        <!-- Medicine Cards / Clinical Index Mount -->
+        <div id="explorerMount"></div>
+      </div>
+    </section>
+
     <!-- =====================================================================
          LILLY-INSPIRED HUMAN-FIRST HEALTH NEED & SYMPTOM FINDER
          ===================================================================== -->
@@ -317,60 +371,6 @@
             <div class="microscope-caption" id="scienceCaptionMount"></div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         COMPLETE SPECIALIZED FORMULARY & COMPARATOR
-         ===================================================================== -->
-    <section class="section" id="medicinesExplorerSection">
-      <div class="container">
-        <div class="section-head-split">
-          <div>
-            <span class="eyebrow">Complete Product Portfolio</span>
-            <h2 class="section-heading">Explore our <span class="editorial-serif">specialized formulations.</span></h2>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span style="font-size:0.82rem;font-weight:700;color:var(--ink-muted);">View:</span>
-            <div class="view-mode-switch" role="group" aria-label="Display Mode">
-              <button type="button" class="active" data-view-mode="grid">Cards</button>
-              <button type="button" data-view-mode="table">Clinical Index</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Search, Dosage, Sugar-Free & Category Toolbar -->
-        <div class="explorer-toolbar">
-          <div class="toolbar-row-top">
-            <div class="search-field-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <label for="explorerSearchInput" class="sr-only">Search Medicines</label>
-              <input type="search" id="explorerSearchInput" class="search-input" placeholder="Search brand, active salt (Vitamin D3, Liposomal Iron, Pantoprazole), or symptom..." autocomplete="off" />
-              <button type="button" class="clear-search-x" id="explorerSearchClear" aria-label="Clear Search">✕</button>
-            </div>
-
-            <div>
-              <label for="explorerDosageSelect" class="sr-only">Filter by Dosage Form</label>
-              <select id="explorerDosageSelect" class="toolbar-select"></select>
-            </div>
-
-            <button type="button" class="toggle-chip-btn" id="explorerSugarBtn">
-              <span>🍃</span>
-              <span>Sugar-Free Only</span>
-            </button>
-          </div>
-
-          <div class="category-pills-bar" id="explorerCategoryPills"></div>
-        </div>
-
-        <!-- Active Filter Banner -->
-        <div class="filter-status-strip" id="explorerFilterStatus">
-          <span id="explorerFilterStatusText">Showing filtered formulations</span>
-          <button type="button" class="btn btn-outline btn-sm" id="resetExplorerFiltersBtn">Reset All Filters</button>
-        </div>
-
-        <!-- Medicine Cards / Clinical Index Mount -->
-        <div id="explorerMount"></div>
       </div>
     </section>
 
@@ -612,7 +612,7 @@
     </div>
   </nav>
 
-  <script src="medicines-data.js?v=4.8"></script>
-  <script src="app.js?v=4.8"></script>
+  <script src="medicines-data.js?v=4.9"></script>
+  <script src="app.js?v=4.9"></script>
 </body>
 </html>
