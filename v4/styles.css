@@ -453,33 +453,54 @@ ul, ol {
 .nav-link {
   position: relative !important;
   overflow: hidden !important;
+  border-radius: var(--pill) !important;
+  padding: 10px 18px !important;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease !important;
+}
+
+/* Underline Animation on Hover & Active with Orange (1st), Blue (2nd), Green (3rd) */
+.nav-link::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 8px !important;
+  right: 8px !important;
+  height: 3.5px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #F59E0B 0%, #38BDF8 50%, #00A658 100%) !important;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.26s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease !important;
+  opacity: 0;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5) !important;
+}
+
+/* On hover: 3-color underline smoothly animates in */
+.nav-link:hover::after {
+  transform: scaleX(1) !important;
+  opacity: 1 !important;
 }
 
 .nav-link:hover {
-  color: var(--ink);
-  background: var(--bg-warm-alt);
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #FFFFFF !important;
 }
 
-/* Style 3: Minimalist Solid Header Active Capsule with Tricolor Brand Underline */
+/* All Active Tabs in Golden Amber (#F59E0B) with dark text & 3-color underline */
 .nav-link.active {
   font-weight: 700 !important;
   color: #091B32 !important;
-  background: #F1F5F9 !important;
-  border: 1px solid #CBD5E1 !important;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08) !important;
+  background: #F59E0B !important;
+  border: 1px solid #D97706 !important;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4) !important;
   position: relative !important;
 }
 
 .nav-link.active::after {
-  content: "" !important;
-  position: absolute !important;
-  bottom: 0 !important;
-  left: 10px !important;
-  right: 10px !important;
-  height: 3px !important;
-  border-radius: 999px !important;
+  transform: scaleX(1) !important;
+  opacity: 1 !important;
   background: linear-gradient(90deg, #F59E0B 0%, #0F4C81 50%, #00A658 100%) !important;
-  box-shadow: 0 1px 4px rgba(15, 76, 129, 0.35) !important;
+  box-shadow: 0 1px 4px rgba(15, 76, 129, 0.4) !important;
 }
 
 .header-actions {
@@ -2781,28 +2802,45 @@ body.has-cinema-hero .site-header:not(.scrolled) .nav-link:hover {
   background: rgba(255, 255, 255, 0.16);
 }
 
-/* Style 3: Cinema Hero Transparent Header Active Capsule with Tricolor Glow Underline */
-body.has-cinema-hero .site-header:not(.scrolled) .nav-link.active {
+body.has-cinema-hero .site-header:not(.scrolled) .nav-link {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+body.has-cinema-hero .site-header:not(.scrolled) .nav-link:hover {
   color: #FFFFFF !important;
-  background: rgba(255, 255, 255, 0.16) !important;
-  border: 1px solid rgba(255, 255, 255, 0.32) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
+body.has-cinema-hero .site-header:not(.scrolled) .nav-link.active {
+  color: #091B32 !important;
+  background: #F59E0B !important;
+  border: 1px solid #D97706 !important;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.5) !important;
   font-weight: 700 !important;
-  position: relative !important;
 }
 
 body.has-cinema-hero .site-header:not(.scrolled) .nav-link.active::after {
-  content: "" !important;
-  position: absolute !important;
-  bottom: 0 !important;
-  left: 10px !important;
-  right: 10px !important;
-  height: 3px !important;
-  border-radius: 999px !important;
+  transform: scaleX(1) !important;
+  opacity: 1 !important;
   background: linear-gradient(90deg, #F59E0B 0%, #38BDF8 50%, #00A658 100%) !important;
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.6) !important;
+}
+
+/* Scrolled Header Active Tab */
+.site-header.scrolled .nav-link {
+  color: var(--ink-body, #1E293B) !important;
+}
+
+.site-header.scrolled .nav-link:hover {
+  color: #091B32 !important;
+  background: #F1F5F9 !important;
+}
+
+.site-header.scrolled .nav-link.active {
+  color: #091B32 !important;
+  background: #F59E0B !important;
+  border: 1px solid #D97706 !important;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4) !important;
 }
 
 body.has-cinema-hero .site-header:not(.scrolled) .search-trigger-btn {
