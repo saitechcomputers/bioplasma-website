@@ -450,17 +450,36 @@ ul, ol {
   box-sizing: border-box !important;
 }
 
-.nav-link:hover,
-.nav-link.active {
+.nav-link {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.nav-link:hover {
   color: var(--ink);
   background: var(--bg-warm-alt);
 }
 
+/* Style 3: Minimalist Solid Header Active Capsule with Tricolor Brand Underline */
 .nav-link.active {
-  font-weight: 600 !important;
-  color: #FFFFFF !important;
-  background: var(--bio-crimson) !important;
-  box-shadow: 0 4px 14px rgba(213, 43, 30, 0.35) !important;
+  font-weight: 700 !important;
+  color: #091B32 !important;
+  background: #F1F5F9 !important;
+  border: 1px solid #CBD5E1 !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08) !important;
+  position: relative !important;
+}
+
+.nav-link.active::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 10px !important;
+  right: 10px !important;
+  height: 3px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #F59E0B 0%, #0F4C81 50%, #00A658 100%) !important;
+  box-shadow: 0 1px 4px rgba(15, 76, 129, 0.35) !important;
 }
 
 .header-actions {
@@ -648,8 +667,11 @@ ul, ol {
 }
 
 .mobile-nav-links a.active {
-  background: var(--bg-blush);
-  color: var(--bio-crimson);
+  background: #F1F5F9 !important;
+  color: #091B32 !important;
+  border-left: 4px solid transparent !important;
+  border-image: linear-gradient(180deg, #F59E0B, #0F4C81, #00A658) 1 !important;
+  font-weight: 700 !important;
 }
 
 /* ---------- HERO SECTION: Emcure Dynamic Slider + Lilly Editorial + Merck Cellular ---------- */
@@ -2759,11 +2781,28 @@ body.has-cinema-hero .site-header:not(.scrolled) .nav-link:hover {
   background: rgba(255, 255, 255, 0.16);
 }
 
+/* Style 3: Cinema Hero Transparent Header Active Capsule with Tricolor Glow Underline */
 body.has-cinema-hero .site-header:not(.scrolled) .nav-link.active {
-  color: #FFFFFF;
-  background: var(--bio-crimson);
-  box-shadow: 0 4px 14px rgba(213, 43, 30, 0.45);
-  font-weight: 600 !important;
+  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+  border: 1px solid rgba(255, 255, 255, 0.32) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+  font-weight: 700 !important;
+  position: relative !important;
+}
+
+body.has-cinema-hero .site-header:not(.scrolled) .nav-link.active::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 10px !important;
+  right: 10px !important;
+  height: 3px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #F59E0B 0%, #38BDF8 50%, #00A658 100%) !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6) !important;
 }
 
 body.has-cinema-hero .site-header:not(.scrolled) .search-trigger-btn {
