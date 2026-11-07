@@ -444,7 +444,7 @@
     pillEl.innerHTML = `
       <span class="bio-float-pill-aura" aria-hidden="true"></span>
       <a href="index.html" class="bio-float-pill-brand" aria-label="LV Bioplasma Home">
-        <img src="assets/brand/logo-footer-light.png?v=3" alt="LV Bioplasma" class="bio-float-pill-logo" />
+        <img src="assets/brand/logo-footer-light.png?v=4.4" alt="LV Bioplasma" class="bio-float-pill-logo" />
       </a>
       <span class="bio-float-pill-sep" aria-hidden="true"></span>
       <button type="button" class="bio-float-pill-burger" id="bioFloatPillBurger" aria-label="Open LV Bioplasma Navigation Menu" aria-expanded="false" aria-controls="bioplasmaCommandMenu">
@@ -478,7 +478,7 @@
       <div class="bio-cmd-glow" aria-hidden="true"></div>
       <div class="bio-cmd-top">
         <a href="index.html" class="bio-cmd-brand" data-cmd-nav>
-          <img src="assets/brand/logo-footer-light.png?v=3" alt="LV Bioplasma Biologicals Private Limited" />
+          <img src="assets/brand/logo-footer-light.png?v=4.4" alt="LV Bioplasma Biologicals Private Limited" />
         </a>
 
         <nav class="bio-cmd-nav" aria-label="Floating Primary Navigation">
@@ -1946,7 +1946,7 @@
     dock.className = "floating-contact-dock";
     dock.innerHTML = `
       <a href="https://wa.me/919319491093?text=Hello%20LV%20Bioplasma,%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" class="whatsapp-float-btn" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
-        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.403 5.633A9.919 9.919 0 0 0 12.044 3C6.58 3 2.13 7.45 2.13 12.91c0 1.745.457 3.45 1.325 4.957L2.05 22.115l4.385-1.15a9.882 9.882 0 0 0 4.609 1.145h.004c5.464 0 9.914-4.45 9.914-9.91 0-2.646-1.03-5.133-2.903-7.007zM12.044 20.354h-.003a8.21 8.21 0 0 1-4.186-1.144l-.3-.178-3.111.816.83-3.033-.195-.311a8.225 8.225 0 0 1-1.259-4.364c0-4.542 3.696-8.238 8.238-8.238 2.2 0 4.268.857 5.823 2.413a8.177 8.177 0 0 1 2.41 5.825c0 4.542-3.696 8.238-8.238 8.238zm4.516-6.177c-.247-.124-1.463-.722-1.69-.804-.227-.082-.392-.123-.558.124-.165.247-.64.804-.784.97-.144.164-.289.185-.536.061-.247-.123-1.044-.385-1.988-1.226-.735-.656-1.232-1.466-1.376-1.713-.144-.247-.015-.38.109-.503.111-.11.247-.288.371-.432.124-.144.165-.247.247-.412.082-.165.041-.309-.02-.433-.062-.124-.558-1.342-.764-1.838-.2-.485-.404-.419-.557-.427l-.475-.008c-.165 0-.433.062-.66.309-.227.247-.866.847-.866 2.065 0 1.218.887 2.396 1.01 2.561.124.165 1.745 2.665 4.228 3.738.591.255 1.053.408 1.413.522.594.189 1.135.162 1.562.098.476-.071 1.464-.599 1.67-1.177.206-.578.206-1.074.144-1.177-.062-.103-.227-.165-.474-.289z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448c-1.041.564-6.31 1.621-6.31 1.621zm11.89-20.732c-5.19 0-9.418 4.228-9.42 9.421-.001 1.706.471 3.376 1.368 4.832l-.927 3.385 3.473-.911c1.408.775 3.012 1.185 4.673 1.185 5.191 0 9.419-4.228 9.42-9.421.002-5.192-4.226-9.42-9.419-9.42zm5.405 13.342c-.225.112-1.33.655-1.536.73-.205.075-.354.112-.504.112-.15 0-.281-.056-.412-.224-.131-.168-.507-.655-.621-.79-.112-.132-.225-.15-.45-.262-.225-.112-1.33-.611-1.536-.693-.206-.083-.356-.123-.506.123-.15.247-.582.693-.713.841-.131.149-.262.168-.487.056-.225-.112-1.493-.55-2.845-1.758-1.05-0.936-1.757-2.091-1.963-2.316-.206-.225-.022-.347.098-.46.1-.099.225-.262.338-.393.112-.131.15-.225.225-.374.075-.15.038-.281-.019-.393-.056-.112-.505-1.217-.692-1.666-.182-.44-.367-.38-.504-.387l-.431-.007c-.15 0-.393.056-.599.280-.206.225-.787.768-.787 1.872 0 1.104.806 2.172.919 2.321.112.149 1.585 2.42 3.839 3.394 2.254.974 2.254.649 2.66.608.405-.042 1.33-.544 1.517-1.069.187-.525.187-.975.131-1.069-.056-.094-.206-.15-.431-.262z"/></svg>
       </a>
     `;
     document.body.appendChild(dock);

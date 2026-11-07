@@ -31,7 +31,7 @@
   --merck-magenta: #E11D64;    /* Cellular Magenta */
   --merck-teal: #0D9488;       /* Bio-Cyan / Teal */
   --bio-amber: #F59E0B;        /* Bioplasma Smile Emblem */
-  --bio-emerald: #15803D;      /* Bioplasma Pure Leaf Emblem */
+  --bio-emerald: #00A658;      /* Bioplasma Pure Leaf Emblem (#00A658) */
 
   /* Typography */
   --font-sans: 'Plus Jakarta Sans', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -3832,8 +3832,8 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 58px;
-  height: 58px;
+  width: 60px;
+  height: 60px;
   padding: 0;
   border-radius: 50%;
   background: #25D366;
@@ -3850,8 +3850,9 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
 }
 
 .whatsapp-float-btn svg {
-  width: 30px;
-  height: 30px;
+  width: 38px;
+  height: 38px;
+  display: block;
   flex-shrink: 0;
 }
 
@@ -3907,12 +3908,12 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
     right: 16px;
   }
   .whatsapp-float-btn {
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
   }
   .whatsapp-float-btn svg {
-    width: 27px;
-    height: 27px;
+    width: 35px;
+    height: 35px;
   }
 }
 
