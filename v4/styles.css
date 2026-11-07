@@ -6,33 +6,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Warm Editorial Foundations */
-  --bg-warm: #FAF7F2;
-  --bg-warm-alt: #F3EEE6;
-  --bg-blush: #FBF4F3;
-  --surface: #FFFFFF;
-  --surface-glass: rgba(255, 255, 255, 0.88);
+  /* Crisp Clinical Pure White Canvas & Modern Clean Surfaces */
+  --bg-warm: #FFFFFF;          /* Pure Clinical White base across all pages */
+  --bg-warm-alt: #F8FAFC;      /* Clean subtle slate-50 tint for secondary contrast */
+  --bg-blush: #F8FAFC;         /* Clean subtle slate-50 tint */
+  --surface: #FFFFFF;          /* Pure White card surfaces */
+  --surface-glass: rgba(255, 255, 255, 0.94);
   --ink: #151821;
   --ink-head: #0B192C;
   --ink-body: #3A4152;
-  --ink-muted: #667085;
-  --ink-faint: #98A2B3;
-  --line: rgba(21, 24, 33, 0.09);
-  --line-strong: rgba(21, 24, 33, 0.16);
+  --ink-muted: #64748B;
+  --ink-faint: #94A3B8;
+  --line: #E2E8F0;             /* Crisp modern divider */
+  --line-strong: #CBD5E1;      /* Crisp card outline */
 
-  /* LV Bioplasma Brand Spectrum */
-  --bio-navy: #0B2545;
-  --bio-cobalt: #0F4C81;       /* Bioplasma Blue Drop */
+  /* LV Bioplasma Official 3-Emblem Brand Spectrum */
+  --bio-navy: #0B2545;         /* Deep Bio-Navy for Cinema Hero & Footers */
+  --bio-cobalt: #0F4C81;       /* Bioplasma Blue Drop (Authority, Rx & Clinical Science) */
   --bio-sky: #0284C7;
-  --bio-crimson: #D52B1E;      /* LV Bioplasma Ruby Crimson Accent */
+  --bio-emerald: #00A658;      /* Bioplasma Pure Leaf Emblem (#00A658 - Nature & Bio-Tech) */
+  --bio-amber: #F59E0B;        /* Bioplasma Smile Emblem (#F59E0B - Patient Smile & Vitality) */
+  --bio-amber-glow: rgba(245, 158, 11, 0.16);
+  --bio-emerald-glow: rgba(0, 166, 88, 0.16);
+  --bio-cobalt-glow: rgba(15, 76, 129, 0.14);
+  --bio-crimson: #D52B1E;      /* Secondary Ruby Accent */
   --bio-crimson-dark: #B41F14;
   --lilly-crimson: var(--bio-crimson);
   --lilly-crimson-dark: var(--bio-crimson-dark);
   --merck-violet: #503291;     /* Vibrant Science Violet */
   --merck-magenta: #E11D64;    /* Cellular Magenta */
   --merck-teal: #0D9488;       /* Bio-Cyan / Teal */
-  --bio-amber: #F59E0B;        /* Bioplasma Smile Emblem */
-  --bio-emerald: #00A658;      /* Bioplasma Pure Leaf Emblem (#00A658) */
 
   /* Typography */
   --font-sans: 'Plus Jakarta Sans', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -695,7 +698,8 @@ ul, ol {
 
 .emblem-dots {
   display: inline-flex;
-  gap: 4px;
+  gap: 5px;
+  align-items: center;
 }
 
 .emblem-dots i {
@@ -704,6 +708,10 @@ ul, ol {
   border-radius: 50%;
   display: block;
 }
+
+.emblem-dots i:nth-child(1) { background: var(--bio-amber); }   /* Smile Gold */
+.emblem-dots i:nth-child(2) { background: var(--bio-cobalt); }  /* Drop Blue */
+.emblem-dots i:nth-child(3) { background: var(--bio-emerald); } /* Pure Leaf Green */
 
 .hero-slide-tag span {
   font-family: var(--font-tech);
@@ -879,7 +887,7 @@ ul, ol {
 .stage-bottom-card {
   position: relative;
   z-index: 2;
-  background: rgba(250, 247, 242, 0.9);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(8px);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
@@ -1627,29 +1635,24 @@ ul, ol {
   display: flex;
 }
 
-/* Distinct Clinical Glacial-Sapphire Backdrop for 9-Medicine Explorer */
+/* Clean Clinical Pure White Backdrop for 9-Medicine Explorer */
 #medicinesExplorerSection {
   position: relative;
-  background:
-    radial-gradient(circle at 10% 10%, rgba(2, 132, 199, 0.14) 0%, transparent 42%),
-    radial-gradient(circle at 90% 16%, rgba(213, 43, 30, 0.08) 0%, transparent 38%),
-    radial-gradient(circle at 50% 92%, rgba(16, 185, 129, 0.09) 0%, transparent 44%),
-    linear-gradient(180deg, #DCE9F7 0%, #E7F1FC 48%, #D8E6F5 100%);
-  border-top: 1px solid rgba(15, 76, 129, 0.14);
-  border-bottom: 1px solid rgba(15, 76, 129, 0.14);
+  background: #FFFFFF !important;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 #medicinesExplorerSection .explorer-toolbar {
-  background: rgba(255, 255, 255, 0.94);
-  border-color: rgba(15, 76, 129, 0.16);
-  box-shadow: 0 14px 34px -14px rgba(11, 37, 69, 0.12);
-  backdrop-filter: blur(10px);
+  background: #F8FAFC;
+  border-color: var(--line);
+  box-shadow: 0 4px 16px rgba(15, 76, 129, 0.04);
 }
 
 #medicinesExplorerSection .med-card {
   background: #FFFFFF;
-  border-color: rgba(15, 76, 129, 0.14);
-  box-shadow: 0 14px 32px -12px rgba(11, 37, 69, 0.12);
+  border-color: var(--line);
+  box-shadow: 0 4px 18px rgba(15, 76, 129, 0.05);
 }
 
 #medicinesExplorerSection .med-card:hover {
