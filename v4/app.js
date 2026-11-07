@@ -471,76 +471,13 @@
   }
 
   function syncRoleButtonsAndForms() {
-    const role = state.stakeholder;
-    document.querySelectorAll("[data-set-role]").forEach((btn) => {
-      const isAct = btn.getAttribute("data-set-role") === role;
-      btn.classList.toggle("active", isAct);
-      btn.setAttribute("aria-selected", String(isAct));
-    });
-
-    // Dynamic Contact Form Adaptation for Doctor / Customer / MR / Stockist
-    const enqRoleSelect = document.getElementById("enqRole");
-    const enqTitle = document.getElementById("enqFormDynamicTitle");
-    const enqSub = document.getElementById("enqFormDynamicSub");
-    const enqNameLbl = document.getElementById("enqNameLabel");
-    const enqNameInp = document.getElementById("enqName");
-    const enqMsgLbl = document.getElementById("enqMsgLabel");
+    // Forms are now unified across all stakeholders per user design
+    const urlMed = new URLSearchParams(window.location.search).get("med");
     const enqMsgInp = document.getElementById("enqMessage");
-
-    if (enqRoleSelect) {
-      const roleMap = {
-        doctor: {
-          selectVal: "Doctor / Clinical Literature Request",
-          title: "Doctor & Clinical Monograph Desk",
-          sub: "Request official product monographs, %RDA dossiers, or clinical samples via admin@bioplasmabio.com.",
-          nameLbl: "Doctor / Clinic / Hospital Name",
-          namePh: "e.g. Dr. Rajesh Verma, MD (City Clinic)",
-          msgLbl: "Formulations / Literature / Sample Requirement",
-          msgPh: "Mention specialty (Gastro / Ortho / Gynae) and formulations required for clinical evaluation..."
-        },
-        customer: {
-          selectVal: "Customer / Patient Product Query",
-          title: "Customer & Patient Support Desk",
-          sub: "Ask about nearby pharmacy availability, pack details, or general product information.",
-          nameLbl: "Your Full Name",
-          namePh: "e.g. Amit Kumar",
-          msgLbl: "Product Name & Availability Query",
-          msgPh: "Share the LV Bioplasma product name and your locality/pincode so our team can guide you..."
-        },
-        mr: {
-          selectVal: "MR / Field Detailing & Territory",
-          title: "MR & Field Business Connect",
-          sub: "Connect regarding field territory opportunities, ABM/MR openings, or detailing portfolio queries.",
-          nameLbl: "Your Name & Current Designation",
-          namePh: "e.g. Rohit Tiwari (MR / ABM)",
-          msgLbl: "Preferred HQ Territory & Specialty Exposure",
-          msgPh: "Share your current HQ city, years of pharma experience, and Gastro / Ortho / Gynae call coverage..."
-        },
-        stockist: {
-          selectVal: "Pharmaceutical Distributor / Stockist",
-          title: "Stockist & Distributor Partnership Desk",
-          sub: "Apply for authorized district/state stockist supply, institutional rate contracts, or C&F billing.",
-          nameLbl: "Firm / Agency Name",
-          namePh: "e.g. Apex Medicos & Distributors",
-          msgLbl: "District Coverage, Drug License & SKU Requirement",
-          msgPh: "Share your firm's district/state coverage, Drug License / GST readiness, and required product lines..."
-        }
-      };
-      const cfg = roleMap[role] || roleMap.doctor;
-      enqRoleSelect.value = cfg.selectVal;
-      if (enqTitle) enqTitle.textContent = cfg.title;
-      if (enqSub) enqSub.innerHTML = escapeHtml(cfg.sub).replace("admin@bioplasmabio.com", "<strong>admin@bioplasmabio.com</strong>");
-      if (enqNameLbl) enqNameLbl.textContent = cfg.nameLbl;
-      if (enqNameInp) enqNameInp.placeholder = cfg.namePh;
-      if (enqMsgLbl) enqMsgLbl.textContent = cfg.msgLbl;
-      if (enqMsgInp && !enqMsgInp.dataset.userEdited) {
-        const urlMed = new URLSearchParams(window.location.search).get("med");
-        if (urlMed && DATA.medicines.some((m) => m.id === urlMed)) {
-          const medObj = getMedById(urlMed);
-          enqMsgInp.value = `Enquiring regarding ${medObj.name} (${medObj.dosageForm} • ${medObj.packSize}) under ${cfg.selectVal}.`;
-        } else {
-          enqMsgInp.placeholder = cfg.msgPh;
-        }
+    if (urlMed && enqMsgInp && !enqMsgInp.dataset.userEdited && DATA.medicines && DATA.medicines.some((m) => m.id === urlMed)) {
+      const medObj = getMedById(urlMed);
+      if (medObj) {
+        enqMsgInp.value = `Enquiring regarding ${medObj.name} (${medObj.dosageForm} • ${medObj.packSize}).`;
       }
     }
   }
@@ -801,15 +738,7 @@
 
       <div class="bio-cmd-divider"></div>
 
-      <div class="cmd-stakeholder-strip">
-        <small>Personalize Portal View:</small>
-        <div class="stakeholder-pill-group" role="tablist" aria-label="Command Menu Stakeholder Switcher">
-          <button type="button" class="stakeholder-role-btn" data-set-role="doctor"><span class="role-dot" style="--role-c:#38BDF8;"></span>Doctor</button>
-          <button type="button" class="stakeholder-role-btn" data-set-role="customer"><span class="role-dot" style="--role-c:#00A658;"></span>Customer</button>
-          <button type="button" class="stakeholder-role-btn" data-set-role="mr"><span class="role-dot" style="--role-c:#C084FC;"></span>MR</button>
-          <button type="button" class="stakeholder-role-btn" data-set-role="stockist"><span class="role-dot" style="--role-c:#F87171;"></span>Stockist</button>
-        </div>
-      </div>
+
 
       <div class="bio-cmd-showcase">
         <div class="bio-cmd-copy">
