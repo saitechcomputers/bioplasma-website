@@ -44,6 +44,217 @@ window.BIOPLASMA_DATA = {
     ]
   },
 
+  stakeholderProfiles: {
+    "doctor": {
+        "id": "doctor",
+        "shortLabel": "Doctor",
+        "label": "Doctor / Clinician",
+        "badge": "CLINICAL & Rx DESK",
+        "color": "#0F4C81",
+        "bgSoft": "#EFF6FF",
+        "pages": {
+            "index": {
+                "eyebrow": "Clinician & Prescriber Mode Active",
+                "title": "Evidence-backed delivery science with transparent IP & %RDA monographs.",
+                "desc": "Inspect pharmacokinetic profiles, 3-phase mechanisms of action, %RDA compliance, and therapeutic indications across 5 specialty divisions.",
+                "ctaText": "Request Clinical Monographs / Samples",
+                "ctaHref": "contact.html?role=doctor"
+            },
+            "about": {
+                "eyebrow": "For Practicing Clinicians",
+                "title": "WHO-GMP batch consistency & global branded actives you can prescribe with confidence.",
+                "desc": "Every formulation pairs world-class raw materials (Aquamin™, Quatrefolic®, Micronized IP actives) with patient-tolerant delivery vehicles.",
+                "ctaText": "Connect With Medical Affairs",
+                "ctaHref": "contact.html?role=doctor"
+            },
+            "products": {
+                "eyebrow": "Clinical Formulary View • Doctor Mode",
+                "title": "Complete active strengths, %RDA tables & specialty prescribing rationales.",
+                "desc": "Every product card below highlights primary prescribing specialties, bioavailability advantages, and instant clinical monograph access.",
+                "ctaText": "Request Literature / Samples",
+                "ctaHref": "contact.html?role=doctor"
+            },
+            "science": {
+                "eyebrow": "Pharmacokinetic Delivery Engineering",
+                "title": "How micro-encapsulation & split-release kinetics solve non-compliance.",
+                "desc": "From phospholipid iron shielding to EC+10mg IR+20mg SR Tablet-in-Capsule architecture, inspect cellular uptake mechanisms.",
+                "ctaText": "Request Technical Dossiers",
+                "ctaHref": "contact.html?role=doctor"
+            },
+            "careers": {
+                "eyebrow": "Medical Advisors & Clinical Training",
+                "title": "Collaborate with our scientific & PMT leadership in Gurugram NCR.",
+                "desc": "Explore opportunities in Medical Affairs, Product Management (PMT), Clinical Detailing Strategy, and Quality Assurance.",
+                "ctaText": "Apply / Connect With PMT",
+                "ctaHref": "#applyFormSection"
+            },
+            "contact": {
+                "eyebrow": "Doctor & Hospital Clinical Desk",
+                "title": "Direct clinical monograph, sample & hospital formulary support.",
+                "desc": "Form pre-set for Registered Medical Practitioners & Hospital Clinicians.",
+                "ctaText": "Jump to Form",
+                "ctaHref": "#partnerDeskSection"
+            }
+        }
+    },
+    "customer": {
+        "id": "customer",
+        "shortLabel": "Customer",
+        "label": "Customer / Patient",
+        "badge": "PATIENT WELLNESS GUIDE",
+        "color": "#00A658",
+        "bgSoft": "#ECFDF5",
+        "pages": {
+            "index": {
+                "eyebrow": "Customer & Family Care Mode Active",
+                "title": "Gentle on the stomach, sugar-free & easy to take for everyday wellness.",
+                "desc": "Discover what each LV Bioplasma formulation supports in simple language — with pleasant flavours, small easy-to-swallow tablets, and trusted quality.",
+                "ctaText": "Ask a Product Query",
+                "ctaHref": "contact.html?role=customer"
+            },
+            "about": {
+                "eyebrow": "For Patients & Families",
+                "title": "Formulated for comfort — no harsh metallic taste, heavy chalkiness, or GI distress.",
+                "desc": "Our Smile • Drop • Pure Leaf promise ensures rigid quality testing from raw ingredients to your neighbourhood pharmacy.",
+                "ctaText": "Customer Support Desk",
+                "ctaHref": "contact.html?role=customer"
+            },
+            "products": {
+                "eyebrow": "Easy Care Guide • Customer Mode",
+                "title": "Understand health benefits, sugar-free suitability & usage guidance clearly.",
+                "desc": "Each card below highlights gentle patient comfort, flavour/dosage ease, and doctor-guided safety notes.",
+                "ctaText": "Ask Product Availability",
+                "ctaHref": "contact.html?role=customer"
+            },
+            "science": {
+                "eyebrow": "Why Our Medicines Feel Gentle",
+                "title": "Advanced science that protects your stomach while improving absorption.",
+                "desc": "See how nano-droplets, marine minerals, and liposomal shields help your body absorb nutrients comfortably.",
+                "ctaText": "Explore Formulations",
+                "ctaHref": "products.html"
+            },
+            "careers": {
+                "eyebrow": "Join a Patient-First Healthcare Team",
+                "title": "Start or grow a meaningful career improving everyday family health.",
+                "desc": "Explore fresher and experienced openings across India with structured mentorship and merit rewards.",
+                "ctaText": "View Open Roles",
+                "ctaHref": "#openings"
+            },
+            "contact": {
+                "eyebrow": "Customer & Patient Helpline",
+                "title": "Have a question about an LV Bioplasma product or availability?",
+                "desc": "Form pre-set for Customer / Patient Product Queries.",
+                "ctaText": "Jump to Form",
+                "ctaHref": "#partnerDeskSection"
+            }
+        }
+    },
+    "mr": {
+        "id": "mr",
+        "shortLabel": "MR / Field",
+        "label": "MR / Field Force",
+        "badge": "IN-CLINIC DETAILING HUB",
+        "color": "#503291",
+        "bgSoft": "#F5F3FF",
+        "pages": {
+            "index": {
+                "eyebrow": "MR & Field Detailing Mode Active",
+                "title": "High-recall scientific USPs & crisp 30-second doctor detailing hooks.",
+                "desc": "Access instant brand positioning, target specialty call lists (Ortho, Gynae, Gastro, MD), visual science aids, and pan-India field career growth.",
+                "ctaText": "Explore Field Careers / Detailing",
+                "ctaHref": "careers.html#openings"
+            },
+            "about": {
+                "eyebrow": "For Medical Representatives & ABMs",
+                "title": "Represent differentiated formulations with fast-track appraisals & top incentives.",
+                "desc": "Detail branded global actives (Aquamin™, Quatrefolic®, Nano D3, EC+IR+SR) backed by PMT visual monographs and ethical leadership.",
+                "ctaText": "Join Our Field Force",
+                "ctaHref": "careers.html#applyFormSection"
+            },
+            "products": {
+                "eyebrow": "In-Clinic Detailing Matrix • MR Mode",
+                "title": " Instant chamber pitch, target doctor specialties & formulation USPs on every card.",
+                "desc": "Tap any product monograph to showcase live microscopic delivery diagrams and composition tables during clinic detailing.",
+                "ctaText": "Apply for MR / ABM Territory",
+                "ctaHref": "careers.html#applyFormSection"
+            },
+            "science": {
+                "eyebrow": "Interactive Visual Detailing Aid",
+                "title": "Live cellular diagrams built for impactful doctor chamber conversations.",
+                "desc": "Use these 4 interactive delivery architectures to demonstrate superior bioavailability in under 30 seconds.",
+                "ctaText": "Open Product Portfolio",
+                "ctaHref": "products.html"
+            },
+            "careers": {
+                "eyebrow": "Frontline Field Sales & ABM Growth",
+                "title": "Industry-leading DA/TA, quarterly incentives & rapid merit promotions.",
+                "desc": "Immediate openings for Medical Representatives (MR), Area Business Managers (ABM), and Key Account Managers.",
+                "ctaText": "Quick Apply With CV",
+                "ctaHref": "#applyFormSection"
+            },
+            "contact": {
+                "eyebrow": "Field Force & Territory Desk",
+                "title": "Connect with our Sales Leadership & HQ PMT Team in Gurugram.",
+                "desc": "Form pre-set for MR / ABM Territory & Field Enquiries.",
+                "ctaText": "Jump to Form",
+                "ctaHref": "#partnerDeskSection"
+            }
+        }
+    },
+    "stockist": {
+        "id": "stockist",
+        "shortLabel": "Stockist",
+        "label": "Stockist / Distributor",
+        "badge": "TRADE & SUPPLY DESK",
+        "color": "#D52B1E",
+        "bgSoft": "#FFF1F2",
+        "pages": {
+            "index": {
+                "eyebrow": "Stockist & Channel Partner Mode Active",
+                "title": "High-prescription repeat velocity across 5 evergreen therapeutic segments.",
+                "desc": "Partner with LV Bioplasma Biologicals (Gurugram NCR HQ) for authorised district stockistship, institutional hospital supply, and WHO-GMP assured packs.",
+                "ctaText": "Enquire Territory Partnership",
+                "ctaHref": "contact.html?role=stockist"
+            },
+            "about": {
+                "eyebrow": "For Authorised Stockists & Distributors",
+                "title": "Transparent trade policies, prompt Gurugram NCR dispatch & zero-compromise quality.",
+                "desc": "Strong prescription pull across Gastroenterology, Orthopedics, Gynecology, Hematology, and Pediatrics ensures consistent secondary movement.",
+                "ctaText": "Apply for Stockistship",
+                "ctaHref": "contact.html?role=stockist"
+            },
+            "products": {
+                "eyebrow": "Trade & Pack Configuration • Stockist Mode",
+                "title": "Inspect exact carton pack sizes, dosage forms & high-demand Rx/OTC categories.",
+                "desc": "Every product card below displays commercial pack configuration, shelf-stability packaging, and 1-click stockist rate/supply enquiry.",
+                "ctaText": "Request Trade Price / Supply",
+                "ctaHref": "contact.html?role=stockist"
+            },
+            "science": {
+                "eyebrow": "Moisture-Barrier & Shelf Stability",
+                "title": "Premium Alu-Alu, blister & ready-to-drink packaging built for Indian climate stability.",
+                "desc": "Differentiated technology formulations drive strong repeat prescriptions from leading clinics and nursing homes.",
+                "ctaText": "Connect For Distribution",
+                "ctaHref": "contact.html?role=stockist"
+            },
+            "careers": {
+                "eyebrow": "Institutional & Channel Expansion",
+                "title": "Expanding distribution & hospital supply footprints pan-India.",
+                "desc": "Looking for district distribution or institutional tie-ups? Visit our dedicated Partner Desk.",
+                "ctaText": "Go to Stockist Enquiry",
+                "ctaHref": "contact.html?role=stockist"
+            },
+            "contact": {
+                "eyebrow": "Authorised Stockist & Institutional Supply Desk",
+                "title": "Direct territory allocation, hospital supply & C&F/stockist onboarding.",
+                "desc": "Form pre-set for Pharmaceutical Stockists, Distributors & Hospital Pharmacies.",
+                "ctaText": "Jump to Form",
+                "ctaHref": "#partnerDeskSection"
+            }
+        }
+    }
+},
+
   categories: [
     { id: "all", labelEn: "All Medicines", labelHi: "सभी दवाइयाँ", icon: "grid" },
     { id: "gastro", labelEn: "Gastro & Acid Care", labelHi: "गैस, एसिडिटी और पेट", icon: "stomach" },
@@ -229,7 +440,49 @@ window.BIOPLASMA_DATA = {
         "Preventing Pre-eclampsia"
       ],
       dosage: "Typically 1 bottle (5 ml) weekly or as directed by the Physician. Shake well before drinking.",
-      keywords: ["vitamin d", "d3", "cholecalciferol", "60000", "60k", "nano shot", "bone", "back pain", "osteoporosis", "rickets", "butterscotch", "sugar free", "sun vitamin"]
+      keywords: ["vitamin d", "d3", "cholecalciferol", "60000", "60k", "nano shot", "bone", "back pain", "osteoporosis", "rickets", "butterscotch", "sugar free", "sun vitamin"],
+      stakeholders: {
+        "doctor": {
+                "headline": "Nano-micellar 60,000 IU D3 bypasses bile dependency for rapid serum 25(OH)D restoration.",
+                "metaLabel": "Key Specialties",
+                "metaValue": "Ortho • MD Physician • Gynae • Diabetology",
+                "points": [
+                        "Pre-emulsified nano-droplets ensure uniform intestinal uptake even in malabsorption or elderly patients.",
+                        "100% Sugar-Free vehicle safe for T2DM, hypertension & metabolic syndrome co-prescriptions.",
+                        "Supports skeletal mineralization, reduces PTH, and aids pre-eclampsia prevention protocols."
+                ]
+        },
+        "customer": {
+                "headline": "Pleasant sugar-free butterscotch 5 ml ready-to-drink weekly shot — no water or mixing needed.",
+                "metaLabel": "Patient Comfort",
+                "metaValue": "Sugar-Free Butterscotch • 5 ml Ready Shot",
+                "points": [
+                        "Supports strong bones, relief from low back fatigue, and healthy daily immunity.",
+                        "Delicious butterscotch taste with zero added sugar — suitable for sugar-conscious adults.",
+                        "Simply shake well and drink 1 mini bottle weekly (or as advised by your doctor)."
+                ]
+        },
+        "mr": {
+                "headline": "30-Sec Pitch: 'Nano-Droplet 60K IU Sugar-Free Butterscotch Shot — Zero chalky sachet hassle, high diabetic compliance.'",
+                "metaLabel": "Target Call List",
+                "metaValue": "Orthopedicians • Physicians • Gynecologists",
+                "points": [
+                        "High-conversion weekly co-prescription with ADENOCAL-K2 in Ortho & ANC clinics.",
+                        "Highlight Nano Technology + Sugar-Free Butterscotch palatability vs bitter oil capsules/sachets.",
+                        "Strong 8-to-12 week repeat therapy cycle per patient."
+                ]
+        },
+        "stockist": {
+                "headline": "Fast-moving 4 × 5 ml ready-to-drink monocarton with year-round Ortho, Physician & Gynae Rx pull.",
+                "metaLabel": "Trade Pack Spec",
+                "metaValue": "4 × 5 ml Oral Nano Shot Bottles",
+                "points": [
+                        "High repeat counter movement across retail pharmacies and orthopedic OPDs.",
+                        "Break-resistant 5 ml oral shot bottles in compact display-friendly 4-unit carton.",
+                        "WHO-GMP batch stability with clear batch/expiry coding."
+                ]
+        }
+}
     },
 
     {
@@ -304,7 +557,49 @@ window.BIOPLASMA_DATA = {
         "Patients intolerant to conventional calcium"
       ],
       dosage: "1 Tablet once or twice daily after meals, or as directed by the Physician.",
-      keywords: ["calcium", "aquamin", "k2", "k2-7", "magnesium", "minerals", "bone", "pregnancy", "menopause", "osteopenia", "osteoporosis", "adenocal"]
+      keywords: ["calcium", "aquamin", "k2", "k2-7", "magnesium", "minerals", "bone", "pregnancy", "menopause", "osteopenia", "osteoporosis", "adenocal"],
+      stakeholders: {
+        "doctor": {
+                "headline": "Aquamin™ red marine algae (~86.5% bioavailable Ca 330 mg + Mg 25 mg + 72 trace minerals) + K2-7 45 mcg + D3.",
+                "metaLabel": "Key Specialties",
+                "metaValue": "Gynae (ANC) • Orthopedics • Geriatrics",
+                "points": [
+                        "Porous honeycomb Lithothamnion matrix dissolves gently without gas, bloating, or constipation of rock CaCO₃.",
+                        "Menaquinone-7 (45 mcg) activates osteocalcin & matrix Gla-protein to prevent vascular calcification.",
+                        "Demonstrated serum PTH reduction indicating physiological bone deposition."
+                ]
+        },
+        "customer": {
+                "headline": "Plant-sourced marine calcium in a small, easy-to-digest tablet — gentle on the stomach without bloating.",
+                "metaLabel": "Patient Comfort",
+                "metaValue": "Small Easy-Swallow Tablet • Gentle on Gut",
+                "points": [
+                        "Natural marine algae calcium + 72 minerals for long-term bone, joint, and maternal strength.",
+                        "Unlike heavy chalky calcium tablets, gentle on digestion with minimal constipation.",
+                        "Vitamin K2-7 & D3 help guide calcium directly into bones where it belongs."
+                ]
+        },
+        "mr": {
+                "headline": "30-Sec Pitch: 'Not rock limestone CaCO₃ — Irish Marine Aquamin™ (~86.5% bioavailable + 72 minerals) + K2-7 in a small tablet.'",
+                "metaLabel": "Target Call List",
+                "metaValue": "Gynecologists • Orthopedicians • Geriatricians",
+                "points": [
+                        "Lead with 'Physiological Bone Nutrition + Small Easy-to-Digest Tablet' for ANC & post-menopausal patients.",
+                        "3-step MOA story: 1. Absorb (Aquamin) → 2. Utilise (D3) → 3. Deposit Safely (K2-7).",
+                        "Long-duration chronic therapy (3–6 months) drives steady monthly territory secondary sales."
+                ]
+        },
+        "stockist": {
+                "headline": "Premium chronic-therapy bone & ANC brand in 1 × 10 blister pack (AMBIO-09) with strong monthly refill cycles.",
+                "metaLabel": "Trade Pack Spec",
+                "metaValue": "1 × 10 Film-Coated Tablets",
+                "points": [
+                        "Consistent multi-month prescription retention across maternity nursing homes & ortho clinics.",
+                        "Moisture-protected blister packaging preserving K2-7 & D3 potency.",
+                        "Pairs naturally with AADIRISE D3 & BIOIPC in maternal/ortho prescriptions."
+                ]
+        }
+}
     },
 
     {
@@ -372,7 +667,49 @@ window.BIOPLASMA_DATA = {
         "Intrauterine growth restriction (IUGR) – Adjunctive Support"
       ],
       dosage: "As directed by the Physician. Dissolve the contents of one sachet in water and consume.",
-      keywords: ["l-arginine", "proanthocyanidin", "pregnancy", "uteroplacental", "blood flow", "iugr", "endothelial", "nitric oxide", "argiluck"]
+      keywords: ["l-arginine", "proanthocyanidin", "pregnancy", "uteroplacental", "blood flow", "iugr", "endothelial", "nitric oxide", "argiluck"],
+      stakeholders: {
+        "doctor": {
+                "headline": "L-Arginine IP 3 g + Proanthocyanidin 75 mg synergy optimizing uteroplacental NO perfusion & endothelial tone.",
+                "metaLabel": "Key Specialties",
+                "metaValue": "Obstetrics & Gynecology • Fetal Medicine",
+                "points": [
+                        "3 g L-Arginine provides robust Nitric Oxide substrate to improve uterine & umbilical artery vasodilation.",
+                        "Proanthocyanidin (75 mg) scavenges ROS to prevent peroxynitrite degradation and prolong NO bioactivity.",
+                        "Sugar-Free granules ideal for gestational glucose intolerance / GDM pregnancies."
+                ]
+        },
+        "customer": {
+                "headline": "Refreshing sugar-free cranberry oral granules sachet supporting healthy maternal blood flow and nutrition.",
+                "metaLabel": "Patient Comfort",
+                "metaValue": "Sugar-Free Cranberry Sachet • 5.5 g",
+                "points": [
+                        "Dissolves easily in water for a pleasant, refreshing sugar-free drink.",
+                        "Supports healthy circulation and antioxidant protection during pregnancy as advised by your doctor.",
+                        "Convenient single-dose 5.5 g sachets easy to carry and consume daily."
+                ]
+        },
+        "mr": {
+                "headline": "30-Sec Pitch: '3g IP L-Arginine + 75mg Proanthocyanidin in Sugar-Free Cranberry Granules — Dual NO + Endothelial Shield in IUGR/High-Risk ANC.'",
+                "metaLabel": "Target Call List",
+                "metaValue": "Obstetricians • Gynecologists • IVF Specialists",
+                "points": [
+                        "Highlight Proanthocyanidin stabilizing Nitric Oxide + 100% Sugar-Free safety in GDM mothers.",
+                        "High-value daily sachet therapy (BD/OD throughout trimester) yielding strong per-doctor prescription value.",
+                        "Synergizes with DYDROFY, BIOIPC & ADENOCAL-K2 for complete LV Bioplasma ANC basket."
+                ]
+        },
+        "stockist": {
+                "headline": "High-turnover OB-GYN specialty box of 10 × 5.5 g laminated moisture-proof sachets.",
+                "metaLabel": "Trade Pack Spec",
+                "metaValue": "10 Sachets × 5.5 g Box",
+                "points": [
+                        "High-frequency repeat purchases (3–6 boxes per month per ANC patient).",
+                        "Foil-laminated sachets prevent caking or humidity ingress across seasons.",
+                        "Essential maternity chemist & nursing home pharmacy stock item."
+                ]
+        }
+}
     },
 
     {
@@ -446,7 +783,49 @@ window.BIOPLASMA_DATA = {
         "Post-Operative or Chronic Blood Loss Recovery"
       ],
       dosage: "1 Tablet daily after meals, or as directed by the Physician.",
-      keywords: ["iron", "liposomal iron", "bioipc", "quatrefolic", "folate", "p5p", "b12", "glycine", "anemia", "hemoglobin", "pregnancy iron"]
+      keywords: ["iron", "liposomal iron", "bioipc", "quatrefolic", "folate", "p5p", "b12", "glycine", "anemia", "hemoglobin", "pregnancy iron"],
+      stakeholders: {
+        "doctor": {
+                "headline": "Phospholipid-encapsulated Liposomal Elemental Iron 27 mg + Quatrefolic® 655 mcg + P5P + B12 + Glycine.",
+                "metaLabel": "Key Specialties",
+                "metaValue": "Gynae • Hematology • MD Physician • Nephro",
+                "points": [
+                        "Liposomal bilayer shields Fe³⁺ from gastric acid & food/calcium chelators, delivering intact via M-cells.",
+                        "Genuine 4th-gen Quatrefolic® bypasses MTHFR polymorphism; P5P & Glycine provide complete heme synthesis co-factors.",
+                        "Zero metallic aftertaste, minimal constipation/nausea — drives superior ANC & IDA adherence."
+                ]
+        },
+        "customer": {
+                "headline": "Gentle iron & active folate in a small tablet — boosts hemoglobin without stomach upset, constipation, or metallic taste.",
+                "metaLabel": "Patient Comfort",
+                "metaValue": "Zero Metallic Taste • Gentle on Stomach",
+                "points": [
+                        "Helps restore healthy iron levels and overcome daily tiredness and weakness.",
+                        "Special liposomal coating prevents nausea, acidity, and constipation common with ordinary iron pills.",
+                        "No food or milk interaction worries — small, easy-to-swallow daily tablet."
+                ]
+        },
+        "mr": {
+                "headline": "30-Sec Pitch: 'Liposomal Iron 27mg + Quatrefolic® + P5P + Glycine — IV-like Hb rise with zero GI dropout or calcium interaction.'",
+                "metaLabel": "Target Call List",
+                "metaValue": "Gynecologists • Physicians • Surgeons • Ortho",
+                "points": [
+                        "Flagship anchor brand: differentiate with 5-component Complete Hematinic Matrix (not plain iron + folic acid).",
+                        "Solve the #1 clinician pain point: pregnant mothers stopping iron due to vomiting/constipation.",
+                        "Co-prescribe seamlessly alongside ADENOCAL-K2 (zero calcium chelation conflict!)."
+                ]
+        },
+        "stockist": {
+                "headline": "Flagship daily hematinic 1 × 10 tablet pack (AMBIO-15) with multi-specialty pan-season demand.",
+                "metaLabel": "Trade Pack Spec",
+                "metaValue": "1 × 10 Film-Coated Tablets",
+                "points": [
+                        "Broadest prescriber base across Gynae, General Medicine, Surgery & Orthopedics.",
+                        "90-to-180 day continuous anemia & maternity therapy ensures predictable stock rotation.",
+                        "Compact high-protection blister carton."
+                ]
+        }
+}
     },
 
     {
@@ -515,7 +894,49 @@ window.BIOPLASMA_DATA = {
         "Secondary Amenorrhea"
       ],
       dosage: "As directed by the Gynecologist / Physician. Swallow whole with water.",
-      keywords: ["dydrogesterone", "dydrofy", "progesterone", "pregnancy", "miscarriage", "habitual abortion", "luteal phase", "hormone", "10mg"]
+      keywords: ["dydrogesterone", "dydrofy", "progesterone", "pregnancy", "miscarriage", "habitual abortion", "luteal phase", "hormone", "10mg"],
+      stakeholders: {
+        "doctor": {
+                "headline": "IP-Grade Micronized Dydrogesterone 10 mg — selective retroprogesterone support without inhibiting ovulation.",
+                "metaLabel": "Key Specialties",
+                "metaValue": "Obstetrics & Gynecology • Reproductive Med (IVF)",
+                "points": [
+                        "High selectivity for uterine progesterone receptors with zero androgenic, estrogenic, or corticoid activity.",
+                        "Supports secretory endometrial transformation in threatened/recurrent miscarriage and ART luteal support.",
+                        "Strict IP pharmacopoeial assay & dissolution standards (Schedule Rx)."
+                ]
+        },
+        "customer": {
+                "headline": "Prescription 10 mg oral tablet supporting maternal & menstrual health strictly under your Gynecologist's care.",
+                "metaLabel": "Prescription Care",
+                "metaValue": "Rx Only • Small Film-Coated Tablet",
+                "points": [
+                        "Prescribed by Gynecologists to support healthy pregnancy and menstrual cycle balance.",
+                        "Oral film-coated tablet offering comfortable dosing compared to painful injections.",
+                        "Important: Prescription (Rx) medicine — take strictly in the dose and duration advised by your doctor."
+                ]
+        },
+        "mr": {
+                "headline": "30-Sec Pitch: 'IP-Grade Micronized DYDROFY 10 mg — Trusted endometrial & luteal protection at patient-accessible therapy cost.'",
+                "metaLabel": "Target Call List",
+                "metaValue": "Gynecologists • Obstetricians • Fertility/IVF",
+                "points": [
+                        "High-value core OB-GYN Rx molecule with BD/TDS dosing throughout first/second trimester.",
+                        "Emphasize IP-grade micronized purity + WHO-GMP manufacturing reliability + patient affordability.",
+                        "Builds deep specialty equity in maternity hospitals and IVF centers."
+                ]
+        },
+        "stockist": {
+                "headline": "High-value core OB-GYN Rx SKU (1 × 10 Tablets) essential for maternity hospitals, IVF clinics & retail chemists.",
+                "metaLabel": "Trade Pack Spec",
+                "metaValue": "1 × 10 Film-Coated Rx Tablets",
+                "points": [
+                        "High rupee-value secondary turnover driven by BD/TDS multi-week gynecology prescriptions.",
+                        "Essential stock line for hospital pharmacies and nursing home counters.",
+                        "Protected blister strip ensuring hormone stability."
+                ]
+        }
+}
     },
 
     {
@@ -586,7 +1007,49 @@ window.BIOPLASMA_DATA = {
         "Drug-Induced Gastric Irritation (NSAIDs, Steroids)"
       ],
       dosage: "5-10 ml, 3-4 times daily, Preferably 15 minutes before meals & at bedtime. To be taken undiluted or as directed by the physician.",
-      keywords: ["novacaine", "oxetacaine", "aluminium hydroxide", "magnesium hydroxide", "antacid", "gastritis", "heartburn", "acidity", "ulcer", "sugar free gel"]
+      keywords: ["novacaine", "oxetacaine", "aluminium hydroxide", "magnesium hydroxide", "antacid", "gastritis", "heartburn", "acidity", "ulcer", "sugar free gel"],
+      stakeholders: {
+        "doctor": {
+                "headline": "Oxetacaine IP 10 mg + Aluminium Hydroxide 291 mg + Magnesium Hydroxide 98 mg Sugar-Free mucosal anesthetic gel.",
+                "metaLabel": "Key Specialties",
+                "metaValue": "Gastroenterology • MD Physician • Ortho (NSAID)",
+                "points": [
+                        "Oxetacaine maintains potent topical mucosal analgesia even at pH 1–2 for rapid relief in acute gastritis & esophagitis.",
+                        "Balanced Al(OH)₃ + Mg(OH)₂ ratio neutralizes acid steadily while offsetting constipation/laxative swings.",
+                        "Sorbitol-based Sugar-Free mint suspension safe for diabetic & cardiac co-morbid patients."
+                ]
+        },
+        "customer": {
+                "headline": "Cooling sugar-free mint gel that quickly calms painful acidity, heartburn, and stomach burning.",
+                "metaLabel": "Patient Comfort",
+                "metaValue": "Sugar-Free Mint Gel • 200 ml Bottle",
+                "points": [
+                        "Forms a soothing protective coating inside the food pipe and stomach for fast comfort.",
+                        "100% Sugar-Free cooling mint flavour — suitable for diabetic individuals.",
+                        "Take 5–10 ml undiluted before meals & at bedtime as advised by your doctor."
+                ]
+        },
+        "mr": {
+                "headline": "30-Sec Pitch: 'NOVACAINE 200ml Sugar-Free Mint Gel — Oxetacaine numbs burning pain in minutes while dual antacids coat the mucosa.'",
+                "metaLabel": "Target Call List",
+                "metaValue": "Physicians • Gastroenterologists • Surgeons • Ortho",
+                "points": [
+                        "Co-prescribe with PANTHETA DSR / RABTHETA DSR for acute painful GERD & NSAID gastritis.",
+                        "Highlight Sugar-Free Mint compliance + balanced non-constipating Al/Mg gel viscosity.",
+                        "High OPD volume product across General Practitioners and Specialty Clinics."
+                ]
+        },
+        "stockist": {
+                "headline": "High-volume 200 ml amber PET suspension bottle with strong GP, Gastro & Pharmacy counter rotation.",
+                "metaLabel": "Trade Pack Spec",
+                "metaValue": "200 ml Sugar-Free Mint Bottle",
+                "points": [
+                        "Evergreen year-round gastro liquid SKU with rapid retail shelf off-take.",
+                        "Leak-proof sealed 200 ml bottle with measuring cap convenience.",
+                        "Strong companion prescription alongside DSR capsules and pain-relief therapies."
+                ]
+        }
+}
     },
 
     {
@@ -654,7 +1117,49 @@ window.BIOPLASMA_DATA = {
         "HEART BURN"
       ],
       dosage: "1 Capsule daily, preferably in the morning before breakfast, or as directed by the Physician.",
-      keywords: ["pantheta dsr", "pantoprazole", "domperidone", "gerd", "dyspepsia", "vomiting", "gi ulcer", "heart burn", "tablet in capsule", "acid reflux"]
+      keywords: ["pantheta dsr", "pantoprazole", "domperidone", "gerd", "dyspepsia", "vomiting", "gi ulcer", "heart burn", "tablet in capsule", "acid reflux"],
+      stakeholders: {
+        "doctor": {
+                "headline": "Tablet-in-Capsule: Pantoprazole 40 mg (EC) + split Domperidone 10 mg (IR) + 20 mg (SR) for bimodal motility & acid control.",
+                "metaLabel": "Key Specialties",
+                "metaValue": "Gastro • MD Physician • Ortho • Surgery",
+                "points": [
+                        "Unlike plain pellet DSRs, isolated 10 mg IR Domperidone releases within minutes for rapid antiemetic/prokinetic onset.",
+                        "20 mg SR Domperidone sustains gastro-esophageal sphincter tone alongside 40 mg EC Pantoprazole 24-hr acid suppression.",
+                        "Low CYP450 drug-interaction profile ideal for polypharmacy patients (Schedule Rx)."
+                ]
+        },
+        "customer": {
+                "headline": "Advanced dual-action once-daily Rx capsule for fast nausea relief and full-day protection from acidity and reflux.",
+                "metaLabel": "Prescription Care",
+                "metaValue": "Rx Capsule • Morning Before Breakfast",
+                "points": [
+                        "Prescribed by doctors for acid reflux (GERD), sour belching, bloating, and nausea.",
+                        "Special Tablet-in-Capsule design gives both quick comfort and 24-hour acid protection.",
+                        "Take 1 capsule whole with water before breakfast strictly as prescribed by your doctor."
+                ]
+        },
+        "mr": {
+                "headline": "30-Sec Pitch: 'Not an ordinary pellet DSR — PANTHETA DSR has Tablet-in-Capsule EC + 10mg IR (fast nausea relief) + 20mg SR (all-day shield).'",
+                "metaLabel": "Target Call List",
+                "metaValue": "Physicians • Gastro • Ortho • ENT • Surgeons",
+                "points": [
+                        "Visual showstopper: open the Science Lab diagram to show EC + 10mg IR + 20mg SR 3-unit architecture!",
+                        "Every clinician writes Pantoprazole DSR daily — convert prescriptions with clear bimodal IR+SR clinical logic.",
+                        "10 × 10 box volume driver across every territory."
+                ]
+        },
+        "stockist": {
+                "headline": "High-velocity 10 × 10 capsule carton — daily staple gastro Rx mover across retail & hospital pharmacies.",
+                "metaLabel": "Trade Pack Spec",
+                "metaValue": "10 × 10 Tablet-in-Capsule Box",
+                "points": [
+                        "Fastest-moving daily gastro category across all medical specialties.",
+                        "Moisture-barrier strip packaging protecting enteric & sustained-release units.",
+                        "Consistent bulk institutional and retail chemist re-order frequency."
+                ]
+        }
+}
     },
 
     {
@@ -723,7 +1228,49 @@ window.BIOPLASMA_DATA = {
         "Zollinger-Ellison Syndrome"
       ],
       dosage: "1 Capsule daily, preferably in the morning before breakfast, or as directed by the Physician.",
-      keywords: ["rabtheta dsr", "rabeprazole", "domperidone", "gerd", "acid reflux", "peptic ulcers", "dyspepsia", "nausea", "vomiting", "zollinger-ellison", "tablet in capsule"]
+      keywords: ["rabtheta dsr", "rabeprazole", "domperidone", "gerd", "acid reflux", "peptic ulcers", "dyspepsia", "nausea", "vomiting", "zollinger-ellison", "tablet in capsule"],
+      stakeholders: {
+        "doctor": {
+                "headline": "Tablet-in-Capsule: Rabeprazole 20 mg (EC) + Domperidone 10 mg (IR) + 20 mg (SR) for rapid Day-1 pH >4 control.",
+                "metaLabel": "Key Specialties",
+                "metaValue": "Gastroenterology • ENT (LPR) • MD Physician",
+                "points": [
+                        "High-pKa Rabeprazole (20 mg EC) delivers fast parietal proton-pump activation independent of CYP2C19 genotype.",
+                        "Split 10 mg IR + 20 mg SR Domperidone controls both immediate post-prandial fullness/emesis and nocturnal reflux.",
+                        "Ideal for erosive esophagitis, chronic gastritis, LPR, and refractory GERD (Schedule Rx)."
+                ]
+        },
+        "customer": {
+                "headline": "Fast-acting once-daily Rx capsule prescribed for chronic acidity, reflux, heartburn, and indigestion.",
+                "metaLabel": "Prescription Care",
+                "metaValue": "Rx Capsule • 24-Hr Reflux Protection",
+                "points": [
+                        "Helps heal acid irritation while relieving stomach heaviness, gas, and nausea.",
+                        "Combines fast-release and slow-release units inside a single morning capsule.",
+                        "Prescription (Rx) medicine — use strictly under your doctor's supervision."
+                ]
+        },
+        "mr": {
+                "headline": "30-Sec Pitch: 'RABTHETA DSR — Fast-onset Rabeprazole 20mg EC + 10mg IR + 20mg SR Tablet-in-Capsule for severe GERD & ENT reflux.'",
+                "metaLabel": "Target Call List",
+                "metaValue": "Gastroenterologists • ENT • Physicians • Surgeons",
+                "points": [
+                        "Target ENT specialists (Laryngopharyngeal Reflux) & Gastroenterologists seeking Day-1 acid + nocturnal reflux control.",
+                        "Pair with PANTHETA DSR & NOVACAINE to dominate the entire acid-peptic prescription basket.",
+                        "Strong 10 × 10 repeat strip velocity."
+                ]
+        },
+        "stockist": {
+                "headline": "Core 10 × 10 gastro Rx carton catering to Gastro, ENT, Physician & Nursing Home prescriptions.",
+                "metaLabel": "Trade Pack Spec",
+                "metaValue": "10 × 10 Tablet-in-Capsule Box",
+                "points": [
+                        "High-demand Rabeprazole DSR segment with superior Tablet-in-Capsule differentiation.",
+                        "10 × 10 commercial pack ideal for wholesale & retail counter stocking.",
+                        "WHO-GMP quality assurance with crisp batch traceability."
+                ]
+        }
+}
     },
 
     {
@@ -796,7 +1343,49 @@ window.BIOPLASMA_DATA = {
         "IBS / IBD"
       ],
       dosage: "1 to 2 mini bottles daily or as directed by the Physician. Take orally. DO NOT INJECT. Shake well before drinking.",
-      keywords: ["preimmune aqua", "bacillus clausii", "probiotic", "diarrhea", "loose motion", "antibiotic diarrhea", "rotavirus", "gastroenteritis", "ibs", "ibd", "spores", "2 billion"]
+      keywords: ["preimmune aqua", "bacillus clausii", "probiotic", "diarrhea", "loose motion", "antibiotic diarrhea", "rotavirus", "gastroenteritis", "ibs", "ibd", "spores", "2 billion"],
+      stakeholders: {
+        "doctor": {
+                "headline": "2 Billion heat- & gastric-acid-resilient Bacillus clausii spores in pure 5 ml oral aqueous suspension.",
+                "metaLabel": "Key Specialties",
+                "metaValue": "Pediatrics • Gastroenterology • MD Physician",
+                "points": [
+                        "Intrinsic poly-antibiotic & pH resistance ensures intact spore germination in the small & large intestine.",
+                        "Downregulates pro-inflammatory cytokines while stimulating protective IL-10 and mucosal IgA synthesis.",
+                        "100% tasteless, odourless, sugar-free water-like vehicle ensures effortless pediatric & elderly compliance."
+                ]
+        },
+        "customer": {
+                "headline": "Pure water-like, completely tasteless 5 ml mini-bottle probiotic — easy for kids & adults during loose motion or antibiotics.",
+                "metaLabel": "Patient Comfort",
+                "metaValue": "Tasteless Like Water • 5 ml Oral Mini-Vial",
+                "points": [
+                        "Restores healthy gut flora during diarrhea, stomach infections, or antibiotic courses.",
+                        "Tastes just like plain water with zero sugar or flavour — children take it without fuss!",
+                        "For oral drinking only (DO NOT INJECT) — shake mini-bottle, twist open, and drink."
+                ]
+        },
+        "mr": {
+                "headline": "30-Sec Pitch: 'PRE IMMUNE AQUA — 2 Billion Bacillus clausii spores in tasteless 5ml mini-vial; automatic co-Rx with every antibiotic!'",
+                "metaLabel": "Target Call List",
+                "metaValue": "Pediatricians • Physicians • Gastro • GP",
+                "points": [
+                        "Position as the mandatory gut-shield co-prescription alongside Amoxyclav, Cefixime & Azithromycin.",
+                        "Emphasize cytokine immunomodulation (IL-10 boost) + zero-taste pediatric acceptance.",
+                        "Peak monsoon/summer acute diarrhea + year-round antibiotic co-Rx volume."
+                ]
+        },
+        "stockist": {
+                "headline": "10 × 5 ml ready-to-drink oral mini-bottles — high-rotation Pediatric, GP & Hospital Pharmacy probiotic.",
+                "metaLabel": "Trade Pack Spec",
+                "metaValue": "10 × 5 ml Oral Mini Bottles",
+                "points": [
+                        "Room-temperature stable spore suspension — no cold-chain refrigeration hassle!",
+                        "High seasonal surge + steady year-round antibiotic co-prescription demand.",
+                        "Unbreakable LDPE 5 ml twist-off oral ampoules in 10-unit dispenser carton."
+                ]
+        }
+}
     }
   ]
 };

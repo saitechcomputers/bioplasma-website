@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="styles.css?v=4.6" />
+  <link rel="stylesheet" href="styles.css?v=4.7" />
 </head>
 <body class="has-cinema-hero">
 
@@ -77,9 +77,13 @@
       </div>
     </section>
 
+    <!-- 4-Stakeholder Experience Bar & Infinite Stream -->
+    <div id="stakeholderPageDock"></div>
+    <div id="infiniteMarqueeMount"></div>
+
     <!-- Corporate Story & Full Logo Showcase -->
     <section class="section section-white">
-      <div class="container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:44px;align-items:center;">
+      <div class="container" class="container about-story-grid">
         <div style="background:var(--bg-warm);border:1px solid var(--line-strong);border-radius:var(--radius-xl);padding:38px;box-shadow:var(--shadow-sm);">
           <img src="assets/brand/logo-full.png?v=4.5" alt="LV Bioplasma Biologicals Private Limited" style="max-height:110px;width:auto;display:block;margin:0 auto 24px;" />
           <p style="font-size:0.96rem;color:var(--ink-body);margin-bottom:20px;line-height:1.65;">
@@ -87,11 +91,11 @@
           </p>
           <div style="padding-top:18px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px;font-size:0.88rem;">
             <div><strong>Corporate Entity:</strong> LV Bioplasma Biologicals Private Limited</div>
-            <div><strong>Tagline:</strong> <span style="color:#059669;font-weight:700;">(Working with Nature Through Bio-Technology for a Healthy Life)</span></div>
+            <div><strong>Tagline:</strong> <span style="color:#00A658;font-weight:700;">(Working with Nature Through Bio-Technology for a Healthy Life)</span></div>
             <div><strong>Specialty Focus:</strong> Nuessential Vitamins &amp; Evidence-Backed Formulations</div>
             <div><strong>Regd. Office:</strong> Plot No.11, Block B, Sector-34, Gurugram, NCR - 122004</div>
             <div><strong>Official Desk:</strong> <a href="mailto:admin@bioplasmabio.com" style="color:var(--bio-crimson);font-weight:700;">admin@bioplasmabio.com</a></div>
-            <div><strong>Helpline &amp; WhatsApp:</strong> <a href="https://wa.me/919319491093?text=Hello%20LV%20Bioplasma,%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" style="color:#059669;font-weight:700;">+91 93194 91093</a></div>
+            <div><strong>Helpline &amp; WhatsApp:</strong> <a href="https://wa.me/919319491093?text=Hello%20LV%20Bioplasma,%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" style="color:#00A658;font-weight:700;">+91 93194 91093</a></div>
           </div>
         </div>
 
@@ -127,8 +131,8 @@
           </p>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:26px;">
-          <div style="background:#fff;border:1px solid var(--line-strong);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;">
+        <div class="strengths-grid-3">
+          <div class="aligned-box-card">
             <div style="display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:14px;background:rgba(213,43,30,0.08);color:var(--bio-crimson);margin-bottom:20px;">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             </div>
@@ -139,7 +143,7 @@
             </p>
           </div>
 
-          <div style="background:#fff;border:1px solid var(--line-strong);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;">
+          <div class="aligned-box-card">
             <div style="display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:14px;background:rgba(14,165,233,0.1);color:#0284C7;margin-bottom:20px;">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
             </div>
@@ -150,11 +154,11 @@
             </p>
           </div>
 
-          <div style="background:#fff;border:1px solid var(--line-strong);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;">
-            <div style="display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:14px;background:rgba(16,185,129,0.1);color:#059669;margin-bottom:20px;">
+          <div class="aligned-box-card">
+            <div style="display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:14px;background:rgba(16,185,129,0.1);color:#00A658;margin-bottom:20px;">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
             </div>
-            <span style="font-size:0.75rem;font-weight:800;letter-spacing:0.08em;color:#059669;text-transform:uppercase;margin-bottom:8px;">End-To-End Quality Control</span>
+            <span style="font-size:0.75rem;font-weight:800;letter-spacing:0.08em;color:#00A658;text-transform:uppercase;margin-bottom:8px;">End-To-End Quality Control</span>
             <h3 style="font-size:1.24rem;font-weight:700;color:var(--ink-head);margin-bottom:12px;">Rigid Testing in Every Phase</h3>
             <p style="font-size:0.92rem;color:var(--ink-body);line-height:1.65;margin:0;">
               Our manufacturing alliance is committed to quality manufacturing standards, rigid testing is conducted for every phase of manufacturing from raw material to finished products to ensure that all products comply with high quality standards.
@@ -177,7 +181,7 @@
           </p>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;">
+        <div class="mission-vision-grid">
           <!-- Mission Card -->
           <div style="background:linear-gradient(145deg, #FAF8F5 0%, #FFFFFF 100%);border:1px solid var(--line-strong);border-radius:var(--radius-xl);padding:40px 36px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;border-top:4px solid var(--bio-crimson);">
             <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:18px;">
@@ -192,15 +196,15 @@
             </p>
             <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid var(--line);font-size:0.88rem;color:var(--ink-muted);">
               <div style="display:flex;align-items:center;gap:8px;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00A658" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span><strong>High-Bioavailability Formulations:</strong> Delivering genuine therapeutic absorption.</span>
               </div>
               <div style="display:flex;align-items:center;gap:8px;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00A658" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span><strong>Patient Tolerance First:</strong> Gentle on the stomach, pleasant to consume.</span>
               </div>
               <div style="display:flex;align-items:center;gap:8px;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00A658" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span><strong>Affordable Access:</strong> Patent and off-patent solutions for everyday health.</span>
               </div>
             </div>
@@ -242,7 +246,7 @@
       <div class="container">
         <div style="background:#FFFFFF;border:1px solid var(--line-strong);border-radius:var(--radius-xl);padding: clamp(28px, 4.5vw, 52px);box-shadow:var(--shadow-md);position:relative;">
           
-          <div style="display:grid;grid-template-columns:minmax(310px, 0.95fr) 1.35fr;gap:clamp(28px, 4vw, 48px);align-items:stretch;">
+          <div class="director-split-grid">
             
             <!-- Left Leadership Column -->
             <div style="background:linear-gradient(165deg, #071324 0%, #0B2245 55%, #071730 100%);color:#FFFFFF;border-radius:var(--radius-lg);padding:clamp(28px, 3.5vw, 40px);display:flex;flex-direction:column;justify-content:space-between;height:100%;box-sizing:border-box;box-shadow:var(--shadow-sm);border:1px solid rgba(255,255,255,0.14);">
@@ -252,7 +256,7 @@
                     Executive Office
                   </span>
                   <img src="assets/brand/logo-footer-light.png?v=4.5" alt="LV Bioplasma Biologicals Private Limited" style="height:62px;width:auto;max-width:100%;display:block;margin-bottom:12px;object-fit:contain;" />
-                  <div style="font-size:0.82rem;color:#34D399;font-weight:700;line-height:1.45;">(Working with Nature Through Bio-Technology for a Healthy Life)</div>
+                  <div style="font-size:0.82rem;color:#00A658;font-weight:700;line-height:1.45;">(Working with Nature Through Bio-Technology for a Healthy Life)</div>
                 </div>
 
                 <div style="font-size:2.8rem;line-height:1;color:rgba(253,230,138,0.5);font-family:Georgia,serif;margin-bottom:10px;">“</div>
@@ -350,6 +354,22 @@
       </div>
     </section>
 
+    <!-- 4-Stakeholder Ecosystem Hub -->
+    <section class="section section-white" id="aboutStakeholders">
+      <div class="container">
+        <div class="section-head-split">
+          <div>
+            <span class="eyebrow eyebrow-cobalt">Serving Every Healthcare Partner</span>
+            <h2 class="section-heading">Aligned for Doctors, Customers, <span class="editorial-serif">MRs &amp; Stockists.</span></h2>
+          </div>
+          <p class="section-lead" style="max-width:46ch;">
+            Switch any stakeholder lens below to tailor scientific monographs, patient guidance, field detailing points, and trade supply specifications.
+          </p>
+        </div>
+        <div class="stakeholder-hub-grid" id="stakeholderHubMount"></div>
+      </div>
+    </section>
+
     <!-- Corporate Scale Strip -->
     <section class="metrics-band">
       <div class="container metrics-grid">
@@ -360,18 +380,28 @@
         <div class="metric-item"><div class="metric-val">NCR</div><div class="metric-lbl">Sector-34 HQ</div><div class="metric-sub">Gurugram, India</div></div>
       </div>
     </section>
+    <!-- Seamless Infinite Next-Chapter Portal -->
+    <div id="infiniteNextPageMount"></div>
   </main>
 
-  <!-- Footer -->
+  <!-- Corporate Footer & Regulatory Note -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top-grid">
         <div>
-          <a href="index.html" class="footer-logo-chip"><img src="assets/brand/logo-navbar.png?v=4.5" alt="LV Bioplasma" /></a>
-          <p style="font-size:0.88rem;max-width:340px;"><strong>LV Bioplasma Biologicals Private Limited</strong> • Plot No.11, Block B, Sector-34, Gurugram, NCR - 122004.</p>
+          <a href="index.html" class="footer-logo-chip" aria-label="LV Bioplasma Home">
+            <img src="assets/brand/logo-navbar.png?v=4.5" alt="LV Bioplasma Biologicals Private Limited" />
+          </a>
+          <p style="font-size:0.88rem;line-height:1.65;max-width:340px;margin-bottom:14px;">
+            <strong>LV Bioplasma Biologicals Private Limited</strong> — <em style="color:#00A658;font-style:normal;font-weight:600;">(Working with Nature Through Bio-Technology for a Healthy Life)</em>. Dedicated to high-bioavailability pharmaceutical and nutraceutical therapies across Gastroenterology, Orthopedics, Gynecology, Hematology, and Gut Immunology.
+          </p>
+          <div style="font-size:0.84rem;color:#7DD3FC;">
+            Plot No.11, Block B, Sector-34, Gurugram, NCR - 122004
+          </div>
         </div>
+
         <div class="footer-col">
-          <h4>Gastro &amp; Gut</h4>
+          <h4>Gastro &amp; Gut Portfolio</h4>
           <div class="footer-links">
             <button type="button" data-open-med="pantheta-dsr">PANTHETA DSR</button>
             <button type="button" data-open-med="rabtheta-dsr">RABTHETA DSR</button>
@@ -379,6 +409,7 @@
             <button type="button" data-open-med="preimmune-aqua">PRE IMMUNE AQUA</button>
           </div>
         </div>
+
         <div class="footer-col">
           <h4>Bone, Maternal &amp; Iron</h4>
           <div class="footer-links">
@@ -389,17 +420,24 @@
             <button type="button" data-open-med="dydrofy">DYDROFY</button>
           </div>
         </div>
+
         <div class="footer-col">
-          <h4>Portal Links</h4>
+          <h4>Stakeholder Desks</h4>
           <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="products.html">Full Formulary</a>
-            <a href="science.html">Vibrant Delivery Science</a>
-            <a href="careers.html">Careers &amp; Openings</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="products.html?role=doctor">Doctor Clinical Formulary</a>
+            <a href="products.html?role=customer">Customer Wellness Guide</a>
+            <a href="science.html?role=mr">MR Detailing &amp; Science</a>
+            <a href="contact.html?role=stockist">Stockist &amp; Supply Desk</a>
+            <a href="careers.html">Careers &amp; Opportunities</a>
+            <a href="mailto:admin@bioplasmabio.com" style="color:#7DD3FC;">admin@bioplasmabio.com</a>
           </div>
         </div>
       </div>
+
+      <div class="regulatory-box">
+        <strong>Medical &amp; Regulatory Disclaimer:</strong> Product monographs and compositions presented on this website are sourced from official <strong>LV Bioplasma Biologicals Private Limited</strong> clinical documentation for informational and healthcare professional reference. They do not replace personalized medical advice, diagnosis, or treatment. Prescription medicines marked <strong>Rx</strong> (including <em>DYDROFY</em>, <em>PANTHETA DSR</em>, and <em>RABTHETA DSR</em>) must be administered strictly under the prescription and supervision of a Registered Medical Practitioner.
+      </div>
+
       <div class="footer-bottom-row">
         <span>© 2026 LV Bioplasma Biologicals Private Limited. All rights reserved.</span>
         <span>Designed &amp; Developed by <strong style="color:inherit;font-weight:600;">Saitech Computers</strong></span>
@@ -418,7 +456,7 @@
     </div>
   </nav>
 
-  <script src="medicines-data.js?v=4.6"></script>
-  <script src="app.js?v=4.6"></script>
+  <script src="medicines-data.js?v=4.7"></script>
+  <script src="app.js?v=4.7"></script>
 </body>
 </html>

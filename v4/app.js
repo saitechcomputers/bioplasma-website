@@ -44,8 +44,17 @@
 
   const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  const VALID_ROLES = ["doctor", "customer", "mr", "stockist"];
+  const savedRole = (function () {
+    try {
+      const r = localStorage.getItem("bioplasma_v4_stakeholder");
+      return VALID_ROLES.includes(r) ? r : "doctor";
+    } catch (_) { return "doctor"; }
+  })();
+
   const state = {
     lang: "en",
+    stakeholder: savedRole,
     heroIndex: 0,
     heroVideoPaused: prefersReducedMotion,
     heroHoverHold: false,
@@ -327,6 +336,546 @@
     return en;
   }
 
+  /* ---------- V4.7 4-STAKEHOLDER (DOCTOR • CUSTOMER • MR • STOCKIST) + INFINITE CONTINUITY ENGINE ---------- */
+  const STAKEHOLDER_HUB_CARDS = [
+    {
+      id: "doctor",
+      tag: "CLINICAL & Rx DESK",
+      title: "Doctors & Clinicians",
+      color: "#0F4C81",
+      desc: "Complete active strengths, IP & %RDA specifications, 3-phase mechanisms of action, and patient-compliance evidence.",
+      perks: [
+        "Transparent IP-grade & branded active monographs",
+        "Pharmacokinetic uptake diagrams (Nano, Liposomal, DSR)",
+        "Direct sample & clinical dossier desk"
+      ],
+      ctaLabel: "Activate Doctor Mode",
+      deskHref: "contact.html?role=doctor",
+      iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>`
+    },
+    {
+      id: "customer",
+      tag: "FAMILY WELLNESS",
+      title: "Customers & Patients",
+      color: "#00A658",
+      desc: "Clear everyday health guidance — gentle on the stomach, sugar-free liquid options, pleasant flavours, and easy dosing.",
+      perks: [
+        "Simple health-need & symptom formulation finder",
+        "100% Sugar-Free & diabetic-friendly badges",
+        "Direct customer availability & wellness support"
+      ],
+      ctaLabel: "Activate Customer Mode",
+      deskHref: "contact.html?role=customer",
+      iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`
+    },
+    {
+      id: "mr",
+      tag: "FIELD FORCE & PMT",
+      title: "Medical Representatives (MR)",
+      color: "#7C3AED",
+      desc: "Sharp 30-second clinic detailing pitches, specialty doctor call lists, USPs vs conventional salts, and career growth.",
+      perks: [
+        "Per-brand 30-sec detailing pitch & specialty call list",
+        "Visual delivery-science detailing lab for chamber calls",
+        "Fast-track MR & ABM pan-India career openings"
+      ],
+      ctaLabel: "Activate MR Mode",
+      deskHref: "careers.html",
+      iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`
+    },
+    {
+      id: "stockist",
+      tag: "TRADE & C&F SUPPLY",
+      title: "Stockists & Distributors",
+      color: "#D52B1E",
+      desc: "WHO-GMP carton & pack specifications, Alu-Alu moisture-barrier stability, high-repeat Rx pull, and territory partnerships.",
+      perks: [
+        "Exact pack sizes & dosage specifications on every SKU",
+        "High repeat prescription pull across 5 core specialties",
+        "Priority Gurugram NCR stockist & institutional desk"
+      ],
+      ctaLabel: "Activate Stockist Mode",
+      deskHref: "contact.html?role=stockist",
+      iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>`
+    }
+  ];
+
+  const INFINITE_JOURNEY_SEQUENCE = [
+    {
+      file: "index.html",
+      step: "01",
+      short: "Home",
+      nextTitle: "Explore the Complete Medicine Formulary",
+      nextDesc: "Continue seamlessly into all specialized LV Bioplasma formulations with interactive Doctor, Customer, MR & Stockist filters."
+    },
+    {
+      file: "products.html",
+      step: "02",
+      short: "Products",
+      nextTitle: "Step Inside Vibrant Delivery Science",
+      nextDesc: "Inspect how Nano-Droplet D3, Liposomal Iron, Irish Aquamin™ & EC+IR+SR capsules maximize bioavailability."
+    },
+    {
+      file: "science.html",
+      step: "03",
+      short: "Science",
+      nextTitle: "Discover LV Bioplasma’s Story & Leadership",
+      nextDesc: "Read our corporate mission, WHO-GMP quality standards, global alliances, and Director’s message."
+    },
+    {
+      file: "about.html",
+      step: "04",
+      short: "About Us",
+      nextTitle: "Explore Pan-India Careers & MR Growth",
+      nextDesc: "Discover open positions across Field Sales (MR / ABM), Product Management (PMT), and Quality Assurance."
+    },
+    {
+      file: "careers.html",
+      step: "05",
+      short: "Careers",
+      nextTitle: "Connect With Our Stakeholder & Stockist Desk",
+      nextDesc: "Reach our Sector-34 Gurugram HQ directly for Stockist partnerships, Doctor monographs, or product queries."
+    },
+    {
+      file: "contact.html",
+      step: "06",
+      short: "Contact",
+      nextTitle: "Loop Back to the Cinema Homepage Experience",
+      nextDesc: "Return seamlessly to the LV Bioplasma cinema showcase, health-need finder, and 5 therapeutic divisions."
+    }
+  ];
+
+  function getPageKey() {
+    const fn = getCurrentPageFilename().replace(".html", "").toLowerCase();
+    if (["index", "about", "products", "science", "careers", "contact"].includes(fn)) return fn;
+    return "index";
+  }
+
+  function getActiveRoleProfile() {
+    const profiles = DATA.stakeholderProfiles || {};
+    return profiles[state.stakeholder] || profiles.doctor || {
+      id: "doctor",
+      shortLabel: "Doctor",
+      label: "Doctor / Clinician",
+      color: "#0F4C81",
+      pages: {}
+    };
+  }
+
+  function getRoleActionMeta(role, medId) {
+    const mParam = medId ? `&med=${encodeURIComponent(medId)}` : "";
+    if (role === "doctor") return { label: "Rx / Sample →", href: `contact.html?role=doctor${mParam}` };
+    if (role === "customer") return { label: "Ask Desk →", href: `contact.html?role=customer${mParam}` };
+    if (role === "mr") return { label: "MR Desk →", href: `contact.html?role=mr${mParam}` };
+    return { label: "Stockist Enq →", href: `contact.html?role=stockist${mParam}` };
+  }
+
+  function syncRoleButtonsAndForms() {
+    const role = state.stakeholder;
+    document.querySelectorAll("[data-set-role]").forEach((btn) => {
+      const isAct = btn.getAttribute("data-set-role") === role;
+      btn.classList.toggle("active", isAct);
+      btn.setAttribute("aria-selected", String(isAct));
+    });
+
+    // Dynamic Contact Form Adaptation for Doctor / Customer / MR / Stockist
+    const enqRoleSelect = document.getElementById("enqRole");
+    const enqTitle = document.getElementById("enqFormDynamicTitle");
+    const enqSub = document.getElementById("enqFormDynamicSub");
+    const enqNameLbl = document.getElementById("enqNameLabel");
+    const enqNameInp = document.getElementById("enqName");
+    const enqMsgLbl = document.getElementById("enqMsgLabel");
+    const enqMsgInp = document.getElementById("enqMessage");
+
+    if (enqRoleSelect) {
+      const roleMap = {
+        doctor: {
+          selectVal: "Doctor / Clinical Literature Request",
+          title: "Doctor & Clinical Monograph Desk",
+          sub: "Request official product monographs, %RDA dossiers, or clinical samples via admin@bioplasmabio.com.",
+          nameLbl: "Doctor / Clinic / Hospital Name",
+          namePh: "e.g. Dr. Rajesh Verma, MD (City Clinic)",
+          msgLbl: "Formulations / Literature / Sample Requirement",
+          msgPh: "Mention specialty (Gastro / Ortho / Gynae) and formulations required for clinical evaluation..."
+        },
+        customer: {
+          selectVal: "Customer / Patient Product Query",
+          title: "Customer & Patient Support Desk",
+          sub: "Ask about nearby pharmacy availability, pack details, or general product information.",
+          nameLbl: "Your Full Name",
+          namePh: "e.g. Amit Kumar",
+          msgLbl: "Product Name & Availability Query",
+          msgPh: "Share the LV Bioplasma product name and your locality/pincode so our team can guide you..."
+        },
+        mr: {
+          selectVal: "MR / Field Detailing & Territory",
+          title: "MR & Field Business Connect",
+          sub: "Connect regarding field territory opportunities, ABM/MR openings, or detailing portfolio queries.",
+          nameLbl: "Your Name & Current Designation",
+          namePh: "e.g. Rohit Tiwari (MR / ABM)",
+          msgLbl: "Preferred HQ Territory & Specialty Exposure",
+          msgPh: "Share your current HQ city, years of pharma experience, and Gastro / Ortho / Gynae call coverage..."
+        },
+        stockist: {
+          selectVal: "Pharmaceutical Distributor / Stockist",
+          title: "Stockist & Distributor Partnership Desk",
+          sub: "Apply for authorized district/state stockist supply, institutional rate contracts, or C&F billing.",
+          nameLbl: "Firm / Agency Name",
+          namePh: "e.g. Apex Medicos & Distributors",
+          msgLbl: "District Coverage, Drug License & SKU Requirement",
+          msgPh: "Share your firm's district/state coverage, Drug License / GST readiness, and required product lines..."
+        }
+      };
+      const cfg = roleMap[role] || roleMap.doctor;
+      enqRoleSelect.value = cfg.selectVal;
+      if (enqTitle) enqTitle.textContent = cfg.title;
+      if (enqSub) enqSub.innerHTML = escapeHtml(cfg.sub).replace("admin@bioplasmabio.com", "<strong>admin@bioplasmabio.com</strong>");
+      if (enqNameLbl) enqNameLbl.textContent = cfg.nameLbl;
+      if (enqNameInp) enqNameInp.placeholder = cfg.namePh;
+      if (enqMsgLbl) enqMsgLbl.textContent = cfg.msgLbl;
+      if (enqMsgInp && !enqMsgInp.dataset.userEdited) {
+        const urlMed = new URLSearchParams(window.location.search).get("med");
+        if (urlMed && DATA.medicines.some((m) => m.id === urlMed)) {
+          const medObj = getMedById(urlMed);
+          enqMsgInp.value = `Enquiring regarding ${medObj.name} (${medObj.dosageForm} • ${medObj.packSize}) under ${cfg.selectVal}.`;
+        } else {
+          enqMsgInp.placeholder = cfg.msgPh;
+        }
+      }
+    }
+  }
+
+  function renderStakeholderDock() {
+    const mount = document.getElementById("stakeholderPageDock");
+    if (!mount) return;
+
+    const prof = getActiveRoleProfile();
+    const pageKey = getPageKey();
+    const pageData = (prof.pages && prof.pages[pageKey]) || (prof.pages && prof.pages.index) || {
+      eyebrow: `${prof.label} Mode Active`,
+      title: "Tailored clinical, patient, detailing & supply specifications across every formulation.",
+      ctaText: "Stakeholder Desk",
+      ctaHref: `contact.html?role=${state.stakeholder}`
+    };
+
+    const roleButtons = [
+      { id: "doctor", label: "Doctor", dot: "#38BDF8" },
+      { id: "customer", label: "Customer", dot: "#00A658" },
+      { id: "mr", label: "MR", dot: "#C084FC" },
+      { id: "stockist", label: "Stockist", dot: "#F87171" }
+    ];
+
+    mount.innerHTML = `
+      <section class="stakeholder-page-dock" aria-label="Stakeholder Experience Switcher">
+        <div class="container stakeholder-dock-inner">
+          <div class="stakeholder-pill-group" role="tablist" aria-label="Select Your Role">
+            ${roleButtons.map((rb) => `
+              <button type="button" class="stakeholder-role-btn ${state.stakeholder === rb.id ? "active" : ""}" data-set-role="${rb.id}" role="tab" aria-selected="${state.stakeholder === rb.id}">
+                <span class="role-dot" style="--role-c:${rb.dot}"></span>
+                <span>${rb.label}</span>
+              </button>
+            `).join("")}
+          </div>
+
+          <div class="stakeholder-dock-copy">
+            <span class="stakeholder-dock-eyebrow">${escapeHtml(pageData.eyebrow)}</span>
+            <div class="stakeholder-dock-title" title="${escapeHtml(pageData.title)}">${escapeHtml(pageData.title)}</div>
+          </div>
+
+          <a href="${escapeHtml(pageData.ctaHref)}" class="stakeholder-dock-cta">
+            <span>${escapeHtml(pageData.ctaText)}</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    `;
+  }
+
+  function renderStakeholderHub() {
+    const mount = document.getElementById("stakeholderHubMount");
+    if (!mount) return;
+
+    mount.innerHTML = STAKEHOLDER_HUB_CARDS.map((card) => {
+      const isAct = state.stakeholder === card.id;
+      return `
+        <article class="stakeholder-hub-card ${isAct ? "is-active-role" : ""}" style="--sh-accent:${card.color}">
+          <div class="sh-card-top">
+            <span class="sh-icon-box" aria-hidden="true">${card.iconSvg}</span>
+            <span class="sh-role-tag">${escapeHtml(card.tag)}</span>
+          </div>
+          <h3>${escapeHtml(card.title)}</h3>
+          <p>${escapeHtml(card.desc)}</p>
+          <ul class="sh-perks-list">
+            ${card.perks.map((pk) => `<li><i>✓</i><span>${escapeHtml(pk)}</span></li>`).join("")}
+          </ul>
+          <div class="sh-card-footer">
+            <button type="button" class="sh-activate-btn" data-set-role="${card.id}">
+              <span>${isAct ? `✓ ${card.title.split(" ")[0]} View Active` : card.ctaLabel}</span>
+            </button>
+          </div>
+        </article>
+      `;
+    }).join("");
+  }
+
+  function renderInfiniteMarquee() {
+    const mount = document.getElementById("infiniteMarqueeMount");
+    if (!mount) return;
+
+    const roleBadges = [
+      { role: "doctor", label: "👨‍⚕️ Doctor Clinical Monographs", sub: "IP & %RDA Verified" },
+      { role: "customer", label: "🧑‍💼 Customer Wellness Guide", sub: "Gentle & Sugar-Free" },
+      { role: "mr", label: "💼 MR Chamber Detailing", sub: "30-Sec USPs" },
+      { role: "stockist", label: "📦 Stockist Trade Supply", sub: "WHO-GMP Packs" }
+    ];
+
+    const itemsHtml = DATA.medicines.map((m, idx) => {
+      const medChip = `
+        <button type="button" class="bio-marquee-chip" data-open-med="${m.id}">
+          <img src="${m.image}" alt="${escapeHtml(m.name)}" loading="lazy" />
+          <span>${escapeHtml(m.name)}</span>
+          <em>${escapeHtml(m.techBadge || m.dosageForm)}</em>
+        </button>
+      `;
+      const rb = roleBadges[idx % roleBadges.length];
+      const roleChip = idx % 2 === 1 ? `
+        <button type="button" class="bio-marquee-chip" data-set-role="${rb.role}">
+          <span>${escapeHtml(rb.label)}</span>
+          <em>${escapeHtml(rb.sub)}</em>
+        </button>
+      ` : "";
+      return medChip + roleChip;
+    }).join("");
+
+    mount.innerHTML = `
+      <div class="bio-infinite-ribbon" aria-label="Continuous Formulation & Stakeholder Stream">
+        <div class="bio-infinite-track">
+          ${itemsHtml}${itemsHtml}
+        </div>
+      </div>
+    `;
+  }
+
+  function getNextPageInLoop() {
+    const curFile = getCurrentPageFilename();
+    const curIdx = Math.max(0, INFINITE_JOURNEY_SEQUENCE.findIndex((s) => s.file === curFile));
+    const curItem = INFINITE_JOURNEY_SEQUENCE[curIdx];
+    const nextIdx = (curIdx + 1) % INFINITE_JOURNEY_SEQUENCE.length;
+    const nextItem = INFINITE_JOURNEY_SEQUENCE[nextIdx];
+    return { curIdx, curItem, nextIdx, nextItem };
+  }
+
+  function renderInfiniteNextPortal() {
+    const mount = document.getElementById("infiniteNextPageMount");
+    if (!mount) return;
+
+    const { curIdx, curItem, nextIdx, nextItem } = getNextPageInLoop();
+    const prof = getActiveRoleProfile();
+
+    mount.innerHTML = `
+      <section class="infinite-next-portal" aria-label="Seamless Next Page Continuity">
+        <div class="container">
+          <div class="infinite-portal-card">
+            <div>
+              <div class="infinite-step-pills">
+                ${INFINITE_JOURNEY_SEQUENCE.map((step, i) => `
+                  <a href="${step.file}" class="infinite-step-dot ${i === curIdx ? "current" : (i === nextIdx ? "next" : "")}">
+                    ${step.step} • ${escapeHtml(step.short)}
+                  </a>
+                `).join("")}
+              </div>
+              <div style="font-family:var(--font-tech);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7DD3FC;margin-bottom:6px;">
+                INFINITE CONTINUITY • NEXT CHAPTER (${escapeHtml(prof.shortLabel.toUpperCase())} MODE)
+              </div>
+              <h3>${escapeHtml(curItem.nextTitle)}</h3>
+              <p>${escapeHtml(curItem.nextDesc)}</p>
+
+              <div class="infinite-glide-bar-wrap" aria-hidden="true">
+                <div class="infinite-glide-track">
+                  <div class="infinite-glide-fill" id="infiniteGlideFill"></div>
+                </div>
+                <span class="infinite-glide-hint">Scroll down at bottom or click to glide →</span>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:10px;align-items:stretch;">
+              <a href="${nextItem.file}" class="btn btn-crimson" style="white-space:nowrap;justify-content:center;">
+                <span>Continue to ${escapeHtml(nextItem.short)}</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <button type="button" class="btn btn-outline btn-sm" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="border-color:rgba(255,255,255,0.28);color:#FFFFFF;justify-content:center;">
+                ↑ Back to Top
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  let revealObserver = null;
+  function initContinuousScrollReveal() {
+    if (prefersReducedMotion || typeof IntersectionObserver === "undefined") return;
+    if (revealObserver) revealObserver.disconnect();
+
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+
+    document.querySelectorAll("main > section:not(.bio-video-hero):not(.subpage-video-hero):not(.contact-form-hero)").forEach((sec) => {
+      if (!sec.classList.contains("is-revealed")) {
+        sec.classList.add("reveal-ready");
+        revealObserver.observe(sec);
+      }
+    });
+  }
+
+  function initInfiniteBottomWheelGlide() {
+    if (window.__bioInfiniteWheelBound) return;
+    window.__bioInfiniteWheelBound = true;
+
+    let wheelCharge = 0;
+    let decayTimer = null;
+
+    window.addEventListener("wheel", (e) => {
+      if (isNavigating) return;
+      if (document.querySelector(".modal-backdrop.open")) return;
+      const activeTag = document.activeElement?.tagName;
+      if (["INPUT", "TEXTAREA", "SELECT"].includes(activeTag)) return;
+
+      const fillEl = document.getElementById("infiniteGlideFill");
+      if (!fillEl) return;
+
+      const docEl = document.documentElement;
+      const atBottom = (window.innerHeight + window.scrollY) >= (docEl.scrollHeight - 10);
+
+      if (atBottom && e.deltaY > 12) {
+        wheelCharge = Math.min(100, wheelCharge + 34);
+        fillEl.style.width = `${wheelCharge}%`;
+
+        clearTimeout(decayTimer);
+        decayTimer = setTimeout(() => {
+          wheelCharge = 0;
+          const f = document.getElementById("infiniteGlideFill");
+          if (f) f.style.width = "0%";
+        }, 1100);
+
+        if (wheelCharge >= 100) {
+          wheelCharge = 0;
+          fillEl.style.width = "100%";
+          const { nextItem } = getNextPageInLoop();
+          navigateSeamlessly(nextItem.file, true);
+        }
+      } else if (e.deltaY < -5 && wheelCharge > 0) {
+        wheelCharge = 0;
+        fillEl.style.width = "0%";
+      }
+    }, { passive: true });
+  }
+
+  function renderMonographStakeholderSuite(m) {
+    const shAll = m.stakeholders || {};
+    const cur = shAll[state.stakeholder] || shAll.doctor || {
+      headline: m.taglineEn,
+      metaLabel: "Specification",
+      metaValue: `${m.dosageForm} • ${m.packSize}`,
+      points: m.easyGuide?.keyPerksEn?.slice(0, 3) || []
+    };
+    const actMeta = getRoleActionMeta(state.stakeholder, m.id);
+    const tabs = [
+      { id: "doctor", label: "👨‍⚕️ Doctor / Rx" },
+      { id: "customer", label: "🧑‍💼 Customer" },
+      { id: "mr", label: "💼 MR Detailing" },
+      { id: "stockist", label: "📦 Stockist Pack" }
+    ];
+
+    return `
+      <div class="mono-stakeholder-suite" id="monoStakeholderSuite">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px;">
+          <span style="font-family:var(--font-tech);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--bio-cobalt);">
+            4-Stakeholder Product Intelligence • Switch Role View
+          </span>
+          <span style="font-size:0.78rem;font-weight:700;color:var(--ink-muted);">
+            ${escapeHtml(cur.metaLabel)}: <strong style="color:var(--ink-head);">${escapeHtml(cur.metaValue)}</strong>
+          </span>
+        </div>
+
+        <div class="mono-sh-tabs" role="tablist">
+          ${tabs.map((tb) => `
+            <button type="button" class="mono-sh-tab ${state.stakeholder === tb.id ? "active" : ""}" data-set-role="${tb.id}">
+              ${tb.label}
+            </button>
+          `).join("")}
+        </div>
+
+        <div class="mono-sh-panel">
+          <div class="mono-sh-left">
+            <strong style="font-size:0.95rem;color:var(--ink-head);line-height:1.42;">${escapeHtml(cur.headline)}</strong>
+            <ul style="display:flex;flex-direction:column;gap:7px;margin-top:4px;">
+              ${(cur.points || []).map((pt) => `
+                <li style="font-size:0.84rem;color:var(--ink-body);display:flex;align-items:flex-start;gap:8px;line-height:1.45;">
+                  <span style="color:#00A658;font-weight:800;flex-shrink:0;">✓</span>
+                  <span>${escapeHtml(pt)}</span>
+                </li>
+              `).join("")}
+            </ul>
+          </div>
+
+          <div class="mono-sh-right">
+            <div>
+              <div style="font-family:var(--font-tech);font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-muted);margin-bottom:4px;">
+                ${escapeHtml(cur.metaLabel)}
+              </div>
+              <div style="font-size:0.92rem;font-weight:800;color:var(--ink-head);margin-bottom:8px;">
+                ${escapeHtml(cur.metaValue)}
+              </div>
+              <div style="font-size:0.8rem;color:var(--ink-muted);line-height:1.45;">
+                Pack: <strong>${escapeHtml(m.packSize)}</strong> • Form: <strong>${escapeHtml(m.dosageForm)}</strong>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <a href="${actMeta.href}" class="btn btn-crimson btn-sm" style="width:100%;justify-content:center;">
+                ${escapeHtml(actMeta.label.replace(" →", ""))} Desk →
+              </a>
+              <a href="https://wa.me/919319491093?text=${encodeURIComponent(`Hello LV Bioplasma, I am enquiring as a ${state.stakeholder.toUpperCase()} regarding ${m.name} (${m.packSize}).`)}" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="width:100%;justify-content:center;border-color:#25D366;color:#128C7E;">
+                WhatsApp Quick Connect
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function setStakeholderRole(role) {
+    if (!VALID_ROLES.includes(role)) return;
+    state.stakeholder = role;
+    try {
+      localStorage.setItem("bioplasma_v4_stakeholder", role);
+    } catch (_) {}
+
+    renderStakeholderDock();
+    renderStakeholderHub();
+    renderInfiniteNextPortal();
+    if (document.getElementById("medicinesExplorerSection")) {
+      renderExplorer();
+    }
+    if (state.currentModalMedId && document.getElementById("monographModalBackdrop")?.classList.contains("open")) {
+      const suiteMount = document.getElementById("monoStakeholderSuite");
+      if (suiteMount) {
+        const med = getMedById(state.currentModalMedId);
+        suiteMount.outerHTML = renderMonographStakeholderSuite(med);
+      }
+    }
+    syncRoleButtonsAndForms();
+  }
+
+
   /* ---------- Bespoke Bioplasma Scroll-Collapsible Header + Floating Logo Command Menu ---------- */
   const FLOATING_NAV_ITEMS = [
     {
@@ -502,6 +1051,16 @@
       </div>
 
       <div class="bio-cmd-divider"></div>
+
+      <div class="cmd-stakeholder-strip">
+        <small>Personalize Portal View:</small>
+        <div class="stakeholder-pill-group" role="tablist" aria-label="Command Menu Stakeholder Switcher">
+          <button type="button" class="stakeholder-role-btn" data-set-role="doctor"><span class="role-dot" style="--role-c:#38BDF8;"></span>Doctor</button>
+          <button type="button" class="stakeholder-role-btn" data-set-role="customer"><span class="role-dot" style="--role-c:#00A658;"></span>Customer</button>
+          <button type="button" class="stakeholder-role-btn" data-set-role="mr"><span class="role-dot" style="--role-c:#C084FC;"></span>MR</button>
+          <button type="button" class="stakeholder-role-btn" data-set-role="stockist"><span class="role-dot" style="--role-c:#F87171;"></span>Stockist</button>
+        </div>
+      </div>
 
       <div class="bio-cmd-showcase">
         <div class="bio-cmd-copy">
@@ -737,6 +1296,13 @@
 
     // Global delegated clicks
     document.addEventListener("click", (e) => {
+      const roleTrigger = e.target.closest("[data-set-role]");
+      if (roleTrigger) {
+        e.preventDefault();
+        e.stopPropagation();
+        setStakeholderRole(roleTrigger.getAttribute("data-set-role"));
+        return;
+      }
       const medTrigger = e.target.closest("[data-open-med]");
       if (medTrigger) {
         e.preventDefault();
@@ -1433,41 +1999,51 @@
       return;
     }
 
+    const activeProf = getActiveRoleProfile();
+
     if (state.viewMode === "table") {
       gridMount.innerHTML = `
         <div class="clinical-table-wrap">
           <table class="clinical-table">
             <thead>
               <tr>
-                <th>${t("Brand", "ब्रांड नाम")}</th>
-                <th>${t("Active Composition", "मुख्य साल्ट / संरचना")}</th>
-                <th>${t("Delivery Technology", "डिलीवरी तकनीक")}</th>
-                <th>${t("Dosage & Pack", "खुराक व पैक")}</th>
-                <th>${t("Actions", "विवरण")}</th>
+                <th>Brand</th>
+                <th>Active Composition</th>
+                <th>${escapeHtml(activeProf.shortLabel)} Focus</th>
+                <th>Dosage &amp; Pack</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              ${filtered.map((m) => `
+              ${filtered.map((m) => {
+                const sh = (m.stakeholders && m.stakeholders[state.stakeholder]) || {};
+                const actMeta = getRoleActionMeta(state.stakeholder, m.id);
+                return `
                 <tr data-open-med="${m.id}">
                   <td>
                     <div style="display:flex;align-items:center;gap:12px;">
                       <img src="${m.image}" alt="${escapeHtml(m.name)}" style="width:46px;height:46px;object-fit:contain;" loading="lazy" />
                       <div>
-                        <strong style="font-size:0.96rem;display:block;">${escapeHtml(m.name)}</strong>
+                        <strong style="font-size:0.95rem;display:block;">${escapeHtml(m.name)}</strong>
                         <span class="med-sched-chip ${m.rxRequired ? "rx" : ""}" style="display:inline-block;margin-top:3px;">${m.rxRequired ? "Rx Only" : "Sugar-Free"}</span>
                       </div>
                     </div>
                   </td>
-                  <td style="max-width:300px;color:var(--ink-body);font-weight:500;">${escapeHtml(m.genericSummary)}</td>
-                  <td><span class="med-tech-chip">${escapeHtml(m.techBadge || m.technology)}</span></td>
+                  <td style="max-width:260px;color:var(--ink-body);font-weight:500;">${escapeHtml(m.genericSummary)}</td>
+                  <td style="max-width:270px;font-size:0.82rem;color:var(--ink-body);">
+                    <strong style="display:block;color:var(--bio-cobalt);font-size:0.75rem;">${escapeHtml(sh.metaValue || m.techBadge)}</strong>
+                    ${escapeHtml(sh.headline || m.taglineEn)}
+                  </td>
                   <td style="color:var(--ink-muted);font-size:0.82rem;">${escapeHtml(m.dosageForm)}<br/>${escapeHtml(m.packSize)}</td>
                   <td onclick="event.stopPropagation();">
-                    <div style="display:flex;gap:8px;align-items:center;">
-                      <button type="button" class="btn btn-cobalt btn-sm" data-open-med="${m.id}">${t("Monograph", "विवरण")}</button>
+                    <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+                      <button type="button" class="btn btn-cobalt btn-sm" data-open-med="${m.id}">Monograph</button>
+                      <a href="${actMeta.href}" class="btn btn-outline btn-sm">${escapeHtml(actMeta.label)}</a>
                     </div>
                   </td>
                 </tr>
-              `).join("")}
+              `;
+              }).join("")}
             </tbody>
           </table>
         </div>
@@ -1478,7 +2054,13 @@
     gridMount.innerHTML = `
       <div class="medicines-grid">
         ${filtered.map((m) => {
-                    return `
+          const sh = (m.stakeholders && m.stakeholders[state.stakeholder]) || {
+            headline: m.taglineEn,
+            metaLabel: "Spec",
+            metaValue: m.dosageForm
+          };
+          const actMeta = getRoleActionMeta(state.stakeholder, m.id);
+          return `
             <article class="med-card" style="--med-accent:${m.accent}">
               <div class="med-card-visual" data-open-med="${m.id}" title="Click to inspect full monograph">
                 <div class="med-badges-top">
@@ -1494,11 +2076,28 @@
                 <h3 class="med-card-title" data-open-med="${m.id}">${escapeHtml(m.name)}</h3>
                 <div class="med-card-salt">${escapeHtml(m.genericSummary)}</div>
                 <p class="med-card-desc">${escapeHtml(t(m.taglineEn, m.taglineHi))}</p>
+
+                <div class="med-role-lens">
+                  <div class="med-role-tabs" role="tablist" aria-label="${escapeHtml(m.name)} Stakeholder View">
+                    <button type="button" class="med-role-tab ${state.stakeholder === "doctor" ? "active" : ""}" data-set-role="doctor">Doctor</button>
+                    <button type="button" class="med-role-tab ${state.stakeholder === "customer" ? "active" : ""}" data-set-role="customer">Customer</button>
+                    <button type="button" class="med-role-tab ${state.stakeholder === "mr" ? "active" : ""}" data-set-role="mr">MR</button>
+                    <button type="button" class="med-role-tab ${state.stakeholder === "stockist" ? "active" : ""}" data-set-role="stockist">Stockist</button>
+                  </div>
+                  <div class="med-role-meta-line">
+                    <span>${escapeHtml(sh.metaLabel || "Focus")}:</span>
+                    <span title="${escapeHtml(sh.metaValue || "")}">${escapeHtml(sh.metaValue || "")}</span>
+                  </div>
+                  <div class="med-role-summary">${escapeHtml(sh.headline || m.taglineEn)}</div>
+                </div>
+
                 <div class="med-card-actions">
-                  <button type="button" class="btn btn-cobalt btn-sm" data-open-med="${m.id}" style="width:100%;justify-content:center;">
-                    ${t("Full Monograph", "पूरी जानकारी")}
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  <button type="button" class="btn btn-cobalt btn-sm" data-open-med="${m.id}">
+                    <span>Full Monograph</span>
                   </button>
+                  <a href="${actMeta.href}" class="btn btn-outline btn-sm">
+                    <span>${escapeHtml(actMeta.label)}</span>
+                  </a>
                 </div>
               </div>
             </article>
@@ -1554,8 +2153,6 @@
           <div class="modal-body-scroll" id="monographModalBody"></div>
         </div>
       </div>
-
-</div>
 
       <!-- Global Quick Search Modal -->
       <div class="modal-backdrop" id="quickSearchBackdrop" role="dialog" aria-modal="true" aria-label="Quick Search">
@@ -1715,12 +2312,14 @@
             <span><strong>Profile:</strong> ${escapeHtml(m.flavour)}</span>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <a href="contact.html?med=${encodeURIComponent(m.id)}" class="btn btn-crimson btn-sm">
-              Enquire for Distribution / Samples →
+            <a href="contact.html?role=${encodeURIComponent(state.stakeholder)}&med=${encodeURIComponent(m.id)}" class="btn btn-crimson btn-sm">
+              Enquire (${escapeHtml(getActiveRoleProfile().shortLabel)} Desk) →
             </a>
           </div>
         </div>
       </div>
+
+      ${renderMonographStakeholderSuite(m)}
 
       <!-- Easy Patient & Clinician Summary -->
       <div class="mono-section-block">
@@ -1801,6 +2400,20 @@
           </div>
         </div>
       </div>
+
+      <!-- Infinite Formulation Jump Strip -->
+      <div class="mono-infinite-strip">
+        <div style="font-family:var(--font-tech);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);">
+          Continuous Formulary Loop — Jump to Any LV Bioplasma Formulation:
+        </div>
+        <div class="mono-infinite-pills">
+          ${DATA.medicines.map((item) => `
+            <button type="button" class="mono-med-jump ${item.id === m.id ? "current" : ""}" data-open-med="${item.id}">
+              ${escapeHtml(item.name)}
+            </button>
+          `).join("")}
+        </div>
+      </div>
     `;
 
     backdrop.classList.add("open");
@@ -1848,7 +2461,19 @@
       return { name, phone, city, subject, body };
     }
 
+    const msgInputEl = document.getElementById("enqMessage");
+    msgInputEl?.addEventListener("input", () => {
+      msgInputEl.dataset.userEdited = "1";
+    });
+    syncRoleButtonsAndForms();
+
     const feedbackEl = document.getElementById("enqFeedbackMsg");
+
+    document.getElementById("sendWhatsAppEnquiryBtn")?.addEventListener("click", () => {
+      const payload = buildEnquiryPayload();
+      const waMsg = `Hello LV Bioplasma (${state.stakeholder.toUpperCase()} Desk),\nName: ${payload.name || "Enquirer"}\nCity: ${payload.city || "India"}\nPhone: ${payload.phone || ""}\n${document.getElementById("enqMessage")?.value.trim() || "Please share product & partnership details."}`;
+      window.open(`https://wa.me/919319491093?text=${encodeURIComponent(waMsg)}`, "_blank", "noopener");
+    });
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -1898,6 +2523,11 @@
   /* ---------- URL Parameter Hydration ---------- */
   function applyUrlParams() {
     const params = new URLSearchParams(window.location.search);
+    const roleParam = (params.get("role") || "").toLowerCase();
+    if (VALID_ROLES.includes(roleParam)) {
+      state.stakeholder = roleParam;
+      try { localStorage.setItem("bioplasma_v4_stakeholder", roleParam); } catch (_) {}
+    }
     const cat = params.get("category");
     const need = params.get("need");
     const openMed = params.get("open");
@@ -2019,6 +2649,22 @@
             const cardDept = card.getAttribute("data-job-dept");
             card.style.display = (filterVal === "all" || cardDept === filterVal) ? "flex" : "none";
           });
+        };
+      });
+    }
+
+    const presetPills = document.querySelectorAll("[data-career-preset]");
+    if (presetPills.length > 0) {
+      presetPills.forEach((pill) => {
+        pill.onclick = () => {
+          presetPills.forEach((p) => p.classList.remove("active"));
+          pill.classList.add("active");
+          const posVal = pill.getAttribute("data-career-preset") || "";
+          const deptVal = pill.getAttribute("data-career-dept") || "";
+          const posEl = document.getElementById("jobPosition");
+          const deptEl = document.getElementById("jobDepartment");
+          if (posEl && posVal) posEl.value = posVal;
+          if (deptEl && deptVal) deptEl.value = deptVal;
         };
       });
     }
@@ -2200,6 +2846,10 @@
   /* ---------- Re-Initialize Interactive Components on Page Swap ---------- */
   function reinitPageComponents() {
     applyUrlParams();
+    renderStakeholderDock();
+    renderStakeholderHub();
+    renderInfiniteMarquee();
+    renderInfiniteNextPortal();
     initSubpageVideo();
     initHeroVideoCinema();
     renderQuickNeeds();
@@ -2210,7 +2860,9 @@
     initEnquiryForm();
     initFaqAccordion();
     initCareersPage();
+    syncRoleButtonsAndForms();
     syncLanguageUI();
+    initContinuousScrollReveal();
   }
 
   /* ---------- Seamless Instant Page Transition Engine (Zero Shiver / Zero Shake) ---------- */
@@ -2244,7 +2896,7 @@
       const href = link.getAttribute('href')?.split('?')[0].split('#')[0] || '';
       link.classList.toggle('active', href === fn);
     });
-    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+    document.querySelectorAll('.mobile-nav-links a, .mobile-bottom-bar a.mob-dock-item').forEach(link => {
       const href = link.getAttribute('href')?.split('?')[0].split('#')[0] || '';
       link.classList.toggle('active', href === fn);
     });
@@ -2301,8 +2953,19 @@
       document.title = doc.title;
     }
 
+    closeAllModals();
+
+    const isSolidHeaderPage = doc.body.classList.contains('has-solid-header');
+    document.body.classList.toggle('has-solid-header', isSolidHeaderPage);
+    document.body.classList.toggle('has-cinema-hero', !isSolidHeaderPage);
+    const siteHeaderEl = document.getElementById('siteHeader');
+    if (siteHeaderEl) {
+      siteHeaderEl.classList.toggle('scrolled', isSolidHeaderPage);
+    }
+
     const newMain = doc.querySelector('main');
     if (newMain && mainEl) {
+      mainEl.className = newMain.className || '';
       mainEl.innerHTML = newMain.innerHTML;
     }
 
@@ -2377,6 +3040,10 @@
   document.addEventListener("DOMContentLoaded", () => {
     applyUrlParams();
     initHeaderAndNav();
+    renderStakeholderDock();
+    renderStakeholderHub();
+    renderInfiniteMarquee();
+    renderInfiniteNextPortal();
     initHeroVideoCinema();
     initSubpageVideo();
     initFloatingContactWidget();
@@ -2388,12 +3055,16 @@
     initEnquiryForm();
     initFaqAccordion();
     initCareersPage();
+    syncRoleButtonsAndForms();
     syncLanguageUI();
+    initContinuousScrollReveal();
+    initInfiniteBottomWheelGlide();
     initSeamlessTransitions();
-    /* Strict Content Protection: Prevent selection, copying, and cut across all products & monographs */
+    /* Strict Content Protection: Prevent selection, copying, and cut across all products & monographs (never block form inputs) */
     ["selectstart", "copy", "cut"].forEach(evt => {
       document.addEventListener(evt, e => {
-        if (e.target && e.target.closest && e.target.closest("#explorerMount, .med-card, #monographModalBackdrop, .modal-window, #monographModalBody, .clinical-table-wrap, .needs-bento-grid")) {
+        if (e.target && e.target.closest && e.target.closest("input, textarea, select, .enquiry-form-box")) return;
+        if (e.target && e.target.closest && e.target.closest("#explorerMount, .med-card, #monographModalBackdrop, #monographModalBody, .clinical-table-wrap, .needs-bento-grid")) {
           e.preventDefault();
           return false;
         }
