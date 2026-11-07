@@ -2678,7 +2678,6 @@
       document.getElementById('medicinesExplorerSection'),
       document.getElementById('vibrantScienceSection'),
       document.getElementById('homeConnectSection'),
-      document.getElementById('aboutUsSection')
     ].filter(Boolean);
 
     if (sections.length === 0) return;
