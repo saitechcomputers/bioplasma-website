@@ -5922,3 +5922,12 @@ textarea.form-control {
 .bio-infinite-ribbon {
   display: none !important;
 }
+
+/* Stakeholder Hub & Product Role Switchers Permanently Removed per user request */
+#stakeholderHubSection,
+#aboutStakeholders,
+.stakeholder-hub-grid,
+.med-role-lens,
+.mono-stakeholder-suite {
+  display: none !important;
+}

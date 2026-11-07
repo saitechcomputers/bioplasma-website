@@ -554,28 +554,7 @@
   function renderStakeholderHub() {
     const mount = document.getElementById("stakeholderHubMount");
     if (!mount) return;
-
-    mount.innerHTML = STAKEHOLDER_HUB_CARDS.map((card) => {
-      const isAct = state.stakeholder === card.id;
-      return `
-        <article class="stakeholder-hub-card ${isAct ? "is-active-role" : ""}" style="--sh-accent:${card.color}">
-          <div class="sh-card-top">
-            <span class="sh-icon-box" aria-hidden="true">${card.iconSvg}</span>
-            <span class="sh-role-tag">${escapeHtml(card.tag)}</span>
-          </div>
-          <h3>${escapeHtml(card.title)}</h3>
-          <p>${escapeHtml(card.desc)}</p>
-          <ul class="sh-perks-list">
-            ${card.perks.map((pk) => `<li><i>✓</i><span>${escapeHtml(pk)}</span></li>`).join("")}
-          </ul>
-          <div class="sh-card-footer">
-            <button type="button" class="sh-activate-btn" data-set-role="${card.id}">
-              <span>${isAct ? `✓ ${card.title.split(" ")[0]} View Active` : card.ctaLabel}</span>
-            </button>
-          </div>
-        </article>
-      `;
-    }).join("");
+    mount.innerHTML = "";
   }
 
   function renderInfiniteMarquee() {
@@ -620,77 +599,7 @@
 
 
   function renderMonographStakeholderSuite(m) {
-    const shAll = m.stakeholders || {};
-    const cur = shAll[state.stakeholder] || shAll.doctor || {
-      headline: m.taglineEn,
-      metaLabel: "Specification",
-      metaValue: `${m.dosageForm} • ${m.packSize}`,
-      points: m.easyGuide?.keyPerksEn?.slice(0, 3) || []
-    };
-    const actMeta = getRoleActionMeta(state.stakeholder, m.id);
-    const tabs = [
-      { id: "doctor", label: "👨‍⚕️ Doctor / Rx" },
-      { id: "customer", label: "🧑‍💼 Customer" },
-      { id: "mr", label: "💼 MR Detailing" },
-      { id: "stockist", label: "📦 Stockist Pack" }
-    ];
-
-    return `
-      <div class="mono-stakeholder-suite" id="monoStakeholderSuite">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px;">
-          <span style="font-family:var(--font-tech);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--bio-cobalt);">
-            4-Stakeholder Product Intelligence • Switch Role View
-          </span>
-          <span style="font-size:0.78rem;font-weight:700;color:var(--ink-muted);">
-            ${escapeHtml(cur.metaLabel)}: <strong style="color:var(--ink-head);">${escapeHtml(cur.metaValue)}</strong>
-          </span>
-        </div>
-
-        <div class="mono-sh-tabs" role="tablist">
-          ${tabs.map((tb) => `
-            <button type="button" class="mono-sh-tab ${state.stakeholder === tb.id ? "active" : ""}" data-set-role="${tb.id}">
-              ${tb.label}
-            </button>
-          `).join("")}
-        </div>
-
-        <div class="mono-sh-panel">
-          <div class="mono-sh-left">
-            <strong style="font-size:0.95rem;color:var(--ink-head);line-height:1.42;">${escapeHtml(cur.headline)}</strong>
-            <ul style="display:flex;flex-direction:column;gap:7px;margin-top:4px;">
-              ${(cur.points || []).map((pt) => `
-                <li style="font-size:0.84rem;color:var(--ink-body);display:flex;align-items:flex-start;gap:8px;line-height:1.45;">
-                  <span style="color:#00A658;font-weight:800;flex-shrink:0;">✓</span>
-                  <span>${escapeHtml(pt)}</span>
-                </li>
-              `).join("")}
-            </ul>
-          </div>
-
-          <div class="mono-sh-right">
-            <div>
-              <div style="font-family:var(--font-tech);font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-muted);margin-bottom:4px;">
-                ${escapeHtml(cur.metaLabel)}
-              </div>
-              <div style="font-size:0.92rem;font-weight:800;color:var(--ink-head);margin-bottom:8px;">
-                ${escapeHtml(cur.metaValue)}
-              </div>
-              <div style="font-size:0.8rem;color:var(--ink-muted);line-height:1.45;">
-                Pack: <strong>${escapeHtml(m.packSize)}</strong> • Form: <strong>${escapeHtml(m.dosageForm)}</strong>
-              </div>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:8px;">
-              <a href="${actMeta.href}" class="btn btn-crimson btn-sm" style="width:100%;justify-content:center;">
-                ${escapeHtml(actMeta.label.replace(" →", ""))} Desk →
-              </a>
-              <a href="https://wa.me/919319491093?text=${encodeURIComponent(`Hello LV Bioplasma, I am enquiring as a ${state.stakeholder.toUpperCase()} regarding ${m.name} (${m.packSize}).`)}" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="width:100%;justify-content:center;border-color:#25D366;color:#128C7E;">
-                WhatsApp Quick Connect
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
+    return "";
   }
 
   function setStakeholderRole(role) {
@@ -1917,26 +1826,12 @@
                 <div class="med-card-salt">${escapeHtml(m.genericSummary)}</div>
                 <p class="med-card-desc">${escapeHtml(t(m.taglineEn, m.taglineHi))}</p>
 
-                <div class="med-role-lens">
-                  <div class="med-role-tabs" role="tablist" aria-label="${escapeHtml(m.name)} Stakeholder View">
-                    <button type="button" class="med-role-tab ${state.stakeholder === "doctor" ? "active" : ""}" data-set-role="doctor">Doctor</button>
-                    <button type="button" class="med-role-tab ${state.stakeholder === "customer" ? "active" : ""}" data-set-role="customer">Customer</button>
-                    <button type="button" class="med-role-tab ${state.stakeholder === "mr" ? "active" : ""}" data-set-role="mr">MR</button>
-                    <button type="button" class="med-role-tab ${state.stakeholder === "stockist" ? "active" : ""}" data-set-role="stockist">Stockist</button>
-                  </div>
-                  <div class="med-role-meta-line">
-                    <span>${escapeHtml(sh.metaLabel || "Focus")}:</span>
-                    <span title="${escapeHtml(sh.metaValue || "")}">${escapeHtml(sh.metaValue || "")}</span>
-                  </div>
-                  <div class="med-role-summary">${escapeHtml(sh.headline || m.taglineEn)}</div>
-                </div>
-
                 <div class="med-card-actions">
                   <button type="button" class="btn btn-cobalt btn-sm" data-open-med="${m.id}">
                     <span>Full Monograph</span>
                   </button>
-                  <a href="${actMeta.href}" class="btn btn-outline btn-sm">
-                    <span>${escapeHtml(actMeta.label)}</span>
+                  <a href="contact.html?med=${encodeURIComponent(m.id)}" class="btn btn-outline btn-sm">
+                    <span>Enquire Now</span>
                   </a>
                 </div>
               </div>
@@ -2153,7 +2048,7 @@
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
             <a href="contact.html?role=${encodeURIComponent(state.stakeholder)}&med=${encodeURIComponent(m.id)}" class="btn btn-crimson btn-sm">
-              Enquire (${escapeHtml(getActiveRoleProfile().shortLabel)} Desk) →
+              Enquire About This Formulation →
             </a>
           </div>
         </div>
