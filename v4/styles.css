@@ -5914,3 +5914,11 @@ textarea.form-control {
   }
 }
 
+
+/* Stakeholder Spotlight Dock & Marquee Stream Permanently Removed per user request */
+#stakeholderPageDock,
+#infiniteMarqueeMount,
+.stakeholder-page-dock,
+.bio-infinite-ribbon {
+  display: none !important;
+}

@@ -548,47 +548,7 @@
   function renderStakeholderDock() {
     const mount = document.getElementById("stakeholderPageDock");
     if (!mount) return;
-
-    const prof = getActiveRoleProfile();
-    const pageKey = getPageKey();
-    const pageData = (prof.pages && prof.pages[pageKey]) || (prof.pages && prof.pages.index) || {
-      eyebrow: `${prof.label} Mode Active`,
-      title: "Tailored clinical, patient, detailing & supply specifications across every formulation.",
-      ctaText: "Stakeholder Desk",
-      ctaHref: `contact.html?role=${state.stakeholder}`
-    };
-
-    const roleButtons = [
-      { id: "doctor", label: "Doctor", dot: "#38BDF8" },
-      { id: "customer", label: "Customer", dot: "#00A658" },
-      { id: "mr", label: "MR", dot: "#C084FC" },
-      { id: "stockist", label: "Stockist", dot: "#F87171" }
-    ];
-
-    mount.innerHTML = `
-      <section class="stakeholder-page-dock" aria-label="Stakeholder Experience Switcher">
-        <div class="container stakeholder-dock-inner">
-          <div class="stakeholder-pill-group" role="tablist" aria-label="Select Your Role">
-            ${roleButtons.map((rb) => `
-              <button type="button" class="stakeholder-role-btn ${state.stakeholder === rb.id ? "active" : ""}" data-set-role="${rb.id}" role="tab" aria-selected="${state.stakeholder === rb.id}">
-                <span class="role-dot" style="--role-c:${rb.dot}"></span>
-                <span>${rb.label}</span>
-              </button>
-            `).join("")}
-          </div>
-
-          <div class="stakeholder-dock-copy">
-            <span class="stakeholder-dock-eyebrow">${escapeHtml(pageData.eyebrow)}</span>
-            <div class="stakeholder-dock-title" title="${escapeHtml(pageData.title)}">${escapeHtml(pageData.title)}</div>
-          </div>
-
-          <a href="${escapeHtml(pageData.ctaHref)}" class="stakeholder-dock-cta">
-            <span>${escapeHtml(pageData.ctaText)}</span>
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-      </section>
-    `;
+    mount.innerHTML = "";
   }
 
   function renderStakeholderHub() {
@@ -621,39 +581,7 @@
   function renderInfiniteMarquee() {
     const mount = document.getElementById("infiniteMarqueeMount");
     if (!mount) return;
-
-    const roleBadges = [
-      { role: "doctor", label: "👨‍⚕️ Doctor Clinical Monographs", sub: "IP & %RDA Verified" },
-      { role: "customer", label: "🧑‍💼 Customer Wellness Guide", sub: "Gentle & Sugar-Free" },
-      { role: "mr", label: "💼 MR Chamber Detailing", sub: "30-Sec USPs" },
-      { role: "stockist", label: "📦 Stockist Trade Supply", sub: "WHO-GMP Packs" }
-    ];
-
-    const itemsHtml = DATA.medicines.map((m, idx) => {
-      const medChip = `
-        <button type="button" class="bio-marquee-chip" data-open-med="${m.id}">
-          <img src="${m.image}" alt="${escapeHtml(m.name)}" loading="lazy" />
-          <span>${escapeHtml(m.name)}</span>
-          <em>${escapeHtml(m.techBadge || m.dosageForm)}</em>
-        </button>
-      `;
-      const rb = roleBadges[idx % roleBadges.length];
-      const roleChip = idx % 2 === 1 ? `
-        <button type="button" class="bio-marquee-chip" data-set-role="${rb.role}">
-          <span>${escapeHtml(rb.label)}</span>
-          <em>${escapeHtml(rb.sub)}</em>
-        </button>
-      ` : "";
-      return medChip + roleChip;
-    }).join("");
-
-    mount.innerHTML = `
-      <div class="bio-infinite-ribbon" aria-label="Continuous Formulation & Stakeholder Stream">
-        <div class="bio-infinite-track">
-          ${itemsHtml}${itemsHtml}
-        </div>
-      </div>
-    `;
+    mount.innerHTML = "";
   }
 
   function getNextPageInLoop() {
