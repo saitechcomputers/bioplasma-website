@@ -10,12 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="styles.css?v=5.0" />
+  <link rel="preload" as="video" href="assets/video/hero-contact.mp4" type="video/mp4" />
+  <link rel="stylesheet" href="styles.css?v=5.1" />
 </head>
-<body class="has-solid-header">
+<body class="has-cinema-hero">
 
   <!-- Solid Sticky Header for Clean Zero-Scroll Form Viewport -->
-  <header class="site-header scrolled" id="siteHeader">
+  <header class="site-header" id="siteHeader">
     <div class="header-accent-line"></div>
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="LV Bioplasma Home">
@@ -56,13 +57,37 @@
     </div>
   </header>
 
-  <main class="contact-page-clean">
-    <!-- Dedicated Partner & Stakeholder Enquiry Viewport (Opens Directly on Screen Without Scroll) -->
-    <section class="section contact-form-hero">
+  <main>
+    <!-- Cinema Ambient Video Hero -->
+    <section class="subpage-video-hero">
+      <video id="subpageAmbientVideo" src="assets/video/hero-contact.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <div class="subpage-video-scrim" aria-hidden="true"></div>
+      <div class="container">
+        <div class="breadcrumb">Home <span>/</span> <b>Contact LV Bioplasma</b></div>
+        <h1>Connect with our <span class="editorial-serif" style="color:#FCA5A5;">corporate desk.</span></h1>
+        <p class="section-lead">
+          For pharmaceutical stockist &amp; distributor partnerships, clinical product monographs, hospital pharmacy supply, or patient product inquiries, reach out directly below.
+        </p>
+        <div class="subpage-video-bar">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span class="bio-trust-pill lilly-trust-pill"><b>Regd. Office:</b> Plot No.11, Block B, Sector-34, Gurugram, NCR - 122004</span>
+            <a href="#partnerDeskSection" class="bio-trust-pill lilly-trust-pill" style="background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.3);color:#FFFFFF;text-decoration:none;">Enquiry Form ↓</a>
+            <a href="https://wa.me/919319491093?text=Hello%20LV%20Bioplasma,%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" class="bio-trust-pill lilly-trust-pill" style="background:#00A658;border-color:#00A658;color:#FFFFFF;text-decoration:none;">Chat on WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4-Stakeholder Experience Bar & Infinite Stream -->
+    <div id="stakeholderPageDock"></div>
+    <div id="infiniteMarqueeMount"></div>
+
+    <!-- Dedicated Partner & Stakeholder Enquiry Section -->
+    <section class="section" id="partnerDeskSection">
       <div class="container">
         <div class="contact-header-row">
           <div>
-            <h1 class="contact-title-compact">Connect with <span class="editorial-serif" style="color:var(--bio-cobalt);">Us.</span></h1>
+            <h2 class="contact-title-compact">Connect with <span class="editorial-serif" style="color:var(--bio-cobalt);">Us.</span></h2>
           </div>
 
           <div class="stakeholder-pill-group light-surface" role="tablist" aria-label="Select Stakeholder Desk">
@@ -73,7 +98,7 @@
           </div>
         </div>
 
-        <div class="partner-split" id="partnerDeskSection">
+        <div class="partner-split">
           <!-- Left Corporate HQ Box -->
           <div class="partner-info-card">
             <span class="eyebrow eyebrow-light">Stakeholder Connect</span>
@@ -303,7 +328,7 @@
     </div>
   </nav>
 
-  <script src="medicines-data.js?v=5.0"></script>
-  <script src="app.js?v=5.0"></script>
+  <script src="medicines-data.js?v=5.1"></script>
+  <script src="app.js?v=5.1"></script>
 </body>
 </html>
