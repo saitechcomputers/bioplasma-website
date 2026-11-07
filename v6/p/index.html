@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#051326" />
+  <title>Verified Product Scan — LV Bioplasma Biologicals</title>
+  <meta name="description" content="Official Smart Carton QR Digital Twin by LV Bioplasma Biologicals Private Limited — Customer Guide, Clinical Monograph & Pack Verification." />
+  <link rel="icon" type="image/png" href="../assets/brand/favicon.png?v=6.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="../styles.css?v=6.0" />
+</head>
+<body class="v6-scan-page-body">
+
+  <div class="v6-scan-shell">
+    <!-- Top Brand & Language Bar -->
+    <header class="v6-scan-topbar">
+      <a href="../index.html" aria-label="LV Bioplasma Home">
+        <img src="../assets/brand/logo-footer-light.png?v=6.0" alt="LV Bioplasma Biologicals Private Limited" />
+      </a>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div class="lang-pill" role="group" aria-label="Language Switch">
+          <button type="button" class="active" data-scan-lang="en">EN</button>
+          <button type="button" data-scan-lang="hi">हिंदी</button>
+        </div>
+        <a href="../index.html" class="btn btn-ghost-light btn-sm" style="padding:7px 14px;font-size:0.78rem;">Main Site →</a>
+      </div>
+    </header>
+
+    <!-- Verified Authentic LV Bioplasma Shield -->
+    <div class="v6-authentic-banner" id="scanAuthBanner">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="display:inline-flex;width:28px;height:28px;border-radius:50%;background:#00A658;color:#fff;align-items:center;justify-content:center;font-weight:900;flex-shrink:0;">✓</span>
+        <div>
+          <strong style="display:block;font-size:0.86rem;" id="scanVerifyTitle">Verified Authentic LV Bioplasma Formulation</strong>
+          <span style="font-size:0.74rem;color:rgba(236,253,245,0.85);" id="scanVerifySub">WHO-GMP Quality Assured • Official Digital Carton Twin</span>
+        </div>
+      </div>
+      <span id="scanBatchChip" style="display:none;font-family:var(--font-tech);font-size:0.74rem;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,0.16);"></span>
+    </div>
+
+    <!-- Quick Switcher (To Preview Any Medicine on Mobile) -->
+    <div style="margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+      <span style="font-size:0.76rem;color:rgba(255,255,255,0.78);font-weight:700;">Scanned Formulation:</span>
+      <select id="scanProductSwitcher" aria-label="Switch Formulation" style="background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.28);border-radius:999px;padding:6px 14px;font-size:0.8rem;font-weight:700;"></select>
+    </div>
+
+    <!-- Protected Product Monograph & Patient Guide Root -->
+    <main id="v6ScanProtectedRoot"></main>
+
+    <!-- Corporate Assurance Footer -->
+    <footer style="margin-top:26px;text-align:center;font-size:0.78rem;color:var(--ink-muted);padding:18px;background:#FFFFFF;border-radius:20px;border:1px solid var(--line);">
+      <strong style="color:var(--ink);display:block;margin-bottom:3px;">LV Bioplasma Biologicals Private Limited</strong>
+      <div style="color:#00A658;font-weight:700;margin-bottom:6px;">(Working with Nature Through Bio-Technology for a Healthy Life)</div>
+      <div>Plot No.11, Block B, Sector-34, Gurugram, NCR - 122004 • <a href="mailto:admin@bioplasmabio.com" style="color:var(--bio-crimson);font-weight:700;">admin@bioplasmabio.com</a></div>
+      <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:0.73rem;">
+        Medical Disclaimer: Prescription medicines marked <b>Rx</b> must be taken strictly under the advice of a Registered Medical Practitioner.
+      </div>
+      <div style="margin-top:8px;font-size:0.72rem;color:var(--ink-muted);">
+        © 2026 LV Bioplasma Biologicals Private Limited • Designed &amp; Developed by <strong>Saitech Computers</strong>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Sticky Mobile Bottom Action Bar -->
+  <div class="v6-scan-sticky-dock">
+    <div class="v6-scan-sticky-inner">
+      <a id="scanWaHelpBtn" href="https://wa.me/919319491093" target="_blank" rel="noopener" class="btn btn-sm" style="background:#25D366;color:#fff;justify-content:center;gap:7px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16" fill="#FFFFFF" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+        <span>WhatsApp Desk</span>
+      </a>
+      <a href="../products.html" class="btn btn-ghost-light btn-sm" style="justify-content:center;">All Medicines</a>
+      <a href="../qr.html" class="btn btn-crimson btn-sm" style="justify-content:center;">Scan Another</a>
+    </div>
+  </div>
+
+  <script src="../medicines-data.js?v=6.0"></script>
+  <script>
+    (function () {
+      "use strict";
+      const DATA = window.BIOPLASMA_DATA;
+      if (!DATA || !Array.isArray(DATA.medicines)) return;
+
+      function cleanName(s) {
+        return String(s || "").replace(/[®™]/g, "").replace(/\s+/g, " ").trim().toUpperCase();
+      }
+      function esc(s) {
+        return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      }
+
+      DATA.medicines.forEach((m) => { m.name = cleanName(m.name); });
+
+      const params = new URLSearchParams(window.location.search);
+      let currentId = params.get("id") || "aadirise-d3";
+      if (!DATA.medicines.some((m) => m.id === currentId)) {
+        currentId = DATA.medicines[0].id;
+      }
+      const batchParam = (params.get("batch") || "").trim();
+      let lang = params.get("lang") === "hi" ? "hi" : "en";
+      let roleTab = "customer"; // "customer" | "doctor" | "stockist"
+
+      const batchChip = document.getElementById("scanBatchChip");
+      if (batchChip && batchParam) {
+        batchChip.style.display = "inline-block";
+        batchChip.textContent = "BATCH: " + batchParam;
+      }
+
+      const switcher = document.getElementById("scanProductSwitcher");
+      if (switcher) {
+        switcher.innerHTML = DATA.medicines.map((m) =>
+          `<option value="${esc(m.id)}" ${m.id === currentId ? "selected" : ""} style="color:#0B2545;">${esc(m.name)} — ${esc(m.dosageForm)}</option>`
+        ).join("");
+        switcher.onchange = () => {
+          currentId = switcher.value;
+          const nextUrl = new URL(window.location.href);
+          nextUrl.searchParams.set("id", currentId);
+          window.history.replaceState({}, "", nextUrl.toString());
+          renderScanPage();
+        };
+      }
+
+      document.querySelectorAll("[data-scan-lang]").forEach((btn) => {
+        btn.onclick = () => {
+          lang = btn.getAttribute("data-scan-lang") === "hi" ? "hi" : "en";
+          document.querySelectorAll("[data-scan-lang]").forEach((b) => b.classList.toggle("active", b === btn));
+          renderScanPage();
+        };
+      });
+
+      function renderScanPage() {
+        const m = DATA.medicines.find((x) => x.id === currentId) || DATA.medicines[0];
+        document.title = `${m.name} — Verified Carton QR | LV Bioplasma`;
+
+        const verifyTitle = document.getElementById("scanVerifyTitle");
+        const verifySub = document.getElementById("scanVerifySub");
+        if (verifyTitle) {
+          verifyTitle.textContent = lang === "hi"
+            ? "प्रमाणित LV बायोप्लाज़्मा फ़ॉर्मूलेशन (Verified Pack)"
+            : "Verified Authentic LV Bioplasma Formulation";
+        }
+        if (verifySub) {
+          verifySub.textContent = lang === "hi"
+            ? "WHO-GMP गुणवत्ता प्रमाणित • आधिकारिक डिजिटल उत्पाद विवरण"
+            : "WHO-GMP Quality Assured • Official Digital Carton Twin";
+        }
+
+        const waBtn = document.getElementById("scanWaHelpBtn");
+        if (waBtn) {
+          const waMsg = encodeURIComponent(`Hello LV Bioplasma, I scanned the Carton QR code for ${m.name} and would like more details.`);
+          waBtn.href = `https://wa.me/919319491093?text=${waMsg}`;
+        }
+
+        const imgPath = "../" + m.image;
+        const qrSvgPath = "../assets/qr/" + m.id + ".svg";
+        const perks = lang === "hi" ? m.easyGuide.keyPerksHi : m.easyGuide.keyPerksEn;
+        const whatIs = lang === "hi" ? m.easyGuide.whatIsItHi : m.easyGuide.whatIsItEn;
+        const whoFor = lang === "hi" ? m.easyGuide.whoIsItForHi : m.easyGuide.whoIsItForEn;
+        const tagline = lang === "hi" ? m.taglineHi : m.taglineEn;
+
+        let tabBodyHtml = "";
+        if (roleTab === "customer") {
+          tabBodyHtml = `
+            <div style="display:grid;gap:16px;">
+              <div style="background:linear-gradient(135deg,#F0FDF4 0%,#ECFDF5 100%);border:1px solid #A7F3D0;padding:18px;border-radius:18px;">
+                <h3 style="font-size:1rem;font-weight:800;color:#065F46;margin-bottom:6px;">
+                  ${lang === "hi" ? "यह दवाई किस काम आती है?" : "What is this medicine for?"}
+                </h3>
+                <p style="font-size:0.92rem;color:#1E293B;line-height:1.6;margin-bottom:12px;">${esc(whatIs)}</p>
+                <h4 style="font-size:0.9rem;font-weight:800;color:#065F46;margin-bottom:4px;">
+                  ${lang === "hi" ? "किन स्थितियों में उपयोगी है?" : "Recommended Support Areas"}
+                </h4>
+                <p style="font-size:0.88rem;color:#334155;line-height:1.55;">${esc(whoFor)}</p>
+              </div>
+
+              <div style="background:#FFFFFF;border:1px solid var(--line-strong);padding:18px;border-radius:18px;">
+                <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;">
+                  ${lang === "hi" ? "मुख्य लाभ (Key Benefits)" : "Key Patient Compliance Benefits"}
+                </h3>
+                <ul style="display:grid;gap:8px;">
+                  ${perks.map((p) => `
+                    <li style="display:flex;gap:10px;font-size:0.88rem;color:var(--ink-body);align-items:flex-start;">
+                      <span style="color:#00A658;font-weight:900;">✓</span>
+                      <span>${esc(p)}</span>
+                    </li>
+                  `).join("")}
+                </ul>
+              </div>
+
+              <div style="background:#FFFBEB;border:1px solid #FDE68A;padding:16px 18px;border-radius:18px;">
+                <strong style="display:block;font-size:0.88rem;color:#92400E;margin-bottom:4px;">
+                  ${lang === "hi" ? "सेवन विधि व सावधानी (Dosage & Advice)" : "Recommended Administration & Safety"}
+                </strong>
+                <p style="font-size:0.88rem;color:#78350F;margin-bottom:6px;">${esc(m.dosage)}</p>
+                <span style="font-size:0.78rem;color:#92400E;">
+                  ${m.rxRequired
+                    ? (lang === "hi" ? "नोट: यह डॉक्टर के पर्चे (Rx) की दवाई है — केवल चिकित्सक की सलाह से ही लें।" : "Schedule Rx Medicine — Administer strictly as prescribed by a Registered Medical Practitioner.")
+                    : (lang === "hi" ? "चिकित्सक या हेल्थकेयर विशेषज्ञ के निर्देशानुसार उपयोग करें।" : "Use as directed by your Physician or Healthcare Professional.")}
+                </span>
+              </div>
+            </div>
+          `;
+        } else if (roleTab === "doctor") {
+          tabBodyHtml = `
+            <div style="display:grid;gap:18px;">
+              <div>
+                <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;">Active Pharmacopoeial / Nutritional Composition</h3>
+                <div class="clinical-table-wrap">
+                  <table class="comp-table">
+                    <thead>
+                      <tr>
+                        <th>Active Ingredient</th>
+                        <th>Role / Specification</th>
+                        <th>Strength</th>
+                        <th>% RDA / Ref</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${m.composition.map((c) => `
+                        <tr>
+                          <td><strong>${esc(c.ingredient)}</strong></td>
+                          <td>${esc(c.detail)}</td>
+                          <td><strong style="color:var(--bio-cobalt);">${esc(c.strength)}</strong></td>
+                          <td>
+                            <span>${esc(c.rda)}</span>
+                            ${c.rdaPct ? `<div class="rda-bar"><span style="width:${Math.min(100, c.rdaPct)}%"></span></div>` : ""}
+                          </td>
+                        </tr>
+                      `).join("")}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div>
+                <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;">3-Phase Mechanism of Action</h3>
+                <div class="moa-steps-grid">
+                  ${m.mechanism.map((st) => `
+                    <div class="moa-card">
+                      <small>${esc(st.step)}</small>
+                      <h5>${esc(st.title)}</h5>
+                      <p>${esc(st.desc)}</p>
+                    </div>
+                  `).join("")}
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+                <div style="background:var(--bg-warm);padding:16px;border-radius:16px;border:1px solid var(--line);">
+                  <strong style="display:block;margin-bottom:8px;font-size:0.9rem;">Clinical Indications</strong>
+                  <ul style="display:grid;gap:5px;font-size:0.85rem;color:var(--ink-body);">
+                    ${m.indications.map((i) => `<li>• ${esc(i)}</li>`).join("")}
+                  </ul>
+                </div>
+                <div style="background:var(--bg-warm);padding:16px;border-radius:16px;border:1px solid var(--line);">
+                  <strong style="display:block;margin-bottom:8px;font-size:0.9rem;">Request Samples / Literature</strong>
+                  <p style="font-size:0.84rem;color:var(--ink-body);margin-bottom:12px;">Practicing clinicians can request physical sample packs or clinical detailing from our Gurugram NCR medical desk.</p>
+                  <a href="../doctors.html" class="btn btn-cobalt btn-sm">Open Doctor Portal →</a>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          tabBodyHtml = `
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;align-items:center;">
+              <div style="background:var(--bg-warm);padding:18px;border-radius:18px;border:1px solid var(--line);display:grid;gap:10px;font-size:0.88rem;">
+                <div><strong>Brand Name:</strong> ${esc(m.name)}</div>
+                <div><strong>Classification:</strong> ${esc(m.classification)}</div>
+                <div><strong>Dosage Form:</strong> ${esc(m.dosageForm)}</div>
+                <div><strong>Commercial Pack:</strong> ${esc(m.packSize)}</div>
+                <div><strong>Delivery Tech:</strong> ${esc(m.technology)}</div>
+                <div><strong>Manufacturing:</strong> WHO-GMP Certified Facility</div>
+                <div style="padding-top:6px;">
+                  <a href="../stockists.html" class="btn btn-crimson btn-sm">Stockist &amp; Territory Enquiry →</a>
+                </div>
+              </div>
+              <div style="text-align:center;background:#F8FAFC;padding:18px;border-radius:18px;border:1px solid var(--line);">
+                <img src="${qrSvgPath}" alt="${esc(m.name)} Carton QR" style="width:150px;height:150px;margin:0 auto 10px;background:#fff;padding:8px;border-radius:14px;border:1px solid var(--line-strong);" />
+                <strong style="display:block;font-size:0.86rem;margin-bottom:4px;">Official Carton QR</strong>
+                <p style="font-size:0.76rem;color:var(--ink-muted);">High Error-Correction (Level H) vector QR for carton artwork &amp; chemist verification.</p>
+              </div>
+            </div>
+          `;
+        }
+
+        const root = document.getElementById("v6ScanProtectedRoot");
+        root.innerHTML = `
+          <section class="v6-scan-hero-card">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;align-items:center;margin-bottom:22px;">
+              <div style="text-align:center;padding:18px;border-radius:22px;background:radial-gradient(circle at 50% 55%, ${esc(m.accentSoft || "#E0F2FE")}, #F8FAFC 72%);border:1px solid var(--line);">
+                <img src="${imgPath}" alt="${esc(m.name)} packshot" style="max-height:200px;width:auto;margin:0 auto;object-fit:contain;filter:drop-shadow(0 16px 26px rgba(11,37,69,0.2));" />
+              </div>
+              <div>
+                <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px;">
+                  <span class="med-tech-chip">${esc(m.technology)}</span>
+                  <span class="med-sched-chip ${m.rxRequired ? "rx" : ""}">${m.rxRequired ? "Rx Prescription" : "Health Supplement"}</span>
+                  ${m.sugarFree ? `<span class="med-sched-chip">100% Sugar-Free</span>` : ""}
+                </div>
+                <h1 style="font-size:clamp(1.65rem,4vw,2.25rem);font-weight:800;line-height:1.1;margin-bottom:6px;">${esc(m.name)}</h1>
+                <p style="font-size:0.92rem;font-weight:700;color:var(--bio-cobalt);margin-bottom:8px;">${esc(m.shortTitle)}</p>
+                <p style="font-size:0.88rem;color:var(--ink-body);margin-bottom:12px;">${esc(tagline)}</p>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:0.8rem;color:var(--ink-muted);">
+                  <span><b>Pack:</b> ${esc(m.packSize)}</span>
+                  <span>•</span>
+                  <span><b>Profile:</b> ${esc(m.flavour)}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3-Stakeholder View Switcher -->
+            <div class="v6-scan-role-tabs" role="tablist">
+              <button type="button" class="v6-scan-role-btn ${roleTab === "customer" ? "active" : ""}" data-role-tab="customer">
+                💚 ${lang === "hi" ? "रोगी व ग्राहक गाइड" : "Customer & Patient Guide"}
+              </button>
+              <button type="button" class="v6-scan-role-btn ${roleTab === "doctor" ? "active" : ""}" data-role-tab="doctor">
+                🩺 ${lang === "hi" ? "डॉक्टर मोनोग्राफ" : "Doctor Clinical Monograph"}
+              </button>
+              <button type="button" class="v6-scan-role-btn ${roleTab === "stockist" ? "active" : ""}" data-role-tab="stockist">
+                📦 ${lang === "hi" ? "पैक व स्टॉकिस्ट जानकारी" : "Pack & Stockist Info"}
+              </button>
+            </div>
+
+            ${tabBodyHtml}
+          </section>
+        `;
+
+        root.querySelectorAll("[data-role-tab]").forEach((btn) => {
+          btn.onclick = () => {
+            roleTab = btn.getAttribute("data-role-tab");
+            renderScanPage();
+          };
+        });
+      }
+
+      renderScanPage();
+
+      // Strict Content Protection on Scanned Product Specs
+      ["selectstart", "copy", "cut"].forEach((evt) => {
+        document.addEventListener(evt, (e) => {
+          if (e.target && e.target.closest && e.target.closest("#v6ScanProtectedRoot")) {
+            e.preventDefault();
+            return false;
+          }
+        }, true);
+      });
+      document.addEventListener("contextmenu", (e) => {
+        if (e.target && e.target.closest && e.target.closest("#v6ScanProtectedRoot")) {
+          if (!e.target.closest("a, button, select")) e.preventDefault();
+        }
+      }, true);
+    })();
+  </script>
+</body>
+</html>
