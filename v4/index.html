@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" />
   <link rel="preload" as="video" href="assets/video/hero-human-life.mp4" type="video/mp4" />
-  <link rel="stylesheet" href="styles.css?v=6.0" />
+  <link rel="stylesheet" href="styles.css?v=6.1" />
 
   <script type="application/ld+json">
   {
@@ -53,7 +53,7 @@
 
       <nav class="primary-nav" aria-label="Primary Navigation">
         <div class="nav-item"><a href="#heroCarouselRoot" class="nav-link active">Home</a></div>
-        <div class="nav-item"><a href="products.html" class="nav-link">Products</a></div>
+        <div class="nav-item"><a href="#medicinesExplorerSection" class="nav-link">Products</a></div>
         <div class="nav-item"><a href="#vibrantScienceSection" class="nav-link">Vibrant Science</a></div>
         <div class="nav-item"><a href="#homeConnectSection" class="nav-link">Contact Us</a></div>
         <div class="nav-item"><a href="careers.html" class="nav-link">Careers</a></div>
@@ -80,7 +80,7 @@
     <div class="mobile-nav-drawer" id="mobileNavDrawer">
       <div class="mobile-nav-links">
         <a href="#heroCarouselRoot" class="active">Home</a>
-        <a href="products.html">Products Formulary</a>
+        <a href="#medicinesExplorerSection">Products Formulary</a>
         <a href="#vibrantScienceSection">Vibrant Delivery Science</a>
         <a href="#homeConnectSection">Contact Us</a>
         <a href="careers.html">Careers &amp; Opportunities</a>
@@ -230,6 +230,27 @@
     
 
 
+
+    <!-- =====================================================================
+         CORE PRODUCTS SHOWCASE (CLEAN CARDS - SEARCH & ADVANCED FILTERS ON PRODUCTS PAGE)
+         ===================================================================== -->
+    <section class="section" id="medicinesExplorerSection">
+      <div class="container">
+        <div class="section-head-split" style="margin-bottom:32px;">
+          <div>
+            <span class="eyebrow">Complete Product Portfolio</span>
+            <h2 class="section-heading">Explore our <span class="editorial-serif">specialized formulations.</span></h2>
+          </div>
+          <a href="products.html" class="btn btn-outline btn-sm">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:4px;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Search &amp; Filters on Products Page →
+          </a>
+        </div>
+
+        <!-- Clean Medicine Cards Mount (Without Search Toolbar) -->
+        <div id="explorerMount"></div>
+      </div>
+    </section>
 
     <!-- =====================================================================
          LILLY-INSPIRED HUMAN-FIRST HEALTH NEED & SYMPTOM FINDER
@@ -511,7 +532,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
         <span>Home</span>
       </a>
-      <a href="products.html" class="mob-dock-item">
+      <a href="#medicinesExplorerSection" class="mob-dock-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         <span>Products</span>
       </a>
@@ -534,7 +555,7 @@
     </div>
   </nav>
 
-  <script src="medicines-data.js?v=6.0"></script>
-  <script src="app.js?v=6.0"></script>
+  <script src="medicines-data.js?v=6.1"></script>
+  <script src="app.js?v=6.1"></script>
 </body>
 </html>
