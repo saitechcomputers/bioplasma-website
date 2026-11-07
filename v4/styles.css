@@ -4698,3 +4698,43 @@ body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
   background: transparent !important;
   color: inherit !important;
 }
+
+/* ==========================================================================
+   V4 DEDICATED CONTACT / ENQUIRY FORM PAGE VIEWPORT
+   ========================================================================== */
+.contact-page-clean {
+  min-height: calc(100svh - 104px);
+  background: var(--bg-warm);
+}
+
+.contact-form-hero {
+  padding-top: clamp(20px, 2.5vw, 36px) !important;
+  padding-bottom: clamp(34px, 4.5vw, 56px) !important;
+  background: var(--bg-warm);
+}
+
+.contact-header-compact {
+  max-width: 820px;
+  margin-bottom: clamp(18px, 2.4vw, 28px);
+}
+
+.contact-title-compact {
+  font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.contact-lead-compact {
+  font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+  color: var(--ink-body);
+  line-height: 1.6;
+}
+
+@media (min-width: 1024px) {
+  .contact-form-hero .partner-split {
+    align-items: start;
+  }
+}
