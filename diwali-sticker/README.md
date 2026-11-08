@@ -69,15 +69,18 @@ wallpaper shows through, like WhatsApp's own text stickers. `whatsapp-sticker-pa
 Each comes as a 512×512 `.webp` (under 100 KB), a `.png` and a full-size `-2048.png`.
 The earlier framed versions are in `framed-stickers/`.
 
-## Diwali wishes poster & 10-second video (`greeting/`)
+## Diwali wishes poster & 10-second videos (`greeting/`)
 
 | File | Use |
 |---|---|
 | `greeting/saitech-diwali-wishes-poster.jpg` | 1080×1350 poster to send to customers on WhatsApp |
-| `greeting/saitech-diwali-wishes-video.mp4` | 10 s, 1080×1920 vertical video with music (Status / chats) |
+| `greeting/saitech-diwali-video-umang.mp4` | **Umang** (festive joy): shehnai, dhol and tabla |
+| `greeting/saitech-diwali-video-khushi-ke-aansu.mp4` | **Khushi ke Aansu** (tears of joy): piano, strings and bansuri |
+| `greeting/saitech-diwali-video-josh.mp4` | **Josh** (energy and pride): taiko drums, string ostinato and brass |
 
-The message thanks customers for their trust ("आपका भरोसा ही हमारी असली दिवाली है"). The music is an emotional cinematic score synthesised by
-`make-music.py`: strings, piano arpeggio, bansuri melody, temple bells, a riser and a big resolve as the brand appears,
-with the chord progression D–A/C#–Bm–G–A–D. It is mixed at 48 kHz in wide stereo with convolution reverb and encoded as
-AAC 320 kbps. The master is also saved as `greeting/saitech-diwali-music.flac`. Nothing is sampled, so there are no copyright issues.
+All videos are 10 s, 1080×1920, with AAC 320 kbps at 48 kHz in wide stereo. The FLAC masters are in `greeting/saitech-diwali-music-*.flac`.
+The message thanks customers for their trust ("आपका भरोसा ही हमारी असली दिवाली है").
+
+`make-music.py <umang|khushi|josh> out.wav` synthesises the music from scratch. It uses no samples (so there are no copyright issues) and
+no noise sources (so there is no hiss). Every mood resolves on D at 7.4 s, when the Saitech brand appears.
 Re-render: `node render-greeting.js poster out.png`, or `node render-greeting.js video framesDir` and then encode with ffmpeg.
