@@ -1,11 +1,11 @@
 // usage: node render-greeting.js poster out.png | node render-greeting.js video framesDir [seconds] [tl=photo,title,m1,m2,en,brand]
 const { chromium } = require('playwright');
 (async () => {
-  const [,, mode, out, secs, tl] = process.argv;
+  const [,, mode, out, secs, tl, fw] = process.argv;
   const h = mode === 'poster' ? 1350 : 1920;
   const b = await chromium.launch();
   const p = await b.newPage({ viewport: { width: 1080, height: h }, deviceScaleFactor: 1 });
-  await p.goto('file://' + __dirname + '/greeting.html?h=' + h + (tl ? '&tl=' + tl : ''), { waitUntil: 'networkidle' });
+  await p.goto('file://' + __dirname + '/greeting.html?h=' + h + (tl ? '&tl=' + tl : '') + (fw ? '&fw=' + fw : ''), { waitUntil: 'networkidle' });
   await p.evaluate(() => window.ready);
   const stage = await p.$('#stage');
   if (mode === 'poster') {

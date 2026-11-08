@@ -1,6 +1,7 @@
 """Build the voiceover Diwali video.
 
-usage: python3 make-voice-video.py VOICE_DIR OUT.mp4 FRAMES_DIR
+usage: python3 make-voice-video.py VOICE_DIR OUT.mp4 FRAMES_DIR [music|crackers]
+  crackers = no music; a Diwali firecracker soundscape that builds up, with matching fireworks on screen
 VOICE_DIR is the output of make-voice.py (line01.wav ... + lines.json).
 Steps: plan timeline from line durations -> render frames -> music (khushi, stretched so the
 climax lands on the brand) -> warm/reverb the voice -> duck music under it -> mux.
@@ -11,6 +12,7 @@ from scipy.signal import butter, sosfilt, fftconvolve, resample_poly
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 vdir, out_mp4, frames = sys.argv[1], sys.argv[2], sys.argv[3]
+BED = sys.argv[4] if len(sys.argv) > 4 else 'music'
 meta = json.load(open(os.path.join(vdir, 'lines.json')))
 SR = 48000
 
@@ -39,13 +41,22 @@ print('duration %.2fs  K=%.2f  timeline %s' % (T, K, ', '.join('%.2f' % x for x 
 # ---------- frames ----------
 os.makedirs(frames, exist_ok=True)
 for f in os.listdir(frames): os.remove(os.path.join(frames, f))
-subprocess.run(['node', os.path.join(HERE, 'render-greeting.js'), 'video', frames, str(T), ','.join('%.2f' % x for x in tl)], check=True)
-
-# ---------- music ----------
-mus_path = os.path.join(frames, '..', 'voice-music.wav')
-subprocess.run([sys.executable, os.path.join(HERE, 'make-music.py'), 'khushi', mus_path, str(T), str(brand)], check=True)
-music, _ = read_wav(mus_path)
+# ---------- background bed: music or firecrackers ----------
+fw = ''
+if BED == 'crackers':
+    sys.path.insert(0, HERE)
+    import importlib; ck = importlib.import_module('make-crackers')
+    speech = [(st, st + ln['dur']) for st, ln in zip(starts, meta['lines'])]
+    music, bursts = ck.crackers(T, speech, brand)
+    music = np.tanh(music * 3.0) / np.tanh(3.0)      # lift the smaller bangs and pops (more josh)
+    fw = ','.join('%.2f' % b for b in bursts)
+    print('fireworks at', fw)
+else:
+    mus_path = os.path.join(frames, '..', 'voice-music.wav')
+    subprocess.run([sys.executable, os.path.join(HERE, 'make-music.py'), 'khushi', mus_path, str(T), str(brand)], check=True)
+    music, _ = read_wav(mus_path)
 N = len(music)
+subprocess.run(['node', os.path.join(HERE, 'render-greeting.js'), 'video', frames, str(T), ','.join('%.2f' % x for x in tl), fw], check=True)
 
 # ---------- voice track ----------
 voice = np.zeros(N)
@@ -71,7 +82,7 @@ vL = voice + 0.22 * fftconvolve(voice, irs[0])[:N]; vR = voice + 0.22 * fftconvo
 
 # ---------- duck music under the voice ----------
 active = np.convolve((np.abs(voice) > 0.02).astype(float), np.ones(int(0.35 * SR)), mode='same') > 0
-duck = np.where(active, 0.32, 1.0)
+duck = np.where(active, 0.32 if BED == 'music' else 0.28, 1.0)
 k = int(0.3 * SR); duck = np.convolve(duck, np.ones(k) / k, mode='same')
 mix = music * duck[:, None] * 0.9 + np.stack([vL, vR], 1) * 0.62
 mix /= np.abs(mix).max(); mix = np.tanh(mix * 1.4) / np.tanh(1.4) * 0.9

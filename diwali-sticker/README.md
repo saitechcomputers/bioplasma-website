@@ -89,8 +89,13 @@ Re-render: `node render-greeting.js poster out.png`, or `node render-greeting.js
 
 | File | Voice |
 |---|---|
-| `greeting/saitech-diwali-voice-video-mahila.mp4` | Female voice, about 31 s |
-| `greeting/saitech-diwali-voice-video-purush.mp4` | Male voice, about 31 s |
+| `greeting/saitech-diwali-patakhe-video-mahila.mp4` | Female voice + firecrackers, about 31 s |
+| `greeting/saitech-diwali-patakhe-video-purush.mp4` | Male voice + firecrackers, about 31 s |
+
+These videos have no music. `make-crackers.py` synthesises a firecracker soundscape that keeps building: distant pops,
+rockets that whistle and burst, ladi and sutli bombs, with a big finale when "साईंटेक कंप्यूटर्स" appears.
+Matching fireworks are drawn on screen (`greeting.html?fw=` burst times). The brand is written in Hindi, and the voice says "साईंटेक".
+Rebuild with `python3 make-voice-video.py voice-female OUT.mp4 /tmp/frames crackers`.
 
 The voice comes from the AI4Bharat Indic-TTS Hindi model (FastPitch + HiFi-GAN, IIT Madras), from
 `github.com/AI4Bharat/Indic-TTS/releases/download/v1-checkpoints-release/hi.zip`. Each on-screen line appears as it is spoken.

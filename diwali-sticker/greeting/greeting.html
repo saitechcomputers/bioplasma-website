@@ -52,6 +52,7 @@
     </div>
   </div>
   <div id="diyas"></div>
+  <canvas id="fwc" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas>
 </div>
 <script>
 const q=new URLSearchParams(location.search);
@@ -103,6 +104,36 @@ const cv=document.getElementById('fx'); cv.width=W*U; cv.height=H*U; const g=cv.
 // optional voiceover timeline: ?tl=photo,title,m1,m2,en,brand (start seconds)
 if(q.get('tl')){ const tl=q.get('tl').split(',').map(Number);
   ['photoWrap','title','m1','m2','en','brand'].forEach((id,i)=>{const el=document.getElementById(id); const p=el.dataset.in.split(','); p[0]=tl[i]; el.dataset.in=p.join(',');}); }
+// optional fireworks: ?fw=t1,t2,... burst times (rocket trail shown 0.85 s before each)
+const FW=(q.get('fw')||'').split(',').filter(Boolean).map(Number).map((b,i)=>{
+  let sd=1000+i*7919; const r=()=>(sd=(sd*16807)%2147483647)/2147483647;
+  const cols=[[255,215,64],[255,82,82],[105,240,174],[64,196,255],[234,128,252],[255,171,64],[255,255,255]];
+  const c1=cols[Math.floor(r()*cols.length)], c2=cols[Math.floor(r()*cols.length)];
+  const side=i%2?1:-1; return {b, x:0.5+side*(0.2+r()*0.1), y:0.1+r()*0.14, sx:0.5+side*(0.05+r()*0.3), n:150+Math.floor(r()*20), R:260+r()*90, c1, c2,
+          sp:[...Array(170)].map(()=>({a:r()*6.283, v:0.55+r()*0.45, tw:r()*6.28}))};});
+const fwc=document.getElementById('fwc'); fwc.width=W*U; fwc.height=H*U; const fg=fwc.getContext('2d');
+function drawFireworks(t){
+  const g=fg; g.clearRect(0,0,fwc.width,fwc.height); g.globalCompositeOperation='lighter';
+  const Wp=fwc.width, Hp=fwc.height;
+  FW.forEach(f=>{
+    const X=f.x*Wp, Y=f.y*Hp;
+    if(t>=f.b-0.85 && t<f.b){ // rocket trail
+      const k=(t-(f.b-0.85))/0.85, sx=f.sx*Wp, cx=sx+(X-sx)*k, cy=Hp+(Y-Hp)*(1-Math.pow(1-k,2));
+      for(let j=0;j<10;j++){const kk=Math.max(0,k-j*0.02), px_=sx+(X-sx)*kk, py=Hp+(Y-Hp)*(1-Math.pow(1-kk,2));
+        g.fillStyle=`rgba(255,230,160,${0.9-j*0.09})`; g.beginPath(); g.arc(px_,py,(8-j*0.6)*U,0,7); g.fill();}
+    }
+    const d=t-f.b; if(d<0||d>2.2) return;
+    const fade=Math.max(0,1-d/2.2), e=1-Math.exp(-d*3.2);
+    if(d<0.2){ const fl=g.createRadialGradient(X,Y,0,X,Y,220*U); fl.addColorStop(0,`rgba(255,250,220,${0.85*(1-d/0.2)})`); fl.addColorStop(1,'rgba(255,200,120,0)'); g.fillStyle=fl; g.beginPath(); g.arc(X,Y,220*U,0,7); g.fill(); }
+    f.sp.slice(0,f.n).forEach((p,i)=>{
+      const rr=f.R*U*p.v*e, px_=X+Math.cos(p.a)*rr, py=Y+Math.sin(p.a)*rr+ 60*U*d*d;
+      const c=i%2?f.c1:f.c2, tw=0.6+0.4*Math.sin(t*25+p.tw);
+      g.strokeStyle=`rgba(${c},${fade*tw})`; g.lineWidth=5*U;
+      const tail=0.14*rr; g.beginPath(); g.moveTo(px_,py); g.lineTo(px_-Math.cos(p.a)*tail, py-Math.sin(p.a)*tail-8*U*d); g.stroke();
+      g.fillStyle=`rgba(255,255,240,${fade*tw})`; g.beginPath(); g.arc(px_,py,3.4*U,0,7); g.fill();
+    });
+  });
+}
 const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
 window.setT=function(t){
   // fade in from dark
@@ -132,6 +163,7 @@ window.setT=function(t){
   stars.forEach(s=>{const a=Math.max(0,Math.sin(t*2.5+s.ph))*show; if(a<.05)return; const X=s.x*cv.width,Y=s.y*cv.height,S=s.s*U*a;
     g.fillStyle=`rgba(255,250,225,${a})`; g.beginPath(); g.moveTo(X,Y-S*2); g.lineTo(X+S*.35,Y-S*.35); g.lineTo(X+S*2,Y); g.lineTo(X+S*.35,Y+S*.35);
     g.lineTo(X,Y+S*2); g.lineTo(X-S*.35,Y+S*.35); g.lineTo(X-S*2,Y); g.lineTo(X-S*.35,Y-S*.35); g.fill();});
+  drawFireworks(t);
 };
 window.setT(+(q.get('t')||10));
 window.ready=Promise.all([document.fonts.ready,new Promise(r=>photo.complete?r():photo.onload=r)]);
