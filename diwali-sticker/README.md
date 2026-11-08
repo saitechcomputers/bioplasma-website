@@ -8,7 +8,7 @@ Gold Laxmi–Ganesh Diwali sticker branded **Saitech Computers — Completely Yo
 | `happy-diwali-saitech-sticker-512.png` | Same sticker as PNG |
 | `happy-diwali-saitech-full-1080.png` | Full size for WhatsApp Status / posts |
 | `happy-diwali-saitech-full-2048.png` | Full size, high resolution (print / large share) |
-| `tray-icon-96.png` | 96×96 tray icon for a sticker pack |
+| `whatsapp-sticker-pack/tray-icon.png` | 96×96 tray icon for a sticker pack |
 | `sticker.html` | Editable vector source (open in a browser; add `?s=2048` to set size) |
 
 ## Laptop design (v2)
@@ -36,3 +36,13 @@ These versions have a solid background:
 |---|---|
 | `laptop-diwali-saitech-gold-bg-1080.jpg` / `-2048.jpg` | Golden glow with diya-light bokeh |
 | `laptop-diwali-saitech-white-bg-1080.jpg` / `-2048.jpg` | Plain white |
+
+## WhatsApp sticker pack (fully transparent)
+
+`whatsapp-sticker-pack/` (also zipped as `saitech-diwali-whatsapp-stickers.zip`) has 3 transparent
+512×512 stickers (WebP < 100 KB each, plus PNG copies) and a 96×96 tray icon. This meets WhatsApp's
+minimum of 3 stickers per pack. `diya-sticker.html` is the source of sticker 03.
+
+Send them as **stickers**, not as photos. A sticker sent as a photo is converted to JPG and its transparent area turns black.
+- **WhatsApp → chat → 😊 → Stickers → “+ Create” → pick the PNG → Send.** The background stays transparent.
+- Or import the zip into a sticker-maker app with “Add to WhatsApp”.
