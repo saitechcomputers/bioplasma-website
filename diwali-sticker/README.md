@@ -84,3 +84,21 @@ The message thanks customers for their trust ("आपका भरोसा ह�
 `make-music.py <umang|khushi|josh> out.wav` synthesises the music from scratch. It uses no samples (so there are no copyright issues) and
 no noise sources (so there is no hiss). Every mood resolves on D at 7.4 s, when the Saitech brand appears.
 Re-render: `node render-greeting.js poster out.png`, or `node render-greeting.js video framesDir` and then encode with ffmpeg.
+
+### Voiceover videos (AI voice, Hindi)
+
+| File | Voice |
+|---|---|
+| `greeting/saitech-diwali-voice-video-mahila.mp4` | Female voice, about 31 s |
+| `greeting/saitech-diwali-voice-video-purush.mp4` | Male voice, about 31 s |
+
+The voice comes from the AI4Bharat Indic-TTS Hindi model (FastPitch + HiFi-GAN, IIT Madras), from
+`github.com/AI4Bharat/Indic-TTS/releases/download/v1-checkpoints-release/hi.zip`. Each on-screen line appears as it is spoken.
+The "Khushi ke Aansu" music is stretched to fit and ducks under the voice, and its climax lands in the pause just before
+"सैटेक कंप्यूटर्स। कम्प्लीटली यॉर्स।".
+
+To rebuild (needs `coqui-tts[codec]`, `torch` and the unzipped model):
+```
+python make-voice.py hi voice-female female 1.12
+python3 make-voice-video.py voice-female saitech-diwali-voice-video-mahila.mp4 /tmp/frames
+```

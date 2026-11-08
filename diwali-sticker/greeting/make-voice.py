@@ -22,9 +22,17 @@ speaker = sys.argv[3] if len(sys.argv) > 3 else 'female'
 length_scale = float(sys.argv[4]) if len(sys.argv) > 4 else 1.12   # >1 = slower, calmer delivery
 os.makedirs(out_dir, exist_ok=True)
 
+# the shipped config points speakers_file at the authors' path; point it at the local copy
+cfg = json.load(open(f'{model_dir}/fastpitch/config.json'))
+spk_path = os.path.abspath(f'{model_dir}/fastpitch/speakers.pth')
+cfg['speakers_file'] = spk_path
+if isinstance(cfg.get('model_args'), dict) and 'speakers_file' in cfg['model_args']:
+    cfg['model_args']['speakers_file'] = spk_path
+cfg_path = os.path.join(out_dir, 'fastpitch_config.json'); json.dump(cfg, open(cfg_path, 'w'), ensure_ascii=False)
+
 syn = Synthesizer(
     tts_checkpoint=f'{model_dir}/fastpitch/best_model.pth',
-    tts_config_path=f'{model_dir}/fastpitch/config.json',
+    tts_config_path=cfg_path,
     tts_speakers_file=f'{model_dir}/fastpitch/speakers.pth',
     vocoder_checkpoint=f'{model_dir}/hifigan/best_model.pth',
     vocoder_config=f'{model_dir}/hifigan/config.json',
@@ -39,7 +47,7 @@ if hasattr(syn.tts_model, 'length_scale'):
 sr = syn.output_sample_rate
 meta = []
 for i, text in enumerate(LINES, 1):
-    wav = np.array(syn.tts(text, speaker_name=spk), dtype=np.float32)
+    wav = np.array(syn.tts(text.replace('।', '.'), speaker_name=spk), dtype=np.float32)   # model has no '।'
     # trim leading/trailing silence
     nz = np.where(np.abs(wav) > 0.01)[0]
     if len(nz): wav = wav[max(0, nz[0] - int(0.03 * sr)): nz[-1] + int(0.08 * sr)]

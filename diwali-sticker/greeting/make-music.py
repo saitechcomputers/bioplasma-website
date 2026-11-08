@@ -1,6 +1,6 @@
 """Diwali score in three moods, synthesised from scratch (no samples, copyright-free, no noise sources -> no hiss).
 
-usage: python3 make-music.py <umang|khushi|josh> out.wav [seconds]   (khushi can be stretched for voiceover videos)
+usage: python3 make-music.py <umang|khushi|josh> out.wav [seconds [climax_seconds]]   (khushi can be stretched for voiceover videos)
 
 All three follow the video timing: chords D - A/C# - Bm - G - A - D change at
 0, 2.4, 3.9, 5.4, 6.6 and 7.4 s; the big resolve at 7.4 s lands with the Saitech brand.
@@ -14,6 +14,8 @@ from scipy.signal import fftconvolve, butter, sosfilt
 
 MOOD = sys.argv[1]; OUT = sys.argv[2]
 T = float(sys.argv[3]) if len(sys.argv) > 3 else 10.0; K = T / 10.0   # time-stretch factor
+CLIMAX = float(sys.argv[4]) if len(sys.argv) > 4 else 7.4 * K   # optional: when the final D chord lands
+K = CLIMAX / 7.4
 SR = 48000; N = int(SR * T); t = np.arange(N) / SR
 rng = np.random.default_rng(7)
 L = np.zeros(N); R = np.zeros(N)
@@ -39,6 +41,7 @@ CH = [(0.0, 2.4, [38, 50, 57, 62, 66, 69]), (2.4, 3.9, [37, 49, 57, 61, 64, 69])
       (6.6, 7.4, [33, 45, 57, 61, 64, 69]), (7.4, 10.0, [26, 38, 50, 57, 62, 66, 69, 74])]
 ROOT = [50, 49, 47, 43, 45, 50]
 CH = [(s * K, e * K, n) for s, e, n in CH]
+CH[5] = (CH[5][0], T, CH[5][2])     # final chord rings to the end
 
 # ---------------- instruments (all tonal) ----------------
 def strings(gain, attack, voices=5, bright=1.35):
@@ -199,7 +202,7 @@ oL = L + wet * fftconvolve(L, irL)[:N]; oR = R + wet * fftconvolve(R, irR)[:N]
 mid, side = (oL + oR) / 2, (oL - oR) / 2; oL, oR = mid + 1.3 * side, mid - 1.3 * side
 band = butter(2, [45, 14000], btype='band', fs=SR, output='sos')
 oL, oR = sosfilt(band, oL), sosfilt(band, oR)
-fade = np.ones(N); fi = int(0.03 * SR); fo = int(1.5 * K * SR)
+fade = np.ones(N); fi = int(0.03 * SR); fo = int(min(1.5 * K, 2.4) * SR)
 fade[:fi] = np.linspace(0, 1, fi); fade[-fo:] = np.cos(np.linspace(0, np.pi / 2, fo)) ** 2
 st = np.stack([oL, oR], 1) * fade[:, None]
 st /= np.abs(st).max(); st = np.tanh(st * 1.6) / np.tanh(1.6) * 0.89
