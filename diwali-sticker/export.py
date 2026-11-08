@@ -15,6 +15,17 @@ def webp(png, out):
         if os.path.getsize(out) < 100 * 1024:
             return
 
+def fill_frame(base):
+    """Trim empty transparent margins so the design fills the square sticker frame."""
+    big = Image.open(base + '-2048.png').convert('RGBA')
+    c = big.crop(big.getchannel('A').point(lambda v: 255 if v > 8 else 0).getbbox())
+    side = int(max(c.size) * 1.02)
+    sq = Image.new('RGBA', (side, side), (0, 0, 0, 0))
+    sq.alpha_composite(c, ((side - c.width) // 2, (side - c.height) // 2))
+    sq.resize((2048, 2048), Image.LANCZOS).save(base + '-2048.png', optimize=True)
+    sq.resize((512, 512), Image.LANCZOS).save(base + '.png', optimize=True)
+    webp(base + '.png', base + '.webp')
+
 def festive_bg(size):
     random.seed(7)
     W = H = size
@@ -73,6 +84,7 @@ for v, name in [('1', '01-laxmi-ganesh-happy-diwali'), ('2', '02-shubh-deepawali
     render(f'floating-stickers.html?v={v}', f'whatsapp-sticker-pack/{name}.png', 512)
     webp(f'whatsapp-sticker-pack/{name}.png', f'whatsapp-sticker-pack/{name}.webp')
     render(f'floating-stickers.html?v={v}', f'whatsapp-sticker-pack/{name}-2048.png', 2048)
+    fill_frame(f'whatsapp-sticker-pack/{name}')
 Image.open('whatsapp-sticker-pack/03-laptop-laxmi-ganesh-2048.png').resize((96, 96), Image.LANCZOS).save('whatsapp-sticker-pack/tray-icon.png', optimize=True)
 with zipfile.ZipFile('saitech-diwali-whatsapp-stickers.zip', 'w', zipfile.ZIP_DEFLATED) as z:
     for f in sorted(os.listdir('whatsapp-sticker-pack')):
