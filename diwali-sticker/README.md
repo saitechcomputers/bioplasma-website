@@ -46,3 +46,11 @@ minimum of 3 stickers per pack. `diya-sticker.html` is the source of sticker 03.
 Send them as **stickers**, not as photos. A sticker sent as a photo is converted to JPG and its transparent area turns black.
 - **WhatsApp → chat → 😊 → Stickers → “+ Create” → pick the PNG → Send.** The background stays transparent.
 - Or import the zip into a sticker-maker app with “Add to WhatsApp”.
+
+## Real Laxmi–Ganesh photo
+
+- `laxmi-ganesh-original.jpg`: the photo as supplied.
+- `laxmi-ganesh.png`: the same photo with the white background and floor reflection removed, upscaled 3x, sharpened and colour-enhanced.
+  When this file is present, `laptop-sticker.html` and `sticker.html` show it in place of the drawn artwork.
+
+Re-create every output (stickers, full size, gold/white backgrounds, WhatsApp pack, zip) with `python3 export.py`.

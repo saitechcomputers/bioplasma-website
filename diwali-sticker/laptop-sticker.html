@@ -8,7 +8,7 @@
 </style></head>
 <body>
 <!--
-  REAL PHOTO: put a photo of Laxmi-Ganesh named "laxmi-ganesh.jpg" (or .png) next to this file.
+  REAL PHOTO: put a background-free photo of Laxmi-Ganesh named "laxmi-ganesh.png" next to this file.
   It is shown inside the laptop screen automatically. Without it, the gold idol artwork is used.
 -->
 <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -113,8 +113,8 @@
 <g clip-path="url(#screen)">
   <rect x="78" y="44" width="356" height="256" fill="url(#bg)"/>
   <g id="raysAll" transform="translate(256 150)" fill="#FFD54F" opacity=".2"></g>
+  <g id="toran"></g>
   <g id="artwork">
-    <g id="toran"></g>
     <g transform="translate(256 52) scale(0.66) translate(-256 -40)" filter="url(#metal)">
 <!-- halos -->
 <circle cx="178" cy="150" r="70" fill="url(#halo)"/>
@@ -288,16 +288,19 @@
 </g>
     </g>
   </g>
-  <image id="photo" x="78" y="44" width="356" height="256" preserveAspectRatio="xMidYMid slice" style="display:none"/>
   <rect x="78" y="44" width="356" height="256" fill="url(#fadeBottom)"/>
+  <g id="photoGroup" style="display:none">
+    <ellipse cx="256" cy="150" rx="150" ry="110" fill="url(#halo)" opacity=".85"/>
+    <image id="photo" x="146" y="54" width="220" height="198" preserveAspectRatio="xMidYMax meet" filter="url(#shadow)"/>
+  </g>
   <!-- sparkles -->
   <g fill="#FFF6C2">
     <path d="M104 78 l1.6 -6 1.6 6 6 1.6 -6 1.6 -1.6 6 -1.6 -6 -6 -1.6 Z"/>
     <path d="M404 80 l1.6 -6 1.6 6 6 1.6 -6 1.6 -1.6 6 -1.6 -6 -6 -1.6 Z"/>
     <circle cx="120" cy="150" r="1.5"/><circle cx="392" cy="140" r="1.5"/>
   </g>
-  <text x="256" y="252" text-anchor="middle" font-family="'Tiro Devanagari Hindi',serif" font-size="17" fill="#FFE9A8" filter="url(#shadow)">॥ शुभ दीपावली ॥</text>
-  <text x="256" y="288" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-weight="900" font-size="34" fill="url(#goldText)" stroke="#4A2400" stroke-width="1.4" paint-order="stroke" filter="url(#shadow)">Happy Diwali</text>
+  <text x="256" y="268" text-anchor="middle" font-family="'Tiro Devanagari Hindi',serif" font-size="15" fill="#FFE9A8" filter="url(#shadow)">॥ शुभ दीपावली ॥</text>
+  <text x="256" y="293" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-weight="900" font-size="32" fill="url(#goldText)" stroke="#4A2400" stroke-width="1.4" paint-order="stroke" filter="url(#shadow)">Happy Diwali</text>
   <!-- glass reflection -->
   <path d="M78 44 H300 L190 300 H78 Z" fill="url(#shine)"/>
 </g>
@@ -339,10 +342,10 @@
   window.photoReady = new Promise(res=>{
     const tryLoad=(names)=>{ if(!names.length) return res(false);
       const im=new Image(); im.onload=()=>{
-        const ph=document.getElementById('photo'); ph.setAttribute('href',im.src); ph.style.display='';
-        document.getElementById('artwork').style.display='none'; document.getElementById('raysAll').style.display='none'; res(true);
+        const ph=document.getElementById('photo'); ph.setAttribute('href',im.src); document.getElementById('photoGroup').style.display='';
+        document.getElementById('artwork').style.display='none'; res(true);
       }; im.onerror=()=>tryLoad(names.slice(1)); im.src=names[0]; };
-    tryLoad(['laxmi-ganesh.jpg','laxmi-ganesh.jpeg','laxmi-ganesh.png','laxmi-ganesh.webp']);
+    tryLoad(['laxmi-ganesh.png','laxmi-ganesh.webp','laxmi-ganesh.jpg','laxmi-ganesh.jpeg']);
   });
   const s=new URLSearchParams(location.search).get('s'); if(s) document.documentElement.style.setProperty('--s',s+'px');
 </script>

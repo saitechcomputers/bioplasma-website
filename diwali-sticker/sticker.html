@@ -84,7 +84,7 @@
 <!-- toran / marigold garland at top -->
 <g id="toran"></g>
 
-<g transform="translate(256 330) scale(0.84) translate(-256 -330)">
+<g id="artwork" transform="translate(256 330) scale(0.84) translate(-256 -330)">
 <!-- halos -->
 <circle cx="178" cy="150" r="70" fill="url(#halo)"/>
 <circle cx="336" cy="150" r="66" fill="url(#halo)"/>
@@ -257,6 +257,11 @@
 </g>
 </g>
 
+<g id="photoGroup" style="display:none">
+  <ellipse cx="256" cy="200" rx="170" ry="130" fill="url(#halo)" opacity=".85"/>
+  <image id="photo" x="106" y="62" width="300" height="262" preserveAspectRatio="xMidYMax meet" filter="url(#shadow)"/>
+</g>
+
 <!-- sparkles -->
 <g fill="#FFF6C2" id="sparkles">
   <path d="M100 70 l2 -8 2 8 8 2 -8 2 -2 8 -2 -8 -8 -2 Z"/>
@@ -307,6 +312,13 @@
       toran.appendChild(l);
     }
   }
+  // use the real Laxmi-Ganesh photo (background removed) if present
+  window.photoReady = new Promise(res=>{
+    const im=new Image();
+    im.onload=()=>{ document.getElementById('photo').setAttribute('href',im.src);
+      document.getElementById('photoGroup').style.display=''; document.getElementById('artwork').style.display='none'; res(true); };
+    im.onerror=()=>res(false); im.src='laxmi-ganesh.png';
+  });
   const s=new URLSearchParams(location.search).get('s'); if(s) document.documentElement.style.setProperty('--s',s+'px');
 </script>
 </svg>
