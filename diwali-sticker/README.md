@@ -26,3 +26,13 @@ The laptop screen then shows the photo instead of the gold artwork. Re-render wi
 ```
 node render.js "$PWD/laptop-sticker.html" laptop-diwali-saitech-full-2048.png 2048
 ```
+
+### No black background (for sending as a photo / Status)
+
+Phones show a sticker's transparent area as black when it is opened as a normal image.
+These versions have a solid background:
+
+| File | Background |
+|---|---|
+| `laptop-diwali-saitech-gold-bg-1080.jpg` / `-2048.jpg` | Golden glow with diya-light bokeh |
+| `laptop-diwali-saitech-white-bg-1080.jpg` / `-2048.jpg` | Plain white |
