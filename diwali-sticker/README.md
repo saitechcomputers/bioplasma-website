@@ -37,6 +37,8 @@ These versions have a solid background:
 | `laptop-diwali-saitech-gold-bg-1080.jpg` / `-2048.jpg` | Golden glow with diya-light bokeh |
 | `laptop-diwali-saitech-white-bg-1080.jpg` / `-2048.jpg` | Plain white |
 
+## Framed stickers (older style, in `framed-stickers/`)
+
 ## WhatsApp sticker pack (fully transparent)
 
 `whatsapp-sticker-pack/` (also zipped as `saitech-diwali-whatsapp-stickers.zip`) has 3 transparent
@@ -54,3 +56,15 @@ Send them as **stickers**, not as photos. A sticker sent as a photo is converted
   When this file is present, `laptop-sticker.html` and `sticker.html` show it in place of the drawn artwork.
 
 Re-create every output (stickers, full size, gold/white backgrounds, WhatsApp pack, zip) with `python3 export.py`.
+
+## Floating stickers (current WhatsApp pack)
+
+`floating-stickers.html?v=1|2|3` has no background, no white outline and no box. Only the design shows, and the chat
+wallpaper shows through, like WhatsApp's own text stickers. `whatsapp-sticker-pack/` now holds these:
+
+1. `01-laxmi-ganesh-happy-diwali`: real Laxmi–Ganesh photo, Happy Diwali, Saitech Computers – Completely Yours
+2. `02-shubh-deepawali-diya`: diya, शुभ दीपावली, Happy Diwali and brand
+3. `03-laptop-laxmi-ganesh`: gold line-art laptop (see-through screen) with Laxmi–Ganesh and brand
+
+Each comes as a 512×512 `.webp` (under 100 KB), a `.png` and a full-size `-2048.png`.
+The earlier framed versions are in `framed-stickers/`.

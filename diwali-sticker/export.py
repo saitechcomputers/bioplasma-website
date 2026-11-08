@@ -52,23 +52,30 @@ designs = {  # html -> (full-size base name, sticker-pack name)
     'sticker.html': ('happy-diwali-saitech', '02-laxmi-ganesh-gold'),
     'diya-sticker.html': ('diya-diwali-saitech', '03-shubh-deepawali-diya'),
 }
-os.makedirs('whatsapp-sticker-pack', exist_ok=True)
+os.makedirs('framed-stickers', exist_ok=True)
 for html, (base, pack) in designs.items():
     full = f'{base}-full-2048.png'
     render(html, full, 2048)
-    render(html, f'whatsapp-sticker-pack/{pack}.png', 512)
+    render(html, f'framed-stickers/{pack}.png', 512)
     Image.open(full).resize((1080, 1080), Image.LANCZOS).save(f'{base}-full-1080.png', optimize=True)
-    webp(f'whatsapp-sticker-pack/{pack}.png', f'whatsapp-sticker-pack/{pack}.webp')
+    webp(f'framed-stickers/{pack}.png', f'framed-stickers/{pack}.webp')
     for kind in ('gold', 'white'):
         for s in (2048, 1080):
             on_bg(full, f'{base}-{kind}-bg-{s}.jpg', s, kind)
 # legacy single-sticker names
-Image.open('whatsapp-sticker-pack/02-laxmi-ganesh-gold.png').save('happy-diwali-saitech-sticker-512.png', optimize=True)
+Image.open('framed-stickers/02-laxmi-ganesh-gold.png').save('happy-diwali-saitech-sticker-512.png', optimize=True)
 for src, dst in [('01-laptop-laxmi-ganesh', 'laptop-diwali-saitech-whatsapp-sticker.webp'),
                  ('02-laxmi-ganesh-gold', 'happy-diwali-saitech-whatsapp-sticker.webp')]:
-    webp(f'whatsapp-sticker-pack/{src}.png', dst)
-Image.open('laptop-diwali-saitech-full-2048.png').resize((96, 96), Image.LANCZOS).save('whatsapp-sticker-pack/tray-icon.png', optimize=True)
+    webp(f'framed-stickers/{src}.png', dst)
+# --- WhatsApp pack: floating stickers (no background, no outline) ---
+os.makedirs('whatsapp-sticker-pack', exist_ok=True)
+for v, name in [('1', '01-laxmi-ganesh-happy-diwali'), ('2', '02-shubh-deepawali-diya'), ('3', '03-laptop-laxmi-ganesh')]:
+    render(f'floating-stickers.html?v={v}', f'whatsapp-sticker-pack/{name}.png', 512)
+    webp(f'whatsapp-sticker-pack/{name}.png', f'whatsapp-sticker-pack/{name}.webp')
+    render(f'floating-stickers.html?v={v}', f'whatsapp-sticker-pack/{name}-2048.png', 2048)
+Image.open('whatsapp-sticker-pack/03-laptop-laxmi-ganesh-2048.png').resize((96, 96), Image.LANCZOS).save('whatsapp-sticker-pack/tray-icon.png', optimize=True)
 with zipfile.ZipFile('saitech-diwali-whatsapp-stickers.zip', 'w', zipfile.ZIP_DEFLATED) as z:
     for f in sorted(os.listdir('whatsapp-sticker-pack')):
-        z.write(f'whatsapp-sticker-pack/{f}', f)
+        if not f.endswith('-2048.png'):
+            z.write(f'whatsapp-sticker-pack/{f}', f)
 print('done')
