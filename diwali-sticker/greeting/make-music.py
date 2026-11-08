@@ -1,6 +1,6 @@
 """Diwali score in three moods, synthesised from scratch (no samples, copyright-free, no noise sources -> no hiss).
 
-usage: python3 make-music.py <umang|khushi|josh> out.wav
+usage: python3 make-music.py <umang|khushi|josh> out.wav [seconds]   (khushi can be stretched for voiceover videos)
 
 All three follow the video timing: chords D - A/C# - Bm - G - A - D change at
 0, 2.4, 3.9, 5.4, 6.6 and 7.4 s; the big resolve at 7.4 s lands with the Saitech brand.
@@ -13,7 +13,8 @@ import numpy as np
 from scipy.signal import fftconvolve, butter, sosfilt
 
 MOOD = sys.argv[1]; OUT = sys.argv[2]
-SR = 48000; T = 10.0; N = int(SR * T); t = np.arange(N) / SR
+T = float(sys.argv[3]) if len(sys.argv) > 3 else 10.0; K = T / 10.0   # time-stretch factor
+SR = 48000; N = int(SR * T); t = np.arange(N) / SR
 rng = np.random.default_rng(7)
 L = np.zeros(N); R = np.zeros(N)
 
@@ -37,6 +38,7 @@ CH = [(0.0, 2.4, [38, 50, 57, 62, 66, 69]), (2.4, 3.9, [37, 49, 57, 61, 64, 69])
       (3.9, 5.4, [35, 47, 54, 59, 62, 66]), (5.4, 6.6, [31, 43, 55, 59, 62, 67]),
       (6.6, 7.4, [33, 45, 57, 61, 64, 69]), (7.4, 10.0, [26, 38, 50, 57, 62, 66, 69, 74])]
 ROOT = [50, 49, 47, 43, 45, 50]
+CH = [(s * K, e * K, n) for s, e, n in CH]
 
 # ---------------- instruments (all tonal) ----------------
 def strings(gain, attack, voices=5, bright=1.35):
@@ -70,7 +72,7 @@ def piano_arp(step, gain, vel=0.32):
             add(piano(up[pat[k % 6] % len(up)], vel + 0.06 * (k % 3 == 0)), x, pan=-0.3 + 0.12 * (k % 6), gain=gain)
             x += step; k += 1
     for i, nt in enumerate([50, 57, 62, 66, 69, 74, 78]):
-        add(piano(nt, 0.45, 3.0), 7.4 + i * 0.06, pan=-0.5 + i * 0.16, gain=gain * 1.1)
+        add(piano(nt, 0.45, 3.0), CH[5][0] + i * 0.06, pan=-0.5 + i * 0.16, gain=gain * 1.1)
 
 def lead(mel, timbre, gain, pan=0.1, vib_rate=5.3, vib=0.006, glide=0.06, last_fade=2.0):
     """Continuous-phase legato lead. timbre: list of harmonic amplitudes."""
@@ -132,9 +134,10 @@ if MOOD == 'khushi':      # tears of joy
     strings(1.0, 0.7); piano_arp(0.3, 0.55, 0.34)
     mel = [(1.6, 69, .5), (2.1, 74, .3), (2.4, 76, 1.0), (3.4, 73, .5), (3.9, 74, .5), (4.4, 78, 1.0),
            (5.4, 79, .6), (6.0, 78, .3), (6.3, 76, .3), (6.6, 76, .8), (7.4, 74, 2.4)]
-    lead(mel, [1, .22, .06], 0.20, vib=0.007)                  # bansuri
-    add(bell(587.33), 0.08, -.25, .18); add(bell(880.0), 7.4, .3, .14)
-    chimes(0.95, 0.016); chimes(7.45, 0.016); swell(6.2, 7.4, 0.010); boom(7.38, 0.16)
+    mel = [(s * K, n, d * K) for s, n, d in mel]
+    lead(mel, [1, .22, .06], 0.20 if K == 1 else 0.12, vib=0.007, last_fade=2.0 * K)   # bansuri (softer under a voice)
+    add(bell(587.33), 0.08, -.25, .18); add(bell(880.0), 7.4 * K, .3, .14)
+    chimes(0.95 * K, 0.016); chimes(7.45 * K, 0.016); swell(6.2 * K, 7.4 * K, 0.010); boom(7.4 * K - 0.02, 0.16)
 elif MOOD == 'umang':     # festive joy
     strings(0.6, 0.3); piano_arp(0.2, 0.5, 0.36)
     mel = [(1.2, 69, .2), (1.4, 71, .2), (1.6, 74, .4), (2.0, 76, .2), (2.2, 78, .2),
@@ -196,7 +199,7 @@ oL = L + wet * fftconvolve(L, irL)[:N]; oR = R + wet * fftconvolve(R, irR)[:N]
 mid, side = (oL + oR) / 2, (oL - oR) / 2; oL, oR = mid + 1.3 * side, mid - 1.3 * side
 band = butter(2, [45, 14000], btype='band', fs=SR, output='sos')
 oL, oR = sosfilt(band, oL), sosfilt(band, oR)
-fade = np.ones(N); fi = int(0.03 * SR); fo = int(1.5 * SR)
+fade = np.ones(N); fi = int(0.03 * SR); fo = int(1.5 * K * SR)
 fade[:fi] = np.linspace(0, 1, fi); fade[-fo:] = np.cos(np.linspace(0, np.pi / 2, fo)) ** 2
 st = np.stack([oL, oR], 1) * fade[:, None]
 st /= np.abs(st).max(); st = np.tanh(st * 1.6) / np.tanh(1.6) * 0.89

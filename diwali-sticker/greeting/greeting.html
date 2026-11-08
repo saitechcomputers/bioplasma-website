@@ -100,6 +100,9 @@ const parts=[...Array(70)].map(()=>({x:rnd(),y:rnd(),r:4+rnd()*22,sp:.02+rnd()*.
 const stars=[...Array(24)].map(()=>{const side=rnd()<.5; return {x:side?0.02+rnd()*.1:0.88+rnd()*.1,y:0.08+rnd()*.8,s:6+rnd()*12,ph:rnd()*6.28};});
 const cv=document.getElementById('fx'); cv.width=W*U; cv.height=H*U; const g=cv.getContext('2d');
 
+// optional voiceover timeline: ?tl=photo,title,m1,m2,en,brand (start seconds)
+if(q.get('tl')){ const tl=q.get('tl').split(',').map(Number);
+  ['photoWrap','title','m1','m2','en','brand'].forEach((id,i)=>{const el=document.getElementById(id); const p=el.dataset.in.split(','); p[0]=tl[i]; el.dataset.in=p.join(',');}); }
 const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
 window.setT=function(t){
   // fade in from dark
