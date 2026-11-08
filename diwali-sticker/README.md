@@ -76,6 +76,8 @@ The earlier framed versions are in `framed-stickers/`.
 | `greeting/saitech-diwali-wishes-poster.jpg` | 1080×1350 poster to send to customers on WhatsApp |
 | `greeting/saitech-diwali-wishes-video.mp4` | 10 s, 1080×1920 vertical video with music (Status / chats) |
 
-The message thanks customers for their trust ("आपका भरोसा ही हमारी असली दिवाली है"). The music (temple bell,
-tanpura and a plucked melody) is synthesised by `make-music.py`, so there are no copyright issues.
+The message thanks customers for their trust ("आपका भरोसा ही हमारी असली दिवाली है"). The music is an emotional cinematic score synthesised by
+`make-music.py`: strings, piano arpeggio, bansuri melody, temple bells, a riser and a big resolve as the brand appears,
+with the chord progression D–A/C#–Bm–G–A–D. It is mixed at 48 kHz in wide stereo with convolution reverb and encoded as
+AAC 320 kbps. The master is also saved as `greeting/saitech-diwali-music.flac`. Nothing is sampled, so there are no copyright issues.
 Re-render: `node render-greeting.js poster out.png`, or `node render-greeting.js video framesDir` and then encode with ffmpeg.
