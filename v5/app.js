@@ -204,7 +204,7 @@
       titleHi: "गैस्ट्रोएंटरोलॉजी और एसिड-पेप्टिक देखभाल",
       descEn: "Precision Tablet-in-Capsule PPI + split IR/SR prokinetics for GERD and dyspepsia, paired with cooling mucosal anesthetic-antacid gel and gut-restorative spore probiotics.",
       descHi: "GERD, तेज़ एसिडिटी, खट्टी डकार, अल्सर और जी मिचलाने के लिए आधुनिक टैबलेट-इन-कैप्सूल (DSR) और तुरंत ठंडक देने वाला शुगर-फ्री मिंट जेल।",
-      medIds: ["pantheta-dsr", "rabtheta-dsr", "novacaine", "preimmune-aqua"]
+      medIds: ["pantheta-dsr", "rabtheta-dsr", "novacaine", "preimmune-aqua", "preimmune-gold"]
     },
     {
       id: "bone",
@@ -212,7 +212,7 @@
       titleHi: "हड्डियाँ, समुद्री कैल्शियम और विटामिन D3",
       descEn: "Addressing India's widespread Vitamin D and skeletal mineral gap through 60,000 IU Nano-Droplet D3 shots and ~86.5% bioavailable Aquamin™ marine calcium + Vitamin K2-7.",
       descHi: "हड्डियों की मज़बूती, कमर दर्द और कैल्शियम अवशोषण के लिए 60,000 IU नैनो D3 शॉट और पचने में हल्का समुद्री शैवाल कैल्शियम (Aquamin™ + K2-7)।",
-      medIds: ["aadirise-d3", "adenocal-k2"]
+      medIds: ["aadirise-d3", "aadirise-d3-drops", "adenocal-k2"]
     },
     {
       id: "womens",
@@ -220,7 +220,7 @@
       titleHi: "स्त्री-रोग एवं गर्भावस्था संपूर्ण देखभाल",
       descEn: "Comprehensive obstetric and gynecological support spanning IP-grade micronized Dydrogesterone 10 mg, uteroplacental Nitric Oxide L-Arginine sachets, Liposomal Iron, and Marine Calcium.",
       descHi: "गर्भावस्था की सुरक्षा, बेहतर रक्त प्रवाह (L-Arginine), हीमोग्लोबिन सुधार और हार्मोनल संतुलन (DYDROFY 10 mg) के लिए विशेष श्रृंखला।",
-      medIds: ["dydrofy", "argiluck", "bioipc", "adenocal-k2"]
+      medIds: ["folfuzn", "dydrofy", "argiluck", "bioipc", "adenocal-k2"]
     },
     {
       id: "hematinic",
@@ -236,7 +236,23 @@
       titleHi: "आंतों की सुरक्षा और प्रोबायोटिक इम्युनिटी",
       descEn: "2 Billion heat- and gastric-acid-resilient Bacillus clausii spores suspended in a pure, tasteless 5 ml ready-to-drink mini vial for pediatric and adult gut recovery.",
       descHi: "बच्चों और बड़ों दोनों के लिए बिल्कुल पानी जैसा बेस्वाद 5 ml रेडी-टू-ड्रिंक प्रोबायोटिक जो एंटीबायोटिक और दस्त में आंतों का संतुलन बनाए रखे।",
-      medIds: ["preimmune-aqua"]
+      medIds: ["preimmune-aqua", "preimmune-gold"]
+    },
+    {
+      id: "respiratory",
+      titleEn: "Respiratory, Cough & Allergy Care",
+      titleHi: "श्वसन, खांसी और एलर्जी देखभाल",
+      descEn: "Cherry-flavoured cough syrups for dry cough (KOFTHETA D) and productive cough with bronchospasm (KOFTHETA LS & X), plus non-drowsy Fexofenadine suspension for children's allergies.",
+      descHi: "सूखी खांसी, बलगम वाली खांसी, अस्थमा-खांसी और बच्चों की एलर्जी के लिए।",
+      medIds: ["koftheta-d", "koftheta-ls", "koftheta-x", "fexoluck"]
+    },
+    {
+      id: "nutrition",
+      titleEn: "Vitamins & Daily Nutrition",
+      titleHi: "विटामिन और दैनिक पोषण",
+      descEn: "Mango-flavoured multivitamin & multimineral syrup for all ages, active-form prenatal nutrition with DHA, and Vitamin D3 oral drops for infants.",
+      descHi: "सभी उम्र के लिए मल्टीविटामिन सिरप, गर्भावस्था पोषण और बच्चों के लिए विटामिन D3 ड्रॉप्स।",
+      medIds: ["bioimmune", "folfuzn", "aadirise-d3-drops"]
     }
   ];
 
@@ -441,7 +457,7 @@
       step: "06",
       short: "Contact",
       nextTitle: "Loop Back to the Cinema Homepage Experience",
-      nextDesc: "Return seamlessly to the LV Bioplasma cinema showcase, health-need finder, and 5 therapeutic divisions."
+      nextDesc: "Return seamlessly to the LV Bioplasma cinema showcase, health-need finder, and therapeutic divisions."
     }
   ];
 
@@ -1045,7 +1061,7 @@
       const collapseHeader = y > 68;
       if (header) {
         header.classList.toggle("is-collapsed-away", collapseHeader);
-        if (collapseHeader) {
+        if (collapseHeader && window.innerWidth > 1120) {
           document.getElementById("mobileNavDrawer")?.classList.remove("open");
         }
       }
@@ -1748,7 +1764,7 @@
     if (catMount) {
       const cats = [
         ...DATA.categories,
-        { id: "rx", labelEn: "Rx Prescription (3)", labelHi: "डॉक्टर के पर्चे वाली (Rx)" }
+        { id: "rx", labelEn: `Rx Prescription (${DATA.medicines.filter((m) => m.rxRequired).length})`, labelHi: "डॉक्टर के पर्चे वाली (Rx)" }
       ];
       catMount.innerHTML = cats.map((c) => `
         <button type="button" class="cat-pill-btn ${state.category === c.id && !state.quickNeedId ? "active" : ""}" data-cat-id="${c.id}">

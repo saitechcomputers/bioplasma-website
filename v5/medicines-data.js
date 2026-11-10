@@ -261,7 +261,9 @@ window.BIOPLASMA_DATA = {
     { id: "bone", labelEn: "Bone, Calcium & Vit D3", labelHi: "हड्डियाँ, कैल्शियम और विटामिन D3", icon: "bone" },
     { id: "womens", labelEn: "Women's & Maternal Care", labelHi: "महिला एवं गर्भावस्था देखभाल", icon: "heart" },
     { id: "hematinic", labelEn: "Iron & Blood Health", labelHi: "आयरन और खून की कमी", icon: "drop" },
-    { id: "probiotic", labelEn: "Gut Flora & Immunity", labelHi: "पाचन और रोग-प्रतिरोधक क्षमता", icon: "shield" }
+    { id: "probiotic", labelEn: "Gut Flora & Immunity", labelHi: "पाचन और रोग-प्रतिरोधक क्षमता", icon: "shield" },
+    { id: "respiratory", labelEn: "Cough, Cold & Allergy", labelHi: "खांसी, सर्दी और एलर्जी", icon: "lungs" },
+    { id: "nutrition", labelEn: "Vitamins & Daily Nutrition", labelHi: "विटामिन और दैनिक पोषण", icon: "leaf" }
   ],
 
   quickNeeds: [
@@ -281,7 +283,7 @@ window.BIOPLASMA_DATA = {
       subEn: "Nano D3 shots & marine calcium matrix",
       subHi: "नैनो D3 शॉट और समुद्री कैल्शियम गोलियाँ",
       color: "#d97706",
-      medicineIds: ["aadirise-d3", "adenocal-k2"]
+      medicineIds: ["aadirise-d3", "aadirise-d3-drops", "adenocal-k2"]
     },
     {
       id: "pregnancy-support",
@@ -290,7 +292,7 @@ window.BIOPLASMA_DATA = {
       subEn: "Iron-folate, L-Arginine, Calcium & Progesterone",
       subHi: "आयरन, एल-आर्जिनिन, कैल्शियम और प्रोजेस्टेरोन",
       color: "#db2777",
-      medicineIds: ["argiluck", "bioipc", "dydrofy", "adenocal-k2"]
+      medicineIds: ["folfuzn", "argiluck", "bioipc", "dydrofy", "adenocal-k2"]
     },
     {
       id: "low-iron",
@@ -308,7 +310,25 @@ window.BIOPLASMA_DATA = {
       subEn: "2 Billion Bacillus clausii probiotic vial",
       subHi: "एंटीबायोटिक के साथ आंतों का संतुलन",
       color: "#7c3aed",
-      medicineIds: ["preimmune-aqua"]
+      medicineIds: ["preimmune-aqua", "preimmune-gold"]
+    },
+    {
+      id: "cough-cold-allergy",
+      titleEn: "Cough, Cold & Allergy",
+      titleHi: "खांसी, सर्दी और एलर्जी",
+      subEn: "Dry & wet cough syrups, non-drowsy allergy relief",
+      subHi: "सूखी और बलगम वाली खांसी, एलर्जी",
+      color: "#16a34a",
+      medicineIds: ["koftheta-d", "koftheta-ls", "koftheta-x", "fexoluck"]
+    },
+    {
+      id: "daily-nutrition",
+      titleEn: "Weakness & Daily Nutrition",
+      titleHi: "कमज़ोरी और रोज़ का पोषण",
+      subEn: "Multivitamin syrup, prenatal & baby Vit D3",
+      subHi: "मल्टीविटामिन, गर्भावस्था और बच्चों का विटामिन D3",
+      color: "#ea580c",
+      medicineIds: ["bioimmune", "folfuzn", "aadirise-d3-drops"]
     },
     {
       id: "sugar-free",
@@ -1386,6 +1406,1002 @@ window.BIOPLASMA_DATA = {
                 ]
         }
 }
+    },
+    {
+      "id": "aadirise-d3-drops",
+      "name": "AADIRISE D3 DROPS",
+      "shortTitle": "Cholecalciferol (Vitamin D3) Oral Drops 800 I.U./mL",
+      "genericSummary": "Cholecalciferol (Vitamin D3) 800 I.U./mL Oral Drops",
+      "category": "bone",
+      "secondaryCategories": [
+        "nutrition"
+      ],
+      "classification": "Paediatric Vitamin D3 Oral Drops",
+      "rxRequired": false,
+      "sugarFree": false,
+      "flavour": "Mango Flavour (Nano Technology)",
+      "dosageForm": "Oral Drops",
+      "packSize": "30 ml",
+      "technology": "Nano Technology Drops",
+      "techBadge": "800 I.U./mL",
+      "accent": "#ea580c",
+      "accentSoft": "#ffedd5",
+      "image": "assets/products/aadirise-d3-drops.webp",
+      "taglineEn": "Building strong bones, supporting healthy growth — one drop at a time.",
+      "easyGuide": {
+        "whatIsItEn": "Vitamin D3 oral drops for infants and children that help the body absorb calcium and phosphorus for healthy bones and growth.",
+        "whoIsItForEn": "Exclusively breastfed infants, premature or low-birth-weight babies, children with limited sunlight exposure, Vitamin D deficient children and rapidly growing infants and toddlers.",
+        "keyPerksEn": [
+          "Promotes efficient calcium and phosphorus absorption",
+          "Helps prevent nutritional rickets",
+          "Supports healthy bone mineralization and normal skeletal growth",
+          "Pleasant mango flavour with nano technology"
+        ],
+        "whatIsItHi": "Vitamin D3 oral drops for infants and children that help the body absorb calcium and phosphorus for healthy bones and growth.",
+        "whoIsItForHi": "Exclusively breastfed infants, premature or low-birth-weight babies, children with limited sunlight exposure, Vitamin D deficient children and rapidly growing infants and toddlers.",
+        "keyPerksHi": [
+          "Promotes efficient calcium and phosphorus absorption",
+          "Helps prevent nutritional rickets",
+          "Supports healthy bone mineralization and normal skeletal growth",
+          "Pleasant mango flavour with nano technology"
+        ]
+      },
+      "composition": [
+        {
+          "ingredient": "Cholecalciferol (Vitamin D3)",
+          "detail": "Natural form of Vitamin D, well absorbed and suitable for paediatric supplementation",
+          "strength": "800 I.U.",
+          "rda": "Per mL"
+        }
+      ],
+      "mechanism": [
+        {
+          "step": "01",
+          "title": "Absorption",
+          "desc": "Vitamin D3 is the natural form of Vitamin D and is well absorbed in infants and children."
+        },
+        {
+          "step": "02",
+          "title": "Raises Vitamin D Levels",
+          "desc": "Raises and maintains serum 25(OH) D levels."
+        },
+        {
+          "step": "03",
+          "title": "Bone & Growth Support",
+          "desc": "Promotes calcium and phosphorus absorption for bone mineralization, tooth eruption and normal skeletal growth."
+        }
+      ],
+      "highlights": [
+        "Essential for healthy bone development",
+        "Helps prevent nutritional rickets",
+        "Supports healthy immune function and muscle development",
+        "Supports normal tooth eruption and mineralization",
+        "Raises and maintains serum 25(OH) D levels",
+        "Nano technology, mango flavour"
+      ],
+      "indications": [
+        "Vitamin D deficiency in children",
+        "Prevention of nutritional rickets",
+        "Exclusively breastfed infants",
+        "Premature / low-birth-weight babies",
+        "Limited sunlight exposure",
+        "Inadequate dietary intake"
+      ],
+      "dosage": "Dose as advised by the paediatrician.",
+      "keywords": [
+        "aadirise drops",
+        "vitamin d3 drops",
+        "cholecalciferol drops",
+        "800 iu",
+        "infant vitamin d",
+        "rickets",
+        "baby drops",
+        "paediatric",
+        "pediatric"
+      ],
+      "taglineHi": "Building strong bones, supporting healthy growth — one drop at a time."
+    },
+    {
+      "id": "bioimmune",
+      "name": "BIOIMMUNE",
+      "shortTitle": "Multivitamin & Multimineral Syrup (Tasty Mango)",
+      "genericSummary": "Multivitamin & Multimineral Syrup with Zinc & Selenium",
+      "category": "nutrition",
+      "secondaryCategories": [
+        "probiotic"
+      ],
+      "classification": "Multivitamin & Multimineral Syrup",
+      "rxRequired": false,
+      "sugarFree": false,
+      "flavour": "Tasty Mango — No Xanthan Gum, No Aspartame, No Saccharin",
+      "dosageForm": "Syrup",
+      "packSize": "200 ml",
+      "technology": "Complete Vitamin + Trace Mineral Matrix",
+      "techBadge": "MULTIVITAMIN + MINERALS",
+      "accent": "#ea580c",
+      "accentSoft": "#fff1e6",
+      "image": "assets/products/bioimmune.webp",
+      "taglineEn": "Balanced daily nutritional support for all age groups.",
+      "easyGuide": {
+        "whatIsItEn": "A mango-flavoured multivitamin and multimineral syrup that supports immunity, energy, metabolism and growth.",
+        "whoIsItForEn": "People with general weakness and fatigue, poor appetite, nutritional deficiency, growing children, elderly patients, and during convalescence and recovery.",
+        "keyPerksEn": [
+          "Vitamin A, Vitamin C, Zinc & Selenium for immunity support",
+          "B-Complex helps reduce fatigue and weakness",
+          "Trace minerals support metabolism and enzyme function",
+          "Pleasant mango flavour — no xanthan gum, aspartame or saccharin"
+        ],
+        "whatIsItHi": "A mango-flavoured multivitamin and multimineral syrup that supports immunity, energy, metabolism and growth.",
+        "whoIsItForHi": "People with general weakness and fatigue, poor appetite, nutritional deficiency, growing children, elderly patients, and during convalescence and recovery.",
+        "keyPerksHi": [
+          "Vitamin A, Vitamin C, Zinc & Selenium for immunity support",
+          "B-Complex helps reduce fatigue and weakness",
+          "Trace minerals support metabolism and enzyme function",
+          "Pleasant mango flavour — no xanthan gum, aspartame or saccharin"
+        ]
+      },
+      "composition": [
+        {
+          "ingredient": "Vitamin A IP",
+          "detail": "Epithelial & immune health",
+          "strength": "2500 IU",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Vitamin B1 IP",
+          "detail": "Energy metabolism",
+          "strength": "2 mg",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Vitamin B2 IP",
+          "detail": "Energy metabolism",
+          "strength": "2.5 mg",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Vitamin B6 IP",
+          "detail": "Nerve health",
+          "strength": "1 mg",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Vitamin B12 IP",
+          "detail": "Nerve health",
+          "strength": "1 mcg",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Vitamin C IP",
+          "detail": "Antioxidant support",
+          "strength": "40 mg",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Nicotinamide IP",
+          "detail": "Energy metabolism",
+          "strength": "22.5 mg",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Pantothenic Acid (as Calcium Pantothenate IP)",
+          "detail": "Energy metabolism",
+          "strength": "2.5 mg",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Manganese (as Manganese Chloride Tetrahydrate USP)",
+          "detail": "Trace mineral",
+          "strength": "800 mcg",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Zinc (as Zinc Gluconate USP)",
+          "detail": "Immune modulation",
+          "strength": "1 mg",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Iodine (as Potassium Iodide IP)",
+          "detail": "Thyroid & growth support",
+          "strength": "50 mcg",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Chromium (as Chromium Chloride Hexahydrate USP)",
+          "detail": "Trace mineral",
+          "strength": "8 mcg",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Sodium Molybdate Dihydrate BP",
+          "detail": "Trace mineral",
+          "strength": "8 mcg",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Calcium",
+          "detail": "Mineral",
+          "strength": "1.25 mg",
+          "rda": "Per 5 ml"
+        },
+        {
+          "ingredient": "Selenium (as Selenium Selenate)",
+          "detail": "Immune modulation",
+          "strength": "10 mcg",
+          "rda": "Per 5 ml"
+        }
+      ],
+      "mechanism": [
+        {
+          "step": "01",
+          "title": "Immunity Support",
+          "desc": "Vitamin A for epithelial and immune health, Vitamin C for antioxidant support, Zinc and Selenium for immune modulation."
+        },
+        {
+          "step": "02",
+          "title": "Energy & Metabolism",
+          "desc": "B-Complex (B1, B2, B6, B12), Nicotinamide and Pantothenic Acid help reduce fatigue and weakness."
+        },
+        {
+          "step": "03",
+          "title": "Trace Minerals & Growth",
+          "desc": "Zinc, Manganese, Chromium and Molybdenum support metabolism and enzyme function; Iodine supports thyroid and growth."
+        }
+      ],
+      "highlights": [
+        "Balanced daily nutritional support for all age groups",
+        "Immunity support with Vitamin A, C, Zinc & Selenium",
+        "B-Complex helps reduce fatigue & weakness",
+        "Vitamin B6 & B12 for nerve health",
+        "Suitable for long-term prophylactic use",
+        "Tasty mango flavour — no xanthan gum, no aspartame, no saccharin"
+      ],
+      "indications": [
+        "General Weakness & Fatigue",
+        "Poor Appetite",
+        "Nutritional Deficiency",
+        "Growing Children",
+        "Elderly Patients",
+        "Convalescence & Recovery"
+      ],
+      "dosage": "2 teaspoonful (10 ml) daily or as directed by the Physician.",
+      "keywords": [
+        "bioimmune",
+        "multivitamin syrup",
+        "multimineral",
+        "immunity syrup",
+        "zinc",
+        "selenium",
+        "vitamin c",
+        "b complex",
+        "weakness",
+        "appetite",
+        "mango syrup",
+        "tonic"
+      ],
+      "taglineHi": "Balanced daily nutritional support for all age groups."
+    },
+    {
+      "id": "fexoluck",
+      "name": "FEXOLUCK",
+      "shortTitle": "Fexofenadine Hydrochloride IP 30 mg/5 ml Suspension",
+      "genericSummary": "Fexofenadine Hydrochloride IP 30 mg / 5 ml Oral Suspension",
+      "category": "respiratory",
+      "secondaryCategories": [],
+      "classification": "Non-Sedating Antihistamine Suspension (Rx)",
+      "rxRequired": true,
+      "sugarFree": false,
+      "flavour": "Raspberry & Vanilla Flavour",
+      "dosageForm": "Oral Suspension",
+      "packSize": "60 ml",
+      "technology": "Second-Generation Antihistamine",
+      "techBadge": "NON-DROWSY",
+      "accent": "#4338ca",
+      "accentSoft": "#e0e7ff",
+      "image": "assets/products/fexoluck.webp",
+      "taglineEn": "Reliable non-drowsy allergy relief for children.",
+      "easyGuide": {
+        "whatIsItEn": "A non-drowsy anti-allergy suspension for children, used for allergic rhinitis, hives, sneezing and runny nose. Prescription medicine.",
+        "whoIsItForEn": "Children with seasonal or perennial allergic rhinitis, chronic urticaria (hives), sneezing, runny nose and itchy nose, throat or eyes — as prescribed by the doctor.",
+        "keyPerksEn": [
+          "Second-generation, non-sedating antihistamine",
+          "Helps children remain alert and active",
+          "Well tolerated with low incidence of drowsiness",
+          "Minimal anticholinergic effects"
+        ],
+        "whatIsItHi": "A non-drowsy anti-allergy suspension for children, used for allergic rhinitis, hives, sneezing and runny nose. Prescription medicine.",
+        "whoIsItForHi": "Children with seasonal or perennial allergic rhinitis, chronic urticaria (hives), sneezing, runny nose and itchy nose, throat or eyes — as prescribed by the doctor.",
+        "keyPerksHi": [
+          "Second-generation, non-sedating antihistamine",
+          "Helps children remain alert and active",
+          "Well tolerated with low incidence of drowsiness",
+          "Minimal anticholinergic effects"
+        ]
+      },
+      "composition": [
+        {
+          "ingredient": "Fexofenadine Hydrochloride IP",
+          "detail": "Second-generation, non-sedating H1 antihistamine",
+          "strength": "30 mg",
+          "rda": "Per 5 ml"
+        }
+      ],
+      "mechanism": [
+        {
+          "step": "01",
+          "title": "Blocks Histamine",
+          "desc": "Selectively blocks peripheral H1 histamine receptors that cause allergy symptoms."
+        },
+        {
+          "step": "02",
+          "title": "Relieves Allergy Symptoms",
+          "desc": "Reduces sneezing, runny nose, itching and allergic skin reactions."
+        },
+        {
+          "step": "03",
+          "title": "Non-Sedating",
+          "desc": "Low incidence of drowsiness helps children stay alert and active, suitable for school-going children."
+        }
+      ],
+      "highlights": [
+        "Reliable non-drowsy allergy relief for children",
+        "Second-generation antihistamine",
+        "Helps children remain alert and active",
+        "Suitable for school-going children",
+        "Well tolerated, low incidence of drowsiness",
+        "Minimal anticholinergic effects",
+        "Appropriate for longer-term use when clinically indicated"
+      ],
+      "indications": [
+        "Seasonal allergic rhinitis",
+        "Perennial allergic rhinitis",
+        "Chronic idiopathic urticaria (hives)",
+        "Itchy nose, throat and eyes",
+        "Sneezing",
+        "Runny nose",
+        "Allergic skin manifestations"
+      ],
+      "dosage": "As directed by the Physician.",
+      "keywords": [
+        "fexoluck",
+        "fexofenadine",
+        "allergy syrup",
+        "antihistamine",
+        "allergic rhinitis",
+        "sneezing",
+        "runny nose",
+        "urticaria",
+        "hives",
+        "itching",
+        "children allergy",
+        "non drowsy"
+      ],
+      "taglineHi": "Reliable non-drowsy allergy relief for children."
+    },
+    {
+      "id": "folfuzn",
+      "name": "FOLFUZN",
+      "shortTitle": "L-Methylfolate 1 mg + Methylcobalamin 1500 mcg + P-5-P 0.5 mg + DHA 200 mg + Vitamin D3 2000 IU Capsules",
+      "genericSummary": "L-Methylfolate, Methylcobalamin, Pyridoxal-5-Phosphate, DHA & Vitamin D3 Capsules",
+      "category": "womens",
+      "secondaryCategories": [
+        "nutrition"
+      ],
+      "classification": "Active-Form Pregnancy Nutrition Capsule",
+      "rxRequired": false,
+      "sugarFree": false,
+      "flavour": "Easy-to-swallow capsule",
+      "dosageForm": "Capsules",
+      "packSize": "1 × 10 Capsules",
+      "technology": "Active (Methylated) Vitamin Forms + DHA",
+      "techBadge": "ACTIVE FOLATE + DHA",
+      "accent": "#e11d48",
+      "accentSoft": "#ffe4e6",
+      "image": "assets/products/folfuzn.webp",
+      "taglineEn": "Active nutrition for mother & baby — the bioactive pregnancy formula for healthy fetal development.",
+      "easyGuide": {
+        "whatIsItEn": "A pregnancy nutrition capsule with active forms of folate, Vitamin B12 and B6, plus DHA and Vitamin D3, for mother and baby.",
+        "whoIsItForEn": "Women planning pregnancy, pregnant women and new mothers who need extra nutrition, as advised by the doctor.",
+        "keyPerksEn": [
+          "Active L-Methylfolate — useful when folic acid conversion is reduced (MTHFR variations)",
+          "DHA supports baby's brain, eye and nervous system development",
+          "Vitamin D3 supports bones and immunity",
+          "Active B12 and B6 support red blood cells and nerve health"
+        ],
+        "whatIsItHi": "A pregnancy nutrition capsule with active forms of folate, Vitamin B12 and B6, plus DHA and Vitamin D3, for mother and baby.",
+        "whoIsItForHi": "Women planning pregnancy, pregnant women and new mothers who need extra nutrition, as advised by the doctor.",
+        "keyPerksHi": [
+          "Active L-Methylfolate — useful when folic acid conversion is reduced (MTHFR variations)",
+          "DHA supports baby's brain, eye and nervous system development",
+          "Vitamin D3 supports bones and immunity",
+          "Active B12 and B6 support red blood cells and nerve health"
+        ]
+      },
+      "composition": [
+        {
+          "ingredient": "L-Methylfolate",
+          "detail": "Neural tube development, DNA synthesis, cell division and healthy red blood cell formation",
+          "strength": "1 mg",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Methylcobalamin",
+          "detail": "Fetal nervous system development, red blood cell production and maternal neurological health",
+          "strength": "1500 mcg",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Pyridoxal-5-Phosphate (Active Vitamin B6)",
+          "detail": "Amino acid metabolism, neurotransmitter synthesis and healthy homocysteine metabolism",
+          "strength": "0.5 mg",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Docosahexaenoic Acid (DHA 10%)",
+          "detail": "Fetal brain, retinal, cognitive and nervous system development",
+          "strength": "200 mg",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Vitamin D3",
+          "detail": "Calcium absorption, bone mineralization, fetal bone development and immune function",
+          "strength": "2000 IU",
+          "rda": "Per Capsule"
+        }
+      ],
+      "mechanism": [
+        {
+          "step": "01",
+          "title": "Why Active Forms",
+          "desc": "Pregnancy increases nutrient demand, and many women have reduced conversion of conventional folic acid because of MTHFR enzyme variations."
+        },
+        {
+          "step": "02",
+          "title": "Ready-to-Use Nutrients",
+          "desc": "L-Methylfolate, Methylcobalamin and P-5-P are provided in metabolically active forms."
+        },
+        {
+          "step": "03",
+          "title": "Mother & Baby Support",
+          "desc": "DHA supports fetal brain and eyes; Vitamin D3 supports maternal and fetal bone health and immunity."
+        }
+      ],
+      "highlights": [
+        "The bioactive pregnancy formula for healthy fetal development",
+        "Active L-Methylfolate supports neural tube development",
+        "Methylcobalamin supports fetal nervous system development",
+        "With added advantage of DHA for brain & eye development",
+        "Vitamin D3 2000 IU for bone and immune health"
+      ],
+      "indications": [
+        "Pregnancy nutrition",
+        "Pre-conception planning",
+        "Lactation support",
+        "MTHFR / reduced folate conversion",
+        "Maternal B12 & Vitamin D support"
+      ],
+      "dosage": "As directed by the Physician.",
+      "keywords": [
+        "folfuzn",
+        "l-methylfolate",
+        "methylfolate",
+        "methylcobalamin",
+        "dha",
+        "pregnancy capsule",
+        "prenatal",
+        "folic acid",
+        "mthfr",
+        "vitamin d3 2000"
+      ],
+      "taglineHi": "Active nutrition for mother & baby — the bioactive pregnancy formula for healthy fetal development."
+    },
+    {
+      "id": "koftheta-d",
+      "name": "KOFTHETA D",
+      "shortTitle": "Dextromethorphan HBr 15 mg + Phenylephrine HCl 5 mg + Chlorpheniramine Maleate 2 mg Syrup",
+      "genericSummary": "Dextromethorphan + Phenylephrine + Chlorpheniramine Cough Syrup",
+      "category": "respiratory",
+      "secondaryCategories": [],
+      "classification": "Dry Cough Syrup (Rx)",
+      "rxRequired": true,
+      "sugarFree": false,
+      "flavour": "Cherry Flavour (High Base)",
+      "dosageForm": "Syrup",
+      "packSize": "100 ml",
+      "technology": "Antitussive + Decongestant + Antihistamine",
+      "techBadge": "DRY COUGH",
+      "accent": "#16a34a",
+      "accentSoft": "#dcfce7",
+      "image": "assets/products/koftheta-d.webp",
+      "taglineEn": "Rapid relief in persistent dry cough.",
+      "easyGuide": {
+        "whatIsItEn": "A cherry-flavoured cough syrup for dry cough with cold and allergy symptoms. Prescription medicine.",
+        "whoIsItForEn": "Dry cough, allergic cough, post-operative cough, smoker's cough and night-time cough — as prescribed by the doctor.",
+        "keyPerksEn": [
+          "Calms the cough reflex",
+          "Relieves blocked and stuffy nose",
+          "Reduces sneezing and runny nose",
+          "Cherry flavour"
+        ],
+        "whatIsItHi": "A cherry-flavoured cough syrup for dry cough with cold and allergy symptoms. Prescription medicine.",
+        "whoIsItForHi": "Dry cough, allergic cough, post-operative cough, smoker's cough and night-time cough — as prescribed by the doctor.",
+        "keyPerksHi": [
+          "Calms the cough reflex",
+          "Relieves blocked and stuffy nose",
+          "Reduces sneezing and runny nose",
+          "Cherry flavour"
+        ]
+      },
+      "composition": [
+        {
+          "ingredient": "Dextromethorphan Hydrobromide",
+          "detail": "Cough suppressant that blocks the cough reflex in the brain",
+          "strength": "15 mg",
+          "rda": "Syrup"
+        },
+        {
+          "ingredient": "Phenylephrine Hydrochloride",
+          "detail": "Nasal decongestant that reduces stuffiness and swelling",
+          "strength": "5 mg",
+          "rda": "Syrup"
+        },
+        {
+          "ingredient": "Chlorpheniramine Maleate",
+          "detail": "Antihistamine that relieves sneezing and runny nose",
+          "strength": "2 mg",
+          "rda": "Syrup"
+        }
+      ],
+      "mechanism": [
+        {
+          "step": "01",
+          "title": "Suppresses Cough",
+          "desc": "Dextromethorphan blocks the cough reflex in the brain."
+        },
+        {
+          "step": "02",
+          "title": "Clears Nose",
+          "desc": "Phenylephrine constricts blood vessels in the nasal passages, reducing stuffiness and swelling."
+        },
+        {
+          "step": "03",
+          "title": "Controls Allergy",
+          "desc": "Chlorpheniramine blocks histamine to relieve sneezing and runny nose."
+        }
+      ],
+      "highlights": [
+        "Rapid relief in persistent dry cough",
+        "Used in the treatment of common cold and dry cough",
+        "Triple action: cough suppressant + decongestant + antihistamine",
+        "Cherry flavour, high base"
+      ],
+      "indications": [
+        "Dry Cough",
+        "Allergic Cough",
+        "Post-Operative Cough",
+        "Smoker's Cough",
+        "Night-Time Cough",
+        "Common Cold"
+      ],
+      "dosage": "As directed by the Physician.",
+      "keywords": [
+        "koftheta d",
+        "dry cough syrup",
+        "dextromethorphan",
+        "phenylephrine",
+        "chlorpheniramine",
+        "cough",
+        "cold",
+        "allergic cough",
+        "night cough"
+      ],
+      "taglineHi": "Rapid relief in persistent dry cough."
+    },
+    {
+      "id": "koftheta-ls",
+      "name": "KOFTHETA LS",
+      "shortTitle": "Ambroxol HCl 30 mg + Guaiphenesin 50 mg + Levosalbutamol 1 mg Syrup",
+      "genericSummary": "Ambroxol + Guaiphenesin + Levosalbutamol Cough Syrup",
+      "category": "respiratory",
+      "secondaryCategories": [],
+      "classification": "Productive Cough & Bronchodilator Syrup (Rx)",
+      "rxRequired": true,
+      "sugarFree": false,
+      "flavour": "Cherry Flavour (High Base)",
+      "dosageForm": "Syrup",
+      "packSize": "100 ml",
+      "technology": "Mucolytic + Expectorant + Bronchodilator",
+      "techBadge": "WET COUGH + ASTHMA",
+      "accent": "#15803d",
+      "accentSoft": "#dcfce7",
+      "image": "assets/products/koftheta-ls.webp",
+      "taglineEn": "A safe & effective option in treating asthma and productive cough.",
+      "easyGuide": {
+        "whatIsItEn": "A cough syrup that loosens mucus and opens the airways, for cough with phlegm in bronchitis, asthma and COPD. Prescription medicine.",
+        "whoIsItForEn": "Patients with productive cough, asthmatic cough and COPD — as prescribed by the doctor.",
+        "keyPerksEn": [
+          "Thins and loosens mucus",
+          "Helps remove phlegm from the airways",
+          "Relaxes airway muscles to ease breathing",
+          "Cherry flavour"
+        ],
+        "whatIsItHi": "A cough syrup that loosens mucus and opens the airways, for cough with phlegm in bronchitis, asthma and COPD. Prescription medicine.",
+        "whoIsItForHi": "Patients with productive cough, asthmatic cough and COPD — as prescribed by the doctor.",
+        "keyPerksHi": [
+          "Thins and loosens mucus",
+          "Helps remove phlegm from the airways",
+          "Relaxes airway muscles to ease breathing",
+          "Cherry flavour"
+        ]
+      },
+      "composition": [
+        {
+          "ingredient": "Ambroxol Hydrochloride",
+          "detail": "Mucolytic that thins and loosens mucus (phlegm)",
+          "strength": "30 mg",
+          "rda": "Syrup"
+        },
+        {
+          "ingredient": "Guaiphenesin",
+          "detail": "Expectorant that decreases the stickiness of mucus and helps its removal",
+          "strength": "50 mg",
+          "rda": "Syrup"
+        },
+        {
+          "ingredient": "Levosalbutamol",
+          "detail": "Bronchodilator that relaxes airway muscles and widens the airways",
+          "strength": "1 mg",
+          "rda": "Syrup"
+        }
+      ],
+      "mechanism": [
+        {
+          "step": "01",
+          "title": "Thins Mucus",
+          "desc": "Ambroxol thins and loosens phlegm, making it easier to cough out."
+        },
+        {
+          "step": "02",
+          "title": "Clears Airways",
+          "desc": "Guaiphenesin decreases the stickiness of mucus and helps remove it from the airways."
+        },
+        {
+          "step": "03",
+          "title": "Opens Airways",
+          "desc": "Levosalbutamol relaxes the muscles in the airways and widens them."
+        }
+      ],
+      "highlights": [
+        "Used to treat productive cough with mucus",
+        "Useful in bronchitis, bronchial asthma and COPD",
+        "Mucolytic + expectorant + bronchodilator",
+        "Cherry flavour, high base"
+      ],
+      "indications": [
+        "Asthmatic Cough",
+        "Chronic Obstructive Pulmonary Disease (COPD)",
+        "Productive Cough",
+        "Bronchitis"
+      ],
+      "dosage": "As directed by the Physician.",
+      "keywords": [
+        "koftheta ls",
+        "ambroxol",
+        "guaiphenesin",
+        "levosalbutamol",
+        "wet cough",
+        "productive cough",
+        "asthma cough",
+        "copd",
+        "bronchitis",
+        "phlegm",
+        "mucus"
+      ],
+      "taglineHi": "A safe & effective option in treating asthma and productive cough."
+    },
+    {
+      "id": "koftheta-x",
+      "name": "KOFTHETA X",
+      "shortTitle": "Ambroxol HCl 15 mg + Terbutaline Sulphate 1.5 mg + Guaiphenesin 50 mg + Menthol 1 mg Syrup",
+      "genericSummary": "Ambroxol + Terbutaline + Guaiphenesin + Menthol Cough Syrup",
+      "category": "respiratory",
+      "secondaryCategories": [],
+      "classification": "Productive Cough Syrup (Rx)",
+      "rxRequired": true,
+      "sugarFree": false,
+      "flavour": "Cherry Flavour (High Base)",
+      "dosageForm": "Syrup",
+      "packSize": "100 ml",
+      "technology": "Mucolytic + Bronchodilator + Expectorant + Menthol",
+      "techBadge": "CHESTY COUGH",
+      "accent": "#1e3a8a",
+      "accentSoft": "#dbeafe",
+      "image": "assets/products/koftheta-x.webp",
+      "taglineEn": "Raise the level of comfort from bothering cough.",
+      "easyGuide": {
+        "whatIsItEn": "A cough syrup that thins mucus, relaxes the airways and soothes the throat, for cough with phlegm. Prescription medicine.",
+        "whoIsItForEn": "Productive (chesty) cough, bronchitis, bronchial asthma and COPD, emphysema and bronchiectasis, and general cold symptoms — as prescribed by the doctor.",
+        "keyPerksEn": [
+          "Thins and loosens phlegm in the lungs",
+          "Relaxes airways to make breathing easier",
+          "Helps remove mucus",
+          "Menthol soothes throat irritation"
+        ],
+        "whatIsItHi": "A cough syrup that thins mucus, relaxes the airways and soothes the throat, for cough with phlegm. Prescription medicine.",
+        "whoIsItForHi": "Productive (chesty) cough, bronchitis, bronchial asthma and COPD, emphysema and bronchiectasis, and general cold symptoms — as prescribed by the doctor.",
+        "keyPerksHi": [
+          "Thins and loosens phlegm in the lungs",
+          "Relaxes airways to make breathing easier",
+          "Helps remove mucus",
+          "Menthol soothes throat irritation"
+        ]
+      },
+      "composition": [
+        {
+          "ingredient": "Ambroxol Hydrochloride",
+          "detail": "Mucolytic that thins and loosens phlegm in the lungs",
+          "strength": "15 mg",
+          "rda": "Syrup"
+        },
+        {
+          "ingredient": "Terbutaline Sulphate",
+          "detail": "Bronchodilator that relaxes the airway muscles and widens the airways",
+          "strength": "1.5 mg",
+          "rda": "Syrup"
+        },
+        {
+          "ingredient": "Guaiphenesin",
+          "detail": "Expectorant that reduces mucus stickiness and helps remove it",
+          "strength": "50 mg",
+          "rda": "Syrup"
+        },
+        {
+          "ingredient": "Menthol",
+          "detail": "Cooling sensation that soothes minor throat irritation",
+          "strength": "1 mg",
+          "rda": "Syrup"
+        }
+      ],
+      "mechanism": [
+        {
+          "step": "01",
+          "title": "Thins Mucus",
+          "desc": "Ambroxol thins and loosens phlegm in the lungs, making it easier to cough up."
+        },
+        {
+          "step": "02",
+          "title": "Relaxes Airways",
+          "desc": "Terbutaline relaxes the smooth muscles of the airways, making breathing easier."
+        },
+        {
+          "step": "03",
+          "title": "Clears & Soothes",
+          "desc": "Guaiphenesin helps remove mucus and Menthol soothes the throat."
+        }
+      ],
+      "highlights": [
+        "Relieves productive (mucus) cough",
+        "Thins mucus, relaxes airways and soothes the throat",
+        "Useful in bronchitis, bronchial asthma and COPD",
+        "Cherry flavour, high base"
+      ],
+      "indications": [
+        "Productive Cough (Chesty Cough)",
+        "Bronchitis",
+        "Bronchial Asthma and COPD",
+        "General Cold Symptoms",
+        "Emphysema and Bronchiectasis"
+      ],
+      "dosage": "As directed by the Physician.",
+      "keywords": [
+        "koftheta x",
+        "ambroxol",
+        "terbutaline",
+        "guaiphenesin",
+        "menthol",
+        "chesty cough",
+        "productive cough",
+        "bronchitis",
+        "copd",
+        "cough syrup"
+      ],
+      "taglineHi": "Raise the level of comfort from bothering cough."
+    },
+    {
+      "id": "preimmune-gold",
+      "name": "PRE IMMUNE GOLD",
+      "shortTitle": "Pre & Probiotic Capsules — 19 Probiotic Strains + NutraFlora Prebiotic Fiber 100 mg",
+      "genericSummary": "Multi-Strain Pre & Probiotic Capsules",
+      "category": "probiotic",
+      "secondaryCategories": [
+        "gastro"
+      ],
+      "classification": "Multi-Strain Prebiotic + Probiotic Capsule",
+      "rxRequired": false,
+      "sugarFree": false,
+      "flavour": "Vegetarian Capsule",
+      "dosageForm": "Capsules",
+      "packSize": "1 × 10 Capsules",
+      "technology": "Multi-Strain Synbiotic (Pre + Probiotic)",
+      "techBadge": "19 STRAINS + PREBIOTIC",
+      "accent": "#be123c",
+      "accentSoft": "#ffe4e6",
+      "image": "assets/products/preimmune-gold.webp",
+      "taglineEn": "The balancing act for disturbed micro flora — Pre+Probiotics for life.",
+      "easyGuide": {
+        "whatIsItEn": "A capsule with many good bacteria (probiotics) plus prebiotic fiber that helps restore healthy gut flora.",
+        "whoIsItForEn": "Infective diarrhoea, colitis / gastroenteritis, antibiotic-associated diarrhoea, and for prebiotic & probiotic support and immunity building.",
+        "keyPerksEn": [
+          "Multiple probiotic strains in one capsule",
+          "NutraFlora prebiotic fiber feeds the good bacteria",
+          "Helps against diarrhoea caused by antibiotics",
+          "Supports digestion and immunity"
+        ],
+        "whatIsItHi": "A capsule with many good bacteria (probiotics) plus prebiotic fiber that helps restore healthy gut flora.",
+        "whoIsItForHi": "Infective diarrhoea, colitis / gastroenteritis, antibiotic-associated diarrhoea, and for prebiotic & probiotic support and immunity building.",
+        "keyPerksHi": [
+          "Multiple probiotic strains in one capsule",
+          "NutraFlora prebiotic fiber feeds the good bacteria",
+          "Helps against diarrhoea caused by antibiotics",
+          "Supports digestion and immunity"
+        ]
+      },
+      "composition": [
+        {
+          "ingredient": "Lactobacillus acidophilus",
+          "detail": "Probiotic",
+          "strength": "15 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Bifidobacterium lactis",
+          "detail": "Probiotic",
+          "strength": "12 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Lactobacillus plantarum Lp-15",
+          "detail": "Probiotic",
+          "strength": "4 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Lactobacillus casei",
+          "detail": "Probiotic",
+          "strength": "4 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Bifidobacterium bifidum Bp-06",
+          "detail": "Probiotic",
+          "strength": "2 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Bifidobacterium longum Bi-05",
+          "detail": "Probiotic",
+          "strength": "2 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Lactobacillus salivarius Ls-33",
+          "detail": "Probiotic",
+          "strength": "1 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Lactobacillus bulgaricus Lb-87",
+          "detail": "Probiotic",
+          "strength": "1 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Lactobacillus rhamnosus Lr-32",
+          "detail": "Probiotic",
+          "strength": "1 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Lactobacillus gasseri Lg-36",
+          "detail": "Probiotic",
+          "strength": "1 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Bacillus coagulans",
+          "detail": "Probiotic",
+          "strength": "1 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Lactobacillus brevis",
+          "detail": "Probiotic",
+          "strength": "1 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Lactobacillus reuteri",
+          "detail": "Probiotic",
+          "strength": "1 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Lactobacillus paracasei Lpc-37",
+          "detail": "Probiotic",
+          "strength": "1 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Lactobacillus fermentum",
+          "detail": "Probiotic",
+          "strength": "1 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Bifidobacterium animalis",
+          "detail": "Probiotic",
+          "strength": "1 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "Streptococcus thermophilus",
+          "detail": "Effective against antibiotic-induced intestinal complications",
+          "strength": "1 billion",
+          "rda": "Per Capsule"
+        },
+        {
+          "ingredient": "NutraFlora Prebiotic Fiber",
+          "detail": "Increases good bacteria and supports digestive health",
+          "strength": "100 mg",
+          "rda": "Per Capsule"
+        }
+      ],
+      "mechanism": [
+        {
+          "step": "01",
+          "title": "Prebiotic",
+          "desc": "Prebiotic fiber nurtures selected microorganisms in the gut and favours the growth of beneficial bacteria over harmful ones."
+        },
+        {
+          "step": "02",
+          "title": "Probiotic",
+          "desc": "Multiple beneficial strains improve the properties of the gut's own (indigenous) flora."
+        },
+        {
+          "step": "03",
+          "title": "Gut Protection",
+          "desc": "Streptococcus thermophilus helps against intestinal complications induced by antibiotics, such as diarrhoea and other intestinal discomfort."
+        }
+      ],
+      "highlights": [
+        "Stimulates growth & activities of intestinal micro flora",
+        "The balancing act for disturbed micro flora",
+        "Multi-strain probiotic + NutraFlora prebiotic fiber",
+        "Ensures normal flora"
+      ],
+      "indications": [
+        "Infective Diarrhoea",
+        "Colitis / Gastroenteritis",
+        "Antibiotic Associated Diarrhoea",
+        "Prebiotic & Probiotic Support",
+        "Prevention of Resistance & Immunity Building"
+      ],
+      "dosage": "As directed by the Physician.",
+      "keywords": [
+        "pre immune gold",
+        "preimmune gold",
+        "probiotic capsule",
+        "prebiotic",
+        "synbiotic",
+        "lactobacillus",
+        "bifidobacterium",
+        "diarrhoea",
+        "antibiotic diarrhea",
+        "gut flora",
+        "colitis"
+      ],
+      "taglineHi": "The balancing act for disturbed micro flora — Pre+Probiotics for life."
     }
   ]
 };
