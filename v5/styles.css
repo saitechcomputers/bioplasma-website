@@ -6129,3 +6129,15 @@ body.has-cinema-hero .site-header:not(.scrolled) .lv-has-pill .nav-link.active {
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .bio-float-pill { background: rgba(255,255,255,0.95) !important; }
 }
+
+/* ===================== V5: Capsule pill — logo tri-colour border (orange → blue → green) ===================== */
+.bio-float-pill {
+  border: 0 !important;
+  box-shadow: 0 14px 34px -14px rgba(11,37,69,0.45) !important;
+}
+.bio-float-pill::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 2px; z-index: 3; pointer-events: none;
+  background: linear-gradient(90deg, #F8A000 0%, #F8A000 22%, #3D8BFF 42%, #3D8BFF 58%, #22B35E 78%, #22B35E 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+}
