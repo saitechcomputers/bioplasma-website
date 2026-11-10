@@ -2958,3 +2958,21 @@
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
+
+/* ===================== V5: Mobile header hides on scroll down, returns on scroll up ===================== */
+(function () {
+  let lastY = window.scrollY, ticking = false;
+  function onScroll() {
+    const hdr = document.querySelector(".site-header");
+    if (!hdr) return;
+    const y = window.scrollY;
+    const mobile = window.innerWidth <= 1120;
+    const menuOpen = document.getElementById("mobileNavDrawer")?.classList.contains("open");
+    if (!mobile || menuOpen || y < 120) hdr.classList.remove("lv-hdr-hide");
+    else if (y > lastY + 6) hdr.classList.add("lv-hdr-hide");
+    else if (y < lastY - 6) hdr.classList.remove("lv-hdr-hide");
+    lastY = y; ticking = false;
+  }
+  window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  window.addEventListener("resize", onScroll);
+})();

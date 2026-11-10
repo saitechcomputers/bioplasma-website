@@ -6141,3 +6141,64 @@ body.has-cinema-hero .site-header:not(.scrolled) .lv-has-pill .nav-link.active {
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
 }
+
+/* ===================== V5: Mobile header (a) frosted glass card + tri-colour border + hide on scroll ===================== */
+@media (max-width: 1120px) {
+  .site-header,
+  body.has-cinema-hero .site-header:not(.scrolled),
+  body.has-cinema-hero .site-header.scrolled,
+  .site-header.is-collapsed-away {
+    background: rgba(255,255,255,0.86) !important;
+    backdrop-filter: blur(18px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
+    border: 0 !important; border-radius: 24px !important;
+    box-shadow: 0 14px 34px -14px rgba(11,37,69,0.45) !important;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), opacity .25s ease !important;
+  }
+  .site-header::after { display: none !important; }
+  .site-header::before {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 2px; z-index: 3; pointer-events: none;
+    background: linear-gradient(90deg, #F8A000 0%, #F8A000 22%, #3D8BFF 42%, #3D8BFF 58%, #22B35E 78%, #22B35E 100%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+  }
+  .header-inner, .site-header.scrolled .header-inner, .site-header.is-collapsed-away .header-inner { padding: 12px 14px 12px 20px !important; }
+  /* hide while scrolling down, come back when scrolling up */
+  html body .site-header.lv-hdr-hide,
+  html body.has-cinema-hero .site-header.lv-hdr-hide,
+  html body.has-cinema-hero .site-header.scrolled.lv-hdr-hide,
+  html body .site-header.is-collapsed-away.lv-hdr-hide {
+    transform: translateY(calc(-100% - 20px)) !important; opacity: 0 !important; pointer-events: none !important;
+  }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  @media (max-width: 1120px) { .site-header { background: #fff !important; } }
+}
+
+/* ===================== V5: Mobile bottom bar (b) ===================== */
+.mobile-bottom-bar { border-top: 0 !important; box-shadow: 0 -8px 24px -16px rgba(11,37,69,0.35); }
+.mobile-bottom-bar::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #F8A000 0 33.3%, #104080 33.3% 66.6%, #006838 66.6%);
+}
+.mob-dock-item { position: relative; color: #5B6B85; }
+.mob-dock-item:hover { color: #104080; }
+.mob-dock-item.active { color: #0B2545 !important; }
+.mob-dock-item.active svg { stroke: #F8A000; }
+.mob-dock-item.active::before {
+  content: ""; position: absolute; top: -6px; left: 30%; right: 30%; height: 3px; border-radius: 0; background: #F8A000;
+}
+/* Enquire = orange circle */
+.mob-dock-item[href="contact.html"] { color: #0B2545; }
+.mob-dock-item[href="contact.html"] svg {
+  width: 38px; height: 38px; padding: 9px; margin-top: -16px; border-radius: 50%;
+  background: #F8A000; stroke: #0B2545; box-shadow: 0 8px 18px -6px rgba(248,160,0,0.75); border: 3px solid #fff; box-sizing: border-box;
+}
+.mob-dock-item[href="contact.html"].active::before { display: none; }
+.mob-dock-item[href="contact.html"].active svg { stroke: #0B2545; }
+/* WhatsApp: smaller and further from the bar */
+@media (max-width: 820px) {
+  .floating-contact-dock { bottom: 96px !important; right: 14px !important; }
+  .whatsapp-float-btn { width: 48px !important; height: 48px !important; }
+  .whatsapp-float-btn svg { width: 28px !important; height: 28px !important; }
+}
