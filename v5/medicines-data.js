@@ -2405,3 +2405,6 @@ window.BIOPLASMA_DATA = {
     }
   ]
 };
+
+/* V5: always show products in alphabetical (A–Z) order */
+window.BIOPLASMA_DATA.medicines.sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }));
