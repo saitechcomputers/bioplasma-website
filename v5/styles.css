@@ -6202,3 +6202,41 @@ body.has-cinema-hero .site-header:not(.scrolled) .lv-has-pill .nav-link.active {
   .whatsapp-float-btn { width: 48px !important; height: 48px !important; }
   .whatsapp-float-btn svg { width: 28px !important; height: 28px !important; }
 }
+
+/* ===================== V5: Colour theme A — deep logo blue ===================== */
+:root { --lv-navy: #0B2B57; --lv-navy-deep: #08214A; --lv-navy-ink: #C9D6EA; }
+
+/* Footer: deep logo blue instead of near-black */
+.site-footer { background: linear-gradient(180deg, #0D3163 0%, var(--lv-navy) 45%, var(--lv-navy-deep) 100%) !important; color: var(--lv-navy-ink) !important; }
+.site-footer .footer-top-grid { border-bottom-color: rgba(255,255,255,.14) !important; }
+.site-footer .footer-col h4 { color: #fff !important; position: relative; padding-bottom: 10px; }
+.site-footer .footer-col h4::after { content: ""; position: absolute; left: 0; bottom: 0; width: 28px; height: 2px; border-radius: 2px; background: var(--logo-orange); }
+.site-footer .footer-links a, .site-footer .footer-links button { color: var(--lv-navy-ink) !important; }
+.site-footer .footer-links a:hover, .site-footer .footer-links button:hover,
+.site-footer .footer-links a:focus-visible, .site-footer .footer-links button:focus-visible { color: var(--logo-orange) !important; }
+.site-footer [style*="#7DD3FC"] { color: #E3EAF5 !important; }
+.site-footer a[href^="mailto"] { color: var(--logo-orange) !important; }
+.site-footer [style*="#5BD18B"] { color: #4CC982 !important; }
+.site-footer .regulatory-box { background: rgba(255,255,255,.06) !important; border: 1px solid rgba(255,255,255,.14) !important; border-left: 3px solid #22B35E !important; color: var(--lv-navy-ink) !important; }
+.site-footer .footer-bottom-row { color: rgba(201,214,234,.75) !important; }
+
+/* Hero video: blue tint instead of black/red */
+.lilly-video-hero, .subpage-video-hero { background: var(--lv-navy-deep) !important; }
+.hero-video-scrim, .subpage-video-scrim {
+  background:
+    linear-gradient(104deg, rgba(8,33,74,.86) 0%, rgba(11,43,87,.68) 44%, rgba(11,43,87,.26) 78%, rgba(11,43,87,.40) 100%),
+    linear-gradient(180deg, rgba(8,33,74,.60) 0%, rgba(8,33,74,.04) 26%, rgba(8,33,74,.12) 68%, rgba(8,33,74,.90) 100%),
+    radial-gradient(680px 440px at 14% 68%, rgba(248,160,0,.10), transparent 72%) !important;
+}
+
+/* Other dark panels follow the same blue */
+.partner-info-card { background: linear-gradient(165deg, #0D3163 0%, var(--lv-navy) 55%, var(--lv-navy-deep) 100%) !important; }
+.infinite-next-portal { background: linear-gradient(140deg, var(--lv-navy-deep) 0%, #0D3163 55%, var(--lv-navy) 100%) !important; }
+
+/* Green = trust signals */
+.bio-trust-pill b, .lilly-trust-pill b { color: #4CC982 !important; }
+.partner-info-card::before { background: radial-gradient(circle, rgba(248,160,0,.16), transparent 70%) !important; }
+.bio-cinema-dock, .lilly-cinema-dock { background: rgba(8,33,74,.78) !important; }
+/* Accent words: warm white-to-logo-orange instead of pink */
+.bio-hero-headline .accent-word, .lilly-hero-headline .accent-word { background: linear-gradient(120deg, #FFFFFF 0%, #FFE2A8 45%, #FFC34D 100%) !important; -webkit-background-clip: text !important; background-clip: text !important; }
+.subpage-video-hero [style*="#FCA5A5"], .cinema-chapter-num, .film-strip-btn span, .infinite-step-dot.next { color: #FFC34D !important; }
