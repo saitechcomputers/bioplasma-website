@@ -96,8 +96,8 @@
       glowColor: "radial-gradient(circle, rgba(245, 158, 11, 0.34) 0%, transparent 70%)",
       medId: "aadirise-d3",
       ctaHref: "#medicinesExplorerSection",
-      ctaLabelEn: "Explore All Our Medicines",
-      ctaLabelHi: "हमारी सभी दवाइयाँ देखें"
+      ctaLabelEn: "Explore All Products",
+      ctaLabelHi: "सभी प्रोडक्ट्स देखें"
     },
     {
       num: "02",
@@ -115,8 +115,8 @@
       glowColor: "radial-gradient(circle, rgba(225, 29, 100, 0.34) 0%, transparent 70%)",
       medId: "bioipc",
       ctaHref: "#medicinesExplorerSection",
-      ctaLabelEn: "Explore All Our Medicines",
-      ctaLabelHi: "हमारी सभी दवाइयाँ देखें"
+      ctaLabelEn: "Explore All Products",
+      ctaLabelHi: "सभी प्रोडक्ट्स देखें"
     },
     {
       num: "03",
@@ -134,8 +134,8 @@
       glowColor: "radial-gradient(circle, rgba(56, 189, 248, 0.34) 0%, transparent 70%)",
       medId: "adenocal-k2",
       ctaHref: "#medicinesExplorerSection",
-      ctaLabelEn: "Explore All Our Medicines",
-      ctaLabelHi: "हमारी सभी दवाइयाँ देखें"
+      ctaLabelEn: "Explore All Products",
+      ctaLabelHi: "सभी प्रोडक्ट्स देखें"
     },
     {
       num: "04",
@@ -153,8 +153,8 @@
       glowColor: "radial-gradient(circle, rgba(16, 185, 129, 0.34) 0%, transparent 70%)",
       medId: "pantheta-dsr",
       ctaHref: "#medicinesExplorerSection",
-      ctaLabelEn: "Explore All Our Medicines",
-      ctaLabelHi: "हमारी सभी दवाइयाँ देखें"
+      ctaLabelEn: "Explore All Products",
+      ctaLabelHi: "सभी प्रोडक्ट्स देखें"
     },
     {
       num: "05",
@@ -2389,7 +2389,7 @@
     });
 
     const exploreBtnTxt = document.querySelector("[data-i18n-explore-btn]");
-    if (exploreBtnTxt) exploreBtnTxt.textContent = t("Explore All Our Medicines", "हमारी सभी दवाइयाँ देखें");
+    if (exploreBtnTxt) exploreBtnTxt.textContent = t("Explore All Products", "सभी प्रोडक्ट्स देखें");
 
     HERO_SLIDES.forEach((s, idx) => {
       const tEl = document.querySelector(`[data-hero-tab-title="${idx}"]`);
