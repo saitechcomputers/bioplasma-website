@@ -808,7 +808,7 @@
     pillEl.innerHTML = `
       <span class="bio-float-pill-aura" aria-hidden="true"></span>
       <a href="index.html" class="bio-float-pill-brand" aria-label="LV Bioplasma Home">
-        <img src="assets/brand/logo-footer-light.png?v=4.4" alt="LV Bioplasma" class="bio-float-pill-logo" />
+        <img src="assets/brand/logo-navbar.png?v=4.5" alt="LV Bioplasma" class="bio-float-pill-logo" />
       </a>
       <span class="bio-float-pill-sep" aria-hidden="true"></span>
       <button type="button" class="bio-float-pill-burger" id="bioFloatPillBurger" aria-label="Open LV Bioplasma Navigation Menu" aria-expanded="false" aria-controls="bioplasmaCommandMenu">

@@ -6099,3 +6099,33 @@ body.has-cinema-hero .site-header:not(.scrolled) .lv-has-pill .nav-link.active {
 }
 .bio-cmd-actions .btn-crimson:hover { background: #E08F00 !important; border-color: #E08F00 !important; }
 @media (prefers-reduced-motion: reduce) { .bio-cmd-link::after { transition: none; } }
+
+/* ===================== V5: Scroll pill = frosted-white two-tone capsule ===================== */
+.bio-float-pill {
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0) 0 62%, rgba(16,64,128,0.13) 62% 100%) padding-box,
+    rgba(255,255,255,0.86) !important;
+  border: 1px solid rgba(255,255,255,0.9) !important;
+  backdrop-filter: blur(18px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
+  box-shadow: 0 18px 40px -16px rgba(11,37,69,0.45), inset 0 1px 0 rgba(255,255,255,0.9) !important;
+  color: #0B2545 !important;
+}
+.bio-float-pill.is-visible { animation: none !important; }
+.bio-float-pill:hover { transform: translate3d(0,-2px,0) !important; box-shadow: 0 22px 46px -16px rgba(11,37,69,0.5), inset 0 1px 0 #fff !important; }
+.bio-float-pill-aura { display: none !important; }
+/* capsule joint line */
+.bio-float-pill::after {
+  animation: none !important; left: 62% !important; width: 1px !important; top: 10px !important; bottom: 10px !important;
+  background: rgba(16,64,128,0.3) !important; border-radius: 0 !important;
+}
+.bio-float-pill-sep { display: none !important; }
+.bio-float-pill-logo { filter: none !important; }
+.bio-float-pill-burger { background: #EEF3FA !important; border: 0 !important; box-shadow: none !important; margin-left: 18px !important; }
+.bio-float-pill-burger:hover { background: #E1E9F5 !important; transform: scale(1.04) !important; box-shadow: none !important; }
+.bio-float-pill-burger i { background: #104080 !important; }
+.bio-float-pill-burger i:nth-child(2),
+.bio-float-pill:hover .bio-float-pill-burger i:nth-child(2) { background: #F8A000 !important; }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .bio-float-pill { background: rgba(255,255,255,0.95) !important; }
+}
