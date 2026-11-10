@@ -2067,52 +2067,51 @@
     openMonographModal(DATA.medicines[nextIdx].id);
   }
 
-  /* ===== V5: Healthcare-professional gate for prescription (Rx) medicines ===== */
-  function hcpConfirmed() { try { return sessionStorage.getItem("lvHcpOk") === "1"; } catch (e) { return window.__lvHcpOk === true; } }
-  function setHcpConfirmed() { try { sessionStorage.setItem("lvHcpOk", "1"); } catch (e) {} window.__lvHcpOk = true; }
+  /* ===== V5: Warning notice before showing a prescription (Rx) medicine ===== */
   function openMonographModal(medId) {
     const m = getMedById(medId);
-    if (m && m.rxRequired && !hcpConfirmed()) { showHcpGate(m); return; }
+    if (m && m.rxRequired) { showRxWarning(m); return; }
     openMonographModalFull(medId);
   }
-  function showHcpGate(m) {
-    if (!document.getElementById("lvHcpGateStyle")) {
-      const st = document.createElement("style"); st.id = "lvHcpGateStyle";
-      st.textContent = `.lv-hcp-gate{position:fixed;inset:0;z-index:99999;background:rgba(7,19,36,.62);backdrop-filter:blur(6px);display:grid;place-items:center;padding:18px}
-      .lv-hcp-box{background:#fff;color:#0f1a30;border-radius:20px;max-width:480px;width:100%;padding:28px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);font-family:inherit}
-      .lv-hcp-box h3{font-size:1.3rem;margin:0 0 8px}.lv-hcp-box p{color:#4a5872;font-size:.93rem;line-height:1.6;margin:0 0 16px}
-      .lv-hcp-box .rx{display:inline-block;background:#fde8e6;color:#b42318;font-weight:700;font-size:.75rem;letter-spacing:.06em;padding:4px 10px;border-radius:20px;margin-bottom:12px}
-      .lv-hcp-btns{display:grid;gap:10px}.lv-hcp-btns button,.lv-hcp-btns a{display:block;text-align:center;padding:13px 16px;border-radius:12px;font-weight:700;font-size:.95rem;cursor:pointer;border:1px solid #d5dce7;background:#fff;color:#0f1a30;text-decoration:none;font-family:inherit}
-      .lv-hcp-btns .pri{background:#104080;color:#fff;border-color:#104080}
-      .lv-hcp-pack{display:flex;gap:14px;align-items:center;margin-bottom:14px}.lv-hcp-pack img{width:90px;height:70px;object-fit:contain}`;
+  function showRxWarning(m) {
+    if (!document.getElementById("lvRxWarnStyle")) {
+      const st = document.createElement("style"); st.id = "lvRxWarnStyle";
+      st.textContent = `.lv-rx-warn{position:fixed;inset:0;z-index:99999;background:rgba(7,19,36,.62);backdrop-filter:blur(6px);display:grid;place-items:center;padding:18px;animation:lvRxFade .2s ease}
+      @keyframes lvRxFade{from{opacity:0}}
+      .lv-rx-box{background:#fff;color:#0f1a30;border-radius:20px;max-width:500px;width:100%;padding:28px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);font-family:inherit;border-top:5px solid #F8A000}
+      .lv-rx-head{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+      .lv-rx-icon{flex:none;width:44px;height:44px;border-radius:50%;background:#FFF4DB;color:#B26B00;display:grid;place-items:center;font-size:1.4rem;font-weight:800}
+      .lv-rx-box h3{font-size:1.2rem;margin:0;line-height:1.3}.lv-rx-box .rx{display:inline-block;background:#fde8e6;color:#b42318;font-weight:700;font-size:.72rem;letter-spacing:.06em;padding:3px 9px;border-radius:20px;margin-top:5px}
+      .lv-rx-box ul{list-style:disc !important;margin:4px 0 18px;padding-left:22px;color:#4a5872;font-size:.92rem;line-height:1.6}
+      .lv-rx-box li{display:list-item !important;margin:3px 0}.lv-rx-box li::marker{color:#F8A000}
+      .lv-rx-btns{display:grid;gap:10px}.lv-rx-btns button{display:block;width:100%;text-align:center;padding:13px 16px;border-radius:12px;font-weight:700;font-size:.95rem;cursor:pointer;border:1px solid #d5dce7;background:#fff;color:#0f1a30;font-family:inherit}
+      .lv-rx-btns .pri{background:#104080;color:#fff;border-color:#104080}`;
       document.head.appendChild(st);
     }
-    const g = document.createElement("div"); g.className = "lv-hcp-gate"; g.setAttribute("role", "dialog"); g.setAttribute("aria-modal", "true");
-    g.innerHTML = `<div class="lv-hcp-box">
-      <span class="rx">Rx — PRESCRIPTION MEDICINE</span>
-      <h3>${escapeHtml(m.name)}: for healthcare professionals</h3>
-      <p>Detailed information on prescription medicines is intended only for Registered Medical Practitioners. Please confirm who you are.</p>
-      <div class="lv-hcp-btns">
-        <button type="button" class="pri" data-hcp="yes">I am a Registered Medical Practitioner</button>
-        <button type="button" data-hcp="no">I am a patient / customer</button>
+    const g = document.createElement("div"); g.className = "lv-rx-warn"; g.setAttribute("role", "alertdialog"); g.setAttribute("aria-modal", "true");
+    g.innerHTML = `<div class="lv-rx-box">
+      <div class="lv-rx-head"><span class="lv-rx-icon" aria-hidden="true">!</span>
+        <div><h3>Important notice — ${escapeHtml(m.name)}</h3><span class="rx">Rx — PRESCRIPTION MEDICINE</span></div></div>
+      <ul>
+        <li>This is a prescription medicine. Use it only on the advice of a Registered Medical Practitioner.</li>
+        <li>The information shown is for general awareness and for healthcare professionals. It is not a substitute for medical advice.</li>
+        <li>Do not start, stop or change any medicine on your own. Consult your doctor or pharmacist.</li>
+      </ul>
+      <div class="lv-rx-btns">
+        <button type="button" class="pri" data-rx="ok">I understand — view details</button>
+        <button type="button" data-rx="cancel">Go back</button>
       </div></div>`;
     document.body.appendChild(g);
-    const close = () => g.remove();
+    function esc(e) { if (e.key === "Escape") close(); }
+    const close = () => { g.remove(); document.removeEventListener("keydown", esc); };
+    document.addEventListener("keydown", esc);
     g.addEventListener("click", (e) => {
       if (e.target === g) return close();
-      const b = e.target.closest("[data-hcp]"); if (!b) return;
-      if (b.getAttribute("data-hcp") === "yes") { setHcpConfirmed(); close(); openMonographModalFull(m.id); return; }
-      g.querySelector(".lv-hcp-box").innerHTML = `
-        <span class="rx">Rx — PRESCRIPTION MEDICINE</span>
-        <div class="lv-hcp-pack"><img src="${m.image}" alt="${escapeHtml(m.name)}"><div><h3 style="margin:0">${escapeHtml(m.name)}</h3><div style="font-size:.85rem;color:#4a5872">${escapeHtml(m.packSize)}</div></div></div>
-        <p>This is a prescription medicine. Please take it only as advised by your doctor, and ask your doctor or pharmacist about its use.</p>
-        <div class="lv-hcp-btns">
-          <a class="pri" href="contact.html?med=${encodeURIComponent(m.id)}">Ask us / find a chemist</a>
-          <button type="button" data-close>Close</button>
-        </div>`;
-      g.querySelector("[data-close]").onclick = close;
+      const b = e.target.closest("[data-rx]"); if (!b) return;
+      close();
+      if (b.getAttribute("data-rx") === "ok") openMonographModalFull(m.id);
     });
-    document.addEventListener("keydown", function esc(e) { if (e.key === "Escape") { close(); document.removeEventListener("keydown", esc); } });
+    g.querySelector('[data-rx="ok"]').focus();
   }
 
   function openMonographModalFull(medId) {
