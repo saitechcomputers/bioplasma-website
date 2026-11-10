@@ -581,7 +581,7 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+    }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
 
     document.querySelectorAll("main > section:not(.bio-video-hero):not(.subpage-video-hero):not(.contact-form-hero)").forEach((sec) => {
       if (!sec.classList.contains("is-revealed")) {
@@ -589,6 +589,13 @@
         revealObserver.observe(sec);
       }
     });
+    /* V5 safety: never leave content hidden (tall sections on small phones, slow devices) */
+    clearTimeout(window.__lvRevealFailsafe);
+    window.__lvRevealFailsafe = setTimeout(() => {
+      document.querySelectorAll("main > section.reveal-ready:not(.is-revealed)").forEach((s) => {
+        if (s.getBoundingClientRect().top < window.innerHeight) s.classList.add("is-revealed");
+      });
+    }, 1200);
   }
 
 
