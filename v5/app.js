@@ -42,6 +42,24 @@
     });
   }
 
+  /* V5: every data colour snaps to one of the three logo colours */
+  function logoColor(hex) {
+    const m = /^#?([0-9a-f]{6})$/i.exec(String(hex || "").trim());
+    if (!m) return hex;
+    const n = parseInt(m[1], 16), r = (n >> 16) / 255, g = ((n >> 8) & 255) / 255, b = (n & 255) / 255;
+    const mx = Math.max(r, g, b), mn = Math.min(r, g, b), d = mx - mn;
+    let h = 0;
+    if (d) h = mx === r ? ((g - b) / d) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4;
+    h = (h * 60 + 360) % 360;
+    if (h >= 85 && h < 185) return "#006838";
+    if (h >= 185 && h < 300) return "#104080";
+    return "#F8A000";
+  }
+  (DATA.medicines || []).forEach((m) => { m.accent = logoColor(m.accent); });
+  (DATA.technologies || []).forEach((t2) => { t2.accent = logoColor(t2.accent); });
+  (DATA.quickNeeds || []).forEach((q) => { q.color = logoColor(q.color); });
+  (DATA.categories || []).forEach((c) => { if (c.color) c.color = logoColor(c.color); });
+
   const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const VALID_ROLES = ["doctor", "customer", "mr", "stockist"];

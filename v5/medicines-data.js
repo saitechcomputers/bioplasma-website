@@ -348,7 +348,7 @@ window.BIOPLASMA_DATA = {
       titleHi: "नैनो टेक्नोलॉजी विटामिन D3",
       medicine: "AADIRISE D3",
       medicineId: "aadirise-d3",
-      accent: "#ea580c",
+      accent: "#F8A000",
       descEn: "Ultra-fine nano-emulsified Cholecalciferol (60,000 IU) bypasses complex bile dispersion for faster, uniform intestinal absorption in a pleasant sugar-free butterscotch 5 ml shot.",
       descHi: "अति-सूक्ष्म नैनो कण शरीर में विटामिन D3 का तेज़ और बेहतर अवशोषण सुनिश्चित करते हैं।"
     },
@@ -358,7 +358,7 @@ window.BIOPLASMA_DATA = {
       titleHi: "लिपोसोमल आयरन + सक्रिय फोलेट",
       medicine: "BIOIPC",
       medicineId: "bioipc",
-      accent: "#b91c1c",
+      accent: "#104080",
       descEn: "Encapsulates Ferric Pyrophosphate inside a protective phospholipid bilayer so iron passes intact through gastric acid — eliminating metallic taste, nausea, and constipation.",
       descHi: "लिपोसोमल परत आयरन को पेट के एसिड से बचाती है, जिससे मतली, कब्ज़ या धातु जैसा स्वाद नहीं आता।"
     },
@@ -368,7 +368,7 @@ window.BIOPLASMA_DATA = {
       titleHi: "Aquamin समुद्री कैल्शियम और 72 मिनरल्स",
       medicine: "ADENOCAL-K2",
       medicineId: "adenocal-k2",
-      accent: "#0284c7",
+      accent: "#006838",
       descEn: "Harvested from red marine algae (Lithothamnion spp.) with a porous honeycomb structure, paired with Vitamin D3 and K2-7 for targeted bone deposition.",
       descHi: "लाल समुद्री शैवाल से प्राप्त प्राकृतिक छिद्रयुक्त कैल्शियम जो पेट पर हल्का है और सीधे हड्डियों में जमता है।"
     },
@@ -378,7 +378,7 @@ window.BIOPLASMA_DATA = {
       titleHi: "टैबलेट-इन-कैप्सूल (तुरंत + 24 घंटे असर)",
       medicine: "PANTHETA DSR & RABTHETA DSR",
       medicineId: "pantheta-dsr",
-      accent: "#0f766e",
+      accent: "#104080",
       descEn: "Combines an Enteric-Coated PPI core with dual Immediate-Release (10 mg) and Sustained-Release (20 mg) Domperidone fractions for rapid nausea relief and full-day acid control.",
       descHi: "एक ही कैप्सूल में तुरंत आराम (IR) और पूरे दिन एसिडिटी व उल्टी से सुरक्षा (EC + SR)।"
     }
