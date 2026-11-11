@@ -1001,8 +1001,11 @@
     burgerBtn?.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
-      if (cmdOpen) closeCommandMenu();
-      else openCommandMenu();
+      if (cmdOpen) { closeCommandMenu(); return; }
+      if (pillEl.classList.contains("lv-x")) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { openCommandMenu(); return; }
+      pillEl.classList.add("lv-x");
+      setTimeout(() => { openCommandMenu(); setTimeout(() => pillEl.classList.remove("lv-x"), 450); }, 280);
     });
 
     pillEl.addEventListener("click", (e) => {
@@ -1010,8 +1013,11 @@
       if (e.target.closest(".bio-float-pill-brand")) return;
       e.preventDefault();
       e.stopPropagation();
-      if (cmdOpen) closeCommandMenu();
-      else openCommandMenu();
+      if (cmdOpen) { closeCommandMenu(); return; }
+      if (pillEl.classList.contains("lv-x")) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { openCommandMenu(); return; }
+      pillEl.classList.add("lv-x");
+      setTimeout(() => { openCommandMenu(); setTimeout(() => pillEl.classList.remove("lv-x"), 450); }, 280);
     });
 
     // Hovering any of the 6 headings dynamically updates showcase preview
@@ -2975,4 +2981,123 @@
   }
   window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   window.addEventListener("resize", onScroll);
+})();
+
+/* ===================== V5: Brand & product animations ===================== */
+(function () {
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* --- 1. Logo icons come alive (smile, drip, sway) --- */
+  const CELLS = {
+    "logo-navbar.png": { src: "assets/brand/logo-cell-", w: 601, h: 258, y: 14, hh: 76, xs: [[126, 114], [243, 114], [360, 113]] },
+    "logo-emblem.png": { src: "assets/brand/emblem-cell-", w: 420, h: 99, y: 4, hh: 91, xs: [[4, 135], [143, 134], [281, 135]] }
+  };
+  function enhance(img) {
+    if (img.dataset.lvEmb) return;
+    const key = Object.keys(CELLS).find((k) => (img.getAttribute("src") || "").includes(k));
+    if (!key) return;
+    img.dataset.lvEmb = "1";
+    const c = CELLS[key];
+    const wrap = document.createElement("span");
+    wrap.className = "lv-emb";
+    img.parentNode.insertBefore(wrap, img);
+    wrap.appendChild(img);
+    c.xs.forEach(([x, w], i) => {
+      const s = document.createElement("span");
+      s.className = "lv-emb-cell lv-emb-c" + (i + 1);
+      s.style.cssText = `left:${(x / c.w) * 100}%;top:${(c.y / c.h) * 100}%;width:${(w / c.w) * 100}%;height:${(c.hh / c.h) * 100}%`;
+      s.innerHTML = `<img src="${c.src}${i + 1}.png?v=2" alt="" aria-hidden="true">`;
+      wrap.appendChild(s);
+    });
+  }
+  function play(wrap) {
+    if (reduce || !wrap) return;
+    const now = Date.now();
+    if (wrap._lvLast && now - wrap._lvLast < 2500) return;
+    wrap._lvLast = now;
+    wrap.classList.remove("lv-emb-play");
+    void wrap.offsetWidth;
+    wrap.classList.add("lv-emb-play");
+    clearTimeout(wrap._lvT);
+    wrap._lvT = setTimeout(() => wrap.classList.remove("lv-emb-play"), 1450);
+  }
+  function shine(pill) {
+    if (reduce || !pill) return;
+    let s = pill.querySelector(".lv-pill-shine");
+    if (!s) { s = document.createElement("span"); s.className = "lv-pill-shine"; s.setAttribute("aria-hidden", "true"); pill.appendChild(s); }
+    s.classList.remove("go"); void s.offsetWidth; s.classList.add("go");
+  }
+  function scan() {
+    document.querySelectorAll(".bio-float-pill-logo, .brand-m-emblem").forEach((img) => {
+      const fresh = !img.dataset.lvEmb;
+      enhance(img);
+      const wrap = img.closest(".lv-emb");
+      if (fresh && wrap && img.classList.contains("brand-m-emblem") && img.offsetParent) setTimeout(() => play(wrap), 600);
+      if (fresh && wrap) {
+        const host = img.closest("a") || wrap;
+        host.addEventListener("mouseenter", () => play(wrap));
+        host.addEventListener("touchstart", () => play(wrap), { passive: true });
+      }
+    });
+    const pill = document.getElementById("bioplasmaFloatPill");
+    if (pill && !pill.dataset.lvObs) {
+      pill.dataset.lvObs = "1";
+      let was = pill.classList.contains("is-visible");
+      new MutationObserver(() => {
+        const vis = pill.classList.contains("is-visible");
+        if (vis && !was) {
+          setTimeout(() => { play(pill.querySelector(".lv-emb")); setTimeout(() => shine(pill), 700); }, 250);
+        }
+        was = vis;
+      }).observe(pill, { attributes: true, attributeFilter: ["class"] });
+    }
+  }
+
+  /* --- 2. Numbers count up when seen --- */
+  const counted = new WeakSet();
+  const io = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      io.unobserve(e.target);
+      const el = e.target, node = el.firstChild, target = +el.dataset.lvTo;
+      if (reduce) return;
+      const t0 = performance.now(), dur = 1400;
+      (function step(t) {
+        const p = Math.min(1, (t - t0) / dur), v = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        node.nodeValue = String(v);
+        if (p < 1) requestAnimationFrame(step);
+      })(t0);
+    });
+  }, { threshold: 0.4 }) : null;
+  function counters() {
+    if (!io) return;
+    document.querySelectorAll(".metric-val").forEach((el) => {
+      if (counted.has(el)) return;
+      counted.add(el);
+      const n = el.firstChild;
+      if (!n || n.nodeType !== 3 || !/^\s*\d+\s*$/.test(n.nodeValue)) return;
+      el.dataset.lvTo = n.nodeValue.trim();
+      io.observe(el);
+    });
+  }
+
+  /* --- 3. Product pack tilts toward the pointer --- */
+  if (!reduce && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.addEventListener("pointermove", (e) => {
+      const vis = e.target.closest && e.target.closest(".med-card-visual");
+      document.querySelectorAll(".med-card-visual.lv-tilt").forEach((v) => { if (v !== vis) { v.classList.remove("lv-tilt"); v.style.removeProperty("--rx"); v.style.removeProperty("--ry"); } });
+      if (!vis) return;
+      const r = vis.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      vis.classList.add("lv-tilt");
+      vis.style.setProperty("--ry", (x * 18).toFixed(1) + "deg");
+      vis.style.setProperty("--rx", (-y * 12).toFixed(1) + "deg");
+    }, { passive: true });
+  }
+
+  function run() { scan(); counters(); }
+  let t;
+  const mo = new MutationObserver(() => { clearTimeout(t); t = setTimeout(run, 150); });
+  function init() { run(); mo.observe(document.body, { childList: true, subtree: true }); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();

@@ -6240,3 +6240,45 @@ body.has-cinema-hero .site-header:not(.scrolled) .lv-has-pill .nav-link.active {
 /* Accent words: warm white-to-logo-orange instead of pink */
 .bio-hero-headline .accent-word, .lilly-hero-headline .accent-word { background: linear-gradient(120deg, #FFFFFF 0%, #FFE2A8 45%, #FFC34D 100%) !important; -webkit-background-clip: text !important; background-clip: text !important; }
 .subpage-video-hero [style*="#FCA5A5"], .cinema-chapter-num, .film-strip-btn span, .infinite-step-dot.next { color: #FFC34D !important; }
+
+/* ===================== V5: Brand & product animations ===================== */
+.lv-emb { position: relative; display: inline-block; line-height: 0; }
+.lv-emb > img { display: block; }
+.lv-emb-cell { position: absolute; overflow: hidden; pointer-events: none; visibility: hidden; }
+.lv-emb-play .lv-emb-cell { visibility: visible; }
+.lv-emb-cell img { display: block; width: 100%; height: 100%; transform-origin: 50% 60%; }
+.lv-emb-play .lv-emb-c1 img { animation: lvSmile .7s cubic-bezier(.3,1.6,.5,1) both; }
+.lv-emb-play .lv-emb-c2 img { animation: lvDrip .8s ease .18s both; transform-origin: 50% 0; }
+.lv-emb-play .lv-emb-c3 img { animation: lvSway .9s ease .36s both; transform-origin: 50% 90%; }
+@keyframes lvSmile { 0%{transform:none} 45%{transform:scale(1.22) rotate(-10deg)} 100%{transform:none} }
+@keyframes lvDrip { 0%{transform:none} 35%{transform:translateY(5%) scaleY(1.14)} 65%{transform:translateY(-3%) scaleY(.95)} 100%{transform:none} }
+@keyframes lvSway { 0%{transform:none} 25%{transform:rotate(-14deg)} 55%{transform:rotate(10deg)} 80%{transform:rotate(-4deg)} 100%{transform:none} }
+
+/* Shine passing over the capsule */
+.bio-float-pill { overflow: hidden; }
+.lv-pill-shine { position: absolute; top: 0; bottom: 0; left: -30%; width: 22%; z-index: 3; pointer-events: none; opacity: 0;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.9), transparent); transform: skewX(-18deg); }
+.lv-pill-shine.go { animation: lvShine 1.1s ease-in-out; }
+@keyframes lvShine { 0%{left:-30%;opacity:1} 100%{left:120%;opacity:1} }
+
+/* Menu lines turn into X when the menu is open */
+.bio-float-pill-burger i { transition: transform .32s cubic-bezier(.4,1.4,.5,1), opacity .2s, width .22s !important; }
+.bio-float-pill.lv-x .bio-float-pill-burger i:nth-child(1), .bio-float-pill.is-menu-open .bio-float-pill-burger i:nth-child(1) { transform: translateY(8.4px) rotate(45deg); }
+.bio-float-pill.lv-x .bio-float-pill-burger i:nth-child(2), .bio-float-pill.is-menu-open .bio-float-pill-burger i:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.bio-float-pill.lv-x .bio-float-pill-burger i:nth-child(3), .bio-float-pill.is-menu-open .bio-float-pill-burger i:nth-child(3) { transform: translateY(-8.4px) rotate(-45deg); }
+
+/* Product pack lifts and tilts */
+.med-card-visual { perspective: 700px; }
+.med-card-visual img { transition: transform .45s cubic-bezier(.2,.8,.2,1), filter .45s ease !important; will-change: transform; }
+.med-card:hover .med-card-visual img { transform: translateY(-8px) scale(1.06); filter: drop-shadow(0 24px 24px rgba(16,64,128,.22)); }
+.med-card-visual.lv-tilt img { transition: transform .12s linear, filter .45s ease !important;
+  transform: translateY(-8px) scale(1.06) rotateX(var(--rx,0)) rotateY(var(--ry,0)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-emb-play .lv-emb-cell img, .lv-pill-shine.go { animation: none !important; }
+  .med-card-visual img { transition: none !important; }
+}
+.site-header .brand-logo .brand-m .lv-emb { margin-bottom: 7px; }
+.site-header .brand-logo .brand-m .lv-emb > img.brand-m-emblem { margin-bottom: 0 !important; }
+.lv-emb .lv-emb-cell img, .site-header .brand-logo .lv-emb .lv-emb-cell img { display: block !important; width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; min-height: 0 !important; margin: 0 !important; filter: none !important; object-fit: fill !important; }
+.lv-emb-cell { background: #fff; }
