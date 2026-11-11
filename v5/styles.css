@@ -6316,3 +6316,83 @@ body.has-cinema-hero .site-header:not(.scrolled) .lv-has-pill .nav-link.active {
 .med-dosage-meta { color: color-mix(in srgb, var(--med-accent, #104080) 62%, #000) !important; }
 .need-icon-badge { color: color-mix(in srgb, var(--need-accent, #104080) 62%, #000) !important; }
 .metric-val span { color: #F8A000 !important; }
+
+/* ===================== V5: Capsule release, heading underline, success tick ===================== */
+/* 1. Tablet-in-capsule opens, IR bursts out fast, SR seeps out slowly */
+.lvc .lvc-half { transform-box: fill-box; animation: lvcOpen .9s cubic-bezier(.5,0,.2,1) .35s both; }
+.lvc .lvc-l { transform-origin: 100% 50%; --tx: -34px; --rot: -9deg; }
+.lvc .lvc-r { transform-origin: 0% 50%; --tx: 34px; --rot: 9deg; }
+@keyframes lvcOpen { from { transform: none; } to { transform: translateX(var(--tx)) rotate(var(--rot)); opacity: .55; } }
+.lvc .lvc-p { opacity: 0; animation: lvcBurst .9s ease-out var(--d) both; }
+.lvc .lvc-ir { fill: #FFC34D; filter: drop-shadow(0 0 4px rgba(248,160,0,.9)); }
+.lvc .lvc-sr { fill: #7FE0A8; filter: drop-shadow(0 0 4px rgba(34,179,94,.9)); animation-name: lvcSeep; animation-duration: 3.2s; animation-timing-function: linear; }
+@keyframes lvcBurst { 0% { opacity: 0; transform: none; } 8% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
+@keyframes lvcSeep { 0% { opacity: 0; transform: none; } 15% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
+.lvc .lvc-lbl { opacity: 0; animation: lvcFade .5s ease both; }
+.lvc .lvc-l1 { animation-delay: 1.4s; }
+.lvc .lvc-l2 { animation-delay: 2.3s; }
+@keyframes lvcFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* 2. Section headings rise in, tri-colour line draws underneath */
+.section-heading.lv-h { position: relative; padding-bottom: 14px; opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); }
+.section-heading.lv-h::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 0; border-radius: 3px; background: linear-gradient(90deg, #F8A000 33%, #3D8BFF 33% 66%, #22B35E 66%); transition: width .9s cubic-bezier(.2,.8,.2,1) .35s; }
+.section-heading.lv-h.lv-h-in { opacity: 1; transform: none; }
+.section-heading.lv-h.lv-h-in::after { width: 96px; }
+[style*="text-align:center"] .section-heading.lv-h::after, .text-center .section-heading.lv-h::after { left: 50%; transform: translateX(-50%); }
+
+/* 3. Green tick drawn on successful form */
+.lv-tick circle { stroke-dasharray: 160; stroke-dashoffset: 160; animation: lvTick .6s ease forwards; }
+.lv-tick path { stroke-dasharray: 40; stroke-dashoffset: 40; animation: lvTick .35s ease .5s forwards; }
+@keyframes lvTick { to { stroke-dashoffset: 0; } }
+#applicationSuccessBox .lv-tick { float: left; margin: 0 12px 4px 0; }
+.lv-done { display: flex; align-items: center; gap: 12px; text-align: left; }
+.lv-done .lv-tick { flex-shrink: 0; }
+.form-feedback-msg.is-success { background: #ECFDF5 !important; border-color: #006838 !important; color: #065F46 !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lvc .lvc-half, .lvc .lvc-p, .lvc .lvc-lbl, .lv-tick circle, .lv-tick path { animation: none !important; }
+  .lvc .lvc-lbl { opacity: 1; }
+  .lvc .lvc-p { opacity: 0; }
+  .lv-tick circle, .lv-tick path { stroke-dashoffset: 0; }
+}
+/* V5: footer now brand + quick links only */
+@media (min-width: 821px) { .footer-top-grid { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) !important; } .footer-top-grid > .footer-col { justify-self: end; min-width: 220px; } }
+
+/* ===================== V5: High Base Syrup diagram ===================== */
+.lvs .lvs-thin { opacity: 0; animation: lvsFall 1.35s cubic-bezier(.5,0,1,1) var(--d) infinite; }
+@keyframes lvsFall { 0% { opacity: 1; transform: none; } 85% { opacity: 1; } 100% { opacity: 0; transform: translateY(150px); } }
+.lvs .lvs-coat { stroke-dasharray: 140; stroke-dashoffset: 140; animation: lvsCoat 2.6s ease .5s forwards; opacity: .9; }
+@keyframes lvsCoat { to { stroke-dashoffset: 0; } }
+.lvs .lvs-thick { transform-box: fill-box; transform-origin: 50% 0; animation: lvsDrip 3s ease-in-out .3s forwards; }
+@keyframes lvsDrip { 0% { transform: none; } 60% { transform: translateY(46px) scaleY(1.35); opacity: 1; } 100% { transform: translateY(70px) scaleY(.6); opacity: .0; } }
+.lvs .lvs-tag { opacity: 0; animation: lvcFade .6s ease 2.6s forwards; }
+.lvs .lvs-sf { transform-box: fill-box; transform-origin: center; animation: lvsPop .5s cubic-bezier(.3,1.6,.5,1) 1.2s both; }
+@keyframes lvsPop { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: none; } }
+.lv-sci-points { margin: 0 0 16px; padding-left: 18px; color: rgba(255,255,255,.88); font-size: .88rem; line-height: 1.7; list-style: disc; }
+.lv-sci-points li::marker { color: #F8A000; }
+.lv-sci-meds { display: flex; flex-wrap: wrap; gap: 8px; }
+.lv-sci-med { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); color: #fff; border-radius: 999px; padding: 6px 12px; font-size: .78rem; font-weight: 700; letter-spacing: .02em; cursor: pointer; transition: background .2s, border-color .2s; }
+.lv-sci-med:hover, .lv-sci-med:focus-visible { background: #F8A000; border-color: #F8A000; color: #2A1A00; }
+@media (prefers-reduced-motion: reduce) {
+  .lvs .lvs-thin, .lvs .lvs-coat, .lvs .lvs-thick, .lvs .lvs-tag, .lvs .lvs-sf { animation: none !important; }
+  .lvs .lvs-coat { stroke-dashoffset: 0; } .lvs .lvs-tag { opacity: 1; } .lvs .lvs-thick { opacity: 0; }
+}
+/* V5: blue viewport box — one fixed size that always fits the screen, stays in view while cards scroll */
+.science-microscope-box { justify-content: flex-start; }
+.science-microscope-box .microscope-svg-canvas { height: auto; }
+@media (min-width: 1121px) {
+  .science-lab-grid { align-items: start !important; }
+  .science-microscope-box { position: sticky; top: 112px; height: clamp(470px, calc(100vh - 128px), 700px); min-height: 0; overflow: hidden; padding: clamp(18px, 2.4vh, 30px) !important; gap: clamp(10px, 1.6vh, 18px) !important; }
+  .science-microscope-box .microscope-svg-canvas { flex: 1 1 0; min-height: 140px; padding: 10px; }
+  .science-microscope-box .microscope-caption { flex: 0 0 auto; }
+  .science-microscope-box .microscope-caption h4 { font-size: clamp(1.02rem, 2.2vh, 1.24rem); margin-bottom: 4px; }
+  .science-microscope-box .microscope-caption p { font-size: clamp(.8rem, 1.65vh, .9rem); line-height: 1.5; margin-bottom: 10px; }
+  .science-microscope-box .microscope-caption .sci-tag { margin-bottom: 6px !important; }
+  .lv-sci-points { font-size: clamp(.78rem, 1.6vh, .86rem); line-height: 1.5; margin-bottom: 10px; }
+  .lv-sci-med { padding: 4px 10px; font-size: .72rem; }
+  .sci-selector-card { padding: 16px 20px !important; }
+  .sci-selector-card p { font-size: .84rem !important; line-height: 1.5 !important; }
+}
+@media (max-width: 1120px) {
+  .science-microscope-box .microscope-svg-canvas { height: 260px; }
+}

@@ -276,6 +276,32 @@
 
   /* ---------- Microscopic SVG Diagrams ---------- */
   function getScienceSVG(index) {
+    if (index === 4) {
+      return `
+      <svg class="lvs" viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Thin syrup runs straight down the throat; high base syrup coats the throat and stays longer">
+        <text x="210" y="30" text-anchor="middle" fill="#FFC34D" font-size="11" font-family="Space Grotesk, sans-serif" font-weight="700">ORDINARY SYRUP vs HIGH BASE SYRUP</text>
+        <g>
+          <path d="M70 52 C70 52 78 120 84 190 L120 190 C126 120 134 52 134 52" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" fill="rgba(255,255,255,0.04)"/>
+          <circle class="lvs-thin" cx="102" cy="58" r="5" fill="#9CC7FF" style="--d:0s"/>
+          <circle class="lvs-thin" cx="102" cy="58" r="4" fill="#9CC7FF" style="--d:.45s"/>
+          <circle class="lvs-thin" cx="102" cy="58" r="5" fill="#9CC7FF" style="--d:.9s"/>
+          <text x="102" y="212" text-anchor="middle" fill="#C9D6EA" font-size="11" font-weight="700">Thin syrup</text>
+          <text x="102" y="228" text-anchor="middle" fill="#8FA6C6" font-size="9.5">runs straight down</text>
+        </g>
+        <g>
+          <path d="M286 52 C286 52 294 120 300 190 L336 190 C342 120 350 52 350 52" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" fill="rgba(255,255,255,0.04)"/>
+          <path class="lvs-coat" d="M289 56 C292 110 296 150 302 188" stroke="#F8A000" stroke-width="7" stroke-linecap="round"/>
+          <path class="lvs-coat" d="M347 56 C344 110 340 150 334 188" stroke="#F8A000" stroke-width="7" stroke-linecap="round"/>
+          <ellipse class="lvs-thick" cx="318" cy="62" rx="12" ry="9" fill="#F8A000"/>
+          <text x="318" y="212" text-anchor="middle" fill="#FFC34D" font-size="11" font-weight="700">High base syrup</text>
+          <text class="lvs-tag" x="318" y="228" text-anchor="middle" fill="#7FE0A8" font-size="9.5" font-weight="700">coats &amp; soothes for longer</text>
+        </g>
+        <g class="lvs-sf">
+          <rect x="166" y="104" width="88" height="34" rx="17" fill="#006838" stroke="#22B35E" stroke-width="1.6"/>
+          <text x="210" y="125" text-anchor="middle" fill="#FFF" font-size="11" font-weight="800">NO SUGAR</text>
+        </g>
+      </svg>`;
+    }
     if (index === 0) {
       return `
         <svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nano Shots Vitamin D3 Diagram">
@@ -337,19 +363,25 @@
         </svg>`;
     }
     return `
-      <svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Tablet-in-Capsule EC IR SR Architecture">
-        <rect x="58" y="78" width="304" height="104" rx="52" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" fill="rgba(255,255,255,0.06)"/>
-        <path d="M210 78 V182" stroke="rgba(255,255,255,0.22)" stroke-dasharray="4 4"/>
-        <rect x="86" y="102" width="76" height="56" rx="16" fill="#0284C7" stroke="#7DD3FC" stroke-width="1.8"/>
-        <text x="124" y="127" text-anchor="middle" fill="#FFF" font-size="11" font-weight="800">EC PPI</text>
-        <text x="124" y="143" text-anchor="middle" fill="#E0F2FE" font-size="9">Acid-Protected</text>
-        <circle cx="212" cy="130" r="28" fill="#F8A000" stroke="#FDE68A" stroke-width="1.8"/>
-        <text x="212" y="127" text-anchor="middle" fill="#151821" font-size="11" font-weight="800">10mg IR</text>
-        <text x="212" y="141" text-anchor="middle" fill="#151821" font-size="8.5" font-weight="700">Fast Relief</text>
-        <rect x="262" y="102" width="76" height="56" rx="28" fill="#10B981" stroke="#A7F3D0" stroke-width="1.8"/>
-        <text x="300" y="127" text-anchor="middle" fill="#052E16" font-size="11" font-weight="800">20mg SR</text>
-        <text x="300" y="143" text-anchor="middle" fill="#052E16" font-size="8.5" font-weight="700">24h Shield</text>
-        <text x="210" y="48" text-anchor="middle" fill="#A5F3FC" font-size="11" font-family="Space Grotesk, sans-serif" font-weight="700">PRECISION TABLET-IN-CAPSULE (PANTHETA / RABTHETA DSR)</text>
+      <svg class="lvc" viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Tablet-in-Capsule: enteric-coated PPI with 10 mg immediate-release and 20 mg sustained-release domperidone">
+        <text x="210" y="40" text-anchor="middle" fill="#FFC34D" font-size="11" font-family="Space Grotesk, sans-serif" font-weight="700">PRECISION TABLET-IN-CAPSULE (PANTHETA / RABTHETA DSR)</text>
+        <g class="lvc-in">
+          <rect x="84" y="104" width="78" height="52" rx="16" fill="#104080" stroke="#3D8BFF" stroke-width="1.8"/>
+          <text x="123" y="127" text-anchor="middle" fill="#FFF" font-size="11" font-weight="800">EC PPI</text>
+          <text x="123" y="142" text-anchor="middle" fill="#C9D6EA" font-size="9">Acid-Protected</text>
+          <circle cx="212" cy="130" r="27" fill="#F8A000" stroke="#FFE2A8" stroke-width="1.8"/>
+          <text x="212" y="127" text-anchor="middle" fill="#2A1A00" font-size="11" font-weight="800">10mg IR</text>
+          <text x="212" y="141" text-anchor="middle" fill="#2A1A00" font-size="8.5" font-weight="700">Fast Relief</text>
+          <rect x="262" y="104" width="76" height="52" rx="26" fill="#006838" stroke="#22B35E" stroke-width="1.8"/>
+          <text x="300" y="127" text-anchor="middle" fill="#FFF" font-size="11" font-weight="800">20mg SR</text>
+          <text x="300" y="141" text-anchor="middle" fill="#D7F5E3" font-size="8.5" font-weight="700">24h Shield</text>
+        </g>
+        
+        <path class="lvc-half lvc-l" d="M210 78 H110 a52 52 0 0 0 0 104 H210" stroke="rgba(255,255,255,0.55)" stroke-width="2.5" fill="rgba(248,160,0,0.10)"/>
+        <path class="lvc-half lvc-r" d="M210 78 H310 a52 52 0 0 1 0 104 H210" stroke="rgba(255,255,255,0.55)" stroke-width="2.5" fill="rgba(61,139,255,0.10)"/>
+        <circle class="lvc-p lvc-ir" cx="212" cy="130" r="5.5" style="--dx:-35px;--dy:49px;--d:1.20s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="4.5" style="--dx:106px;--dy:23px;--d:1.22s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="5.5" style="--dx:-48px;--dy:38px;--d:1.24s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="5" style="--dx:16px;--dy:51px;--d:1.26s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="5" style="--dx:67px;--dy:22px;--d:1.28s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="4.5" style="--dx:92px;--dy:25px;--d:1.30s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="4.5" style="--dx:-68px;--dy:-51px;--d:1.32s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="4.5" style="--dx:-80px;--dy:-29px;--d:1.34s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="5" style="--dx:108px;--dy:23px;--d:1.36s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="5.5" style="--dx:-85px;--dy:33px;--d:1.38s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="4.5" style="--dx:-40px;--dy:72px;--d:1.40s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="4.5" style="--dx:79px;--dy:42px;--d:1.42s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="4.5" style="--dx:-68px;--dy:49px;--d:1.44s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="5" style="--dx:-93px;--dy:-28px;--d:1.46s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="5" style="--dx:-39px;--dy:-58px;--d:1.48s"/><circle class="lvc-p lvc-ir" cx="212" cy="130" r="5" style="--dx:-113px;--dy:18px;--d:1.50s"/><circle class="lvc-p lvc-sr" cx="300" cy="130" r="4.5" style="--dx:71px;--dy:-34px;--d:2.00s"/><circle class="lvc-p lvc-sr" cx="300" cy="130" r="4.5" style="--dx:50px;--dy:24px;--d:2.40s"/><circle class="lvc-p lvc-sr" cx="300" cy="130" r="4.5" style="--dx:72px;--dy:11px;--d:2.80s"/><circle class="lvc-p lvc-sr" cx="300" cy="130" r="4.5" style="--dx:36px;--dy:52px;--d:3.20s"/><circle class="lvc-p lvc-sr" cx="300" cy="130" r="4.5" style="--dx:76px;--dy:-39px;--d:3.60s"/><circle class="lvc-p lvc-sr" cx="300" cy="130" r="4.5" style="--dx:28px;--dy:-44px;--d:4.00s"/><circle class="lvc-p lvc-sr" cx="300" cy="130" r="4.5" style="--dx:41px;--dy:28px;--d:4.40s"/><circle class="lvc-p lvc-sr" cx="300" cy="130" r="4.5" style="--dx:52px;--dy:-1px;--d:4.80s"/><circle class="lvc-p lvc-sr" cx="300" cy="130" r="4.5" style="--dx:74px;--dy:29px;--d:5.20s"/><circle class="lvc-p lvc-sr" cx="300" cy="130" r="4.5" style="--dx:87px;--dy:14px;--d:5.60s"/><circle class="lvc-p lvc-sr" cx="300" cy="130" r="4.5" style="--dx:69px;--dy:-30px;--d:6.00s"/><circle class="lvc-p lvc-sr" cx="300" cy="130" r="4.5" style="--dx:73px;--dy:15px;--d:6.40s"/>
+        <text class="lvc-lbl lvc-l1" x="150" y="222" text-anchor="middle" fill="#FFC34D" font-size="11" font-weight="700">IR · releases at once</text>
+        <text class="lvc-lbl lvc-l2" x="300" y="222" text-anchor="middle" fill="#7FE0A8" font-size="11" font-weight="700">SR · releases over 24 h</text>
       </svg>`;
   }
 
@@ -1645,7 +1677,7 @@
           <span class="sci-med-ref">${escapeHtml(tech.medicine)}</span>
         </div>
         <h3>${escapeHtml(t(tech.titleEn, tech.titleHi))}</h3>
-        <p>${escapeHtml(t(tech.descEn, tech.descHi))}</p>
+        <p>${escapeHtml(t(tech.cardDescEn || tech.descEn, tech.cardDescHi || tech.descHi))}</p>
       </button>
     `).join("");
 
@@ -1661,14 +1693,16 @@
     svgMount.innerHTML = getScienceSVG(state.activeSciIndex);
     capMount.innerHTML = `
       <span class="sci-tag" style="--sci-color:${activeTech.accent};margin-bottom:10px;display:inline-block;">${escapeHtml(activeTech.badge)}</span>
-      <h4>${escapeHtml(t(activeTech.titleEn, activeTech.titleHi))} — ${escapeHtml(activeTech.medicine)}</h4>
+      <h4>${activeTech.headlineEn ? escapeHtml(t(activeTech.headlineEn, activeTech.headlineHi)) : `${escapeHtml(t(activeTech.titleEn, activeTech.titleHi))} — ${escapeHtml(activeTech.medicine)}`}</h4>
       <p>${escapeHtml(t(activeTech.descEn, activeTech.descHi))}</p>
+      ${activeTech.pointsEn ? `<ul class="lv-sci-points">${(state.lang === "hi" ? activeTech.pointsHi : activeTech.pointsEn).map((x) => `<li>${escapeHtml(x)}</li>`).join("")}</ul>` : ""}
+      ${activeTech.medicineIds ? `<div class="lv-sci-meds">${activeTech.medicineIds.map((id) => getMedById(id)).filter(Boolean).map((m) => `<button type="button" class="lv-sci-med" data-open-med="${m.id}">${escapeHtml(m.name)} <span aria-hidden="true">→</span></button>`).join("")}</div>` : `
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
         <button type="button" class="btn btn-crimson btn-sm" data-open-med="${linkedMed.id}">
           ${t("Open Clinical Monograph", "मोनोग्राफ खोलें")}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
-      </div>
+      </div>`}
     `;
   }
 
@@ -2165,9 +2199,9 @@
         </div>
         <div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
-            <span class="med-tech-chip">${escapeHtml(m.technology)}</span>
+            ${m.monoChipsMinimal ? "" : `<span class="med-tech-chip">${escapeHtml(m.technology)}</span>`}
             <span class="med-sched-chip ${m.rxRequired ? "rx" : ""}">${m.rxRequired ? "Rx Prescription Required" : "Health Supplement"}</span>
-            ${m.sugarFree ? `<span class="med-sched-chip">100% Sugar-Free</span>` : ""}
+            ${m.sugarFree && !m.monoChipsMinimal ? `<span class="med-sched-chip">100% Sugar-Free</span>` : ""}
             ${m.vegetarian ? `<span class="med-sched-chip lv-veg-chip"><span class="lv-veg-mark" aria-hidden="true"><i></i></span>100% Vegetarian</span>` : ""}
           </div>
           <h2 style="font-size:clamp(1.75rem,3vw,2.4rem);font-weight:800;line-height:1.1;margin-bottom:6px;">${escapeHtml(m.name)}</h2>
@@ -2355,8 +2389,8 @@
       const mailto = `mailto:${DATA.company.email}?subject=${encodeURIComponent(payload.subject)}&body=${encodeURIComponent(payload.body)}`;
       window.location.href = mailto;
       if (feedbackEl) {
-        feedbackEl.textContent = `Opening your email client addressed to ${DATA.company.email}. You can also copy the enquiry text below.`;
-        feedbackEl.classList.add("show");
+        feedbackEl.innerHTML = `<span class="lv-done"><svg class="lv-tick" viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><circle cx="32" cy="32" r="25" fill="none" stroke="#22B35E" stroke-width="4"/><path d="M21 33 l8 8 l15 -16" fill="none" stroke="#006838" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Your enquiry is ready.</strong> Your email app is opening, addressed to ${escapeHtml(DATA.company.email)}. Please press Send there. You can also copy the enquiry text below.</span></span>`;
+        feedbackEl.classList.add("show", "is-success");
       }
     });
 
@@ -2666,6 +2700,8 @@
         const successBox = document.getElementById("applicationSuccessBox");
         const whatsAppBtn = document.getElementById("whatsAppCvBtn");
         if (successBox) {
+          successBox.querySelector(".lv-tick")?.remove();
+          successBox.insertAdjacentHTML("afterbegin", '<svg class="lv-tick" viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><circle cx="32" cy="32" r="25" fill="none" stroke="#22B35E" stroke-width="4"/><path d="M21 33 l8 8 l15 -16" fill="none" stroke="#006838" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
           successBox.style.display = "block";
           successBox.scrollIntoView({ behavior: "smooth", block: "center" });
         }
@@ -3117,5 +3153,26 @@
   let t;
   const mo = new MutationObserver(() => { clearTimeout(t); t = setTimeout(run, 150); });
   function init() { run(); mo.observe(document.body, { childList: true, subtree: true }); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+})();
+
+
+/* ===================== V5: Section headings rise in with a tri-colour underline ===================== */
+(function () {
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("lv-h-in"); io.unobserve(e.target); } });
+  }, { threshold: 0.2, rootMargin: "0px 0px -40px 0px" });
+  function scan() {
+    document.querySelectorAll("main .section-heading:not(.lv-h)").forEach((h) => {
+      h.classList.add("lv-h");
+      if (h.getBoundingClientRect().top < window.innerHeight * 0.9) { h.classList.add("lv-h-in"); return; }
+      io.observe(h);
+    });
+  }
+  let t;
+  const mo = new MutationObserver(() => { clearTimeout(t); t = setTimeout(scan, 150); });
+  function init() { scan(); mo.observe(document.body, { childList: true, subtree: true }); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();

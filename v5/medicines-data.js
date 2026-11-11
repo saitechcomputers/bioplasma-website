@@ -381,6 +381,35 @@ window.BIOPLASMA_DATA = {
       accent: "#104080",
       descEn: "Combines an Enteric-Coated PPI core with dual Immediate-Release (10 mg) and Sustained-Release (20 mg) Domperidone fractions for rapid nausea relief and full-day acid control.",
       descHi: "एक ही कैप्सूल में तुरंत आराम (IR) और पूरे दिन एसिडिटी व उल्टी से सुरक्षा (EC + SR)।"
+    },
+    {
+      badge: "HIGH BASE SYRUP",
+      titleEn: "Sugar-Free High Base Syrups",
+      titleHi: "शुगर-फ्री हाई बेस सिरप",
+      headlineEn: "High base. Zero sugar. Full dose.",
+      headlineHi: "हाई बेस। ज़ीरो शुगर। पूरी खुराक।",
+      medicine: "KOFTHETA · BIOIMMUNE · FEXOLUCK",
+      medicineId: "koftheta-d",
+      medicineIds: ["koftheta-d", "koftheta-ls", "koftheta-x", "bioimmune", "fexoluck"],
+      accent: "#F8A000",
+      cardDescEn: "A denser, sugar-free syrup base that masks bitterness, soothes the throat for longer and keeps every dose uniform.",
+      cardDescHi: "गाढ़ा, शुगर-फ्री सिरप बेस जो कड़वाहट छिपाता है, गले को देर तक आराम देता है और हर खुराक एक जैसी रखता है।",
+      descEn: "Every LV Bioplasma syrup is formulated on a high base: a denser, more viscous vehicle built entirely on sugar substitutes, with no sugar used. The richer base masks the bitterness of the actives and lingers on the throat for longer-lasting soothing, while keeping every dose uniform, so patients complete their course.",
+      descHi: "LV बायोप्लाज़्मा का हर सिरप हाई बेस पर बना है — एक गाढ़ा आधार जो पूरी तरह शुगर-सब्स्टिट्यूट से बना है, इसमें चीनी बिल्कुल नहीं है। यह दवा की कड़वाहट छिपाता है, गले पर देर तक टिककर आराम देता है और हर खुराक एक जैसी रखता है, ताकि मरीज़ पूरा कोर्स ले।",
+      pointsEn: [
+        "Sugar-free high base, made with sugar substitutes",
+        "Lingers on the throat for longer soothing comfort",
+        "Effective taste-masking of bitter actives",
+        "Uniform consistency for reliable dosing in every spoon",
+        "Supports complete dosing, so patients get the full benefit of every dose"
+      ],
+      pointsHi: [
+        "शुगर-फ्री हाई बेस, शुगर-सब्स्टिट्यूट से बना",
+        "गले पर देर तक टिककर आराम",
+        "दवा की कड़वाहट को असरदार तरीके से छिपाता है",
+        "हर चम्मच में एक जैसी खुराक",
+        "पूरी खुराक लेने में मदद, ताकि मरीज़ को हर खुराक का पूरा फ़ायदा मिले"
+      ]
     }
   ],
 
@@ -738,6 +767,7 @@ window.BIOPLASMA_DATA = {
       secondaryCategories: ["womens"],
       classification: "Hematinic Supplement",
       rxRequired: false,
+      vegetarian: true,
       sugarFree: true,
       flavour: "Small Tablet, Easy to Digest",
       dosageForm: "Film-Coated Tablet",
@@ -1299,6 +1329,7 @@ window.BIOPLASMA_DATA = {
       secondaryCategories: ["gastro"],
       classification: "Oral Probiotic Spore Suspension",
       rxRequired: false,
+      monoChipsMinimal: true,
       sugarFree: true,
       flavour: "Tasteless Aqueous Suspension (Oral use only — DO NOT INJECT)",
       dosageForm: "Oral Suspension Mini Bottle",
@@ -2216,6 +2247,8 @@ window.BIOPLASMA_DATA = {
       ],
       "classification": "Multi-Strain Prebiotic + Probiotic Capsule",
       "rxRequired": false,
+      "monoChipsMinimal": true,
+      "vegetarian": true,
       "sugarFree": false,
       "flavour": "Vegetarian Capsule",
       "dosageForm": "Capsules",
