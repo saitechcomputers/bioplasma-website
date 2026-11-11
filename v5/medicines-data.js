@@ -38,8 +38,8 @@ window.BIOPLASMA_DATA = {
         color: "#006838",
         titleEn: "Bio-Pure Ingredients",
         titleHi: "शुद्ध और सुरक्षित तत्व",
-        descEn: "Sourced from clinically trusted actives including Marine Aquamin™, Quatrefolic®, and IP-grade molecules.",
-        descHi: "समुद्री शैवाल से प्राप्त Aquamin™, सक्रिय फोलेट Quatrefolic® और उच्च IP-ग्रेड मानकों से निर्मित।"
+        descEn: "Sourced from clinically trusted actives including Aquamin Marine Calcium, Quatrefolic, and IP-grade molecules.",
+        descHi: "समुद्री शैवाल से प्राप्त Aquamin, सक्रिय फोलेट Quatrefolic और उच्च IP-ग्रेड मानकों से निर्मित।"
       }
     ]
   },
@@ -63,7 +63,7 @@ window.BIOPLASMA_DATA = {
             "about": {
                 "eyebrow": "For Practicing Clinicians",
                 "title": "GMP batch consistency & global branded actives you can prescribe with confidence.",
-                "desc": "Every formulation pairs world-class raw materials (Aquamin™, Quatrefolic®, Micronized IP actives) with patient-tolerant delivery vehicles.",
+                "desc": "Every formulation pairs world-class raw materials (Aquamin, Quatrefolic, Micronized IP actives) with patient-tolerant delivery vehicles.",
                 "ctaText": "Connect With Medical Affairs",
                 "ctaHref": "contact.html?role=doctor"
             },
@@ -167,7 +167,7 @@ window.BIOPLASMA_DATA = {
             "about": {
                 "eyebrow": "For Medical Representatives & ABMs",
                 "title": "Represent differentiated formulations with fast-track appraisals & top incentives.",
-                "desc": "Detail branded global actives (Aquamin™, Quatrefolic®, Nano D3, EC+IR+SR) backed by PMT visual monographs and ethical leadership.",
+                "desc": "Detail branded global actives (Aquamin, Quatrefolic, Nano D3, EC+IR+SR) backed by PMT visual monographs and ethical leadership.",
                 "ctaText": "Join Our Field Force",
                 "ctaHref": "careers.html#applyFormSection"
             },
@@ -225,7 +225,7 @@ window.BIOPLASMA_DATA = {
             },
             "products": {
                 "eyebrow": "Trade & Pack Configuration • Stockist Mode",
-                "title": "Inspect exact carton pack sizes, dosage forms & high-demand Rx/OTC categories.",
+                "title": "Inspect exact carton pack sizes, dosage forms & high-demand Rx & supplement categories.",
                 "desc": "Every product card below displays commercial pack configuration, shelf-stability packaging, and 1-click stockist rate/supply enquiry.",
                 "ctaText": "Request Trade Price / Supply",
                 "ctaHref": "contact.html?role=stockist"
@@ -298,7 +298,7 @@ window.BIOPLASMA_DATA = {
       id: "low-iron",
       titleEn: "Low Hemoglobin & Fatigue",
       titleHi: "खून की कमी (एनीमिया) और थकान",
-      subEn: "Gentle Liposomal Iron + Quatrefolic®",
+      subEn: "Gentle Liposomal Iron + Quatrefolic",
       subHi: "बिना पेट खराब किए आयरन और फोलेट",
       color: "#dc2626",
       medicineIds: ["bioipc"]
@@ -343,7 +343,7 @@ window.BIOPLASMA_DATA = {
 
   technologies: [
     {
-      badge: "NANO-DROPLET DELIVERY",
+      badge: "NANO SHOTS D3",
       titleEn: "Nano Technology Oral D3",
       titleHi: "नैनो टेक्नोलॉजी विटामिन D3",
       medicine: "AADIRISE D3",
@@ -354,7 +354,7 @@ window.BIOPLASMA_DATA = {
     },
     {
       badge: "PHOSPHOLIPID SHIELD",
-      titleEn: "Liposomal Iron + Quatrefolic®",
+      titleEn: "Liposomal Iron + Quatrefolic",
       titleHi: "लिपोसोमल आयरन + सक्रिय फोलेट",
       medicine: "BIOIPC",
       medicineId: "bioipc",
@@ -363,13 +363,13 @@ window.BIOPLASMA_DATA = {
       descHi: "लिपोसोमल परत आयरन को पेट के एसिड से बचाती है, जिससे मतली, कब्ज़ या धातु जैसा स्वाद नहीं आता।"
     },
     {
-      badge: "BIO-MARINE HONEYCOMB",
-      titleEn: "Aquamin™ 74-Mineral Bone Matrix",
-      titleHi: "Aquamin™ समुद्री कैल्शियम और 72 मिनरल्स",
+      badge: "MARINE CALCIUM",
+      titleEn: "Aquamin Marine Calcium + 72 Minerals",
+      titleHi: "Aquamin समुद्री कैल्शियम और 72 मिनरल्स",
       medicine: "ADENOCAL-K2",
       medicineId: "adenocal-k2",
       accent: "#0284c7",
-      descEn: "Harvested from red marine algae (Lithothamnion spp.) with a porous honeycomb structure (~86.5% bioavailability), paired with Vitamin D3 and K2-7 for targeted bone deposition.",
+      descEn: "Harvested from red marine algae (Lithothamnion spp.) with a porous honeycomb structure, paired with Vitamin D3 and K2-7 for targeted bone deposition.",
       descHi: "लाल समुद्री शैवाल से प्राप्त प्राकृतिक छिद्रयुक्त कैल्शियम जो पेट पर हल्का है और सीधे हड्डियों में जमता है।"
     },
     {
@@ -395,11 +395,11 @@ window.BIOPLASMA_DATA = {
       classification: "Nutraceutical / Vitamin Supplement",
       rxRequired: false,
       sugarFree: true,
-      flavour: "Butterscotch Flavour",
+      flavour: "Butterscotch",
       dosageForm: "Oral Nano Shot",
       packSize: "4 × 5 ml Ready-to-Drink Bottles",
       technology: "Nano Technology",
-      techBadge: "NANO DROPLET D3",
+      techBadge: "NANO SHOTS D3",
       accent: "#d97706",
       accentSoft: "#fef3c7",
       image: "assets/products/aadirise-d3.webp",
@@ -415,7 +415,7 @@ window.BIOPLASMA_DATA = {
           "Butterscotch Flavour",
           "High Vitamin D level helps reduce BP & risk of hypertension",
           "Maintains normal blood levels of Calcium & Phosphorus",
-          "95% reduction of low back pain just within 3 months weekly supplement",
+          "95% reduction of lower back pain within just 3 months of weekly supplementation",
           "6 months of treatment protects against bone loss",
           "Improves immunity and corrects metabolic disorders",
           "Helps in preventing Pre-eclampsia during pregnancy"
@@ -433,19 +433,18 @@ window.BIOPLASMA_DATA = {
       },
       composition: [
         { ingredient: "Vitamin D3 (Cholecalciferol)", detail: "Oral Solution Nano Shot", strength: "60,000 I.U.", rda: "Weekly / Periodic Therapeutic Dose" },
-        { ingredient: "Base & Flavour", detail: "Sugar-Free Butterscotch Flavoured Vehicle", strength: "5 ml Shot", rda: "Sugar-Free" }
       ],
       mechanism: [
         { step: "01", title: "Nano Technology Absorption", desc: "Nano-sized droplet technology ensures rapid dispersion and optimal absorption." },
         { step: "02", title: "Calcium & Phosphorus Balance", desc: "Maintains normal blood levels of Calcium & Phosphorus and improves overall intestinal calcium absorption." },
-        { step: "03", title: "Skeletal & Metabolic Support", desc: "Protects against bone loss, relieves low back pain, improves immunity, and corrects metabolic disorders." }
+        { step: "03", title: "Skeletal & Metabolic Support", desc: "Protects against bone loss, relieves lower back pain, improves immunity, and corrects metabolic disorders." }
       ],
       highlights: [
         "It is used to treat and prevent Vitamin D deficiency and related conditions like Osteoporosis, Rickets, and Hypoparathyroidism",
         "Nano Technology — Sugar Free — Butterscotch Flavour",
         "High Vitamin D level helps reduce BP & risk of hypertension",
         "Maintains normal blood levels of Calcium & Phosphorus",
-        "95% reduction of low back pain just within 3 months weekly supplement",
+        "95% reduction of lower back pain within just 3 months of weekly supplementation",
         "6 months of treatment protects against bone loss",
         "Improves immunity and corrects metabolic disorders",
         "Helps in preventing Pre-eclampsia during pregnancy"
@@ -459,7 +458,7 @@ window.BIOPLASMA_DATA = {
         "Correcting Metabolic Problems",
         "Preventing Pre-eclampsia"
       ],
-      dosage: "Typically 1 bottle (5 ml) weekly or as directed by the Physician. Shake well before drinking.",
+      dosage: "1 bottle (5 ml) weekly or as directed by the Physician. Shake well before drinking.",
       keywords: ["vitamin d", "d3", "cholecalciferol", "60000", "60k", "nano shot", "bone", "back pain", "osteoporosis", "rickets", "butterscotch", "sugar free", "sun vitamin"],
       stakeholders: {
         "doctor": {
@@ -477,13 +476,13 @@ window.BIOPLASMA_DATA = {
                 "metaLabel": "Patient Comfort",
                 "metaValue": "Sugar-Free Butterscotch • 5 ml Ready Shot",
                 "points": [
-                        "Supports strong bones, relief from low back fatigue, and healthy daily immunity.",
+                        "Supports strong bones, relief from lower back fatigue, and healthy daily immunity.",
                         "Delicious butterscotch taste with zero added sugar — suitable for sugar-conscious adults.",
                         "Simply shake well and drink 1 mini bottle weekly (or as advised by your doctor)."
                 ]
         },
         "mr": {
-                "headline": "30-Sec Pitch: 'Nano-Droplet 60K IU Sugar-Free Butterscotch Shot — Zero chalky sachet hassle, high diabetic compliance.'",
+                "headline": "30-Sec Pitch: 'Nano Shots D3 60K IU Sugar-Free Butterscotch Shot — Zero chalky sachet hassle, high diabetic compliance.'",
                 "metaLabel": "Target Call List",
                 "metaValue": "Orthopedicians • Physicians • Gynecologists",
                 "points": [
@@ -509,29 +508,29 @@ window.BIOPLASMA_DATA = {
       id: "adenocal-k2",
       name: "ADENOCAL-K2",
       shortTitle: "Aquamin Calcium + Vitamin D3 + Vitamin K2-7 Tablets",
-      genericSummary: "Aquamin™ 1000 mg (Elemental Ca 330 mg + Mg 25 mg + 72 Minerals) + Vit K2-7 45 mcg + Vit D3 400 IU",
+      genericSummary: "Aquamin 1000 mg (Elemental Ca 330 mg + Mg 25 mg + 72 Minerals) + Vit K2-7 45 mcg + Vit D3 400 IU",
       category: "bone",
       secondaryCategories: ["womens"],
       classification: "Health Supplement",
       rxRequired: false,
-      sugarFree: true,
+      vegetarian: true,
+      sugarFree: false,
       flavour: "Small Tablet, Easy to Digest",
       dosageForm: "Film-Coated Tablet",
-      packSize: "1 × 10 Tablets (AMBIO-09)",
-      technology: "Aquamin™ Bio-Marine Honeycomb Matrix",
-      techBadge: "MARINE AQUAMIN MATRIX",
+      packSize: "1 × 10 Tablets",
+      technology: "Aquamin Bio-Marine Calcium",
+      techBadge: "MARINE CALCIUM",
       accent: "#0284c7",
       accentSoft: "#e0f2fe",
       image: "assets/products/adenocal-k2.webp",
       taglineEn: "Advanced Bone Nutrition Formula — Not just Calcium Replacement, Physiological Bone Nutrition.",
       taglineHi: "एडवांस्ड बोन न्यूट्रिशन फ़ॉर्मूला — सिर्फ़ कैल्शियम की पूर्ति नहीं, हड्डियों का संपूर्ण प्राकृतिक पोषण।",
       easyGuide: {
-        whatIsItEn: "Marine plant-derived calcium from red algae (Lithothamnion species) with a highly porous, honeycomb structure for superior absorption. Provides calcium, magnesium, and 72 trace minerals with demonstrated high bioavailability (~86.5%), helping reduce serum PTH indicating better calcium utilisation.",
-        whatIsItHi: "लाल समुद्री शैवाल (Lithothamnion species) से प्राप्त प्राकृतिक कैल्शियम, जिसकी छिद्रयुक्त हनीकॉम्ब संरचना उच्च अवशोषण (~86.5% बायोअवेलेबिलिटी) देती है और शरीर को कैल्शियम, मैग्नीशियम व 72 प्राकृतिक ट्रेस मिनरल्स प्रदान करती है।",
+        whatIsItEn: "Marine plant-derived calcium from red algae (Lithothamnion species) with a highly porous, honeycomb structure for superior absorption. Provides calcium, magnesium, and 72 trace minerals, helping reduce serum PTH indicating better calcium utilisation.",
+        whatIsItHi: "लाल समुद्री शैवाल (Lithothamnion species) से प्राप्त प्राकृतिक कैल्शियम, जिसकी छिद्रयुक्त हनीकॉम्ब संरचना उच्च अवशोषण देती है और शरीर को कैल्शियम, मैग्नीशियम व 72 प्राकृतिक ट्रेस मिनरल्स प्रदान करती है।",
         whoIsItForEn: "Pregnant Women, Post-menopausal women, Osteopenia and osteoporosis, Elderly patients, Steroid-induced bone loss, and Patients intolerant to conventional calcium.",
         whoIsItForHi: "गर्भवती महिलाएँ, मेनोपॉज़ के बाद की महिलाएँ, ऑस्टियोपेनिया व ऑस्टियोपोरोसिस, बुज़ुर्ग मरीज़, स्टेरॉयड के कारण हड्डियों की कमज़ोरी और जिन्हें साधारण कैल्शियम नहीं पचता।",
         keyPerksEn: [
-          "Demonstrated high bioavailability (~86.5%)",
           "Gentle on Stomach, Better Absorption",
           "Provides calcium, magnesium, and 72 trace minerals",
           "Directs Calcium to Bone, Prevents Vascular Calcification",
@@ -539,7 +538,6 @@ window.BIOPLASMA_DATA = {
           "Small Tablet, Easy to Digest"
         ],
         keyPerksHi: [
-          "~86.5% उच्च बायोअवेलेबिलिटी प्रमाणित",
           "पेट पर बिल्कुल हल्का — बेहतर अवशोषण",
           "कैल्शियम, मैग्नीशियम और 72 प्राकृतिक ट्रेस मिनरल्स से भरपूर",
           "कैल्शियम को हड्डियों में पहुँचाता है और नसों में जमने से रोकता है",
@@ -548,9 +546,9 @@ window.BIOPLASMA_DATA = {
         ]
       },
       composition: [
-        { ingredient: "Aquamin™ (Red Marine Algae — Lithothamnion species)", detail: "Natural porous honeycomb multi-mineral complex", strength: "1000 mg", rda: "Bio-Marine Matrix" },
-        { ingredient: "↳ Elemental Calcium (from Aquamin™)", detail: "Natural marine algae calcium with ~86.5% bioavailability", strength: "330 mg", rda: "33.00% RDA", rdaPct: 33 },
-        { ingredient: "↳ Elemental Magnesium (from Aquamin™)", detail: "Natural marine magnesium co-factor", strength: "25 mg", rda: "5.68% RDA", rdaPct: 6 },
+        { ingredient: "Aquamin (Red Marine Algae — Lithothamnion species)", detail: "Natural porous honeycomb multi-mineral complex", strength: "1000 mg", rda: "Bio-Marine Matrix" },
+        { ingredient: "↳ Elemental Calcium (from Aquamin)", detail: "Natural marine algae calcium", strength: "330 mg", rda: "33.00% RDA", rdaPct: 33 },
+        { ingredient: "↳ Elemental Magnesium (from Aquamin)", detail: "Natural marine magnesium co-factor", strength: "25 mg", rda: "5.68% RDA", rdaPct: 6 },
         { ingredient: "↳ 72 Natural Trace Minerals", detail: "Natural marine trace mineral co-factors", strength: "35.7 mg", rda: "Natural Co-factors" },
         { ingredient: "Vitamin K2-7 (Menaquinone-7)", detail: "Directs calcium to bone & prevents vascular calcification", strength: "45 mcg", rda: "81.81% RDA", rdaPct: 82 },
         { ingredient: "Vitamin D3 (Cholecalciferol)", detail: "Improves gut absorption & maintains serum calcium", strength: "400 I.U.", rda: "66.66% RDA", rdaPct: 67 }
@@ -564,7 +562,6 @@ window.BIOPLASMA_DATA = {
         "Marine plant-derived calcium from red algae (Lithothamnion species)",
         "Highly porous, honeycomb structure for superior absorption",
         "Provides calcium, magnesium, and 72 trace minerals",
-        "Demonstrated high bioavailability (~86.5%)",
         "Helps reduce serum PTH indicating better calcium utilisation",
         "Not just Calcium Replacement — Physiological Bone Nutrition"
       ],
@@ -580,7 +577,7 @@ window.BIOPLASMA_DATA = {
       keywords: ["calcium", "aquamin", "k2", "k2-7", "magnesium", "minerals", "bone", "pregnancy", "menopause", "osteopenia", "osteoporosis", "adenocal"],
       stakeholders: {
         "doctor": {
-                "headline": "Aquamin™ red marine algae (~86.5% bioavailable Ca 330 mg + Mg 25 mg + 72 trace minerals) + K2-7 45 mcg + D3.",
+                "headline": "Aquamin red marine algae (Ca 330 mg + Mg 25 mg + 72 trace minerals) + K2-7 45 mcg + D3.",
                 "metaLabel": "Key Specialties",
                 "metaValue": "Gynae (ANC) • Orthopedics • Geriatrics",
                 "points": [
@@ -600,7 +597,7 @@ window.BIOPLASMA_DATA = {
                 ]
         },
         "mr": {
-                "headline": "30-Sec Pitch: 'Not rock limestone CaCO₃ — Irish Marine Aquamin™ (~86.5% bioavailable + 72 minerals) + K2-7 in a small tablet.'",
+                "headline": "30-Sec Pitch: 'Not rock limestone CaCO₃ — Irish Aquamin Marine Calcium (72 minerals) + K2-7 in a small tablet.'",
                 "metaLabel": "Target Call List",
                 "metaValue": "Gynecologists • Orthopedicians • Geriatricians",
                 "points": [
@@ -610,7 +607,7 @@ window.BIOPLASMA_DATA = {
                 ]
         },
         "stockist": {
-                "headline": "Premium chronic-therapy bone & ANC brand in 1 × 10 blister pack (AMBIO-09) with strong monthly refill cycles.",
+                "headline": "Premium chronic-therapy bone & ANC brand in 1 × 10 blister pack with strong monthly refill cycles.",
                 "metaLabel": "Trade Pack Spec",
                 "metaValue": "1 × 10 Film-Coated Tablets",
                 "points": [
@@ -632,11 +629,11 @@ window.BIOPLASMA_DATA = {
       classification: "Gynecological Nutritional Therapy",
       rxRequired: false,
       sugarFree: true,
-      flavour: "Sugar-Free Cranberry Granules",
+      flavour: "Cranberry",
       dosageForm: "Oral Granules Sachet",
       packSize: "10 Sachets × 5.5 g",
-      technology: "Nitric Oxide + Endothelial Antioxidant Synergy",
-      techBadge: "NITRIC OXIDE SYNERGY",
+      technology: "L-Arginine Sachets",
+      techBadge: "L-ARGININE SACHETS",
       accent: "#e11d48",
       accentSoft: "#ffe4e6",
       image: "assets/products/argiluck.webp",
@@ -735,8 +732,8 @@ window.BIOPLASMA_DATA = {
     {
       id: "bioipc",
       name: "BIOIPC",
-      shortTitle: "Liposomal Iron with Active Hematinics (AMBIO-15)",
-      genericSummary: "Elemental Iron (Liposomal) 27 mg + Quatrefolic® Active Folate + P5P + Vit B12 + Glycine",
+      shortTitle: "Liposomal Iron with Active Hematinics",
+      genericSummary: "Elemental Iron (Liposomal) 27 mg + Quatrefolic Active Folate + P5P + Vit B12 + Glycine",
       category: "hematinic",
       secondaryCategories: ["womens"],
       classification: "Hematinic Supplement",
@@ -744,7 +741,7 @@ window.BIOPLASMA_DATA = {
       sugarFree: true,
       flavour: "Small Tablet, Easy to Digest",
       dosageForm: "Film-Coated Tablet",
-      packSize: "1 × 10 Tablets (AMBIO-15)",
+      packSize: "1 × 10 Tablets",
       technology: "Liposomal Iron Technology",
       techBadge: "LIPOSOMAL IRON TECH",
       accent: "#b91c1c",
@@ -776,7 +773,7 @@ window.BIOPLASMA_DATA = {
       },
       composition: [
         { ingredient: "Elemental Iron (Liposomal)", detail: "Hemoglobin Synthesis — Encapsulated in Phospholipid Liposome", strength: "27 mg", rda: "100% RDA (Pregnancy)" },
-        { ingredient: "Quatrefolic® (Active Folate)", detail: "DNA Synthesis and Erythropoiesis", strength: "655 mcg", rda: "100% RDA" },
+        { ingredient: "Quatrefolic (Active Folate)", detail: "DNA Synthesis and Erythropoiesis", strength: "655 mcg", rda: "100% RDA" },
         { ingredient: "P5P (Active Vitamin B6)", detail: "Heme Synthesis (Pyridoxal-5-Phosphate)", strength: "2.3 mg", rda: "100% RDA" },
         { ingredient: "Vitamin B12", detail: "RBC Maturation", strength: "2.45 mcg", rda: "100% RDA" },
         { ingredient: "Glycine", detail: "Structural Support for Heme", strength: "10 mg", rda: "Heme Substrate" }
@@ -784,14 +781,14 @@ window.BIOPLASMA_DATA = {
       mechanism: [
         { step: "01", title: "Liposomal Protection", desc: "Phospholipid liposome protects iron from gastric acid, preventing epigastric irritation." },
         { step: "02", title: "Intact Intestinal Delivery", desc: "Reaches the small intestine intact and releases at the main absorption site for higher bioavailability." },
-        { step: "03", title: "Complete Hematinic Synthesis", desc: "Active Folate (Quatrefolic®), P5P, B12, and Glycine synergize for rapid hemoglobin synthesis and RBC maturation." }
+        { step: "03", title: "Complete Hematinic Synthesis", desc: "Active Folate (Quatrefolic), P5P, B12, and Glycine synergize for rapid hemoglobin synthesis and RBC maturation." }
       ],
       highlights: [
         "High Absorption, Gentle on Stomach, Better Compliance",
         "Iron is encapsulated in a phospholipid liposome that protects it from gastric acid",
         "The iron reaches the small intestine intact and is released at the main absorption site",
         "Minimal nausea, constipation, and epigastric discomfort; No metallic taste or odor; No interaction with food or calcium",
-        "Complete Hematinic Support: Elemental Iron (27 mg), Quatrefolic® (Active Folate), P5P, Vitamin B12, and Glycine",
+        "Complete Hematinic Support: Elemental Iron (27 mg), Quatrefolic (Active Folate), P5P, Vitamin B12, and Glycine",
         "Clinical studies on liposomal iron demonstrate significant ferritin improvement, hemoglobin rise comparable to IV iron and excellent tolerability even with long-term use",
         "Effective Iron Correction without the GI Burden — Small Tablet, Easy to Digest"
       ],
@@ -806,12 +803,12 @@ window.BIOPLASMA_DATA = {
       keywords: ["iron", "liposomal iron", "bioipc", "quatrefolic", "folate", "p5p", "b12", "glycine", "anemia", "hemoglobin", "pregnancy iron"],
       stakeholders: {
         "doctor": {
-                "headline": "Phospholipid-encapsulated Liposomal Elemental Iron 27 mg + Quatrefolic® 655 mcg + P5P + B12 + Glycine.",
+                "headline": "Phospholipid-encapsulated Liposomal Elemental Iron 27 mg + Quatrefolic 655 mcg + P5P + B12 + Glycine.",
                 "metaLabel": "Key Specialties",
                 "metaValue": "Gynae • Hematology • MD Physician • Nephro",
                 "points": [
                         "Liposomal bilayer shields Fe³⁺ from gastric acid & food/calcium chelators, delivering intact via M-cells.",
-                        "Genuine 4th-gen Quatrefolic® bypasses MTHFR polymorphism; P5P & Glycine provide complete heme synthesis co-factors.",
+                        "Genuine 4th-gen Quatrefolic bypasses MTHFR polymorphism; P5P & Glycine provide complete heme synthesis co-factors.",
                         "Zero metallic aftertaste, minimal constipation/nausea — drives superior ANC & IDA adherence."
                 ]
         },
@@ -826,7 +823,7 @@ window.BIOPLASMA_DATA = {
                 ]
         },
         "mr": {
-                "headline": "30-Sec Pitch: 'Liposomal Iron 27mg + Quatrefolic® + P5P + Glycine — IV-like Hb rise with zero GI dropout or calcium interaction.'",
+                "headline": "30-Sec Pitch: 'Liposomal Iron 27mg + Quatrefolic + P5P + Glycine — IV-like Hb rise with zero GI dropout or calcium interaction.'",
                 "metaLabel": "Target Call List",
                 "metaValue": "Gynecologists • Physicians • Surgeons • Ortho",
                 "points": [
@@ -836,7 +833,7 @@ window.BIOPLASMA_DATA = {
                 ]
         },
         "stockist": {
-                "headline": "Flagship daily hematinic 1 × 10 tablet pack (AMBIO-15) with multi-specialty pan-season demand.",
+                "headline": "Flagship daily hematinic 1 × 10 tablet pack with multi-specialty pan-season demand.",
                 "metaLabel": "Trade Pack Spec",
                 "metaValue": "1 × 10 Film-Coated Tablets",
                 "points": [
@@ -1419,11 +1416,11 @@ window.BIOPLASMA_DATA = {
       "classification": "Paediatric Vitamin D3 Oral Drops",
       "rxRequired": false,
       "sugarFree": false,
-      "flavour": "Mango Flavour (Nano Technology)",
+      "flavour": "Mango",
       "dosageForm": "Oral Drops",
       "packSize": "30 ml",
       "technology": "Nano Technology Drops",
-      "techBadge": "800 I.U./mL",
+      "techBadge": "NANO DROPS D3",
       "accent": "#ea580c",
       "accentSoft": "#ffedd5",
       "image": "assets/products/aadirise-d3-drops.webp",

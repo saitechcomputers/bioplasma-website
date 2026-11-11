@@ -14,7 +14,7 @@
 
   function formatProductName(raw) {
     return String(raw || "")
-      .replace(/[®™]/g, "")
+      .replace(/[]/g, "")
       .replace(/\((?:R|TM)\)/gi, "")
       .replace(/\s+/g, " ")
       .trim()
@@ -23,7 +23,7 @@
 
   function formatTechBadge(med) {
     const raw = String(med?.techBadge || med?.technology || "")
-      .replace(/[®™]/g, "")
+      .replace(/[]/g, "")
       .replace(/\s+/g, " ")
       .trim()
       .toUpperCase();
@@ -91,10 +91,10 @@
       tagHi: "एलवी बायोप्लाज़्मा • जैव-प्रौद्योगिकी से स्वस्थ जीवन",
       headlineEn: 'Working with nature through <span class="accent-word">bio-technology</span> for a healthy life.',
       headlineHi: 'स्वस्थ जीवन के लिए जैव-प्रौद्योगिकी के माध्यम से <span class="accent-word">प्रकृति के साथ कार्य</span>।',
-      subEn: "Inspired by life’s meaningful moments across every generation — LV Bioplasma Biologicals pairs globally trusted actives with gentle nano, liposomal, and dual-release formulations.",
-      subHi: "बचपन से बुज़ुर्गों तक हर पीढ़ी की सेहत के लिए — LV बायोप्लाज़्मा बायोलॉजिकल्स विश्व-स्तरीय तत्वों और सौम्य डिलीवरी विज्ञान से तेज़ असर वाली दवाइयाँ बनाता है।",
+      subEn: "Backed by scientific research, LV Bioplasma Biologicals brings you specialized products paired with the latest technology.",
+      subHi: "वैज्ञानिक शोध पर आधारित — LV बायोप्लाज़्मा बायोलॉजिकल्स आपके लिए नवीनतम तकनीक के साथ विशेष उत्पाद लाता है।",
       glowColor: "radial-gradient(circle, rgba(245, 158, 11, 0.34) 0%, transparent 70%)",
-      medId: "aadirise-d3",
+      medId: "dydrofy",
       ctaHref: "#medicinesExplorerSection",
       ctaLabelEn: "Explore All Products",
       ctaLabelHi: "सभी प्रोडक्ट्स देखें"
@@ -110,10 +110,10 @@
       tagHi: "आधुनिक ड्रग डिलीवरी विज्ञान • गुरुग्राम NCR",
       headlineEn: 'Where <span class="accent-word">nano-droplet</span> discovery meets gentle absorption.',
       headlineHi: 'जहाँ <span class="accent-word">नैनो-ड्रॉपलेट</span> विज्ञान देता है तेज़ और सौम्य अवशोषण।',
-      subEn: "From 60,000 IU sugar-free Vitamin D3 nano-micelles to phospholipid-shielded Liposomal Iron + 4th-gen Quatrefolic®, our liquid & cellular engineering eliminates harsh GI irritation.",
-      subHi: "60,000 IU शुगर-फ्री विटामिन D3 नैनो-शॉट से लेकर लिपोसोमल आयरन + Quatrefolic® तक — बिना पेट की जलन या धातु जैसे स्वाद के संपूर्ण अवशोषण।",
+      subEn: "From 60,000 IU sugar-free Vitamin D3 nano-micelles to phospholipid-shielded Liposomal Iron + 4th-gen Quatrefolic, our liquid & cellular engineering eliminates harsh GI irritation.",
+      subHi: "60,000 IU शुगर-फ्री विटामिन D3 नैनो-शॉट से लेकर लिपोसोमल आयरन + Quatrefolic तक — बिना पेट की जलन या धातु जैसे स्वाद के संपूर्ण अवशोषण।",
       glowColor: "radial-gradient(circle, rgba(225, 29, 100, 0.34) 0%, transparent 70%)",
-      medId: "bioipc",
+      medId: "aadirise-d3",
       ctaHref: "#medicinesExplorerSection",
       ctaLabelEn: "Explore All Products",
       ctaLabelHi: "सभी प्रोडक्ट्स देखें"
@@ -123,14 +123,14 @@
       videoSrc: "assets/video/hero-cellular-uptake.mp4",
       tabTitleEn: "Cellular Bioavailability",
       tabTitleHi: "कोशिकीय जैव-उपलब्धता",
-      tabSubEn: "Aquamin™ & Spore Probiotics",
-      tabSubHi: "Aquamin™ व प्रोबायोटिक सुरक्षा",
+      tabSubEn: "Aquamin & Spore Probiotics",
+      tabSubHi: "Aquamin व प्रोबायोटिक सुरक्षा",
       tagEn: "Bio-Pure Global Actives • Cellular Precision",
       tagHi: "अंतर्राष्ट्रीय शुद्ध तत्व • कोशिकीय पोषण",
       headlineEn: 'Bio-pure <span class="accent-word">marine minerals</span> reaching every living cell.',
       headlineHi: 'शरीर की हर कोशिका तक पहुँचने वाला <span class="accent-word">शुद्ध समुद्री</span> पोषण।',
-      subEn: "Porous Irish Aquamin™ marine algae calcium (~86.5% bioavailable with 72 trace minerals + Vitamin K2-7) and 2 Billion resilient Bacillus clausii spores built for cellular harmony.",
-      subHi: "आयरलैंड का समुद्री शैवाल कैल्शियम Aquamin™ (~86.5% अवशोषण + विटामिन K2-7) और 2 बिलियन Bacillus clausii प्रोबायोटिक स्पोर्स।",
+      subEn: "Porous Irish Aquamin marine algae calcium (72 trace minerals + Vitamin K2-7) and 2 Billion resilient Bacillus clausii spores built for cellular harmony.",
+      subHi: "आयरलैंड का समुद्री शैवाल कैल्शियम Aquamin (72 ट्रेस मिनरल्स + विटामिन K2-7) और 2 बिलियन Bacillus clausii प्रोबायोटिक स्पोर्स।",
       glowColor: "radial-gradient(circle, rgba(56, 189, 248, 0.34) 0%, transparent 70%)",
       medId: "adenocal-k2",
       ctaHref: "#medicinesExplorerSection",
@@ -142,10 +142,10 @@
       videoSrc: "assets/video/hero-capsule-gmp.mp4",
       tabTitleEn: "Tablet-in-Capsule",
       tabTitleHi: "टैबलेट-इन-कैप्सूल तकनीक",
-      tabSubEn: "EC + IR + SR Gastro Relief",
-      tabSubHi: "24-घंटे एसिडिटी व रिफ्लक्स सुरक्षा",
-      tagEn: "GMP Manufacturing • Tablet-in-Capsule Tech",
-      tagHi: "GMP मानक निर्माण • टैबलेट-इन-कैप्सूल",
+      tabSubEn: "New Gen. Capsules",
+      tabSubHi: "नई पीढ़ी के कैप्सूल",
+      tagEn: "WHO-GMP Manufacturing • New Gen. Capsules",
+      tagHi: "WHO-GMP मानक निर्माण • नई पीढ़ी के कैप्सूल",
       headlineEn: 'Dual-phase <span class="accent-word">capsule precision</span> for 24-hour acid control.',
       headlineHi: 'तुरंत राहत और पूरे 24 घंटे सुरक्षा के लिए <span class="accent-word">सटीक कैप्सूल</span> विज्ञान।',
       subEn: "PANTHETA DSR and RABTHETA DSR combine Enteric-Coated PPIs with split 10 mg Immediate-Release and 20 mg Sustained-Release Domperidone inside one capsule.",
@@ -170,7 +170,7 @@
       subEn: "Join LV Bioplasma Biologicals across Field Sales, Product Management, QA/QC, and Corporate Operations — expanding nationwide with merit-based growth.",
       subHi: "फील्ड सेल्स, प्रोडक्ट मैनेजमेंट, QA/QC और कॉर्पोरेट ऑपरेशंस में हमारे तेज़ी से बढ़ते परिवार से जुड़ें।",
       glowColor: "radial-gradient(circle, rgba(168, 85, 247, 0.34) 0%, transparent 70%)",
-      medId: "dydrofy",
+      medId: "bioipc",
       ctaHref: "careers.html",
       ctaLabelEn: "Explore Careers & Open Roles",
       ctaLabelHi: "करियर और रिक्तियाँ देखें"
@@ -210,8 +210,8 @@
       id: "bone",
       titleEn: "Orthopedics, Bone Matrix & Vitamin D3",
       titleHi: "हड्डियाँ, समुद्री कैल्शियम और विटामिन D3",
-      descEn: "Addressing India's widespread Vitamin D and skeletal mineral gap through 60,000 IU Nano-Droplet D3 shots and ~86.5% bioavailable Aquamin™ marine calcium + Vitamin K2-7.",
-      descHi: "हड्डियों की मज़बूती, कमर दर्द और कैल्शियम अवशोषण के लिए 60,000 IU नैनो D3 शॉट और पचने में हल्का समुद्री शैवाल कैल्शियम (Aquamin™ + K2-7)।",
+      descEn: "Addressing India's widespread Vitamin D and skeletal mineral gap through 60,000 IU Nano Shots D3 and Aquamin marine calcium + Vitamin K2-7.",
+      descHi: "हड्डियों की मज़बूती, कमर दर्द और कैल्शियम अवशोषण के लिए 60,000 IU नैनो D3 शॉट और पचने में हल्का समुद्री शैवाल कैल्शियम (Aquamin + K2-7)।",
       medIds: ["aadirise-d3", "aadirise-d3-drops", "adenocal-k2"]
     },
     {
@@ -226,8 +226,8 @@
       id: "hematinic",
       titleEn: "Hematology & Liposomal Anemia Care",
       titleHi: "हीमोग्लोबिन और लिपोसोमल आयरन केयर",
-      descEn: "Next-generation phospholipid-encapsulated Ferric Pyrophosphate paired with genuine 4th-gen Quatrefolic®, active P5P (Vit B6), Vit B12, and Glycine — zero metallic taste or constipation.",
-      descHi: "बिना कब्ज़, बिना मतली और बिना धातु जैसे स्वाद के तेज़ी से हीमोग्लोबिन बढ़ाने वाला आधुनिक लिपोसोमल आयरन + Quatrefolic® टैबलेट।",
+      descEn: "Next-generation phospholipid-encapsulated Ferric Pyrophosphate paired with genuine 4th-gen Quatrefolic, active P5P (Vit B6), Vit B12, and Glycine — zero metallic taste or constipation.",
+      descHi: "बिना कब्ज़, बिना मतली और बिना धातु जैसे स्वाद के तेज़ी से हीमोग्लोबिन बढ़ाने वाला आधुनिक लिपोसोमल आयरन + Quatrefolic टैबलेट।",
       medIds: ["bioipc"]
     },
     {
@@ -260,7 +260,7 @@
   function getScienceSVG(index) {
     if (index === 0) {
       return `
-        <svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nano-Droplet Vitamin D3 Diagram">
+        <svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nano Shots Vitamin D3 Diagram">
           <defs>
             <radialGradient id="nanoGlow" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stop-color="#FBBF24" stop-opacity="0.95"/>
@@ -296,13 +296,13 @@
           <text x="64" y="54" fill="#FDA4AF" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700">PHOSPHOLIPID BILAYER</text>
           <line x1="115" y1="60" x2="152" y2="82" stroke="#FDA4AF" stroke-width="1.5"/>
           <rect x="292" y="176" width="112" height="46" rx="10" fill="rgba(16,185,129,0.18)" stroke="#34D399"/>
-          <text x="348" y="196" text-anchor="middle" fill="#A7F3D0" font-size="10" font-weight="700">+ Quatrefolic®</text>
+          <text x="348" y="196" text-anchor="middle" fill="#A7F3D0" font-size="10" font-weight="700">+ Quatrefolic</text>
           <text x="348" y="211" text-anchor="middle" fill="#D1FAE5" font-size="9">P5P • B12 • Glycine</text>
         </svg>`;
     }
     if (index === 2) {
       return `
-        <svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Aquamin Honeycomb Matrix">
+        <svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Aquamin Marine Calcium">
           <g stroke="#38BDF8" stroke-width="2" fill="rgba(56,189,248,0.13)">
             <polygon points="130,70 156,55 182,70 182,100 156,115 130,100"/>
             <polygon points="182,70 208,55 234,70 234,100 208,115 182,100"/>
@@ -311,7 +311,7 @@
             <polygon points="130,160 156,145 182,160 182,190 156,205 130,190"/>
             <polygon points="182,160 208,145 234,160 234,190 208,205 182,190"/>
           </g>
-          <text x="195" y="34" text-anchor="middle" fill="#7DD3FC" font-size="11" font-family="Space Grotesk, sans-serif" font-weight="700">AQUAMIN™ POROUS MARINE MATRIX (~86.5% BIOAVAILABLE)</text>
+          <text x="195" y="34" text-anchor="middle" fill="#7DD3FC" font-size="11" font-family="Space Grotesk, sans-serif" font-weight="700">AQUAMIN POROUS MARINE CALCIUM</text>
           <rect x="280" y="92" width="118" height="76" rx="14" fill="rgba(56,189,248,0.16)" stroke="#38BDF8"/>
           <text x="339" y="118" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="800">Ca 330 mg</text>
           <text x="339" y="136" text-anchor="middle" fill="#BAE6FD" font-size="10">Mg 25 mg + 72 Minerals</text>
@@ -429,14 +429,14 @@
       step: "02",
       short: "Products",
       nextTitle: "Step Inside Our Delivery Science",
-      nextDesc: "Inspect how Nano-Droplet D3, Liposomal Iron, Irish Aquamin™ & EC+IR+SR capsules maximize bioavailability."
+      nextDesc: "Inspect how Nano Shots D3, Liposomal Iron, Irish Aquamin & EC+IR+SR capsules maximize bioavailability."
     },
     {
       file: "science.html",
       step: "03",
       short: "Science",
       nextTitle: "Discover LV Bioplasma’s Story & Leadership",
-      nextDesc: "Read our corporate mission, GMP quality standards, and Director’s message."
+      nextDesc: "Read our corporate mission, WHO-GMP quality standards, and Director’s message."
     },
     {
       file: "about.html",
@@ -719,7 +719,7 @@
       label: "About Us",
       eyebrow: "Enterprise Scale & Vision",
       title: "Committed to excellence in nutraceuticals and vitamins.",
-      desc: "Discover our foundation, experienced partners, GMP testing standards, corporate mission, and Director’s message.",
+      desc: "Discover our foundation, experienced partners, WHO-GMP testing standards, corporate mission, and Director’s message.",
       cardTitle: "About LV Bioplasma",
       cardSub: "Corporate Story • Our Mission • Director’s Message",
       videoSrc: "assets/video/hero-human-life.mp4",
@@ -747,9 +747,9 @@
       label: "Our Science",
       eyebrow: "Drug-Delivery Platforms",
       title: "Microscopic engineering, macroscopic outcomes.",
-      desc: "Explore Nano-Droplet D3 micelles, phospholipid Liposomal Iron, Irish Aquamin™ marine matrix, and EC+IR+SR Tablet-in-Capsule architecture.",
+      desc: "Explore Nano Shots D3 micelles, phospholipid Liposomal Iron, Irish Aquamin marine matrix, and EC+IR+SR Tablet-in-Capsule architecture.",
       cardTitle: "Our Delivery Science",
-      cardSub: "Interactive delivery viewport & GMP quality standards",
+      cardSub: "Interactive delivery viewport & WHO-GMP quality standards",
       videoSrc: "assets/video/hero-formulation-lab.mp4",
       quickLinks: [
         { label: "4 Delivery Vehicles", href: "science.html" },
@@ -1885,6 +1885,7 @@
                   <span class="med-sched-chip ${m.rxRequired ? "rx" : ""}">${m.rxRequired ? "Rx Prescription" : (m.sugarFree ? "Sugar-Free" : "Supplement")}</span>
                 </div>
                 <div class="med-packshot-stage">
+                  ${m.vegetarian ? `<span class="lv-veg-badge" title="100% Vegetarian"><span class="lv-veg-mark" aria-hidden="true"><i></i></span>100% Veg</span>` : ""}
                   <img src="${m.image}" alt="${escapeHtml(m.name)} packshot" loading="lazy" />
                 </div>
               </div>
@@ -2147,18 +2148,17 @@
         <div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
             <span class="med-tech-chip">${escapeHtml(m.technology)}</span>
-            <span class="med-sched-chip ${m.rxRequired ? "rx" : ""}">${m.rxRequired ? "Rx Prescription Required" : "Health Supplement / OTC"}</span>
+            <span class="med-sched-chip ${m.rxRequired ? "rx" : ""}">${m.rxRequired ? "Rx Prescription Required" : "Health Supplement"}</span>
             ${m.sugarFree ? `<span class="med-sched-chip">100% Sugar-Free</span>` : ""}
+            ${m.vegetarian ? `<span class="med-sched-chip lv-veg-chip"><span class="lv-veg-mark" aria-hidden="true"><i></i></span>100% Vegetarian</span>` : ""}
           </div>
           <h2 style="font-size:clamp(1.75rem,3vw,2.4rem);font-weight:800;line-height:1.1;margin-bottom:6px;">${escapeHtml(m.name)}</h2>
           <p style="font-size:0.96rem;font-weight:600;color:var(--bio-cobalt);margin-bottom:12px;">${escapeHtml(m.shortTitle)}</p>
           <p style="font-size:0.94rem;color:var(--ink-body);margin-bottom:18px;">${escapeHtml(t(m.taglineEn, m.taglineHi))}</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:0.82rem;color:var(--ink-muted);margin-bottom:18px;">
             <span><strong>Pack:</strong> ${escapeHtml(m.packSize)}</span>
-            <span>•</span>
             <span><strong>Form:</strong> ${escapeHtml(m.dosageForm)}</span>
-            <span>•</span>
-            <span><strong>Profile:</strong> ${escapeHtml(m.flavour)}</span>
+            ${m.flavour && !/tablet|capsule/i.test(m.flavour) ? `<span><strong>Flavour:</strong> ${escapeHtml(m.flavour)}</span>` : ""}
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
             <a href="contact.html?med=${encodeURIComponent(m.id)}" class="btn btn-crimson btn-sm">

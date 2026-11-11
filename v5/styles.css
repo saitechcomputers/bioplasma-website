@@ -6282,3 +6282,10 @@ body.has-cinema-hero .site-header:not(.scrolled) .lv-has-pill .nav-link.active {
 .site-header .brand-logo .brand-m .lv-emb > img.brand-m-emblem { margin-bottom: 0 !important; }
 .lv-emb .lv-emb-cell img, .site-header .brand-logo .lv-emb .lv-emb-cell img { display: block !important; width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; min-height: 0 !important; margin: 0 !important; filter: none !important; object-fit: fill !important; }
 .lv-emb-cell { background: #fff; }
+
+/* V5: Green vegetarian mark */
+.lv-veg-mark { display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; border:1.6px solid #008A3E; border-radius:2px; background:#fff; flex-shrink:0; }
+.lv-veg-mark i { width:7px; height:7px; border-radius:50%; background:#008A3E; }
+.med-sched-chip.lv-veg-chip { display:inline-flex; align-items:center; gap:6px; background:#E7F6EC !important; color:#006838 !important; border-color:#B8E2C6 !important; }
+.med-packshot-stage { position: relative; }
+.lv-veg-badge { position:absolute; left:2px; bottom:2px; z-index:2; display:inline-flex; align-items:center; gap:5px; padding:4px 9px 4px 6px; border-radius:999px; background:#fff; border:1px solid #B8E2C6; color:#006838; font-size:.7rem; font-weight:700; box-shadow:0 2px 6px rgba(0,104,56,.12); }
