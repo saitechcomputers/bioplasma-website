@@ -373,16 +373,6 @@ window.BIOPLASMA_DATA = {
       descHi: "लाल समुद्री शैवाल से प्राप्त प्राकृतिक छिद्रयुक्त कैल्शियम जो पेट पर हल्का है और सीधे हड्डियों में जमता है।"
     },
     {
-      badge: "DUAL-PHASE CAPSULE",
-      titleEn: "Tablet-in-Capsule (EC + IR + SR)",
-      titleHi: "टैबलेट-इन-कैप्सूल (तुरंत + 24 घंटे असर)",
-      medicine: "PANTHETA DSR & RABTHETA DSR",
-      medicineId: "pantheta-dsr",
-      accent: "#104080",
-      descEn: "Combines an Enteric-Coated PPI core with dual Immediate-Release (10 mg) and Sustained-Release (20 mg) Domperidone fractions for rapid nausea relief and full-day acid control.",
-      descHi: "एक ही कैप्सूल में तुरंत आराम (IR) और पूरे दिन एसिडिटी व उल्टी से सुरक्षा (EC + SR)।"
-    },
-    {
       badge: "HIGH BASE SYRUP",
       titleEn: "Sugar-Free High Base Syrups",
       titleHi: "शुगर-फ्री हाई बेस सिरप",
@@ -410,6 +400,16 @@ window.BIOPLASMA_DATA = {
         "हर चम्मच में एक जैसी खुराक",
         "पूरी खुराक लेने में मदद, ताकि मरीज़ को हर खुराक का पूरा फ़ायदा मिले"
       ]
+    },
+    {
+      badge: "DUAL-PHASE CAPSULE",
+      titleEn: "Tablet-in-Capsule (EC + IR + SR)",
+      titleHi: "टैबलेट-इन-कैप्सूल (तुरंत + 24 घंटे असर)",
+      medicine: "PANTHETA DSR & RABTHETA DSR",
+      medicineId: "pantheta-dsr",
+      accent: "#104080",
+      descEn: "Combines an Enteric-Coated PPI core with dual Immediate-Release (10 mg) and Sustained-Release (20 mg) Domperidone fractions for rapid nausea relief and full-day acid control.",
+      descHi: "एक ही कैप्सूल में तुरंत आराम (IR) और पूरे दिन एसिडिटी व उल्टी से सुरक्षा (EC + SR)।"
     }
   ],
 

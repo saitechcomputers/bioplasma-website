@@ -6308,7 +6308,7 @@ body.has-cinema-hero .site-header:not(.scrolled) .lv-has-pill .nav-link.active {
 .sci-med-ref { color: #104080 !important; }
 .sci-tag { color: #fff !important; }
 [style*="#F8A000"] .sci-tag, .sci-tag[style*="#F8A000"] { color: #2A1A00 !important; }
-.science-cards-stack > :nth-child(4) .sci-tag { background: linear-gradient(90deg,#F8A000,#3D8BFF 50%,#22B35E) !important; color: #fff !important; }
+.science-cards-stack > :nth-child(5) .sci-tag { background: linear-gradient(90deg,#F8A000,#3D8BFF 50%,#22B35E) !important; color: #fff !important; }
 .science-microscope-box { position: relative; background: linear-gradient(160deg,#0D3163,#0B2B57 60%,#08214A) !important; border: 0 !important; color: #fff; box-shadow: 0 30px 60px -28px rgba(11,43,87,.55); }
 .science-microscope-box::before { content: ""; position: absolute; left: 28px; right: 28px; top: 0; height: 3px; border-radius: 0 0 3px 3px; background: linear-gradient(90deg,#F8A000 33%,#3D8BFF 33% 66%,#22B35E 66%); }
 
@@ -6334,11 +6334,11 @@ body.has-cinema-hero .site-header:not(.scrolled) .lv-has-pill .nav-link.active {
 @keyframes lvcFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
 /* 2. Section headings rise in, tri-colour line draws underneath */
-.section-heading.lv-h { position: relative; padding-bottom: 14px; opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); }
-.section-heading.lv-h::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 0; border-radius: 3px; background: linear-gradient(90deg, #F8A000 33%, #3D8BFF 33% 66%, #22B35E 66%); transition: width .9s cubic-bezier(.2,.8,.2,1) .35s; }
-.section-heading.lv-h.lv-h-in { opacity: 1; transform: none; }
-.section-heading.lv-h.lv-h-in::after { width: 96px; }
-[style*="text-align:center"] .section-heading.lv-h::after, .text-center .section-heading.lv-h::after { left: 50%; transform: translateX(-50%); }
+.lv-h { position: relative; padding-bottom: 14px; opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); }
+.lv-h::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 0; border-radius: 3px; background: linear-gradient(90deg, #F8A000 33%, #3D8BFF 33% 66%, #22B35E 66%); transition: width .9s cubic-bezier(.2,.8,.2,1) .35s; }
+.lv-h.lv-h-in { opacity: 1; transform: none; }
+.lv-h.lv-h-in::after { width: 96px; }
+[style*="text-align:center"] .lv-h::after, .text-center .lv-h::after { left: 50%; transform: translateX(-50%); }
 
 /* 3. Green tick drawn on successful form */
 .lv-tick circle { stroke-dasharray: 160; stroke-dashoffset: 160; animation: lvTick .6s ease forwards; }
@@ -6446,3 +6446,36 @@ body.has-cinema-hero .site-header:not(.scrolled) .lv-has-pill .nav-link.active {
     box-shadow: 0 10px 28px -16px rgba(0,0,0,.6) !important;
   }
 }
+/* Hero title on sub-pages: underline only, no hide/rise (stays visible at once) */
+.subpage-video-hero h1.lv-h { opacity: 1; transform: none; }
+.subpage-video-hero h1.lv-h::after { bottom: -2px; }
+.lv-h[style*="text-align:center"]::after, .lv-h[style*="text-align: center"]::after { left: 50%; transform: translateX(-50%); }
+
+/* ===================== V5: No clipped text anywhere ===================== */
+/* Product card meta line wraps instead of "…" */
+.med-dosage-meta { white-space: normal !important; overflow: visible !important; text-overflow: clip !important; line-height: 1.35; }
+/* Home hero scene tabs: subtitle wraps */
+.cinema-chapter-sub, .cinema-chapter-title { white-space: normal !important; overflow: visible !important; text-overflow: clip !important; }
+@media (max-width: 1120px) {
+  /* Trust line under each page title wraps neatly */
+  .bio-trust-pill, .lilly-trust-pill { white-space: normal !important; flex-shrink: 1 !important; flex-wrap: wrap; max-width: 100%; border-radius: 16px !important; line-height: 1.45; text-align: left; }
+  /* About page divisions: wrap into rows, no side-scroll */
+  .divisions-tabs { flex-direction: row !important; flex-wrap: wrap !important; overflow: visible !important; }
+  .divisions-tabs .div-tab-btn { flex: 1 1 calc(50% - 8px); min-width: 0; white-space: normal !important; }
+}
+@media (max-width: 1120px) {
+  .bio-trust-pill, .lilly-trust-pill { display: block !important; }
+  .bio-trust-pill b, .lilly-trust-pill b { display: inline !important; margin-right: 4px; }
+}
+@media (max-width: 640px) {
+  .divisions-tabs .div-tab-btn { flex: 1 1 100% !important; }
+}
+
+/* ===================== V5: Pop-up windows fit the visible screen (mobile address bar) ===================== */
+.modal-backdrop { top: 0; left: 0; right: 0; bottom: auto; height: 100vh; height: 100dvh; }
+.modal-window { max-height: 90vh; max-height: calc(100dvh - 2 * clamp(12px, 3vw, 32px)); }
+@media (max-width: 760px) {
+  .modal-backdrop { padding: max(8px, env(safe-area-inset-top, 0px)) 8px max(8px, env(safe-area-inset-bottom, 0px)) !important; }
+  .modal-window { max-height: calc(100vh - 16px); max-height: calc(100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); border-radius: 20px; }
+}
+.film-modal-window { max-height: calc(100dvh - 24px); overflow-y: auto; }

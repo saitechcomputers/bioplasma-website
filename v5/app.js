@@ -276,7 +276,7 @@
 
   /* ---------- Microscopic SVG Diagrams ---------- */
   function getScienceSVG(index) {
-    if (index === 4) {
+    if (index === 3) {
       return `
       <svg class="lvs" viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Thin syrup runs straight down the throat; high base syrup coats the throat and stays longer">
         <text x="210" y="30" text-anchor="middle" fill="#FFC34D" font-size="11" font-family="Space Grotesk, sans-serif" font-weight="700">ORDINARY SYRUP vs HIGH BASE SYRUP</text>
@@ -3165,7 +3165,7 @@
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("lv-h-in"); io.unobserve(e.target); } });
   }, { threshold: 0.2, rootMargin: "0px 0px -40px 0px" });
   function scan() {
-    document.querySelectorAll("main .section-heading:not(.lv-h)").forEach((h) => {
+    document.querySelectorAll("main .section-heading:not(.lv-h), main .contact-title-compact:not(.lv-h), main h2:not(.lv-h), .subpage-video-hero h1:not(.lv-h), .modal-content h2:not(.lv-h)").forEach((h) => {
       h.classList.add("lv-h");
       if (h.getBoundingClientRect().top < window.innerHeight * 0.9) { h.classList.add("lv-h-in"); return; }
       io.observe(h);
