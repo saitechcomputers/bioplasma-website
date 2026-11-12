@@ -2205,7 +2205,7 @@
             ${m.vegetarian ? `<span class="med-sched-chip lv-veg-chip"><span class="lv-veg-mark" aria-hidden="true"><i></i></span>100% Vegetarian</span>` : ""}
           </div>
           <h2 style="font-size:clamp(1.75rem,3vw,2.4rem);font-weight:800;line-height:1.1;margin-bottom:6px;">${escapeHtml(m.name)}</h2>
-          <p style="font-size:0.96rem;font-weight:600;color:var(--bio-cobalt);margin-bottom:12px;">${escapeHtml(m.shortTitle)}</p>
+          <p style="font-size:0.96rem;font-weight:600;color:var(--bio-cobalt);margin-bottom:12px;">${escapeHtml(m.shortTitle).replace("DHA 200 mg", '<span style="color:#C62828">DHA 200 mg</span>')}</p>
           <p style="font-size:0.94rem;color:var(--ink-body);margin-bottom:18px;">${escapeHtml(t(m.taglineEn, m.taglineHi))}</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:0.82rem;color:var(--ink-muted);margin-bottom:18px;">
             <span><strong>Pack:</strong> ${escapeHtml(m.packSize)}</span>
@@ -3175,4 +3175,11 @@
   const mo = new MutationObserver(() => { clearTimeout(t); t = setTimeout(scan, 150); });
   function init() { scan(); mo.observe(document.body, { childList: true, subtree: true }); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+})();
+
+/* V5: mobile header turns solid navy once the page is scrolled */
+(function () {
+  function upd() { const h = document.querySelector(".site-header"); if (h) h.classList.toggle("lv-hdr-solid", window.scrollY > 40); }
+  window.addEventListener("scroll", upd, { passive: true });
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", upd); else upd();
 })();

@@ -6396,3 +6396,53 @@ body.has-cinema-hero .site-header:not(.scrolled) .lv-has-pill .nav-link.active {
 @media (max-width: 1120px) {
   .science-microscope-box .microscope-svg-canvas { height: 260px; }
 }
+
+/* ===================== V5: Mobile & tablet header = same look as desktop ===================== */
+@media (max-width: 1120px) {
+  html body .site-header,
+  html body.has-cinema-hero .site-header:not(.scrolled),
+  html body.has-cinema-hero .site-header.scrolled,
+  html body .site-header.is-collapsed-away {
+    top: 0 !important; left: 0 !important; right: 0 !important;
+    border: 0 !important; border-radius: 0 !important; overflow: visible !important;
+    background: linear-gradient(180deg, rgba(8,33,74,.94) 0%, rgba(8,33,74,.86) 100%) !important;
+    backdrop-filter: blur(14px) saturate(140%) !important; -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+    box-shadow: 0 10px 28px -18px rgba(0,0,0,.65) !important;
+  }
+  html body.has-cinema-hero .site-header:not(.scrolled) {
+    background: linear-gradient(180deg, rgba(5,20,45,.78) 0%, rgba(5,20,45,.38) 70%, rgba(5,20,45,0) 100%) !important;
+    backdrop-filter: none !important; -webkit-backdrop-filter: none !important; box-shadow: none !important;
+  }
+  html body .site-header::before, html body .site-header::after { display: none !important; }
+  html body .site-header .header-inner,
+  html body .site-header.scrolled .header-inner,
+  html body .site-header.is-collapsed-away .header-inner {
+    min-height: 0 !important; height: auto !important;
+    padding: calc(10px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px)) !important;
+    display: flex !important; align-items: center !important; justify-content: space-between !important;
+  }
+  html body .site-header .brand-m { display: none !important; }
+  html body .site-header .brand-logo { display: flex !important; align-items: center; min-width: 0; }
+  html body .site-header .brand-logo > img.logo-on-video { display: block !important; height: clamp(40px, 11vw, 50px) !important; width: auto !important; max-width: 62vw !important; filter: none !important; }
+  html body .site-header .brand-logo > img.logo-on-solid { display: none !important; }
+  html body .site-header .mobile-toggle,
+  html body.has-cinema-hero .site-header:not(.scrolled) .mobile-toggle {
+    width: 46px !important; height: 46px !important; flex-shrink: 0; border-radius: 50% !important;
+    background: rgba(255,255,255,.10) !important; border: 1px solid rgba(255,255,255,.28) !important; color: #fff !important;
+  }
+  html body .site-header .mobile-toggle svg line:nth-child(1), html body .site-header .mobile-toggle svg line:nth-child(3) { stroke: #fff !important; }
+  html body .site-header .mobile-toggle svg line:nth-child(2) { stroke: #F8A000 !important; }
+  html body .site-header .mobile-nav-drawer { border-radius: 0 0 18px 18px; margin: 0 10px 10px; }
+
+  /* Hero side arrows: desktop only */
+  .hero-side-arrow { display: none !important; }
+}
+@media (max-width: 1120px) {
+  html body .site-header.lv-hdr-solid,
+  html body.has-cinema-hero .site-header.lv-hdr-solid:not(.scrolled),
+  html body.has-cinema-hero .site-header.lv-hdr-solid.scrolled {
+    background: linear-gradient(180deg, rgba(8,33,74,.97) 0%, rgba(11,43,87,.94) 100%) !important;
+    backdrop-filter: blur(14px) saturate(140%) !important; -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+    box-shadow: 0 10px 28px -16px rgba(0,0,0,.6) !important;
+  }
+}

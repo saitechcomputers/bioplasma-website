@@ -651,7 +651,7 @@ window.BIOPLASMA_DATA = {
     {
       id: "argiluck",
       name: "ARGILUCK",
-      shortTitle: "Supporting Endothelial Function & Microcirculation in Women — L-Arginine + Proanthocyanidin Sachet",
+      shortTitle: "L-Arginine + Proanthocyanidin Sachet",
       genericSummary: "L-Arginine IP 3 g + Proanthocyanidin 75 mg Sugar-Free Granules",
       category: "womens",
       secondaryCategories: [],
@@ -659,15 +659,15 @@ window.BIOPLASMA_DATA = {
       rxRequired: false,
       sugarFree: true,
       flavour: "Cranberry",
-      dosageForm: "Oral Granules Sachet",
+      dosageForm: "Oral Granules",
       packSize: "10 Sachets × 5.5 g",
       technology: "L-Arginine Sachets",
       techBadge: "L-ARGININE SACHETS",
       accent: "#e11d48",
       accentSoft: "#ffe4e6",
       image: "assets/products/argiluck.webp",
-      taglineEn: "Supporting Endothelial Function & Microcirculation in Women — Provides 3 g L-Arginine with antioxidant support.",
-      taglineHi: "महिलाओं में एंडोथीलियल कार्य और माइक्रो-सर्कुलेशन को समर्थन — 3 ग्राम एल-आर्जिनिन और एंटीऑक्सीडेंट सुरक्षा।",
+      taglineEn: "Supporting Endothelial Function & Microcirculation in Women.",
+      taglineHi: "महिलाओं में एंडोथीलियल कार्य और माइक्रो-सर्कुलेशन को समर्थन।",
       easyGuide: {
         whatIsItEn: "ARGILUCK is designed as an adjunct nutritional therapy to support uteroplacental blood flow, endothelial health, and antioxidant balance in gynecological practice.",
         whatIsItHi: "ARGILUCK स्त्री रोग और प्रसूति अभ्यास में गर्भनाल तक रक्त प्रवाह, एंडोथीलियल स्वास्थ्य और एंटीऑक्सीडेंट संतुलन को समर्थन देने के लिए डिज़ाइन की गई न्यूट्रिशनल थेरेपी है।",
@@ -691,7 +691,6 @@ window.BIOPLASMA_DATA = {
       composition: [
         { ingredient: "L-Arginine IP", detail: "Precursor of Nitric Oxide — Improves vasodilation and blood flow", strength: "3 g (3000 mg)", rda: "Per Sachet" },
         { ingredient: "Proanthocyanidin", detail: "Potent antioxidant — Protects endothelium and stabilizes Nitric Oxide", strength: "75 mg", rda: "Per Sachet" },
-        { ingredient: "Sugar-Free Base", detail: "Excipients & Colour", strength: "q.s. to 5.5 g", rda: "Sugar-Free" }
       ],
       mechanism: [
         { step: "01", title: "L-Arginine Vasodilation", desc: "Precursor of Nitric Oxide – Improves vasodilation and blood flow." },
@@ -761,19 +760,19 @@ window.BIOPLASMA_DATA = {
     {
       id: "bioipc",
       name: "BIOIPC",
-      shortTitle: "Liposomal Iron with Active Hematinics",
+      shortTitle: "Liposomal Iron (Ferric Pyrophosphate) with Active Hematinics",
       genericSummary: "Elemental Iron (Liposomal) 27 mg + Quatrefolic Active Folate + P5P + Vit B12 + Glycine",
       category: "hematinic",
       secondaryCategories: ["womens"],
       classification: "Hematinic Supplement",
       rxRequired: false,
       vegetarian: true,
-      sugarFree: true,
+      sugarFree: false,
       flavour: "Small Tablet, Easy to Digest",
-      dosageForm: "Film-Coated Tablet",
+      dosageForm: "Oral Tablet",
       packSize: "1 × 10 Tablets",
       technology: "Liposomal Iron Technology",
-      techBadge: "LIPOSOMAL IRON TECH",
+      techBadge: "FERRIC PYROPHOSPHATE",
       accent: "#b91c1c",
       accentSoft: "#fee2e2",
       image: "assets/products/bioipc.webp",
@@ -879,17 +878,17 @@ window.BIOPLASMA_DATA = {
       id: "dydrofy",
       name: "DYDROFY",
       shortTitle: "Dydrogesterone Tablets IP 10 mg",
-      genericSummary: "Dydrogesterone IP 10 mg Film-Coated Oral Tablets",
+      genericSummary: "Dydrogesterone IP 10 mg Oral Tablets",
       category: "womens",
       secondaryCategories: [],
       classification: "Prescription / Hormonal Therapy",
       rxRequired: true,
-      sugarFree: true,
+      sugarFree: false,
       flavour: "Unflavoured Oral Tablet",
-      dosageForm: "Film-coated oral tablet",
+      dosageForm: "Oral tablet",
       packSize: "1 × 10 Tablets",
       technology: "IP-Grade Micronized Retroprogesterone",
-      techBadge: "IP-GRADE RETROPROGESTERONE",
+      techBadge: "DYDROGESTERONE",
       accent: "#9333ea",
       accentSoft: "#f3e8ff",
       image: "assets/products/dydrofy.webp",
@@ -916,8 +915,7 @@ window.BIOPLASMA_DATA = {
         ]
       },
       composition: [
-        { ingredient: "Dydrogesterone IP", detail: "Selective Retroprogesterone Receptor Agonist", strength: "10 mg", rda: "IP Grade" },
-        { ingredient: "Excipients", detail: "Colour: Titanium Dioxide IP", strength: "q.s.", rda: "Film-Coated Tablet" }
+        { ingredient: "Dydrogesterone IP", detail: "Selective Retroprogesterone Receptor Agonist", strength: "10 mg", rda: "IP Grade" }
       ],
       mechanism: [
         { step: "01", title: "Selective Receptor Binding", desc: "Binds selectively to uterine progesterone receptors without androgenic side effects." },
@@ -989,14 +987,14 @@ window.BIOPLASMA_DATA = {
     {
       id: "novacaine",
       name: "NOVACAINE",
-      shortTitle: "Anesthetic-Antacid Gel (Sugar Free Oral Gel - Contains Sorbitol) 200ml",
+      shortTitle: "Anesthetic-Antacid Gel (Sugar Free Oral Gel)",
       genericSummary: "Oxetacaine IP 10 mg + Aluminium Hydroxide IP 291 mg + Magnesium Hydroxide IP 98 mg per 5 ml",
       category: "gastro",
       secondaryCategories: [],
       classification: "Anesthetic-Antacid Oral Gel",
       rxRequired: false,
       sugarFree: true,
-      flavour: "Sugar Free Mint Flavour (Contains Sorbitol)",
+      flavour: "Sugar Free Mint Flavour",
       dosageForm: "Oral Suspension / Gel",
       packSize: "200 ml Bottle",
       technology: "Dual Acid Neutralization + Mucosal Anesthetic Coating",
@@ -1029,8 +1027,7 @@ window.BIOPLASMA_DATA = {
       composition: [
         { ingredient: "Oxetacaine IP", detail: "Local anesthetic providing rapid relief from epigastric pain and burning; remains effective even in highly acidic pH", strength: "10 mg", rda: "Per 5 ml" },
         { ingredient: "Aluminium Hydroxide IP", detail: "Slow-acting antacid for sustained acid neutralization (as Paste eq. to dried gel)", strength: "291 mg", rda: "Per 5 ml" },
-        { ingredient: "Magnesium Hydroxide IP", detail: "Fast-acting antacid; balances aluminium-induced constipation (as Paste)", strength: "98 mg", rda: "Per 5 ml" },
-        { ingredient: "Sugar Free Gel Base", detail: "Contains Sorbitol — Suitable for Diabetic Patients", strength: "q.s. to 5 ml", rda: "200 ml Bottle" }
+        { ingredient: "Magnesium Hydroxide IP", detail: "Fast-acting antacid; balances aluminium-induced constipation (as Paste)", strength: "98 mg", rda: "Per 5 ml" }
       ],
       mechanism: [
         { step: "01", title: "Oxetacaine Local Anesthesia", desc: "Local anesthetic providing rapid relief from epigastric pain and burning; remains effective even in highly acidic pH." },
@@ -1108,10 +1105,10 @@ window.BIOPLASMA_DATA = {
       secondaryCategories: [],
       classification: "Proton Pump Inhibitor & Prokinetic",
       rxRequired: true,
-      sugarFree: true,
+      sugarFree: false,
       flavour: "Oral Capsule",
-      dosageForm: "Tablet in Capsule",
-      packSize: "10 × 10 Capsules",
+      dosageForm: "Capsule",
+      packSize: "1 × 10 Capsules",
       technology: "Tablet in Capsule Technology (EC + IR + SR)",
       techBadge: "TABLET IN CAPSULE",
       accent: "#0d9488",
@@ -1128,15 +1125,13 @@ window.BIOPLASMA_DATA = {
           "Tablet in Capsule Technology",
           "Pantoprazole 40mg (EC): Designed to dissolve in small intestine; treats GERD, peptic ulcers & other acid-related problems",
           "Domperidone 10mg (IR): Released quickly to relieve nausea and vomiting by improving movement of stomach and intestines",
-          "Domperidone 20mg (SR): Released slowly over time to provide longer-lasting relief from nausea and vomiting",
-          "This combination is used to treat conditions related to stomach acid and motility issues"
+          "Domperidone 20mg (SR): Released slowly over time to provide longer-lasting relief from nausea and vomiting"
         ],
         keyPerksHi: [
           "टैबलेट इन कैप्सूल आधुनिक तकनीक",
           "पैंटोप्राजोल 40mg (EC): आंत में घुलकर एसिडिटी और अल्सर का इलाज करता है",
           "डोमपेरिडोन 10mg (IR): तुरंत घुलकर मतली और उल्टी को शांत करता है",
-          "डोमपेरिडोन 20mg (SR): धीरे-धीरे घुलकर पूरे दिन उल्टी और भारीपन से बचाता है",
-          "एसिड नियंत्रण और पेट की गतिशीलता दोनों पर एक साथ काम करता है"
+          "डोमपेरिडोन 20mg (SR): धीरे-धीरे घुलकर पूरे दिन उल्टी और भारीपन से बचाता है"
         ]
       },
       composition: [
@@ -1218,10 +1213,10 @@ window.BIOPLASMA_DATA = {
       secondaryCategories: [],
       classification: "Proton Pump Inhibitor & Prokinetic",
       rxRequired: true,
-      sugarFree: true,
+      sugarFree: false,
       flavour: "Oral Capsule",
-      dosageForm: "Tablet in Capsule",
-      packSize: "10 × 10 Capsules",
+      dosageForm: "Capsule",
+      packSize: "1 × 10 Capsules",
       technology: "Tablet in Capsule Technology (EC + IR + SR)",
       techBadge: "TABLET IN CAPSULE",
       accent: "#2563eb",
@@ -1330,12 +1325,12 @@ window.BIOPLASMA_DATA = {
       classification: "Oral Probiotic Spore Suspension",
       rxRequired: false,
       monoChipsMinimal: true,
-      sugarFree: true,
-      flavour: "Tasteless Aqueous Suspension (Oral use only — DO NOT INJECT)",
+      sugarFree: false,
+      flavour: "Aqueous Suspension (Oral use only — DO NOT INJECT)",
       dosageForm: "Oral Suspension Mini Bottle",
       packSize: "10 × 5 ml Mini Bottles",
       technology: "Gastric-Acid Resistant Spore Technology",
-      techBadge: "2 BILLION SPORES",
+      techBadge: "BACILLUS CLAUSII",
       accent: "#16a34a",
       accentSoft: "#dcfce7",
       image: "assets/products/preimmune-aqua.webp",
@@ -1364,8 +1359,7 @@ window.BIOPLASMA_DATA = {
         ]
       },
       composition: [
-        { ingredient: "Bacillus clausii Spores", detail: "Gastric acid & antibiotic resistant probiotic spores", strength: "2 Billion Spores", rda: "Per 5 ml Mini Bottle" },
-        { ingredient: "Purified Aqueous Vehicle", detail: "Tasteless, sugar-free oral suspension medium (Oral use only — DO NOT INJECT)", strength: "q.s. to 5 ml", rda: "Oral Suspension" }
+        { ingredient: "Bacillus clausii Spores", detail: "Gastric acid & antibiotic resistant probiotic spores", strength: "2 Billion Spores", rda: "Per 5 ml Mini Bottle" }
       ],
       mechanism: [
         { step: "01", title: "Survival Through Gastric Barrier", desc: "Spore format protects Bacillus clausii against stomach acid and antibiotics, reaching the intestine intact." },
@@ -1532,7 +1526,7 @@ window.BIOPLASMA_DATA = {
     {
       "id": "bioimmune",
       "name": "BIOIMMUNE",
-      "shortTitle": "Multivitamin & Multimineral Syrup (Tasty Mango)",
+      "shortTitle": "Multivitamin & Multimineral Syrup",
       "genericSummary": "Multivitamin & Multimineral Syrup with Zinc & Selenium",
       "category": "nutrition",
       "secondaryCategories": [
@@ -1540,11 +1534,11 @@ window.BIOPLASMA_DATA = {
       ],
       "classification": "Multivitamin & Multimineral Syrup",
       "rxRequired": false,
-      "sugarFree": false,
-      "flavour": "Tasty Mango — No Xanthan Gum, No Aspartame, No Saccharin",
+      "sugarFree": true,
+      "flavour": "Tasty Mango — Sugar-Free, No Xanthan Gum, No Aspartame, No Saccharin",
       "dosageForm": "Syrup",
       "packSize": "200 ml",
-      "technology": "Complete Vitamin + Trace Mineral Matrix",
+      "technology": "Complete Vitamin + Minerals Combination",
       "techBadge": "MULTIVITAMIN + MINERALS",
       "accent": "#ea580c",
       "accentSoft": "#fff1e6",
@@ -1730,7 +1724,7 @@ window.BIOPLASMA_DATA = {
       "image": "assets/products/fexoluck.webp",
       "taglineEn": "Reliable non-drowsy allergy relief for children.",
       "easyGuide": {
-        "whatIsItEn": "A non-drowsy anti-allergy suspension for children, used for allergic rhinitis, hives, sneezing and runny nose. Prescription medicine.",
+        "whatIsItEn": "A non-drowsy anti-allergy suspension for children, used for allergic rhinitis, hives, sneezing and runny nose.",
         "whoIsItForEn": "Children with seasonal or perennial allergic rhinitis, chronic urticaria (hives), sneezing, runny nose and itchy nose, throat or eyes — as prescribed by the doctor.",
         "keyPerksEn": [
           "Second-generation, non-sedating antihistamine",
@@ -1738,7 +1732,7 @@ window.BIOPLASMA_DATA = {
           "Well tolerated with low incidence of drowsiness",
           "Minimal anticholinergic effects"
         ],
-        "whatIsItHi": "A non-drowsy anti-allergy suspension for children, used for allergic rhinitis, hives, sneezing and runny nose. Prescription medicine.",
+        "whatIsItHi": "A non-drowsy anti-allergy suspension for children, used for allergic rhinitis, hives, sneezing and runny nose.",
         "whoIsItForHi": "Children with seasonal or perennial allergic rhinitis, chronic urticaria (hives), sneezing, runny nose and itchy nose, throat or eyes — as prescribed by the doctor.",
         "keyPerksHi": [
           "Second-generation, non-sedating antihistamine",
@@ -1810,7 +1804,7 @@ window.BIOPLASMA_DATA = {
     {
       "id": "folfuzn",
       "name": "FOLFUZN",
-      "shortTitle": "L-Methylfolate 1 mg + Methylcobalamin 1500 mcg + P-5-P 0.5 mg + DHA 200 mg + Vitamin D3 2000 IU Capsules",
+      "shortTitle": "L-Methylfolate 1 mg + Methylcobalamin 1500 mcg + Pyridoxal-5-Phosphate 0.5 mg + DHA 200 mg + Vitamin D3 2000 IU Capsules",
       "genericSummary": "L-Methylfolate, Methylcobalamin, Pyridoxal-5-Phosphate, DHA & Vitamin D3 Capsules",
       "category": "womens",
       "secondaryCategories": [
@@ -1822,7 +1816,7 @@ window.BIOPLASMA_DATA = {
       "flavour": "Easy-to-swallow capsule",
       "dosageForm": "Capsules",
       "packSize": "1 × 10 Capsules",
-      "technology": "Active (Methylated) Vitamin Forms + DHA",
+      "technology": "Active Folate + DHA",
       "techBadge": "ACTIVE FOLATE + DHA",
       "accent": "#e11d48",
       "accentSoft": "#ffe4e6",
@@ -1830,7 +1824,7 @@ window.BIOPLASMA_DATA = {
       "taglineEn": "Active nutrition for mother & baby — the bioactive pregnancy formula for healthy fetal development.",
       "easyGuide": {
         "whatIsItEn": "A pregnancy nutrition capsule with active forms of folate, Vitamin B12 and B6, plus DHA and Vitamin D3, for mother and baby.",
-        "whoIsItForEn": "Women planning pregnancy, pregnant women and new mothers who need extra nutrition, as advised by the doctor.",
+        "whoIsItForEn": "Women planning pregnancy, pregnant women and new mothers who need extra nutrition, or as advised by the doctor.",
         "keyPerksEn": [
           "Active L-Methylfolate — useful when folic acid conversion is reduced (MTHFR variations)",
           "DHA supports baby's brain, eye and nervous system development",
@@ -1838,7 +1832,7 @@ window.BIOPLASMA_DATA = {
           "Active B12 and B6 support red blood cells and nerve health"
         ],
         "whatIsItHi": "A pregnancy nutrition capsule with active forms of folate, Vitamin B12 and B6, plus DHA and Vitamin D3, for mother and baby.",
-        "whoIsItForHi": "Women planning pregnancy, pregnant women and new mothers who need extra nutrition, as advised by the doctor.",
+        "whoIsItForHi": "Women planning pregnancy, pregnant women and new mothers who need extra nutrition, or as advised by the doctor.",
         "keyPerksHi": [
           "Active L-Methylfolate — useful when folic acid conversion is reduced (MTHFR variations)",
           "DHA supports baby's brain, eye and nervous system development",
@@ -1927,7 +1921,7 @@ window.BIOPLASMA_DATA = {
     {
       "id": "koftheta-d",
       "name": "KOFTHETA D",
-      "shortTitle": "Dextromethorphan HBr 15 mg + Phenylephrine HCl 5 mg + Chlorpheniramine Maleate 2 mg Syrup",
+      "shortTitle": "Each 5 ml: Dextromethorphan HBr 15 mg + Phenylephrine HCl 5 mg + Chlorpheniramine Maleate 2 mg Syrup",
       "genericSummary": "Dextromethorphan + Phenylephrine + Chlorpheniramine Cough Syrup",
       "category": "respiratory",
       "secondaryCategories": [],
@@ -1944,7 +1938,7 @@ window.BIOPLASMA_DATA = {
       "image": "assets/products/koftheta-d.webp",
       "taglineEn": "Rapid relief in persistent dry cough.",
       "easyGuide": {
-        "whatIsItEn": "A cherry-flavoured cough syrup for dry cough with cold and allergy symptoms. Prescription medicine.",
+        "whatIsItEn": "A cherry-flavoured cough syrup for dry cough with cold and allergy symptoms.",
         "whoIsItForEn": "Dry cough, allergic cough, post-operative cough, smoker's cough and night-time cough — as prescribed by the doctor.",
         "keyPerksEn": [
           "Calms the cough reflex",
@@ -1952,7 +1946,7 @@ window.BIOPLASMA_DATA = {
           "Reduces sneezing and runny nose",
           "Cherry flavour"
         ],
-        "whatIsItHi": "A cherry-flavoured cough syrup for dry cough with cold and allergy symptoms. Prescription medicine.",
+        "whatIsItHi": "A cherry-flavoured cough syrup for dry cough with cold and allergy symptoms.",
         "whoIsItForHi": "Dry cough, allergic cough, post-operative cough, smoker's cough and night-time cough — as prescribed by the doctor.",
         "keyPerksHi": [
           "Calms the cough reflex",
@@ -1966,19 +1960,19 @@ window.BIOPLASMA_DATA = {
           "ingredient": "Dextromethorphan Hydrobromide",
           "detail": "Cough suppressant that blocks the cough reflex in the brain",
           "strength": "15 mg",
-          "rda": "Syrup"
+          "rda": "Per 5 ml"
         },
         {
           "ingredient": "Phenylephrine Hydrochloride",
           "detail": "Nasal decongestant that reduces stuffiness and swelling",
           "strength": "5 mg",
-          "rda": "Syrup"
+          "rda": "Per 5 ml"
         },
         {
           "ingredient": "Chlorpheniramine Maleate",
           "detail": "Antihistamine that relieves sneezing and runny nose",
           "strength": "2 mg",
-          "rda": "Syrup"
+          "rda": "Per 5 ml"
         }
       ],
       "mechanism": [
@@ -2029,7 +2023,7 @@ window.BIOPLASMA_DATA = {
     {
       "id": "koftheta-ls",
       "name": "KOFTHETA LS",
-      "shortTitle": "Ambroxol HCl 30 mg + Guaiphenesin 50 mg + Levosalbutamol 1 mg Syrup",
+      "shortTitle": "Each 5 ml: Ambroxol HCl 30 mg + Guaiphenesin 50 mg + Levosalbutamol 1 mg Syrup",
       "genericSummary": "Ambroxol + Guaiphenesin + Levosalbutamol Cough Syrup",
       "category": "respiratory",
       "secondaryCategories": [],
@@ -2046,7 +2040,7 @@ window.BIOPLASMA_DATA = {
       "image": "assets/products/koftheta-ls.webp",
       "taglineEn": "A safe & effective option in treating asthma and productive cough.",
       "easyGuide": {
-        "whatIsItEn": "A cough syrup that loosens mucus and opens the airways, for cough with phlegm in bronchitis, asthma and COPD. Prescription medicine.",
+        "whatIsItEn": "A cough syrup that loosens mucus and opens the airways, for cough with phlegm in bronchitis, asthma and COPD.",
         "whoIsItForEn": "Patients with productive cough, asthmatic cough and COPD — as prescribed by the doctor.",
         "keyPerksEn": [
           "Thins and loosens mucus",
@@ -2054,7 +2048,7 @@ window.BIOPLASMA_DATA = {
           "Relaxes airway muscles to ease breathing",
           "Cherry flavour"
         ],
-        "whatIsItHi": "A cough syrup that loosens mucus and opens the airways, for cough with phlegm in bronchitis, asthma and COPD. Prescription medicine.",
+        "whatIsItHi": "A cough syrup that loosens mucus and opens the airways, for cough with phlegm in bronchitis, asthma and COPD.",
         "whoIsItForHi": "Patients with productive cough, asthmatic cough and COPD — as prescribed by the doctor.",
         "keyPerksHi": [
           "Thins and loosens mucus",
@@ -2068,19 +2062,19 @@ window.BIOPLASMA_DATA = {
           "ingredient": "Ambroxol Hydrochloride",
           "detail": "Mucolytic that thins and loosens mucus (phlegm)",
           "strength": "30 mg",
-          "rda": "Syrup"
+          "rda": "Per 5 ml"
         },
         {
           "ingredient": "Guaiphenesin",
           "detail": "Expectorant that decreases the stickiness of mucus and helps its removal",
           "strength": "50 mg",
-          "rda": "Syrup"
+          "rda": "Per 5 ml"
         },
         {
           "ingredient": "Levosalbutamol",
           "detail": "Bronchodilator that relaxes airway muscles and widens the airways",
           "strength": "1 mg",
-          "rda": "Syrup"
+          "rda": "Per 5 ml"
         }
       ],
       "mechanism": [
@@ -2131,7 +2125,7 @@ window.BIOPLASMA_DATA = {
     {
       "id": "koftheta-x",
       "name": "KOFTHETA X",
-      "shortTitle": "Ambroxol HCl 15 mg + Terbutaline Sulphate 1.5 mg + Guaiphenesin 50 mg + Menthol 1 mg Syrup",
+      "shortTitle": "Each 5 ml: Ambroxol HCl 15 mg + Terbutaline Sulphate 1.5 mg + Guaiphenesin 50 mg + Menthol 1 mg Syrup",
       "genericSummary": "Ambroxol + Terbutaline + Guaiphenesin + Menthol Cough Syrup",
       "category": "respiratory",
       "secondaryCategories": [],
@@ -2148,7 +2142,7 @@ window.BIOPLASMA_DATA = {
       "image": "assets/products/koftheta-x.webp",
       "taglineEn": "Raise the level of comfort from bothering cough.",
       "easyGuide": {
-        "whatIsItEn": "A cough syrup that thins mucus, relaxes the airways and soothes the throat, for cough with phlegm. Prescription medicine.",
+        "whatIsItEn": "A cough syrup that thins mucus, relaxes the airways and soothes the throat, for cough with phlegm.",
         "whoIsItForEn": "Productive (chesty) cough, bronchitis, bronchial asthma and COPD, emphysema and bronchiectasis, and general cold symptoms — as prescribed by the doctor.",
         "keyPerksEn": [
           "Thins and loosens phlegm in the lungs",
@@ -2156,7 +2150,7 @@ window.BIOPLASMA_DATA = {
           "Helps remove mucus",
           "Menthol soothes throat irritation"
         ],
-        "whatIsItHi": "A cough syrup that thins mucus, relaxes the airways and soothes the throat, for cough with phlegm. Prescription medicine.",
+        "whatIsItHi": "A cough syrup that thins mucus, relaxes the airways and soothes the throat, for cough with phlegm.",
         "whoIsItForHi": "Productive (chesty) cough, bronchitis, bronchial asthma and COPD, emphysema and bronchiectasis, and general cold symptoms — as prescribed by the doctor.",
         "keyPerksHi": [
           "Thins and loosens phlegm in the lungs",
@@ -2170,25 +2164,25 @@ window.BIOPLASMA_DATA = {
           "ingredient": "Ambroxol Hydrochloride",
           "detail": "Mucolytic that thins and loosens phlegm in the lungs",
           "strength": "15 mg",
-          "rda": "Syrup"
+          "rda": "Per 5 ml"
         },
         {
           "ingredient": "Terbutaline Sulphate",
           "detail": "Bronchodilator that relaxes the airway muscles and widens the airways",
           "strength": "1.5 mg",
-          "rda": "Syrup"
+          "rda": "Per 5 ml"
         },
         {
           "ingredient": "Guaiphenesin",
           "detail": "Expectorant that reduces mucus stickiness and helps remove it",
           "strength": "50 mg",
-          "rda": "Syrup"
+          "rda": "Per 5 ml"
         },
         {
           "ingredient": "Menthol",
           "detail": "Cooling sensation that soothes minor throat irritation",
           "strength": "1 mg",
-          "rda": "Syrup"
+          "rda": "Per 5 ml"
         }
       ],
       "mechanism": [
@@ -2254,13 +2248,13 @@ window.BIOPLASMA_DATA = {
       "dosageForm": "Capsules",
       "packSize": "1 × 10 Capsules",
       "technology": "Multi-Strain Synbiotic (Pre + Probiotic)",
-      "techBadge": "19 STRAINS + PREBIOTIC",
+      "techBadge": "19 PRE+PRO BIOTIC STRAINS",
       "accent": "#be123c",
       "accentSoft": "#ffe4e6",
       "image": "assets/products/preimmune-gold.webp",
       "taglineEn": "The balancing act for disturbed micro flora — Pre+Probiotics for life.",
       "easyGuide": {
-        "whatIsItEn": "A capsule with many good bacteria (probiotics) plus prebiotic fiber that helps restore healthy gut flora.",
+        "whatIsItEn": "A capsule with 19 strains of probiotic bacteria plus NutraFlora prebiotic fiber that helps restore healthy gut flora.",
         "whoIsItForEn": "Infective diarrhoea, colitis / gastroenteritis, antibiotic-associated diarrhoea, and for prebiotic & probiotic support and immunity building.",
         "keyPerksEn": [
           "Multiple probiotic strains in one capsule",
@@ -2268,7 +2262,7 @@ window.BIOPLASMA_DATA = {
           "Helps against diarrhoea caused by antibiotics",
           "Supports digestion and immunity"
         ],
-        "whatIsItHi": "A capsule with many good bacteria (probiotics) plus prebiotic fiber that helps restore healthy gut flora.",
+        "whatIsItHi": "A capsule with 19 strains of probiotic bacteria plus NutraFlora prebiotic fiber that helps restore healthy gut flora.",
         "whoIsItForHi": "Infective diarrhoea, colitis / gastroenteritis, antibiotic-associated diarrhoea, and for prebiotic & probiotic support and immunity building.",
         "keyPerksHi": [
           "Multiple probiotic strains in one capsule",
@@ -2435,6 +2429,122 @@ window.BIOPLASMA_DATA = {
     }
   ]
 };
+
+/* V5: UB-10 (added from UB-10 Tablets.pdf) */
+window.BIOPLASMA_DATA.medicines.push({
+  id: "ub-10",
+  name: "UB-10",
+  shortTitle: "Astaxanthin + Coenzyme Q10 + L-Carnitine L-Tartrate + Vitamin K2-7 + Magnesium + Zinc Tablets",
+  genericSummary: "Astaxanthin USP 8 mg + Coenzyme Q10 100 mg + L-Carnitine L-Tartrate 500 mg + Vitamin K2-7 50 mcg + Magnesium 50 mg + Zinc 7.5 mg",
+  category: "womens",
+  secondaryCategories: ["nutrition"],
+  classification: "Prescription / Mitochondrial & Antioxidant Support",
+  rxRequired: true,
+  sugarFree: false,
+  flavour: "Oral Tablet",
+  dosageForm: "Oral tablet",
+  packSize: "1 × 10 Tablets",
+  technology: "Mitochondrial Energy + Antioxidant Support",
+  techBadge: "MITOCHONDRIAL ENERGY",
+  accent: "#104080",
+  accentSoft: "#E8EEF8",
+  image: "assets/products/ub-10.webp",
+  taglineEn: "Mitochondrial Energy + Antioxidant Support for General & Reproductive Health.",
+  taglineHi: "सामान्य और प्रजनन स्वास्थ्य के लिए माइटोकॉन्ड्रियल ऊर्जा + एंटीऑक्सीडेंट सपोर्ट।",
+  easyGuide: {
+    whatIsItEn: "Oxidative stress may contribute to poor oocyte quality, reduced mitochondrial function, poor sperm motility, increased sperm DNA damage and reduced embryo quality. UB-10 provides a combination of antioxidants and mitochondrial nutrients to help combat oxidative stress.",
+    whatIsItHi: "ऑक्सीडेटिव स्ट्रेस अंडाणु की गुणवत्ता, माइटोकॉन्ड्रियल कार्य, शुक्राणु की गतिशीलता और भ्रूण की गुणवत्ता को प्रभावित कर सकता है। UB-10 एंटीऑक्सीडेंट और माइटोकॉन्ड्रियल पोषक तत्वों का संयोजन है जो ऑक्सीडेटिव स्ट्रेस से लड़ने में मदद करता है।",
+    whoIsItForEn: "May be considered as adjunct nutritional support in female and male infertility associated with oxidative stress, including women undergoing IVF/ICSI — under a doctor's guidance.",
+    whoIsItForHi: "ऑक्सीडेटिव स्ट्रेस से जुड़ी महिला और पुरुष इनफर्टिलिटी (IVF/ICSI सहित) में सहायक पोषण के रूप में — डॉक्टर की सलाह पर।",
+    keyPerksEn: [
+      "Increased overall energy & stamina",
+      "Cognitive function & clarity",
+      "Cardiovascular health support",
+      "Supports healthy egg quality (ovarian health)",
+      "Supports healthy sperm function & motility",
+      "Overall reproductive wellness"
+    ],
+    keyPerksHi: [
+      "समग्र ऊर्जा और स्टैमिना में वृद्धि",
+      "संज्ञानात्मक कार्य और स्पष्टता",
+      "हृदय स्वास्थ्य सपोर्ट",
+      "स्वस्थ अंडाणु गुणवत्ता (ओवेरियन हेल्थ) में सहायक",
+      "स्वस्थ शुक्राणु कार्य और गतिशीलता में सहायक",
+      "समग्र प्रजनन स्वास्थ्य"
+    ]
+  },
+  composition: [
+    { ingredient: "Astaxanthin USP", detail: "Potent antioxidant — helps protect reproductive cells from oxidative stress", strength: "8 mg", rda: "USP Grade" },
+    { ingredient: "Coenzyme Q10 (Ubidecarenone)", detail: "Supports ATP production, mitochondrial function and antioxidant defence", strength: "100 mg", rda: "—" },
+    { ingredient: "L-Carnitine L-Tartrate", detail: "Supports fatty acid transport, cellular energy, sperm maturation and motility", strength: "500 mg", rda: "—" },
+    { ingredient: "Vitamin K2-7", detail: "Supports bone metabolism and calcium utilisation", strength: "50 mcg", rda: "—" },
+    { ingredient: "Magnesium", detail: "Supports cellular energy metabolism and enzymatic reactions", strength: "50 mg", rda: "—" },
+    { ingredient: "Zinc", detail: "Supports spermatogenesis, DNA synthesis and cell division", strength: "7.5 mg", rda: "—" }
+  ],
+  mechanism: [
+    { step: "01", title: "Cellular Energy (ATP)", desc: "Coenzyme Q10 and L-Carnitine L-Tartrate support mitochondrial ATP production and fatty acid transport for cellular energy." },
+    { step: "02", title: "Antioxidant Defence", desc: "Astaxanthin and Coenzyme Q10 help protect reproductive cells from oxidative stress." },
+    { step: "03", title: "Enzymatic & Cell Support", desc: "Zinc and Magnesium support spermatogenesis, DNA synthesis, cell division and enzymatic reactions; Vitamin K2-7 supports calcium utilisation." }
+  ],
+  highlights: [
+    "Mitochondrial Energy + Antioxidant Support for General & Reproductive Health",
+    "Astaxanthin 8 mg + Coenzyme Q10 100 mg + L-Carnitine L-Tartrate 500 mg",
+    "With Vitamin K2-7, Magnesium & Zinc",
+    "Supports healthy egg quality and sperm function & motility"
+  ],
+  indications: [
+    "Female infertility associated with oxidative stress",
+    "Women undergoing IVF / ICSI",
+    "Poor ovarian reserve",
+    "Advanced maternal age",
+    "Male infertility",
+    "Poor sperm motility",
+    "Idiopathic infertility"
+  ],
+  dosage: "As directed by the Physician.",
+  keywords: ["ub-10", "ub10", "coq10", "coenzyme q10", "ubidecarenone", "astaxanthin", "l-carnitine", "fertility", "infertility", "ivf", "icsi", "sperm", "oocyte", "egg quality", "antioxidant", "mitochondrial"],
+  stakeholders: {
+    doctor: {
+      headline: "Antioxidant + mitochondrial nutrient combination for adjunct support in oxidative-stress-associated infertility.",
+      metaLabel: "Key Specialties",
+      metaValue: "Gynecology • IVF / Reproductive Medicine • Andrology",
+      points: [
+        "Astaxanthin 8 mg + CoQ10 100 mg + L-Carnitine L-Tartrate 500 mg with Vitamin K2-7, Magnesium & Zinc.",
+        "May be considered as adjunct nutritional support in female and male infertility, including IVF/ICSI cycles.",
+        "Prescription (Rx) product."
+      ]
+    },
+    customer: {
+      headline: "Energy and antioxidant support for general and reproductive health — take only on your doctor's advice.",
+      metaLabel: "Prescription Care",
+      metaValue: "Rx Only • 1 × 10 Tablets",
+      points: [
+        "Supports overall energy, stamina and reproductive wellness.",
+        "Combines antioxidants with mitochondrial nutrients.",
+        "Important: Prescription (Rx) product — use strictly as advised by your doctor."
+      ]
+    },
+    mr: {
+      headline: "30-Sec Pitch: 'UB-10 — Mitochondrial energy + antioxidant support for general & reproductive health.'",
+      metaLabel: "Target Call List",
+      metaValue: "Gynecologists • IVF Centres • Andrologists",
+      points: [
+        "Six-ingredient combination: Astaxanthin, CoQ10, L-Carnitine L-Tartrate, Vitamin K2-7, Magnesium, Zinc.",
+        "Position as adjunct nutritional support in female and male infertility.",
+        "Use the clinical-uses list from the product leaflet in detailing."
+      ]
+    },
+    stockist: {
+      headline: "Rx fertility-support SKU (1 × 10 Tablets) for gynecology, IVF and andrology prescriptions.",
+      metaLabel: "Trade Pack Spec",
+      metaValue: "1 × 10 Tablets",
+      points: [
+        "Stock alongside the women's-health range for IVF and fertility clinics.",
+        "Prescription (Rx) product."
+      ]
+    }
+  }
+});
 
 /* V5: always show products in alphabetical (A–Z) order */
 window.BIOPLASMA_DATA.medicines.sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }));
