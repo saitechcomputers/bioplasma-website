@@ -304,62 +304,64 @@
     }
     if (index === 0) {
       return `
-        <svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nano Shots Vitamin D3 Diagram">
+        <svg class="lvn" viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nano Shots D3: a large oil globule breaks into fine nano-micelles that reach the intestinal membrane">
           <defs>
-            <radialGradient id="nanoGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#FBBF24" stop-opacity="0.95"/>
-              <stop offset="70%" stop-color="#EA580C" stop-opacity="0.55"/>
-              <stop offset="100%" stop-color="#EA580C" stop-opacity="0"/>
+            <radialGradient id="lvnGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FFE2A8"/>
+              <stop offset="55%" stop-color="#F8A000"/>
+              <stop offset="100%" stop-color="#F8A000" stop-opacity="0.15"/>
             </radialGradient>
           </defs>
-          <path d="M20 215 Q110 198 210 215 T400 215" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-dasharray="5 5"/>
-          <text x="24" y="240" fill="rgba(255,255,255,0.65)" font-size="11" font-family="Space Grotesk, sans-serif">INTESTINAL ENTEROCYTE MEMBRANE (RAPID UPTAKE)</text>
-          <circle cx="95" cy="95" r="46" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-          <text x="95" y="92" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10" font-weight="700">Conventional</text>
-          <text x="95" y="106" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Large Oil Globule</text>
-          <path d="M158 95 H205" stroke="#FBBF24" stroke-width="2.2" stroke-linecap="round"/>
-          <polygon points="205,90 215,95 205,100" fill="#FBBF24"/>
-          <circle cx="275" cy="68" r="22" fill="url(#nanoGlow)"/>
-          <circle cx="322" cy="86" r="18" fill="url(#nanoGlow)"/>
-          <circle cx="258" cy="122" r="19" fill="url(#nanoGlow)"/>
-          <circle cx="305" cy="134" r="24" fill="url(#nanoGlow)"/>
-          <circle cx="352" cy="122" r="16" fill="url(#nanoGlow)"/>
-          <circle cx="285" cy="176" r="14" fill="url(#nanoGlow)"/>
-          <circle cx="328" cy="178" r="13" fill="url(#nanoGlow)"/>
-          <text x="305" y="34" text-anchor="middle" fill="#FDE68A" font-size="11" font-family="Space Grotesk, sans-serif" font-weight="700">60,000 IU NANO-MICELLES</text>
+          <path d="M20 215 Q110 198 210 215 T400 215" stroke="rgba(255,255,255,0.32)" stroke-width="2" stroke-dasharray="5 5"/>
+          <text x="24" y="240" fill="rgba(255,255,255,0.65)" font-size="11" font-family="Space Grotesk, sans-serif">INTESTINAL MEMBRANE (RAPID UPTAKE)</text>
+          <g class="lvn-big">
+            <circle cx="95" cy="95" r="46" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <text x="95" y="92" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10" font-weight="700">Conventional</text>
+            <text x="95" y="106" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="9">Large Oil Globule</text>
+          </g>
+          <circle class="lvn-ghost" cx="95" cy="95" r="46" stroke="rgba(255,255,255,0.25)" stroke-dasharray="4 5" stroke-width="1.5"/>
+          <path d="M158 95 H205" stroke="#F8A000" stroke-width="2.2" stroke-linecap="round"/>
+          <polygon points="205,90 215,95 205,100" fill="#F8A000"/>
+          <circle class="lvn-p" cx="95" cy="95" r="13" fill="url(#lvnGlow)" style="--dx:180px;--dy:-27px;--d:1.00s"/><circle class="lvn-p" cx="95" cy="95" r="11" fill="url(#lvnGlow)" style="--dx:227px;--dy:-9px;--d:1.07s"/><circle class="lvn-p" cx="95" cy="95" r="12" fill="url(#lvnGlow)" style="--dx:163px;--dy:27px;--d:1.14s"/><circle class="lvn-p" cx="95" cy="95" r="14" fill="url(#lvnGlow)" style="--dx:210px;--dy:39px;--d:1.21s"/><circle class="lvn-p" cx="95" cy="95" r="10" fill="url(#lvnGlow)" style="--dx:257px;--dy:27px;--d:1.28s"/><circle class="lvn-p" cx="95" cy="95" r="9" fill="url(#lvnGlow)" style="--dx:190px;--dy:81px;--d:1.35s"/><circle class="lvn-p" cx="95" cy="95" r="9" fill="url(#lvnGlow)" style="--dx:233px;--dy:83px;--d:1.42s"/>
+          <text class="lvn-lbl" x="305" y="34" text-anchor="middle" fill="#FFC34D" font-size="11" font-family="Space Grotesk, sans-serif" font-weight="700">60,000 IU NANO-MICELLES</text>
         </svg>`;
     }
     if (index === 1) {
       return `
-        <svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Liposomal Iron Phospholipid Shield">
-          <circle cx="210" cy="130" r="92" stroke="#F43F5E" stroke-width="3" stroke-dasharray="8 6" fill="rgba(244,63,94,0.08)"/>
-          <circle cx="210" cy="130" r="70" stroke="#FB7185" stroke-width="2" fill="rgba(225,29,100,0.16)"/>
-          <circle cx="210" cy="130" r="42" fill="#BE123C"/>
-          <text x="210" y="126" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="800">Fe³⁺ 27 mg</text>
-          <text x="210" y="143" text-anchor="middle" fill="#FFE4E6" font-size="9.5" font-family="Space Grotesk, sans-serif">PROTECTED CORE</text>
-          <text x="64" y="54" fill="#FDA4AF" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700">PHOSPHOLIPID BILAYER</text>
-          <line x1="115" y1="60" x2="152" y2="82" stroke="#FDA4AF" stroke-width="1.5"/>
-          <rect x="292" y="176" width="112" height="46" rx="10" fill="rgba(16,185,129,0.18)" stroke="#34D399"/>
-          <text x="348" y="196" text-anchor="middle" fill="#A7F3D0" font-size="10" font-weight="700">+ Quatrefolic</text>
-          <text x="348" y="211" text-anchor="middle" fill="#D1FAE5" font-size="9">P5P • B12 • Glycine</text>
+        <svg class="lvl" viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Liposomal iron: iron protected inside a phospholipid shield passes through stomach acid and reaches the gut intact">
+          <rect x="0" y="40" width="150" height="190" rx="14" fill="rgba(248,160,0,0.10)"/>
+          <text x="75" y="30" text-anchor="middle" fill="#FFC34D" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700">STOMACH ACID</text>
+          <circle class="lvl-a" cx="75" cy="203" r="4" fill="#F8A000" style="--d:0.51s"/><circle class="lvl-a" cx="117" cy="179" r="4" fill="#F8A000" style="--d:0.27s"/><circle class="lvl-a" cx="93" cy="108" r="4" fill="#F8A000" style="--d:0.11s"/><circle class="lvl-a" cx="83" cy="181" r="4" fill="#F8A000" style="--d:0.38s"/><circle class="lvl-a" cx="119" cy="107" r="4" fill="#F8A000" style="--d:0.06s"/><circle class="lvl-a" cx="56" cy="96" r="4" fill="#F8A000" style="--d:0.05s"/><circle class="lvl-a" cx="106" cy="70" r="4" fill="#F8A000" style="--d:0.36s"/><circle class="lvl-a" cx="68" cy="175" r="4" fill="#F8A000" style="--d:0.39s"/><circle class="lvl-a" cx="96" cy="100" r="4" fill="#F8A000" style="--d:0.37s"/><circle class="lvl-a" cx="85" cy="76" r="4" fill="#F8A000" style="--d:0.04s"/><circle class="lvl-a" cx="42" cy="121" r="4" fill="#F8A000" style="--d:0.36s"/><circle class="lvl-a" cx="117" cy="178" r="4" fill="#F8A000" style="--d:0.20s"/>
+          <rect x="270" y="40" width="150" height="190" rx="14" fill="rgba(34,179,94,0.10)"/>
+          <text x="345" y="30" text-anchor="middle" fill="#7FE0A8" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700">GUT ABSORPTION</text>
+          <g class="lvl-lipo">
+            <circle class="lvl-ring" r="58" stroke="#3D8BFF" stroke-width="3" stroke-dasharray="8 6" fill="rgba(61,139,255,0.10)"/>
+            <circle r="42" stroke="#9CC7FF" stroke-width="1.6" fill="rgba(16,64,128,0.45)"/>
+            <circle r="27" fill="#104080"/>
+            <text y="-1" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">Fe³⁺ 27 mg</text>
+            <text y="12" text-anchor="middle" fill="#C9D6EA" font-size="7.5" font-family="Space Grotesk, sans-serif">PROTECTED</text>
+          </g>
+          <text class="lvl-shield" x="210" y="58" text-anchor="middle" fill="#9CC7FF" font-size="10" font-family="Space Grotesk, sans-serif" font-weight="700">PHOSPHOLIPID SHIELD</text>
+          <text class="lvl-ok" x="345" y="214" text-anchor="middle" fill="#7FE0A8" font-size="10.5" font-weight="700">Iron reaches intact</text>
+          <g class="lvl-qf">
+            <rect x="152" y="196" width="116" height="40" rx="10" fill="rgba(0,104,56,0.35)" stroke="#22B35E"/>
+            <text x="210" y="213" text-anchor="middle" fill="#D7F5E3" font-size="10" font-weight="700">+ Quatrefolic</text>
+            <text x="210" y="227" text-anchor="middle" fill="#B8E2C6" font-size="8.5">P5P • B12 • Glycine</text>
+          </g>
         </svg>`;
     }
     if (index === 2) {
       return `
-        <svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Aquamin Marine Calcium">
-          <g stroke="#38BDF8" stroke-width="2" fill="rgba(56,189,248,0.13)">
-            <polygon points="130,70 156,55 182,70 182,100 156,115 130,100"/>
-            <polygon points="182,70 208,55 234,70 234,100 208,115 182,100"/>
-            <polygon points="156,115 182,100 208,115 208,145 182,160 156,145"/>
-            <polygon points="208,115 234,100 260,115 260,145 234,160 208,145"/>
-            <polygon points="130,160 156,145 182,160 182,190 156,205 130,190"/>
-            <polygon points="182,160 208,145 234,160 234,190 208,205 182,190"/>
+        <svg class="lvm" viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Aquamin marine calcium: a porous honeycomb structure filled with calcium, magnesium and 72 minerals">
+          <text x="210" y="34" text-anchor="middle" fill="#9CC7FF" font-size="11" font-family="Space Grotesk, sans-serif" font-weight="700">AQUAMIN POROUS MARINE CALCIUM</text>
+          <polygon class="lvm-h" points="160.8,73.0 160.8,97.0 140.0,109.0 119.2,97.0 119.2,73.0 140.0,61.0" style="--d:0.20s"/><polygon class="lvm-h" points="202.4,73.0 202.4,97.0 181.6,109.0 160.8,97.0 160.8,73.0 181.6,61.0" style="--d:0.34s"/><polygon class="lvm-h" points="140.8,109.0 140.8,133.0 120.0,145.0 99.2,133.0 99.2,109.0 120.0,97.0" style="--d:0.48s"/><polygon class="lvm-h" points="182.4,109.0 182.4,133.0 161.6,145.0 140.8,133.0 140.8,109.0 161.6,97.0" style="--d:0.62s"/><polygon class="lvm-h" points="224.0,109.0 224.0,133.0 203.2,145.0 182.4,133.0 182.4,109.0 203.2,97.0" style="--d:0.76s"/><polygon class="lvm-h" points="160.8,145.0 160.8,169.0 140.0,181.0 119.2,169.0 119.2,145.0 140.0,133.0" style="--d:0.90s"/><polygon class="lvm-h" points="202.4,145.0 202.4,169.0 181.6,181.0 160.8,169.0 160.8,145.0 181.6,133.0" style="--d:1.04s"/>
+          <circle class="lvm-d" cx="140" cy="85" r="5" fill="#F8A000" style="--d:1.40s"/><circle class="lvm-d" cx="181.6" cy="85" r="5" fill="#22B35E" style="--d:1.49s"/><circle class="lvm-d" cx="120" cy="121" r="5" fill="#F8A000" style="--d:1.58s"/><circle class="lvm-d" cx="161.6" cy="121" r="5" fill="#22B35E" style="--d:1.67s"/><circle class="lvm-d" cx="203.2" cy="121" r="5" fill="#F8A000" style="--d:1.76s"/><circle class="lvm-d" cx="140" cy="157" r="5" fill="#22B35E" style="--d:1.85s"/><circle class="lvm-d" cx="181.6" cy="157" r="5" fill="#F8A000" style="--d:1.94s"/>
+          <g class="lvm-box">
+            <rect x="262" y="92" width="136" height="76" rx="14" fill="rgba(0,104,56,0.30)" stroke="#22B35E"/>
+            <text x="330" y="118" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="800">Ca 330 mg</text>
+            <text x="330" y="136" text-anchor="middle" fill="#C9D6EA" font-size="10">Mg 25 mg + 72 Minerals</text>
+            <text x="330" y="154" text-anchor="middle" fill="#7FE0A8" font-size="10" font-weight="700">+ Vit K2-7 &amp; D3</text>
           </g>
-          <text x="195" y="34" text-anchor="middle" fill="#7DD3FC" font-size="11" font-family="Space Grotesk, sans-serif" font-weight="700">AQUAMIN POROUS MARINE CALCIUM</text>
-          <rect x="280" y="92" width="118" height="76" rx="14" fill="rgba(56,189,248,0.16)" stroke="#38BDF8"/>
-          <text x="339" y="118" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="800">Ca 330 mg</text>
-          <text x="339" y="136" text-anchor="middle" fill="#BAE6FD" font-size="10">Mg 25 mg + 72 Minerals</text>
-          <text x="339" y="154" text-anchor="middle" fill="#34D399" font-size="10" font-weight="700">+ Vit K2-7 &amp; D3</text>
         </svg>`;
     }
     return `
@@ -3182,4 +3184,78 @@
   function upd() { const h = document.querySelector(".site-header"); if (h) h.classList.toggle("lv-hdr-solid", window.scrollY > 40); }
   window.addEventListener("scroll", upd, { passive: true });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", upd); else upd();
+})();
+
+/* ===================== V5: Polish animations (buttons, progress bar, dock, modal open) ===================== */
+(function () {
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* 5. Tri-colour reading progress bar */
+  const bar = document.createElement("div");
+  bar.className = "lv-progress"; bar.setAttribute("aria-hidden", "true");
+  function prog() {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = `scaleX(${h > 0 ? Math.min(1, window.scrollY / h) : 0})`;
+  }
+  function addBar() { if (!document.body.contains(bar)) document.body.appendChild(bar); prog(); }
+  window.addEventListener("scroll", prog, { passive: true });
+  window.addEventListener("resize", prog);
+
+  /* 4. Buttons: wrap trailing arrows so they can nudge; add shine to solid buttons */
+  function decorate() {
+    document.querySelectorAll(".btn:not([data-lv-btn]), .lv-sci-med:not([data-lv-btn])").forEach((b) => {
+      b.dataset.lvBtn = "1";
+      const last = b.lastChild;
+      if (last && last.nodeType === 3 && /→\s*$/.test(last.nodeValue)) {
+        last.nodeValue = last.nodeValue.replace(/\s*→\s*$/, " ");
+        const s = document.createElement("span"); s.className = "lv-arr"; s.textContent = "→"; s.setAttribute("aria-hidden", "true");
+        b.appendChild(s);
+      }
+      if (b.matches(".btn-crimson, .btn-cobalt") && !reduce) {
+        const sh = document.createElement("span"); sh.className = "lv-btn-shine"; sh.setAttribute("aria-hidden", "true");
+        b.appendChild(sh);
+      }
+    });
+  }
+
+  /* 6. Mobile bottom bar: icon bounces on tap; Enquire breathes once on load */
+  document.addEventListener("click", (e) => {
+    const it = e.target.closest && e.target.closest(".mob-dock-item");
+    if (!it || reduce) return;
+    it.classList.remove("lv-bounce"); void it.offsetWidth; it.classList.add("lv-bounce");
+  }, true);
+  function breathe() {
+    if (reduce) return;
+    const enq = document.querySelector('.mob-dock-item[href="contact.html"]');
+    if (enq && !enq.dataset.lvBreath) { enq.dataset.lvBreath = "1"; setTimeout(() => enq.classList.add("lv-breathe"), 900); }
+  }
+
+  /* 7. Product window grows out of the card that was tapped */
+  function openWins() { return [...document.querySelectorAll(".modal-backdrop.open .modal-window, .modal-backdrop.open [role=dialog]")]; }
+  document.addEventListener("click", (e) => {
+    const t = e.target.closest && e.target.closest("[data-open-med], [data-rx=\"ok\"]");
+    if (!t || reduce) return;
+    const card = t.closest(".med-card, .sci-selector-card, .need-card, .lv-sci-meds, .modal-window") || t;
+    const rect = card.getBoundingClientRect();
+    const before = new Set(openWins());
+    requestAnimationFrame(() => {
+      const win = openWins().find((w) => !before.has(w)) || (t.matches("[data-rx]") ? openWins()[0] : null);
+      if (!win || !win.animate) return;
+      const w = win.getBoundingClientRect();
+      const dx = (rect.left + rect.width / 2) - (w.left + w.width / 2);
+      const dy = (rect.top + rect.height / 2) - (w.top + w.height / 2);
+      win.style.animation = "none";
+      win.animate([
+        { transform: `translate(${dx}px, ${dy}px) scale(0.32)`, opacity: 0.2 },
+        { transform: "none", opacity: 1 }
+      ], { duration: 460, easing: "cubic-bezier(.2,.8,.2,1)" });
+    });
+  }, true);
+  function watchModal() {}
+
+  function run() { addBar(); decorate(); breathe(); watchModal(); }
+  let t;
+  const mo = new MutationObserver(() => { clearTimeout(t); t = setTimeout(run, 120); });
+  function init() { run(); mo.observe(document.body, { childList: true, subtree: true }); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
