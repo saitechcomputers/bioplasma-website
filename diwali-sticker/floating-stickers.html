@@ -1,0 +1,93 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Floating Diwali Stickers</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@700;900&family=Great+Vibes&family=Tiro+Devanagari+Hindi&display=block" rel="stylesheet">
+<style>html,body{margin:0;background:transparent}svg{display:block;width:var(--s,512px);height:var(--s,512px)}</style></head>
+<body><!-- No background / no outline: only the design shows, like a WhatsApp text sticker. ?v=1|2|3 picks the design. -->
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><defs>
+  <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFF6C2"/><stop offset=".3" stop-color="#F7D461"/>
+    <stop offset=".6" stop-color="#D9A228"/><stop offset="1" stop-color="#8E5B0E"/>
+  </linearGradient>
+  <linearGradient id="goldH" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFF3B5"/><stop offset=".45" stop-color="#F2C744"/>
+    <stop offset=".7" stop-color="#C98E1C"/><stop offset="1" stop-color="#FCE38A"/>
+  </linearGradient>
+  <linearGradient id="goldText" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFFBE0"/><stop offset=".45" stop-color="#FFD54F"/>
+    <stop offset=".55" stop-color="#E0A21E"/><stop offset="1" stop-color="#FFE38A"/>
+  </linearGradient>
+  <radialGradient id="bg" cx=".5" cy=".42" r=".6">
+    <stop offset="0" stop-color="#B4231C"/><stop offset=".55" stop-color="#7A0E14"/><stop offset="1" stop-color="#3E040B"/>
+  </radialGradient>
+  <radialGradient id="halo" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#FFF4B0" stop-opacity=".95"/><stop offset=".55" stop-color="#FFC93C" stop-opacity=".55"/>
+    <stop offset="1" stop-color="#FF9F1C" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="flame" cx=".5" cy=".7" r=".6">
+    <stop offset="0" stop-color="#FFFFFF"/><stop offset=".35" stop-color="#FFF176"/>
+    <stop offset=".75" stop-color="#FF9800"/><stop offset="1" stop-color="#E65100"/>
+  </radialGradient>
+  <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#FFE082" stop-opacity=".9"/><stop offset="1" stop-color="#FFB300" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ribbon" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#9C1A1A"/><stop offset=".5" stop-color="#6E0B12"/><stop offset="1" stop-color="#4A060C"/>
+  </linearGradient>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2.2" flood-color="#2a0000" flood-opacity=".55"/>
+  </filter>
+  <filter id="outline" x="-5%" y="-5%" width="110%" height="110%">
+    <feMorphology in="SourceAlpha" operator="dilate" radius="7" result="d"/>
+    <feFlood flood-color="#FFFFFF"/><feComposite in2="d" operator="in" result="w"/>
+    <feGaussianBlur in="d" stdDeviation="3" result="b"/><feOffset in="b" dy="3" result="bo"/>
+    <feFlood flood-color="#000" flood-opacity=".35"/><feComposite in2="bo" operator="in" result="sh"/>
+    <feMerge><feMergeNode in="sh"/><feMergeNode in="w"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <clipPath id="disc"><circle cx="256" cy="236" r="214"/></clipPath>
+  <filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
+
+  <!-- Diya -->
+  <g id="diya">
+    <ellipse cx="0" cy="-22" rx="16" ry="22" fill="url(#glow)"/>
+    <path d="M0 -30 C 7 -20 7 -10 0 -6 C -7 -10 -7 -20 0 -30 Z" fill="url(#flame)"/>
+    <path d="M-24 -6 Q 0 -2 24 -6 Q 22 12 0 14 Q -22 12 -24 -6 Z" fill="url(#gold)" stroke="#6B3A05" stroke-width="1.2"/>
+    <path d="M-20 -3 Q 0 1 20 -3" fill="none" stroke="#B3261E" stroke-width="2"/>
+    <circle cx="-10" cy="5" r="1.6" fill="#B3261E"/><circle cx="0" cy="7" r="1.6" fill="#1E7D4F"/><circle cx="10" cy="5" r="1.6" fill="#B3261E"/>
+  </g>
+  <!-- Lotus petal -->
+  <path id="petal" d="M0 0 C -9 -10 -9 -26 0 -36 C 9 -26 9 -10 0 0 Z"/>
+  <!-- Gold coin -->
+  <g id="coin"><circle r="4.6" fill="url(#goldH)" stroke="#7A4A06" stroke-width=".9"/><circle r="2.4" fill="none" stroke="#9A6510" stroke-width=".7"/></g>
+</defs>
+<g id="v1">
+<image href="laxmi-ganesh.png" x="96" y="14" width="320" height="312" preserveAspectRatio="xMidYMax meet" filter="url(#shadow)"/>
+<text x="256" y="388" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-weight="900" font-size="50" fill="url(#goldText)" stroke="#4A1A00" stroke-width="2.6" paint-order="stroke" filter="url(#shadow)">Happy Diwali</text>
+<text x="256" y="430" text-anchor="middle" font-family="Cinzel,serif" font-weight="900" font-size="25" fill="url(#goldText)" stroke="#4A1A00" stroke-width="2.2" paint-order="stroke" letter-spacing="2">SAITECH COMPUTERS</text>
+<text x="256" y="466" text-anchor="middle" font-family="'Great Vibes',cursive" font-size="30" fill="#FFE9A8" stroke="#4A1A00" stroke-width="2.4" paint-order="stroke">Completely Yours</text>
+</g>
+<g id="v2">
+<use href="#diya" transform="translate(256 190) scale(3.2)"/>
+<text x="256" y="262" text-anchor="middle" font-family="'Tiro Devanagari Hindi',serif" font-size="44" fill="url(#goldText)" stroke="#4A1A00" stroke-width="2.4" paint-order="stroke">शुभ दीपावली</text>
+<text x="256" y="330" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-weight="900" font-size="56" fill="url(#goldText)" stroke="#4A1A00" stroke-width="2.6" paint-order="stroke" filter="url(#shadow)">Happy Diwali</text>
+<text x="256" y="388" text-anchor="middle" font-family="Cinzel,serif" font-weight="900" font-size="27" fill="url(#goldText)" stroke="#4A1A00" stroke-width="2.2" paint-order="stroke" letter-spacing="2">SAITECH COMPUTERS</text>
+<text x="256" y="428" text-anchor="middle" font-family="'Great Vibes',cursive" font-size="34" fill="#FFE9A8" stroke="#4A1A00" stroke-width="2.4" paint-order="stroke">Completely Yours</text>
+</g>
+<g id="v3">
+<!-- laptop as gold line-art only: screen is see-through -->
+<rect x="70" y="40" width="372" height="270" rx="16" fill="none" stroke="url(#goldH)" stroke-width="9"/>
+<rect x="70" y="40" width="372" height="270" rx="16" fill="none" stroke="#4A1A00" stroke-width="1.5"/>
+<circle cx="256" cy="52" r="3" fill="url(#goldH)"/>
+<path d="M30 322 H482 L500 352 Q 500 360 490 360 H22 Q 12 360 12 352 Z" fill="url(#goldH)" stroke="#4A1A00" stroke-width="1.5"/>
+<rect x="222" y="328" width="68" height="6" rx="3" fill="#7A4A06"/>
+<image href="laxmi-ganesh.png" x="110" y="58" width="292" height="196" preserveAspectRatio="xMidYMax meet" filter="url(#shadow)"/>
+<text x="256" y="298" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-weight="900" font-size="40" fill="url(#goldText)" stroke="#4A1A00" stroke-width="2.6" paint-order="stroke" filter="url(#shadow)">Happy Diwali</text>
+<text x="256" y="402" text-anchor="middle" font-family="Cinzel,serif" font-weight="900" font-size="27" fill="url(#goldText)" stroke="#4A1A00" stroke-width="2.2" paint-order="stroke" letter-spacing="2">SAITECH COMPUTERS</text>
+<text x="256" y="442" text-anchor="middle" font-family="'Great Vibes',cursive" font-size="32" fill="#FFE9A8" stroke="#4A1A00" stroke-width="2.4" paint-order="stroke">Completely Yours</text>
+</g>
+<script>
+  const q=new URLSearchParams(location.search), v=q.get('v')||'1';
+  ['1','2','3'].forEach(k=>{ if(k!==v) document.getElementById('v'+k).remove(); });
+  const s=q.get('s'); if(s) document.documentElement.style.setProperty('--s',s+'px');
+  window.photoReady=Promise.all([...document.images].concat([...document.querySelectorAll('image')].map(i=>new Promise(r=>{const m=new Image();m.onload=m.onerror=r;m.src=i.getAttribute('href');}))));
+</script>
+</svg></body></html>
