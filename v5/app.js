@@ -88,6 +88,8 @@
     quickNeedId: null,
     dosageForm: "all",
     sugarFreeOnly: false,
+    vegOnly: false,
+    formGroup: "all",
     rxOnly: false,
     searchQuery: "",
     viewMode: "grid", // "grid" | "table"
@@ -1768,6 +1770,8 @@
         state.quickNeedId = null;
         state.dosageForm = "all";
         state.sugarFreeOnly = false;
+        state.vegOnly = false;
+        state.formGroup = "all";
         state.rxOnly = false;
         state.searchQuery = "";
         if (searchInput) searchInput.value = "";
@@ -1780,6 +1784,105 @@
     }
 
     renderExplorer();
+  }
+
+  function lvFormGroup(m) {
+    const f = String(m.dosageForm || "").toLowerCase();
+    if (f.includes("gel")) return "Gel";
+    if (f.includes("drop")) return "Drops";
+    if (f.includes("shot")) return "Nano Shots";
+    if (f.includes("granule") || f.includes("sachet")) return "Granules";
+    if (f.includes("syrup") || f.includes("suspension") || f.includes("liquid")) return "Syrups & Suspensions";
+    if (f.includes("capsule")) return "Capsules";
+    if (f.includes("tablet")) return "Tablets";
+    return "Others";
+  }
+  /* ===== V5: Mobile filters — one-line chips + Filter sheet + active chips ===== */
+  function lvMobileFilters(count) {
+    const toolbar = document.querySelector("#medicinesExplorerSection .explorer-toolbar");
+    if (!toolbar) return;
+    const rowTop = toolbar.querySelector(".toolbar-row-top");
+    const ORDER = ["Tablets", "Capsules", "Syrups & Suspensions", "Drops", "Nano Shots", "Granules", "Gel", "Others"];
+    const forms = ORDER.filter((g) => DATA.medicines.some((m) => lvFormGroup(m) === g));
+    const nActive = (state.formGroup !== "all" ? 1 : 0) + (state.dosageForm !== "all" ? 1 : 0) + (state.sugarFreeOnly ? 1 : 0) + (state.vegOnly ? 1 : 0);
+
+    let fbtn = toolbar.querySelector(".lv-filter-btn");
+    if (!fbtn && rowTop) {
+      fbtn = document.createElement("button");
+      fbtn.type = "button"; fbtn.className = "lv-filter-btn"; fbtn.setAttribute("aria-label", "Open filters");
+      fbtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg><span>Filter</span><b class="lv-filter-count"></b>';
+      rowTop.appendChild(fbtn);
+      fbtn.addEventListener("click", () => openSheet());
+    }
+    if (fbtn) { const b = fbtn.querySelector(".lv-filter-count"); b.textContent = nActive || ""; b.hidden = !nActive; }
+
+    let strip = toolbar.querySelector(".lv-active-strip");
+    if (!strip) { strip = document.createElement("div"); strip.className = "lv-active-strip"; toolbar.appendChild(strip); }
+    const chips = [];
+    if (state.formGroup !== "all") chips.push(["group", state.formGroup]);
+    if (state.dosageForm !== "all") chips.push(["dosage", state.dosageForm]);
+    if (state.sugarFreeOnly) chips.push(["sugar", "Sugar-Free"]);
+    if (state.vegOnly) chips.push(["veg", "100% Veg"]);
+    if (state.searchQuery) chips.push(["search", `“${state.searchQuery}”`]);
+    strip.innerHTML = `<span class="lv-count">${count} product${count === 1 ? "" : "s"}</span>` +
+      chips.map(([k, l]) => `<button type="button" class="lv-active-chip" data-clear="${k}">${escapeHtml(l)} <span aria-hidden="true">✕</span></button>`).join("");
+    strip.querySelectorAll("[data-clear]").forEach((b) => b.addEventListener("click", () => clearOne(b.dataset.clear)));
+
+    const sheet = document.getElementById("lvFilterSheet");
+    if (sheet && sheet.classList.contains("open")) paintSheet(count);
+
+    function sync() {
+      const sel = document.getElementById("explorerDosageSelect"); if (sel) sel.value = state.dosageForm;
+      document.getElementById("explorerSugarBtn")?.classList.toggle("active", state.sugarFreeOnly);
+    }
+    function clearOne(k) {
+      if (k === "dosage") state.dosageForm = "all";
+      if (k === "group") state.formGroup = "all";
+      if (k === "sugar") state.sugarFreeOnly = false;
+      if (k === "veg") state.vegOnly = false;
+      if (k === "search") {
+        state.searchQuery = "";
+        const si = document.getElementById("explorerSearchInput"); if (si) si.value = "";
+        document.getElementById("explorerSearchClear")?.classList.remove("visible");
+      }
+      sync(); renderExplorer();
+    }
+    function paintSheet(n) {
+      const body = document.querySelector("#lvFilterSheet .lv-sheet-body");
+      body.innerHTML = `
+        <p class="lv-sheet-label">Dosage form</p>
+        <div class="lv-sheet-chips">
+          <button type="button" class="lv-opt ${state.formGroup === "all" ? "on" : ""}" data-form="all">All</button>
+          ${forms.map((f) => `<button type="button" class="lv-opt ${state.formGroup === f ? "on" : ""}" data-form="${escapeHtml(f)}">${escapeHtml(f)}</button>`).join("")}
+        </div>
+        <p class="lv-sheet-label">Preferences</p>
+        <label class="lv-switch"><span>Sugar-Free only</span><input type="checkbox" data-pref="sugar" ${state.sugarFreeOnly ? "checked" : ""}><i></i></label>
+        <label class="lv-switch"><span>100% Vegetarian only</span><input type="checkbox" data-pref="veg" ${state.vegOnly ? "checked" : ""}><i></i></label>`;
+      document.querySelector("#lvFilterSheet .lv-sheet-show").textContent = `Show ${n} product${n === 1 ? "" : "s"}`;
+      body.querySelectorAll("[data-form]").forEach((b) => b.addEventListener("click", () => { state.formGroup = b.dataset.form; state.dosageForm = "all"; sync(); renderExplorer(); }));
+      body.querySelectorAll("[data-pref]").forEach((c) => c.addEventListener("change", () => {
+        if (c.dataset.pref === "sugar") state.sugarFreeOnly = c.checked; else state.vegOnly = c.checked;
+        sync(); renderExplorer();
+      }));
+    }
+    function openSheet() {
+      let sh = document.getElementById("lvFilterSheet");
+      if (!sh) {
+        sh = document.createElement("div"); sh.id = "lvFilterSheet"; sh.className = "lv-sheet"; sh.setAttribute("role", "dialog"); sh.setAttribute("aria-modal", "true"); sh.setAttribute("aria-label", "Filters");
+        sh.innerHTML = `<div class="lv-sheet-scrim" data-close></div>
+          <div class="lv-sheet-panel">
+            <div class="lv-sheet-grab" aria-hidden="true"></div>
+            <div class="lv-sheet-head"><strong>Filters</strong><button type="button" class="lv-x-close" data-close aria-label="Close filters"><i></i><i></i></button></div>
+            <div class="lv-sheet-body"></div>
+            <div class="lv-sheet-foot"><button type="button" class="lv-sheet-clear">Clear all</button><button type="button" class="lv-sheet-show" data-close>Show</button></div>
+          </div>`;
+        document.body.appendChild(sh);
+        sh.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => { sh.classList.remove("open"); document.body.style.overflow = ""; }));
+        sh.querySelector(".lv-sheet-clear").addEventListener("click", () => { state.formGroup = "all"; state.dosageForm = "all"; state.sugarFreeOnly = false; state.vegOnly = false; sync(); renderExplorer(); });
+      }
+      paintSheet(getFilteredMedicines().length);
+      sh.classList.add("open"); document.body.style.overflow = "hidden";
+    }
   }
 
   function getFilteredMedicines() {
@@ -1801,6 +1904,8 @@
       }
       if (state.dosageForm !== "all" && m.dosageForm !== state.dosageForm) return false;
       if (state.sugarFreeOnly && !m.sugarFree) return false;
+      if (state.vegOnly && !m.vegetarian) return false;
+      if (state.formGroup !== "all" && lvFormGroup(m) !== state.formGroup) return false;
       if (state.rxOnly && !m.rxRequired) return false;
 
       if (q) {
@@ -1850,7 +1955,8 @@
     }
 
     const filtered = getFilteredMedicines();
-    const isFiltered = state.category !== "all" || state.quickNeedId || state.dosageForm !== "all" || state.sugarFreeOnly || state.searchQuery;
+    const isFiltered = state.category !== "all" || state.quickNeedId || state.dosageForm !== "all" || state.formGroup !== "all" || state.sugarFreeOnly || state.vegOnly || state.searchQuery;
+    lvMobileFilters(filtered.length);
 
     if (statusStrip && statusText) {
       statusStrip.classList.toggle("visible", Boolean(isFiltered));
@@ -2015,11 +2121,11 @@
       <div class="modal-backdrop" id="quickSearchBackdrop" role="dialog" aria-modal="true" aria-label="Quick Search">
         <div class="modal-window" style="max-width:680px;">
           <div class="modal-header-bar">
-            <strong style="font-size:0.96rem;">Search LV Bioplasma Formulary &amp; Symptoms</strong>
+            <strong style="font-size:1.05rem;">Search products</strong>
             <button type="button" class="lv-x-close" id="quickSearchCloseBtn" aria-label="Close search" title="Close"><i></i><i></i></button>
           </div>
           <div class="modal-body-scroll">
-            <input type="search" id="quickSearchModalInput" class="search-input" style="padding-left:18px;" placeholder="Type medicine (e.g. BIOIPC, PANTHETA DSR), salt (Vitamin D3, Iron), or symptom..." autocomplete="off" />
+            <input type="search" id="quickSearchModalInput" class="search-input" style="padding-left:18px;" placeholder="Medicine, salt or symptom…" enterkeyhint="search" autocomplete="off" />
             <div class="quick-search-list" id="quickSearchResultsMount"></div>
           </div>
         </div>
@@ -2107,26 +2213,68 @@
   function renderQuickSearchResults(query) {
     const mount = document.getElementById("quickSearchResultsMount");
     if (!mount) return;
-    const q = (query || "").trim().toLowerCase();
-    const matches = DATA.medicines.filter((m) => {
-      if (!q) return true;
-      const hay = [m.name, m.genericSummary, m.technology, ...(m.keywords || []), ...(m.indications || [])].join(" ").toLowerCase();
-      return hay.includes(q);
-    });
+    const raw = (query || "").trim();
+    const q = raw.toLowerCase();
+    const hayOf = (m) => [m.name, m.genericSummary, m.technology, m.techBadge, ...(m.keywords || []), ...(m.indications || [])].join(" ").toLowerCase();
+    const hl = (txt) => {
+      const safe = escapeHtml(txt);
+      if (!q) return safe;
+      const i = txt.toLowerCase().indexOf(q);
+      if (i < 0) return safe;
+      return escapeHtml(txt.slice(0, i)) + "<mark>" + escapeHtml(txt.slice(i, i + q.length)) + "</mark>" + escapeHtml(txt.slice(i + q.length));
+    };
+    const row = (m) => `
+      <button type="button" class="qs-row" data-open-med="${m.id}">
+        <img src="${m.image}" alt="" loading="lazy" />
+        <span class="qs-txt"><strong>${hl(m.name)}</strong><small>${hl(m.genericSummary)}</small></span>
+        ${m.rxRequired ? '<span class="qs-rx">Rx</span>' : ""}
+        <span class="qs-go" aria-hidden="true">›</span>
+      </button>`;
 
-    mount.innerHTML = matches.map((m) => `
-      <div class="qs-result-row" data-open-med="${m.id}">
-        <div class="qs-result-left">
-          <img src="${m.image}" alt="${escapeHtml(m.name)}" />
-          <div>
-            <strong style="display:block;font-size:0.96rem;">${escapeHtml(m.name)}</strong>
-            <span style="font-size:0.8rem;color:var(--ink-muted);">${escapeHtml(m.genericSummary)}</span>
-          </div>
-        </div>
-        <span style="font-size:0.78rem;font-weight:700;color:var(--bio-crimson);">View →</span>
-      </div>
-    `).join("");
+    if (!q) {
+      const POP = [["Vitamin D3", "d3"], ["Iron", "iron"], ["Acidity", "acid"], ["Cough", "cough"], ["Pregnancy", "pregnan"], ["Calcium", "calcium"], ["Probiotic", "probiotic"], ["Sugar-Free", "sugar-free"]];
+      let recent = [];
+      try { recent = JSON.parse(localStorage.getItem("lvRecentMeds") || "[]"); } catch (e) {}
+      const recentMeds = recent.map((id) => getMedById(id)).filter(Boolean).slice(0, 4);
+      mount.innerHTML = `
+        <p class="qs-label">Popular searches</p>
+        <div class="qs-chips">${POP.map(([l, v]) => `<button type="button" class="qs-chip" data-qs="${v}">${l}</button>`).join("")}</div>
+        ${recentMeds.length ? `<p class="qs-label">Recently viewed</p>${recentMeds.map(row).join("")}` : ""}
+        <p class="qs-label">All products (${DATA.medicines.length})</p>
+        ${DATA.medicines.map(row).join("")}`;
+      return;
+    }
+    const matches = DATA.medicines.filter((m) => {
+      if (q === "sugar-free") return m.sugarFree;
+      return hayOf(m).includes(q);
+    });
+    if (!matches.length) {
+      const first = q.slice(0, 3);
+      const near = DATA.medicines.filter((m) => m.name.toLowerCase().startsWith(first.slice(0, 2)) || hayOf(m).includes(first)).slice(0, 4);
+      mount.innerHTML = `<div class="qs-empty"><strong>No product found for “${escapeHtml(raw)}”</strong><span>Try a medicine name, salt (e.g. Vitamin D3) or symptom.</span></div>
+        ${near.length ? `<p class="qs-label">Did you mean?</p>${near.map(row).join("")}` : ""}`;
+      return;
+    }
+    mount.innerHTML = `<p class="qs-label">${matches.length} result${matches.length > 1 ? "s" : ""}</p>` + matches.map(row).join("");
   }
+
+  document.addEventListener("click", (e) => {
+    const chip = e.target.closest && e.target.closest(".qs-chip");
+    if (chip) {
+      const inp = document.getElementById("quickSearchModalInput");
+      if (inp) { inp.value = chip.dataset.qs === "sugar-free" ? "Sugar-Free" : chip.textContent; }
+      renderQuickSearchResults(chip.dataset.qs);
+      return;
+    }
+    const opener = e.target.closest && e.target.closest("[data-open-med]");
+    if (opener) {
+      try {
+        const id = opener.getAttribute("data-open-med");
+        const list = JSON.parse(localStorage.getItem("lvRecentMeds") || "[]").filter((x) => x !== id);
+        list.unshift(id); localStorage.setItem("lvRecentMeds", JSON.stringify(list.slice(0, 6)));
+      } catch (err) {}
+    }
+  }, true);
 
   function stepMonographModal(delta) {
     if (!state.currentModalMedId) return;

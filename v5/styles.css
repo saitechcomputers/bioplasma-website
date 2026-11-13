@@ -6566,3 +6566,78 @@ body.has-cinema-hero .site-header:not(.scrolled) .lv-has-pill .nav-link.active {
   .lv-x-close, .lv-x-close i { transition: none !important; }
   .lv-x-close:hover { transform: none; }
 }
+
+/* ===================== V5: Quick search redesign ===================== */
+#quickSearchResultsMount { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+.qs-label { margin: 10px 2px 2px; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #9A5B00; }
+.qs-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.qs-chip { border: 1px solid #DCE4EF; background: #F4F7FB; color: #104080; font-weight: 700; font-size: .86rem; padding: 8px 14px; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.qs-chip:hover, .qs-chip:focus-visible { background: #F8A000; border-color: #F8A000; color: #2A1A00; }
+.qs-row { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 10px 12px; border: 1px solid #E6ECF4; background: #fff; border-radius: 14px; cursor: pointer; transition: border-color .2s, background .2s, transform .2s; }
+.qs-row:hover, .qs-row:focus-visible { border-color: #F8A000; background: #FFFBF2; }
+.qs-row:active { transform: scale(.985); }
+.qs-row img { width: 46px; height: 46px; object-fit: contain; flex-shrink: 0; }
+.qs-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.qs-txt strong { font-size: .95rem; color: #0B2545; }
+.qs-txt small { font-size: .78rem; color: #5B6B84; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.qs-txt mark { background: #FFE2A8; color: inherit; border-radius: 3px; padding: 0 1px; }
+.qs-rx { flex-shrink: 0; font-size: .68rem; font-weight: 800; color: #B42318; background: #FDE8E6; border-radius: 999px; padding: 3px 8px; }
+.qs-go { flex-shrink: 0; font-size: 1.5rem; line-height: 1; color: #F8A000; font-weight: 700; }
+.qs-empty { display: flex; flex-direction: column; gap: 4px; padding: 18px 14px; border-radius: 14px; background: #FFF8EA; border: 1px dashed #F8A000; color: #0B2545; }
+.qs-empty span { font-size: .85rem; color: #5B6B84; }
+
+/* ===================== V5: Mobile product filters ===================== */
+.lv-filter-btn, .lv-active-strip { display: none; }
+.lv-sheet { position: fixed; inset: 0; z-index: 3000; pointer-events: none; }
+.lv-sheet-scrim { position: absolute; inset: 0; background: rgba(7,19,36,.5); opacity: 0; transition: opacity .25s ease; }
+.lv-sheet-panel { position: absolute; left: 0; right: 0; bottom: 0; max-height: 85dvh; display: flex; flex-direction: column; background: #fff; border-radius: 22px 22px 0 0;
+  transform: translateY(100%); transition: transform .32s cubic-bezier(.2,.8,.2,1); padding-bottom: env(safe-area-inset-bottom, 0px); box-shadow: 0 -20px 50px -20px rgba(0,0,0,.4); }
+.lv-sheet.open { pointer-events: auto; }
+.lv-sheet.open .lv-sheet-scrim { opacity: 1; }
+.lv-sheet.open .lv-sheet-panel { transform: none; }
+.lv-sheet-grab { width: 42px; height: 5px; border-radius: 3px; background: #D3DCE8; margin: 10px auto 2px; }
+.lv-sheet-head { display: flex; align-items: center; justify-content: space-between; padding: 6px 18px 12px; border-bottom: 1px solid #E6ECF4; }
+.lv-sheet-head strong { font-size: 1.15rem; color: #0B2545; }
+.lv-sheet-body { overflow-y: auto; padding: 6px 18px 14px; }
+.lv-sheet-label { margin: 14px 0 8px; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #9A5B00; }
+.lv-sheet-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.lv-opt { border: 1px solid #DCE4EF; background: #F4F7FB; color: #104080; font-weight: 700; font-size: .88rem; padding: 9px 14px; border-radius: 999px; cursor: pointer; }
+.lv-opt.on { background: #104080; border-color: #104080; color: #fff; }
+.lv-switch { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 2px; border-bottom: 1px solid #EEF2F7; font-weight: 600; color: #0B2545; cursor: pointer; }
+.lv-switch input { position: absolute; opacity: 0; pointer-events: none; }
+.lv-switch i { position: relative; flex-shrink: 0; width: 46px; height: 26px; border-radius: 999px; background: #D3DCE8; transition: background .2s; }
+.lv-switch i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25); transition: transform .22s cubic-bezier(.3,1.5,.5,1); }
+.lv-switch input:checked + i { background: #22B35E; }
+.lv-switch input:checked + i::after { transform: translateX(20px); }
+.lv-switch input:focus-visible + i { outline: 2px solid #104080; outline-offset: 2px; }
+.lv-sheet-foot { display: flex; gap: 10px; padding: 12px 18px 14px; border-top: 1px solid #E6ECF4; }
+.lv-sheet-clear { flex: 0 0 auto; border: 1px solid #DCE4EF; background: #fff; color: #104080; font-weight: 700; border-radius: 999px; padding: 12px 18px; cursor: pointer; }
+.lv-sheet-show { flex: 1; border: 0; background: #F8A000; color: #2A1A00; font-weight: 800; border-radius: 999px; padding: 12px 18px; cursor: pointer; }
+
+@media (max-width: 760px) {
+  .section-head-split > div:has(.view-mode-switch) { display: none !important; }
+  #medicinesExplorerSection .explorer-toolbar { position: sticky; top: 0; z-index: 40; padding: 10px !important; border-radius: 18px !important; background: rgba(255,255,255,.96) !important;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 10px 24px -18px rgba(11,43,87,.5); transition: top .3s ease; }
+  body:has(.site-header:not(.lv-hdr-hide)) #medicinesExplorerSection .explorer-toolbar { top: 76px; }
+  #medicinesExplorerSection .toolbar-row-top { display: flex !important; flex-direction: row !important; align-items: center; gap: 8px; flex-wrap: nowrap !important; }
+  #medicinesExplorerSection .toolbar-row-top > .search-field-wrap { flex: 1; min-width: 0; }
+  #medicinesExplorerSection .toolbar-row-top > div:has(#explorerDosageSelect), #explorerSugarBtn { display: none !important; }
+  #medicinesExplorerSection .search-input { font-size: 16px; height: 46px; }
+  .lv-filter-btn { display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; height: 46px; padding: 0 14px; border-radius: 999px; border: 1.5px solid #104080; background: #fff; color: #104080; font-weight: 800; font-size: .9rem; cursor: pointer; }
+  .lv-filter-btn svg { width: 18px; height: 18px; }
+  .lv-filter-count { min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: #F8A000; color: #2A1A00; font-size: .72rem; display: inline-grid; place-items: center; }
+  .lv-filter-count[hidden] { display: none; }
+  #explorerCategoryPills { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto; gap: 8px; margin: 10px -10px 0; padding: 2px 10px 4px; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; }
+  #explorerCategoryPills::-webkit-scrollbar { display: none; }
+  #explorerCategoryPills .cat-pill-btn { flex: 0 0 auto; white-space: nowrap !important; scroll-snap-align: start; padding: 8px 14px !important; font-size: .86rem !important; }
+  .lv-active-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 8px; }
+  .lv-count { font-size: .8rem; font-weight: 800; color: #5B6B84; margin-right: 4px; }
+  .lv-active-chip { border: 0; background: #FFF4DB; color: #7A4A00; font-weight: 700; font-size: .78rem; padding: 5px 10px; border-radius: 999px; cursor: pointer; }
+  .lv-active-chip span { margin-left: 2px; }
+  #explorerFilterStatus { display: none !important; }
+}
+.lv-sheet.open .lv-x-close i:nth-child(1) { transform: rotate(45deg); transition-delay: .15s; }
+.lv-sheet.open .lv-x-close i:nth-child(2) { transform: rotate(-45deg); transition-delay: .25s; }
+@media (max-width: 760px) {
+  body:has(.site-header:not(.lv-hdr-hide)) #medicinesExplorerSection .explorer-toolbar { top: 92px; }
+}
