@@ -2204,6 +2204,7 @@
             ${m.monoChipsMinimal ? "" : `<span class="med-tech-chip">${escapeHtml(m.technology)}</span>`}
             <span class="med-sched-chip ${m.rxRequired ? "rx" : ""}">${m.rxRequired ? "Rx Prescription Required" : "Health Supplement"}</span>
             ${m.sugarFree && !m.monoChipsMinimal ? `<span class="med-sched-chip">100% Sugar-Free</span>` : ""}
+            ${m.extraChip ? `<span class="med-sched-chip">${escapeHtml(m.extraChip)}</span>` : ""}
             ${m.vegetarian ? `<span class="med-sched-chip lv-veg-chip"><span class="lv-veg-mark" aria-hidden="true"><i></i></span>100% Vegetarian</span>` : ""}
           </div>
           <h2 style="font-size:clamp(1.75rem,3vw,2.4rem);font-weight:800;line-height:1.1;margin-bottom:6px;">${escapeHtml(m.name)}</h2>

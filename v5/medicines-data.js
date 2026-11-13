@@ -2435,17 +2435,18 @@ window.BIOPLASMA_DATA.medicines.push({
   id: "ub-10",
   name: "UB-10",
   shortTitle: "Astaxanthin + Coenzyme Q10 + L-Carnitine L-Tartrate + Vitamin K2-7 + Magnesium + Zinc Tablets",
-  genericSummary: "Astaxanthin USP 8 mg + Coenzyme Q10 100 mg + L-Carnitine L-Tartrate 500 mg + Vitamin K2-7 50 mcg + Magnesium 50 mg + Zinc 7.5 mg",
+  genericSummary: "Astaxanthin 8 mg + Coenzyme Q10 100 mg + L-Carnitine L-Tartrate 500 mg + Vitamin K2-7 50 mcg + Magnesium 50 mg + Zinc 7.5 mg",
   category: "womens",
   secondaryCategories: ["nutrition"],
   classification: "Prescription / Mitochondrial & Antioxidant Support",
   rxRequired: true,
+  extraChip: "100% Drug Formulation",
   sugarFree: false,
   flavour: "Oral Tablet",
   dosageForm: "Oral tablet",
   packSize: "1 × 10 Tablets",
-  technology: "Mitochondrial Energy + Antioxidant Support",
-  techBadge: "MITOCHONDRIAL ENERGY",
+  technology: "Coenzyme Q10",
+  techBadge: "COENZYME Q10",
   accent: "#104080",
   accentSoft: "#E8EEF8",
   image: "assets/products/ub-10.webp",
@@ -2474,12 +2475,12 @@ window.BIOPLASMA_DATA.medicines.push({
     ]
   },
   composition: [
-    { ingredient: "Astaxanthin USP", detail: "Potent antioxidant — helps protect reproductive cells from oxidative stress", strength: "8 mg", rda: "USP Grade" },
-    { ingredient: "Coenzyme Q10 (Ubidecarenone)", detail: "Supports ATP production, mitochondrial function and antioxidant defence", strength: "100 mg", rda: "—" },
-    { ingredient: "L-Carnitine L-Tartrate", detail: "Supports fatty acid transport, cellular energy, sperm maturation and motility", strength: "500 mg", rda: "—" },
-    { ingredient: "Vitamin K2-7", detail: "Supports bone metabolism and calcium utilisation", strength: "50 mcg", rda: "—" },
-    { ingredient: "Magnesium", detail: "Supports cellular energy metabolism and enzymatic reactions", strength: "50 mg", rda: "—" },
-    { ingredient: "Zinc", detail: "Supports spermatogenesis, DNA synthesis and cell division", strength: "7.5 mg", rda: "—" }
+    { ingredient: "Astaxanthin", detail: "Potent antioxidant — helps protect reproductive cells from oxidative stress", strength: "8 mg", rda: "Per Tablet" },
+    { ingredient: "Coenzyme Q10 (Ubidecarenone)", detail: "Supports ATP production, mitochondrial function and antioxidant defence", strength: "100 mg", rda: "Per Tablet" },
+    { ingredient: "L-Carnitine L-Tartrate", detail: "Supports fatty acid transport, cellular energy, sperm maturation and motility", strength: "500 mg", rda: "Per Tablet" },
+    { ingredient: "Vitamin K2-7", detail: "Supports bone metabolism and calcium utilisation", strength: "50 mcg", rda: "Per Tablet" },
+    { ingredient: "Magnesium", detail: "Supports cellular energy metabolism and enzymatic reactions", strength: "50 mg", rda: "Per Tablet" },
+    { ingredient: "Zinc", detail: "Supports spermatogenesis, DNA synthesis and cell division", strength: "7.5 mg", rda: "Per Tablet" }
   ],
   mechanism: [
     { step: "01", title: "Cellular Energy (ATP)", desc: "Coenzyme Q10 and L-Carnitine L-Tartrate support mitochondrial ATP production and fatty acid transport for cellular energy." },
@@ -2546,5 +2547,13 @@ window.BIOPLASMA_DATA.medicines.push({
   }
 });
 
+/* V5: quick-need lists — edits + always A–Z */
+(function () {
+  const D = window.BIOPLASMA_DATA, byId = (id) => D.medicines.find((m) => m.id === id);
+  const q = (id) => D.quickNeeds.find((n) => n.id === id);
+  const preg = q("pregnancy-support"); if (preg && !preg.medicineIds.includes("ub-10")) preg.medicineIds.push("ub-10");
+  const sf = q("sugar-free"); if (sf) sf.medicineIds = sf.medicineIds.filter((id) => id !== "bioipc" && id !== "preimmune-aqua").concat(sf.medicineIds.includes("bioimmune") ? [] : ["bioimmune"]);
+  D.quickNeeds.forEach((n) => n.medicineIds.sort((x, y) => ((byId(x) || {}).name || x).localeCompare((byId(y) || {}).name || y, "en", { sensitivity: "base" })));
+})();
 /* V5: always show products in alphabetical (A–Z) order */
 window.BIOPLASMA_DATA.medicines.sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }));
