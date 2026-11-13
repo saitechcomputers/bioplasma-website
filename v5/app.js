@@ -2016,7 +2016,7 @@
         <div class="modal-window" style="max-width:680px;">
           <div class="modal-header-bar">
             <strong style="font-size:0.96rem;">Search LV Bioplasma Formulary &amp; Symptoms</strong>
-            <button type="button" class="btn btn-outline btn-sm" id="quickSearchCloseBtn">✕ Esc</button>
+            <button type="button" class="lv-x-close" id="quickSearchCloseBtn" aria-label="Close search" title="Close"><i></i><i></i></button>
           </div>
           <div class="modal-body-scroll">
             <input type="search" id="quickSearchModalInput" class="search-input" style="padding-left:18px;" placeholder="Type medicine (e.g. BIOIPC, PANTHETA DSR), salt (Vitamin D3, Iron), or symptom..." autocomplete="off" />

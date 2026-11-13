@@ -2547,11 +2547,117 @@ window.BIOPLASMA_DATA.medicines.push({
   }
 });
 
+/* V5: FIRST FOOD (added from First Food Visual Aid.pdf) */
+window.BIOPLASMA_DATA.medicines.push({
+  id: "first-food",
+  name: "FIRST FOOD",
+  shortTitle: "Bovine Colostrum 350 mg Capsules",
+  genericSummary: "Bovine Colostrum 350 mg Capsules",
+  category: "womens",
+  secondaryCategories: ["nutrition"],
+  classification: "Health Supplement",
+  rxRequired: false,
+  sugarFree: false,
+  vegetarian: true,
+  flavour: "Capsule",
+  dosageForm: "Capsule",
+  packSize: "1 × 10 Capsules",
+  technology: "An Oral Immunoglobulin",
+  techBadge: "BOVINE COLOSTRUM",
+  accent: "#F8A000",
+  accentSoft: "#FFF4E0",
+  image: "assets/products/first-food.webp",
+  taglineEn: "Nature's First Immune Support — Immunoglobulins • Bioactive Proteins • Gut Support.",
+  taglineHi: "प्रकृति का पहला इम्यून सपोर्ट — इम्युनोग्लोबुलिन • बायोएक्टिव प्रोटीन • गट सपोर्ट।",
+  easyGuide: {
+    whatIsItEn: "Bovine colostrum is the first milk produced after a cow's birth and is naturally rich in immunoglobulins, proteins and other bioactive components. First Food isn't just a conventional lactation booster — it is a bovine-colostrum-based oral immunoglobulin formulation designed around the immune and gastrointestinal biology of colostrum.",
+    whatIsItHi: "बोवाइन कोलोस्ट्रम गाय के बच्चे के जन्म के बाद बनने वाला पहला दूध है, जो प्राकृतिक रूप से इम्युनोग्लोबुलिन, प्रोटीन और बायोएक्टिव तत्वों से भरपूर होता है। फर्स्ट फूड सिर्फ़ एक लैक्टेशन बूस्टर नहीं, बल्कि कोलोस्ट्रम पर आधारित ओरल इम्युनोग्लोबुलिन फ़ॉर्मूलेशन है।",
+    whoIsItForEn: "Postpartum mothers — the postpartum period is a time of substantial physiological adaptation and nutritional demand. First Food provides bovine colostrum as part of a comprehensive nutritional approach, or as advised by the doctor.",
+    whoIsItForHi: "प्रसव के बाद की माताएँ — इस समय शरीर में बड़े बदलाव और पोषण की ज़्यादा ज़रूरत होती है। संपूर्ण पोषण के हिस्से के रूप में, या डॉक्टर की सलाह अनुसार।",
+    keyPerksEn: [
+      "Immune support",
+      "Gut support",
+      "Nutritional support",
+      "Naturally occurring immunoglobulins (IgG, IgA, IgM, IgD, IgE)",
+      "Lactoferrin, bioactive proteins & peptides and growth factors"
+    ],
+    keyPerksHi: [
+      "इम्यून सपोर्ट",
+      "गट सपोर्ट",
+      "पोषण सपोर्ट",
+      "प्राकृतिक इम्युनोग्लोबुलिन (IgG, IgA, IgM, IgD, IgE)",
+      "लैक्टोफेरिन, बायोएक्टिव प्रोटीन, पेप्टाइड और ग्रोथ फ़ैक्टर"
+    ]
+  },
+  composition: [
+    { ingredient: "Bovine Colostrum", detail: "Naturally rich in immunoglobulins, lactoferrin, bioactive proteins & peptides and growth factors", strength: "350 mg", rda: "Per Capsule" }
+  ],
+  mechanism: [
+    { step: "01", title: "Immunoglobulins", desc: "IgG, IgA and IgM — naturally occurring antibodies that form an important part of the immune system; IgA is important for mucosal defence at gastrointestinal and respiratory surfaces." },
+    { step: "02", title: "Lactoferrin", desc: "An iron-binding protein naturally present in colostrum with biological activity relevant to immune and gastrointestinal health." },
+    { step: "03", title: "Bioactive Proteins & Growth Factors", desc: "A broad spectrum of proteins, peptides and naturally occurring growth-related components studied for their role in tissue and gastrointestinal biology." }
+  ],
+  highlights: [
+    "Nature's First Immune Support",
+    "Bovine Colostrum 350 mg — An Oral Immunoglobulin",
+    "Immunoglobulins • Bioactive Proteins • Gut Support",
+    "Postpartum nutritional support"
+  ],
+  indications: [
+    "Postpartum nutritional support",
+    "Immune support",
+    "Gut support"
+  ],
+  dosage: "As directed by the Physician.",
+  keywords: ["first food", "firstfood", "colostrum", "bovine colostrum", "immunoglobulin", "igg", "iga", "lactoferrin", "postpartum", "lactation", "immune", "gut"],
+  stakeholders: {
+    doctor: {
+      headline: "Bovine-colostrum-based oral immunoglobulin formulation for postpartum nutritional support.",
+      metaLabel: "Key Specialties",
+      metaValue: "Gynecology • Obstetrics • Pediatrics",
+      points: [
+        "Bovine Colostrum 350 mg per capsule.",
+        "Naturally contains IgG, IgA, IgM, IgD, IgE, lactoferrin, bioactive proteins and growth factors.",
+        "Positioned as part of a comprehensive postpartum nutritional approach."
+      ]
+    },
+    customer: {
+      headline: "Nature's first immune support for new mothers.",
+      metaLabel: "Daily Care",
+      metaValue: "Health Supplement • 1 × 10 Capsules",
+      points: [
+        "Supports immunity, gut health and nutrition after delivery.",
+        "Made from bovine colostrum, the first milk.",
+        "Take as advised by your doctor."
+      ]
+    },
+    mr: {
+      headline: "30-Sec Pitch: 'First Food — not just a lactation booster, an oral immunoglobulin from bovine colostrum.'",
+      metaLabel: "Target Call List",
+      metaValue: "Gynecologists • Obstetricians • Maternity Clinics",
+      points: [
+        "Lead with immunoglobulins, bioactive proteins and gut support.",
+        "Position for the postpartum period's high nutritional demand.",
+        "Use the 'Why Bovine Colostrum?' points from the visual aid."
+      ]
+    },
+    stockist: {
+      headline: "Postpartum nutrition SKU (1 × 10 Capsules) for gynecology and maternity prescriptions.",
+      metaLabel: "Trade Pack Spec",
+      metaValue: "1 × 10 Capsules",
+      points: [
+        "Stock alongside the women's-health range for maternity clinics.",
+        "Health supplement."
+      ]
+    }
+  }
+});
+
 /* V5: quick-need lists — edits + always A–Z */
 (function () {
   const D = window.BIOPLASMA_DATA, byId = (id) => D.medicines.find((m) => m.id === id);
   const q = (id) => D.quickNeeds.find((n) => n.id === id);
-  const preg = q("pregnancy-support"); if (preg && !preg.medicineIds.includes("ub-10")) preg.medicineIds.push("ub-10");
+  const preg = q("pregnancy-support"); if (preg) ["ub-10", "first-food"].forEach((id) => { if (!preg.medicineIds.includes(id)) preg.medicineIds.push(id); });
   const sf = q("sugar-free"); if (sf) sf.medicineIds = sf.medicineIds.filter((id) => id !== "bioipc" && id !== "preimmune-aqua").concat(sf.medicineIds.includes("bioimmune") ? [] : ["bioimmune"]);
   D.quickNeeds.forEach((n) => n.medicineIds.sort((x, y) => ((byId(x) || {}).name || x).localeCompare((byId(y) || {}).name || y, "en", { sensitivity: "base" })));
 })();
