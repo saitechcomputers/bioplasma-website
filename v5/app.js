@@ -2125,7 +2125,15 @@
             <button type="button" class="lv-x-close" id="quickSearchCloseBtn" aria-label="Close search" title="Close"><i></i><i></i></button>
           </div>
           <div class="modal-body-scroll">
-            <input type="search" id="quickSearchModalInput" class="search-input" style="padding-left:18px;" placeholder="Medicine, salt or symptom…" enterkeyhint="search" autocomplete="off" />
+            <div class="qs-bar">
+              <div class="qs-field">
+                <svg class="qs-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><line x1="20.5" y1="20.5" x2="16.4" y2="16.4"/></svg>
+                <label for="quickSearchModalInput" class="sr-only">Search medicines</label>
+                <input type="search" id="quickSearchModalInput" class="search-input" placeholder="Medicine, salt or symptom…" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" />
+                <button type="button" class="qs-clear" id="quickSearchClearBtn" aria-label="Clear search" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></button>
+              </div>
+              <button type="button" class="qs-cancel" id="quickSearchCancelBtn">Cancel</button>
+            </div>
             <div class="quick-search-list" id="quickSearchResultsMount"></div>
           </div>
         </div>
@@ -2181,7 +2189,16 @@
     });
 
     const qsInput = document.getElementById("quickSearchModalInput");
-    qsInput?.addEventListener("input", () => renderQuickSearchResults(qsInput.value));
+    const qsClear = document.getElementById("quickSearchClearBtn");
+    const syncQsClear = () => { if (qsClear) qsClear.hidden = !qsInput.value; };
+    qsInput?.addEventListener("input", () => { syncQsClear(); renderQuickSearchResults(qsInput.value); });
+    qsClear?.addEventListener("click", () => {
+      qsInput.value = "";
+      syncQsClear();
+      renderQuickSearchResults("");
+      qsInput.focus();
+    });
+    document.getElementById("quickSearchCancelBtn")?.addEventListener("click", () => closeAllModals());
   }
 
   function closeAllModals() {
@@ -2207,7 +2224,11 @@
     backdrop.classList.add("open");
     document.body.style.overflow = "hidden";
     renderQuickSearchResults(input.value);
-    setTimeout(() => input.focus(), 50);
+    const clearBtn = document.getElementById("quickSearchClearBtn");
+    if (clearBtn) clearBtn.hidden = !input.value;
+    /* focus inside the tap itself so iPhone/Android open the keyboard straight away */
+    try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); }
+    setTimeout(() => { if (document.activeElement !== input) input.focus(); }, 60);
   }
 
   function renderQuickSearchResults(query) {

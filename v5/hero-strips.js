@@ -146,6 +146,7 @@
     document.body.classList.toggle("hero-scrolled", window.scrollY > 60);
     measure();
     syncSticky();
+    applyPlaceholders();
     setTimeout(measure, 300);
   }
 
@@ -263,6 +264,54 @@
     }
   }
 
+  /* ---------- mobile: same short placeholder in both product searches ---------- */
+  var phoneQuery = window.matchMedia("(max-width: 760px)");
+  function applyPlaceholders() {
+    ["explorerSearchInput", "quickSearchModalInput"].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (!el.hasAttribute("data-ph-desktop")) el.setAttribute("data-ph-desktop", el.getAttribute("placeholder") || "");
+      el.setAttribute("placeholder", phoneQuery.matches ? "Search medicines" : el.getAttribute("data-ph-desktop"));
+    });
+  }
+  if (phoneQuery.addEventListener) phoneQuery.addEventListener("change", applyPlaceholders);
+  else if (phoneQuery.addListener) phoneQuery.addListener(applyPlaceholders);
+  document.addEventListener("click", function (e) {
+    if (e.target.closest && e.target.closest("[data-open-quick-search]")) setTimeout(applyPlaceholders, 0);
+  });
+
+  /* mobile: the keyboard's Search / Enter key closes the keyboard so results are visible */
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter" || !phoneQuery.matches) return;
+    var t = e.target;
+    if (t && (t.id === "explorerSearchInput" || t.id === "quickSearchModalInput")) {
+      e.preventDefault();
+      t.blur();
+    }
+  });
+
+  /* ---------- copy protection: block copy / cut / drag of page text ---------- */
+  var COPY_OK = "input, textarea, select, [contenteditable='true'], a[href^='tel:'], a[href^='mailto:']";
+  function copyAllowed(node) {
+    var el = node && (node.nodeType === 1 ? node : node.parentElement);
+    return !!(el && el.closest && el.closest(COPY_OK));
+  }
+  ["copy", "cut"].forEach(function (type) {
+    document.addEventListener(type, function (e) {
+      var sel = window.getSelection ? window.getSelection() : null;
+      var active = document.activeElement;
+      if (active && active.matches && active.matches("input, textarea")) return;
+      if (sel && sel.rangeCount && copyAllowed(sel.anchorNode) && copyAllowed(sel.focusNode)) return;
+      e.preventDefault();
+    });
+  });
+  document.addEventListener("dragstart", function (e) {
+    if (!copyAllowed(e.target)) e.preventDefault();
+  });
+  document.addEventListener("selectstart", function (e) {
+    if (!copyAllowed(e.target)) e.preventDefault();
+  });
+
   /* ---------- back-to-top button with scroll-progress ring ---------- */
   var RING = 2 * Math.PI * 21; /* r = 21 in a 48-unit viewBox */
   var topBtn = document.createElement("button");
@@ -278,8 +327,6 @@
     '<span class="lv-to-top-core" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>';
   document.body.appendChild(topBtn);
   var topBar = topBtn.querySelector(".lv-to-top-bar");
-  var lastY = window.scrollY;
-  var mobileQuery = window.matchMedia("(max-width: 820px)");
 
   function goTop(e) {
     if (e) e.preventDefault();
@@ -296,12 +343,9 @@
     var max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
     var p = Math.min(1, Math.max(0, y / max));
     topBar.style.strokeDashoffset = (RING * (1 - p)).toFixed(2);
-    var past = y > window.innerHeight * 0.9;
-    var show = mobileQuery.matches ? past && (y < lastY - 2 || p > 0.97) : past;
-    if (mobileQuery.matches && Math.abs(y - lastY) < 3) show = topBtn.classList.contains("is-shown") && past;
-    topBtn.classList.toggle("is-shown", show);
+    /* visible on every device once the visitor is about one screen down — scrolling up or down */
+    topBtn.classList.toggle("is-shown", y > window.innerHeight * 0.9);
     topBtn.classList.toggle("is-done", p > 0.97);
-    lastY = y;
   }
 
   window.addEventListener("resize", measure);

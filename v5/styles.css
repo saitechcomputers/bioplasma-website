@@ -6869,3 +6869,79 @@ body.hero-scrolled .hero-scroll-badge { opacity: 0; pointer-events: none; }
   #medicinesExplorerSection .explorer-toolbar,
   body:has(.site-header:not(.lv-hdr-hide)) #medicinesExplorerSection .explorer-toolbar { position: relative !important; top: auto !important; }
 }
+
+/* =====================================================================
+   TEXT COPY PROTECTION — no selecting / copying page text.
+   Form fields stay usable; phone number and email stay copyable.
+   ===================================================================== */
+body {
+  -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+  -webkit-touch-callout: none;
+}
+input, textarea, select, [contenteditable="true"],
+a[href^="tel:"], a[href^="mailto:"] {
+  -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; user-select: text;
+  -webkit-touch-callout: default;
+}
+img { -webkit-user-drag: none; user-drag: none; }
+
+/* =====================================================================
+   QUICK SEARCH POP-UP — search field with icon + clear; mobile app-style bar
+   ===================================================================== */
+#quickSearchBackdrop .qs-bar { display: flex; align-items: center; gap: 10px; }
+#quickSearchBackdrop .qs-field { position: relative; flex: 1; min-width: 0; }
+#quickSearchBackdrop .qs-field-icon { position: absolute; left: 16px; top: 50%; width: 19px; height: 19px; margin-top: -9.5px; color: #64748B; pointer-events: none; }
+#quickSearchBackdrop #quickSearchModalInput { width: 100%; padding-left: 46px !important; padding-right: 46px !important; }
+#quickSearchBackdrop #quickSearchModalInput::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; display: none; }
+#quickSearchBackdrop .qs-clear {
+  position: absolute; right: 8px; top: 50%; width: 32px; height: 32px; margin-top: -16px; border: 0; border-radius: 50%;
+  background: #E8EEF6; color: #104080; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;
+}
+#quickSearchBackdrop .qs-clear[hidden] { display: none; }
+#quickSearchBackdrop .qs-clear svg { width: 14px; height: 14px; }
+#quickSearchBackdrop .qs-clear:hover { background: #F8A000; color: #2A1A00; }
+#quickSearchBackdrop .qs-cancel { display: none; }
+
+@media (max-width: 760px) {
+  /* one bar: [ search field ] Cancel  — heading row removed */
+  #quickSearchBackdrop .modal-header-bar { display: none !important; }
+  #quickSearchBackdrop .modal-body-scroll { padding: 0 14px 16px !important; scrollbar-width: none; }
+  #quickSearchBackdrop .modal-body-scroll::-webkit-scrollbar { display: none; }
+  #quickSearchBackdrop .qs-bar {
+    position: sticky; top: 0; z-index: 2; margin: 0 -14px; padding: 12px 14px;
+    background: #FFFFFF; border-bottom: 1px solid #E6ECF4;
+  }
+  #quickSearchBackdrop #quickSearchModalInput { height: 46px; font-size: 16px; border-radius: 999px; }
+  #quickSearchBackdrop .qs-cancel {
+    display: inline-flex; flex-shrink: 0; align-items: center; height: 46px; padding: 0 4px; border: 0; background: none;
+    color: #104080; font: inherit; font-size: 1rem; font-weight: 700; cursor: pointer;
+  }
+  /* compact result rows: ~8–9 on screen */
+  #quickSearchResultsMount { gap: 4px !important; margin-top: 4px !important; }
+  #quickSearchResultsMount .qs-label { margin: 12px 2px 4px; }
+  #quickSearchResultsMount .qs-row { gap: 10px; padding: 8px 10px; border-radius: 12px; min-height: 60px; }
+  #quickSearchResultsMount .qs-row img { width: 40px; height: 40px; }
+  #quickSearchResultsMount .qs-txt strong { font-size: .92rem; line-height: 1.25; }
+  #quickSearchResultsMount .qs-txt small { -webkit-line-clamp: 1; font-size: .76rem; }
+  #quickSearchResultsMount .qs-go { font-size: 1.25rem; }
+
+  /* Products page search toolbar: lighter, no card */
+  #medicinesExplorerSection .explorer-toolbar {
+    background: transparent !important; border: 0 !important; box-shadow: none !important;
+    border-radius: 0 !important; padding: 0 !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+  }
+  #medicinesExplorerSection .lv-active-strip { margin-top: 10px; }
+}
+
+/* Products search area — mobile polish */
+.ey-mob { display: none; }
+@media (max-width: 760px) {
+  .ey-desk { display: none; }
+  .ey-mob { display: inline; }
+  #medicinesExplorerSection { padding-top: 44px !important; }
+  #medicinesExplorerSection .section-head-split { margin-bottom: 16px !important; }
+  #medicinesExplorerSection .section-heading { font-size: clamp(1.6rem, 7.4vw, 2rem) !important; line-height: 1.12 !important; }
+  /* search box quieter than the Filter button; navy only when typing */
+  #medicinesExplorerSection #explorerSearchInput { border: 1.5px solid #CBD5E1 !important; background: #FFFFFF !important; box-shadow: none !important; }
+  #medicinesExplorerSection #explorerSearchInput:focus { border-color: #104080 !important; box-shadow: 0 0 0 3px rgba(16, 64, 128, 0.12) !important; outline: none; }
+}
