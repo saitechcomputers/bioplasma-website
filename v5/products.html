@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="styles.css?v=13.1" />
+  <link rel="stylesheet" href="styles.css?v=13.8" />
 </head>
 <body class="has-cinema-hero">
 
@@ -63,7 +63,7 @@
 
   <main>
     <!-- Lilly Cinema Ambient Video Subpage Hero -->
-    <section class="subpage-video-hero">
+    <section class="subpage-video-hero has-hero-strip">
       <video id="subpageAmbientVideo" src="assets/video/hero-capsule-gmp.mp4" poster="assets/video/hero-capsule-gmp-poster.webp" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
       <div class="subpage-video-scrim" aria-hidden="true"></div>
       <div class="container">
@@ -72,11 +72,37 @@
         <p class="section-lead">
           Filter by therapeutic division, health symptom, dosage vehicle, or sugar-free status. Click any medicine card for its complete clinical monograph and patient guide.
         </p>
-        <div class="subpage-video-bar">
-          <span class="bio-trust-pill lilly-trust-pill"><b>WHO-GMP</b> Licensed Manufacturing • 7 Specialties • Evidence-Backed Formulations</span>
+        <div class="hero-actions">
+          <form class="hero-search" data-hero-search role="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <label for="heroSearchInput" class="sr-only">Search medicines</label>
+            <input type="search" id="heroSearchInput" placeholder="Search medicine, salt, or symptom" autocomplete="off" />
+            <button type="submit" class="btn btn-crimson">Search</button>
+          </form>
+        </div>
+        <div class="hero-trust-row">
+          <span class="bio-trust-pill lilly-trust-pill"><b>WHO-GMP</b> Licensed Manufacturing</span>
+          <span class="bio-trust-pill lilly-trust-pill"><b>7</b> Specialties</span>
+          <span class="bio-trust-pill lilly-trust-pill"><b>Evidence-Backed</b> Formulations</span>
         </div>
       </div>
+        <a href="#" class="hero-scroll-cue" aria-label="Scroll to content"><span class="hero-scroll-mouse" aria-hidden="true"></span><span>SCROLL</span></a>
     </section>
+
+    <nav class="hero-strip" aria-label="Therapeutic divisions">
+      <div class="container">
+        <div class="hero-strip-grid" style="--cols:8;">
+          <button class="hero-strip-tab active" type="button" data-strip-cat="all"><span class="hs-num">ALL</span><span class="hs-title">All Medicines</span><span class="hs-sub">Full formulary</span></button>
+          <button class="hero-strip-tab" type="button" data-strip-cat="gastro"><span class="hs-num">01</span><span class="hs-title">Gastro</span><span class="hs-sub">Acid &amp; digestive care</span></button>
+          <button class="hero-strip-tab" type="button" data-strip-cat="bone"><span class="hs-num">02</span><span class="hs-title">Bone &amp; D3</span><span class="hs-sub">Calcium &amp; Vitamin D3</span></button>
+          <button class="hero-strip-tab" type="button" data-strip-cat="womens"><span class="hs-num">03</span><span class="hs-title">Women’s Care</span><span class="hs-sub">Maternal health</span></button>
+          <button class="hero-strip-tab" type="button" data-strip-cat="hematinic"><span class="hs-num">04</span><span class="hs-title">Iron &amp; Blood</span><span class="hs-sub">Hematinics</span></button>
+          <button class="hero-strip-tab" type="button" data-strip-cat="probiotic"><span class="hs-num">05</span><span class="hs-title">Gut &amp; Immunity</span><span class="hs-sub">Probiotics</span></button>
+          <button class="hero-strip-tab" type="button" data-strip-cat="respiratory"><span class="hs-num">06</span><span class="hs-title">Respiratory</span><span class="hs-sub">Cough, cold &amp; allergy</span></button>
+          <button class="hero-strip-tab" type="button" data-strip-cat="nutrition"><span class="hs-num">07</span><span class="hs-title">Vitamins</span><span class="hs-sub">Daily nutrition</span></button>
+        </div>
+      </div>
+    </nav>
 
     <!-- Full Explorer -->
     <section class="section" id="medicinesExplorerSection">
@@ -168,6 +194,7 @@
 
       <div class="footer-bottom-row">
         <span>© 2026 LV Bioplasma Biologicals Private Limited. All rights reserved.</span>
+        <a href="#top" class="footer-to-top">Back to top <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
       </div>
     </div>
   </footer>
@@ -183,7 +210,8 @@
     </div>
   </nav>
 
-  <script src="medicines-data.js?v=13.1"></script>
-  <script src="app.js?v=13.1"></script>
+  <script src="medicines-data.js?v=13.2"></script>
+  <script src="app.js?v=13.2"></script>
+  <script src="hero-strips.js?v=8"></script>
 </body>
 </html>

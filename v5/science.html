@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="styles.css?v=13.1" />
+  <link rel="stylesheet" href="styles.css?v=13.8" />
 </head>
 <body class="has-cinema-hero">
 
@@ -63,7 +63,7 @@
 
   <main>
     <!-- Lilly Cinema Ambient Video Subpage Hero -->
-    <section class="subpage-video-hero">
+    <section class="subpage-video-hero has-hero-strip">
       <video id="subpageAmbientVideo" src="assets/video/hero-formulation-lab.mp4" poster="assets/video/hero-formulation-lab-poster.webp" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
       <div class="subpage-video-scrim" aria-hidden="true"></div>
       <div class="container">
@@ -72,14 +72,33 @@
         <p class="section-lead">
           Explore our five specialized drug-delivery platforms, globally trademarked raw actives, and WHO-GMP manufacturing standards.
         </p>
-        <div class="subpage-video-bar">
-          <span class="bio-trust-pill lilly-trust-pill"><b>Nano • Liposomal • Aquamin • EC+IR+SR</b></span>
+        <div class="hero-actions">
+          <a href="#platforms" class="btn btn-crimson">Explore platforms <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          <a href="products.html" class="hero-btn-ghost">View all products</a>
+        </div>
+        <div class="hero-trust-row">
+          <span class="bio-trust-pill lilly-trust-pill"><b>WHO-GMP</b> Manufacturing</span>
+          <span class="bio-trust-pill lilly-trust-pill"><b>USP, BP &amp; IP</b> Grade Actives</span>
+          <span class="bio-trust-pill lilly-trust-pill"><b>5</b> Delivery Platforms</span>
         </div>
       </div>
+        <a href="#" class="hero-scroll-cue" aria-label="Scroll to content"><span class="hero-scroll-mouse" aria-hidden="true"></span><span>SCROLL</span></a>
     </section>
 
+    <nav class="hero-strip" aria-label="Drug-delivery platforms">
+      <div class="container">
+        <div class="hero-strip-grid" style="--cols:5;">
+          <button class="hero-strip-tab active" type="button" data-strip-sci="0"><span class="hs-num">01</span><span class="hs-title">Nano Technology</span><span class="hs-sub">AADIRISE D3</span></button>
+          <button class="hero-strip-tab" type="button" data-strip-sci="1"><span class="hs-num">02</span><span class="hs-title">Liposomal Iron</span><span class="hs-sub">BIOIPC</span></button>
+          <button class="hero-strip-tab" type="button" data-strip-sci="2"><span class="hs-num">03</span><span class="hs-title">Aquamin Calcium</span><span class="hs-sub">ADENOCAL-K2</span></button>
+          <button class="hero-strip-tab" type="button" data-strip-sci="3"><span class="hs-num">04</span><span class="hs-title">High-Base Syrups</span><span class="hs-sub">Sugar-free range</span></button>
+          <button class="hero-strip-tab" type="button" data-strip-sci="4"><span class="hs-num">05</span><span class="hs-title">Tablet-in-Capsule</span><span class="hs-sub">EC + IR + SR</span></button>
+        </div>
+      </div>
+    </nav>
+
     <!-- Interactive Delivery Lab -->
-    <section class="merck-science-band">
+    <section class="merck-science-band" id="platforms">
       <div class="container">
         <div class="section-head-split" style="margin-bottom:38px;">
           <div>
@@ -164,6 +183,7 @@
 
       <div class="footer-bottom-row">
         <span>© 2026 LV Bioplasma Biologicals Private Limited. All rights reserved.</span>
+        <a href="#top" class="footer-to-top">Back to top <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
       </div>
     </div>
   </footer>
@@ -179,7 +199,8 @@
     </div>
   </nav>
 
-  <script src="medicines-data.js?v=13.1"></script>
-  <script src="app.js?v=13.1"></script>
+  <script src="medicines-data.js?v=13.2"></script>
+  <script src="app.js?v=13.2"></script>
+  <script src="hero-strips.js?v=8"></script>
 </body>
 </html>

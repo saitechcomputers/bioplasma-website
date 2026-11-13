@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="styles.css?v=13.1" />
+  <link rel="stylesheet" href="styles.css?v=13.8" />
 </head>
 <body class="has-cinema-hero">
 
@@ -63,7 +63,7 @@
 
   <main>
     <!-- Cinema Ambient Video Hero -->
-    <section class="subpage-video-hero">
+    <section class="subpage-video-hero has-hero-strip">
       <video id="subpageAmbientVideo" src="assets/video/hero-careers.mp4?v=2" poster="assets/video/hero-careers-poster.webp" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
       <div class="subpage-video-scrim" aria-hidden="true"></div>
       <div class="container">
@@ -72,15 +72,30 @@
         <p class="section-lead">
           Join <strong>LV Bioplasma Biologicals Private Limited</strong> — dedicated to scientific innovation, clinical integrity, and advancing healthcare outcomes across pharmaceuticals, therapeutics, and nutraceuticals and vitamins.
         </p>
-        <div class="subpage-video-bar">
-          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-            <span class="bio-trust-pill lilly-trust-pill"><b>Pan-India Opportunities</b> • High-Growth Culture • WHO-GMP Quality</span>
-            <a href="#openings" class="bio-trust-pill lilly-trust-pill" style="background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.3);color:#FFFFFF;text-decoration:none;">View Open Roles ↓</a>
-            <a href="#applyFormSection" class="bio-trust-pill lilly-trust-pill" style="background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.3);color:#FFFFFF;text-decoration:none;">Quick Apply ↓</a>
-          </div>
+        <div class="hero-actions">
+          <a href="#openings" class="btn btn-crimson">View open roles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          <a href="#applyFormSection" class="hero-btn-ghost">Quick apply</a>
+        </div>
+        <div class="hero-trust-row">
+          <span class="bio-trust-pill lilly-trust-pill"><b>Pan-India</b> Opportunities</span>
+          <span class="bio-trust-pill lilly-trust-pill"><b>High-Growth</b> Culture</span>
+          <span class="bio-trust-pill lilly-trust-pill"><b>WHO-GMP</b> Quality</span>
         </div>
       </div>
+        <a href="#" class="hero-scroll-cue" aria-label="Scroll to content"><span class="hero-scroll-mouse" aria-hidden="true"></span><span>SCROLL</span></a>
     </section>
+
+    <nav class="hero-strip" aria-label="Careers sections">
+      <div class="container">
+        <div class="hero-strip-grid" style="--cols:5;">
+          <a class="hero-strip-tab" href="#why-join"><span class="hs-num">01</span><span class="hs-title">Why Join Us</span><span class="hs-sub">Culture &amp; growth</span></a>
+          <button class="hero-strip-tab" type="button" data-strip-job="all"><span class="hs-num"><span data-job-count="all">All roles</span></span><span class="hs-title">All Open Roles</span><span class="hs-sub">Across India</span></button>
+          <button class="hero-strip-tab" type="button" data-strip-job="sales"><span class="hs-num"><span data-job-count="sales">Sales</span></span><span class="hs-title">Field Sales &amp; Marketing</span><span class="hs-sub">Medical reps, ASM</span></button>
+          <button class="hero-strip-tab" type="button" data-strip-job="pmt"><span class="hs-num"><span data-job-count="pmt">PMT</span></span><span class="hs-title">Product Management</span><span class="hs-sub">PMT team</span></button>
+          <a class="hero-strip-tab" href="#applyFormSection"><span class="hs-num">05</span><span class="hs-title">Quick Apply</span><span class="hs-sub">Send your CV</span></a>
+        </div>
+      </div>
+    </nav>
 
     <!-- Scale Metrics Strip -->
     <section class="metrics-band">
@@ -94,7 +109,7 @@
     </section>
 
     <!-- Why Work With Us Section (6 Culture Pillars) -->
-    <section class="section section-white">
+    <section class="section section-white" id="why-join">
       <div class="container">
         <div class="section-head-split" style="margin-bottom:44px;">
           <div>
@@ -477,6 +492,7 @@
 
       <div class="footer-bottom-row">
         <span>© 2026 LV Bioplasma Biologicals Private Limited. All rights reserved.</span>
+        <a href="#top" class="footer-to-top">Back to top <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
       </div>
     </div>
   </footer>
@@ -492,7 +508,8 @@
     </div>
   </nav>
 
-  <script src="medicines-data.js?v=13.1"></script>
-  <script src="app.js?v=13.1"></script>
+  <script src="medicines-data.js?v=13.2"></script>
+  <script src="app.js?v=13.2"></script>
+  <script src="hero-strips.js?v=8"></script>
 </body>
 </html>

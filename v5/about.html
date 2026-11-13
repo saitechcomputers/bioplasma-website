@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="styles.css?v=13.1" />
+  <link rel="stylesheet" href="styles.css?v=13.8" />
 </head>
 <body class="has-cinema-hero">
 
@@ -63,7 +63,7 @@
 
   <main>
     <!-- Lilly Cinema Ambient Video Subpage Hero -->
-    <section class="subpage-video-hero">
+    <section class="subpage-video-hero has-hero-strip">
       <video id="subpageAmbientVideo" src="assets/video/hero-human-life.mp4" poster="assets/video/hero-human-life-poster.webp" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
       <div class="subpage-video-scrim" aria-hidden="true"></div>
       <div class="container">
@@ -72,18 +72,34 @@
         <p class="section-lead">
           <strong>LV Bioplasma Biologicals</strong> works across pharmaceuticals and nutraceuticals, striving towards excellence in the specialized segment of <strong>nutraceuticals and vitamins</strong>.
         </p>
-        <div class="subpage-video-bar">
-          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-            <span class="bio-trust-pill lilly-trust-pill"><b>WHO-GMP Licensed Manufacturing Partners</b> • Evidence-Backed Formulations • Patient-First Quality</span>
-            <a href="#mission" class="bio-trust-pill lilly-trust-pill" style="background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.3);color:#FFFFFF;text-decoration:none;">Our Mission →</a>
-            <a href="#director" class="bio-trust-pill lilly-trust-pill" style="background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.3);color:#FFFFFF;text-decoration:none;">Director’s Message →</a>
-          </div>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-crimson">Partner with us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#director" class="hero-btn-ghost">Director’s message</a>
+        </div>
+        <div class="hero-trust-row">
+          <span class="bio-trust-pill lilly-trust-pill"><b>WHO-GMP</b> Licensed Partners</span>
+          <span class="bio-trust-pill lilly-trust-pill"><b>Evidence-Backed</b> Formulations</span>
+          <span class="bio-trust-pill lilly-trust-pill"><b>Patient-First</b> Quality</span>
         </div>
       </div>
+        <a href="#" class="hero-scroll-cue" aria-label="Scroll to content"><span class="hero-scroll-mouse" aria-hidden="true"></span><span>SCROLL</span></a>
     </section>
 
+    <nav class="hero-strip" aria-label="About page sections">
+      <div class="container">
+        <div class="hero-strip-grid" style="--cols:6;">
+          <a class="hero-strip-tab active" href="#story"><span class="hs-num">01</span><span class="hs-title">Our Story</span><span class="hs-sub">Experienced partners</span></a>
+          <a class="hero-strip-tab" href="#pillars"><span class="hs-num">02</span><span class="hs-title">Our Strengths</span><span class="hs-sub">Pillars of excellence</span></a>
+          <a class="hero-strip-tab" href="#mission"><span class="hs-num">03</span><span class="hs-title">Mission &amp; Vision</span><span class="hs-sub">What drives us</span></a>
+          <a class="hero-strip-tab" href="#director"><span class="hs-num">04</span><span class="hs-title">Director’s Message</span><span class="hs-sub">From the leadership</span></a>
+          <a class="hero-strip-tab" href="#symbols"><span class="hs-num">05</span><span class="hs-title">Our Emblem</span><span class="hs-sub">Three guiding symbols</span></a>
+          <a class="hero-strip-tab" href="#divisions"><span class="hs-num">06</span><span class="hs-title">Divisions</span><span class="hs-sub">7 clinical specialties</span></a>
+        </div>
+      </div>
+    </nav>
+
     <!-- Corporate Story & Full Logo Showcase -->
-    <section class="section section-white">
+    <section class="section section-white" id="story">
       <div class="container about-story-grid">
         <div style="background:var(--bg-warm);border:1px solid var(--line-strong);border-radius:var(--radius-xl);padding:38px;box-shadow:var(--shadow-sm);">
           <img src="assets/brand/logo-full.png?v=4.5" alt="LV Bioplasma Biologicals Private Limited" style="max-height:110px;width:auto;display:block;margin:0 auto 24px;" />
@@ -122,7 +138,7 @@
     </section>
 
     <!-- Three Strategic Strengths Grid -->
-    <section class="section" style="background:#F8FAFC;padding:64px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <section class="section" id="pillars" style="background:#F8FAFC;padding:64px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
       <div class="container">
         <div style="text-align:center;max-width:760px;margin:0 auto 40px;">
           <span class="eyebrow eyebrow-crimson">Corporate Strengths</span>
@@ -327,7 +343,7 @@
     </section>
 
     <!-- Three-Symbol Emblem Identity -->
-    <section class="section">
+    <section class="section" id="symbols">
       <div class="container">
         <div class="section-head-split">
           <div>
@@ -404,6 +420,7 @@
 
       <div class="footer-bottom-row">
         <span>© 2026 LV Bioplasma Biologicals Private Limited. All rights reserved.</span>
+        <a href="#top" class="footer-to-top">Back to top <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
       </div>
     </div>
   </footer>
@@ -419,7 +436,8 @@
     </div>
   </nav>
 
-  <script src="medicines-data.js?v=13.1"></script>
-  <script src="app.js?v=13.1"></script>
+  <script src="medicines-data.js?v=13.2"></script>
+  <script src="app.js?v=13.2"></script>
+  <script src="hero-strips.js?v=8"></script>
 </body>
 </html>
