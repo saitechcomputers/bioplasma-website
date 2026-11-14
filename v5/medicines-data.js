@@ -2653,11 +2653,125 @@ window.BIOPLASMA_DATA.medicines.push({
   }
 });
 
+/* V5: ADENOSYL-OD (added from Adenosyl-OD Softgels.pdf) */
+window.BIOPLASMA_DATA.medicines.push({
+  id: "adenosyl-od",
+  name: "ADENOSYL-OD",
+  shortTitle: "Adenosylcobalamin 1000 mcg Softgel Capsules",
+  genericSummary: "Adenosylcobalamin (Active Vitamin B12) 1000 mcg Softgel Capsules",
+  category: "womens",
+  secondaryCategories: ["hematinic", "nutrition"],
+  classification: "Prescription / Active Vitamin B12",
+  rxRequired: true,
+  sugarFree: false,
+  flavour: "Softgel Capsule",
+  dosageForm: "Softgel capsule",
+  packSize: "10 × 10 Softgels",
+  technology: "Active Coenzyme B12",
+  techBadge: "VITAMIN B12",
+  accent: "#A3123A",
+  accentSoft: "#FBE9EE",
+  image: "assets/products/adenosyl-od.webp",
+  taglineEn: "Adenosylcobalamin — Essential Support for Healthy Body Functions.",
+  taglineHi: "एडीनोसिलकोबालामिन — शरीर के स्वस्थ कार्यों के लिए ज़रूरी सपोर्ट।",
+  easyGuide: {
+    whatIsItEn: "Adenosylcobalamin is the biologically active coenzyme form of Vitamin B12. The body uses it directly for DNA synthesis and neurological function — unlike cyanocobalamin, it does not need to be converted into an active form first.",
+    whatIsItHi: "एडीनोसिलकोबालामिन विटामिन B12 का जैविक रूप से सक्रिय (कोएंज़ाइम) रूप है। शरीर इसे सीधे DNA बनाने और नसों के कार्य के लिए इस्तेमाल करता है — सायनोकोबालामिन की तरह इसे पहले सक्रिय रूप में बदलने की ज़रूरत नहीं होती।",
+    whoIsItForEn: "Maternal B12 support during pregnancy and breastfeeding, and B12 support in maternal anemia and neuropathy. B12 assessment is worth considering in vegetarians/vegans, after gastric or bariatric surgery, in pernicious anemia, long-term metformin use and malabsorption — as advised by the doctor.",
+    whoIsItForHi: "गर्भावस्था और स्तनपान के दौरान माँ के B12 स्तर के लिए, और माँ में एनीमिया व न्यूरोपैथी में B12 सपोर्ट। शाकाहारी/वीगन, पेट या बेरिएट्रिक सर्जरी के बाद, पर्निशियस एनीमिया, लंबे समय तक मेटफॉर्मिन लेने वालों और अवशोषण की समस्या में B12 जाँच पर विचार करें — डॉक्टर की सलाह अनुसार।",
+    keyPerksEn: [
+      "Nerve health",
+      "Red blood cell formation",
+      "DNA synthesis",
+      "Energy metabolism",
+      "Active form — no conversion needed"
+    ],
+    keyPerksHi: [
+      "नसों का स्वास्थ्य",
+      "लाल रक्त कोशिकाओं का निर्माण",
+      "DNA संश्लेषण",
+      "ऊर्जा चयापचय",
+      "सक्रिय रूप — बदलने की ज़रूरत नहीं"
+    ]
+  },
+  composition: [
+    { ingredient: "Adenosylcobalamin", detail: "Biologically active coenzyme form of Vitamin B12", strength: "1000 mcg", rda: "Per Softgel" },
+    { ingredient: "Excipients", detail: "Approved colours used in soft gelatin capsule shells", strength: "q.s.", rda: "—" }
+  ],
+  mechanism: [
+    { step: "01", title: "Active Coenzyme B12", desc: "Used directly by the body for DNA synthesis and neurological function, without conversion to an active form; essential for the conversion of methylmalonyl-CoA into succinyl-CoA." },
+    { step: "02", title: "Fetal Neural Development", desc: "Adequate maternal B12 supports neural tube closure and brain/spine development; B12 works with folate in DNA synthesis." },
+    { step: "03", title: "Pregnancy & Lactation", desc: "Maternal B12 status is important for fetal and infant B12 stores; maternal supplementation significantly raises infant B12." }
+  ],
+  highlights: [
+    "Adenosylcobalamin (Vitamin B12) 1000 mcg — Softgel Capsules",
+    "Biologically active coenzyme form of Vitamin B12",
+    "Supports nerve health, red blood cell formation, DNA synthesis & energy metabolism",
+    "Maternal B12 support in pregnancy & lactation"
+  ],
+  indications: [
+    "Maternal anemia & neuropathy",
+    "Pregnancy & lactation — maternal B12 support",
+    "Fetal neural development support",
+    "Vegetarians / vegans",
+    "Gastric / bariatric surgery",
+    "Pernicious anemia",
+    "Long-term metformin use",
+    "Malabsorption"
+  ],
+  dosage: "As directed by the Physician. Do not chew or crush the capsules — swallow whole with water.",
+  keywords: ["adenosyl-od", "adenosyl od", "adenosyl", "adenosylcobalamin", "cobalamin", "vitamin b12", "b12", "methylcobalamin", "anemia", "anaemia", "neuropathy", "nerve", "pregnancy", "lactation", "breastfeeding", "vegetarian", "vegan", "metformin", "softgel"],
+  stakeholders: {
+    doctor: {
+      headline: "Active coenzyme Vitamin B12 (Adenosylcobalamin 1000 mcg) — no conversion needed.",
+      metaLabel: "Key Specialties",
+      metaValue: "Gynecology • Obstetrics • Internal Medicine • Neurology",
+      points: [
+        "Adenosylcobalamin 1000 mcg per softgel — the biologically active coenzyme form of B12.",
+        "Maternal B12 support in pregnancy, lactation, maternal anemia and neuropathy.",
+        "Consider B12 assessment in vegetarians/vegans, post gastric/bariatric surgery, pernicious anemia, long-term metformin and malabsorption.",
+        "Prescription (Rx) product."
+      ]
+    },
+    customer: {
+      headline: "Active Vitamin B12 for nerves, blood and energy — take only on your doctor's advice.",
+      metaLabel: "Prescription Care",
+      metaValue: "Rx Only • 10 × 10 Softgels",
+      points: [
+        "Supports nerve health, red blood cell formation and energy metabolism.",
+        "Swallow the softgel whole with water — do not chew or crush.",
+        "Important: Prescription (Rx) product — use strictly as advised by your doctor."
+      ]
+    },
+    mr: {
+      headline: "30-Sec Pitch: 'ADENOSYL-OD — Adenosylcobalamin 1000 mcg, the active coenzyme B12 the body uses directly.'",
+      metaLabel: "Target Call List",
+      metaValue: "Gynecologists • Obstetricians • Physicians • Neurologists",
+      points: [
+        "Lead with 'active form — no conversion needed' versus cyanocobalamin.",
+        "Detail the pregnancy & lactation, fetal neural development and maternal anemia points from the visual aid.",
+        "Close with the B12-assessment list: vegetarians, bariatric surgery, pernicious anemia, metformin, malabsorption."
+      ]
+    },
+    stockist: {
+      headline: "Rx active-B12 SKU (10 × 10 Softgels) for gynecology, maternity and physician prescriptions.",
+      metaLabel: "Trade Pack Spec",
+      metaValue: "10 × 10 Softgels",
+      points: [
+        "Stock alongside the women's-health and iron & blood range.",
+        "Store in a cool, dry and dark place; protect from direct sunlight and moisture.",
+        "Prescription (Rx) product."
+      ]
+    }
+  }
+});
+
 /* V5: quick-need lists — edits + always A–Z */
 (function () {
   const D = window.BIOPLASMA_DATA, byId = (id) => D.medicines.find((m) => m.id === id);
   const q = (id) => D.quickNeeds.find((n) => n.id === id);
-  const preg = q("pregnancy-support"); if (preg) ["ub-10", "first-food"].forEach((id) => { if (!preg.medicineIds.includes(id)) preg.medicineIds.push(id); });
+  const preg = q("pregnancy-support"); if (preg) ["ub-10", "first-food", "adenosyl-od"].forEach((id) => { if (!preg.medicineIds.includes(id)) preg.medicineIds.push(id); });
+  const lowIron = q("low-iron"); if (lowIron && !lowIron.medicineIds.includes("adenosyl-od")) lowIron.medicineIds.push("adenosyl-od");
   const sf = q("sugar-free"); if (sf) sf.medicineIds = sf.medicineIds.filter((id) => id !== "bioipc" && id !== "preimmune-aqua").concat(sf.medicineIds.includes("bioimmune") ? [] : ["bioimmune"]);
   D.quickNeeds.forEach((n) => n.medicineIds.sort((x, y) => ((byId(x) || {}).name || x).localeCompare((byId(y) || {}).name || y, "en", { sensitivity: "base" })));
 })();

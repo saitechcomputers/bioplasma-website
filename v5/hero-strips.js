@@ -234,6 +234,7 @@
       input.value = q;
       input.dispatchEvent(new Event("input", { bubbles: true }));
     }
+    form.querySelector("input").blur(); /* close the phone keyboard so results are visible */
     smoothTo(document.getElementById("medicinesExplorerSection"));
   });
 
@@ -267,7 +268,7 @@
   /* ---------- mobile: same short placeholder in both product searches ---------- */
   var phoneQuery = window.matchMedia("(max-width: 760px)");
   function applyPlaceholders() {
-    ["explorerSearchInput", "quickSearchModalInput"].forEach(function (id) {
+    ["explorerSearchInput", "quickSearchModalInput", "heroSearchInput"].forEach(function (id) {
       var el = document.getElementById(id);
       if (!el) return;
       if (!el.hasAttribute("data-ph-desktop")) el.setAttribute("data-ph-desktop", el.getAttribute("placeholder") || "");
@@ -289,6 +290,36 @@
       t.blur();
     }
   });
+
+  /* mobile: while the on-screen keyboard is open (a text field has focus), hide the
+     bottom menu bar, WhatsApp and back-to-top so they don't ride up over the content */
+  var TYPING = "input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]), textarea, select, [contenteditable='true']";
+  var kbTimer = null;
+  document.addEventListener("focusin", function (e) {
+    if (!phoneQuery.matches || !e.target.matches || !e.target.matches(TYPING)) return;
+    clearTimeout(kbTimer);
+    document.body.classList.add("kb-open");
+  });
+  document.addEventListener("focusout", function () {
+    clearTimeout(kbTimer);
+    kbTimer = setTimeout(function () {
+      var a = document.activeElement;
+      if (!(a && a.matches && a.matches(TYPING))) document.body.classList.remove("kb-open");
+    }, 120);
+  });
+  /* Android: closing the keyboard with the back button keeps focus — watch the viewport too */
+  if (window.visualViewport) {
+    var fullH = window.visualViewport.height;
+    window.visualViewport.addEventListener("resize", function () {
+      var h = window.visualViewport.height;
+      if (h > fullH) fullH = h;
+      if (document.body.classList.contains("kb-open") && h > fullH - 80) document.body.classList.remove("kb-open");
+      else if (!document.body.classList.contains("kb-open") && h < fullH - 150 && phoneQuery.matches) {
+        var a = document.activeElement;
+        if (a && a.matches && a.matches(TYPING)) document.body.classList.add("kb-open");
+      }
+    });
+  }
 
   /* ---------- copy protection: block copy / cut / drag of page text ---------- */
   var COPY_OK = "input, textarea, select, [contenteditable='true'], a[href^='tel:'], a[href^='mailto:']";
