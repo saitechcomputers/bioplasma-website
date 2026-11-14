@@ -321,6 +321,18 @@
     });
   }
 
+  /* science picker (phones / tablets): after choosing a platform, bring its animation into view */
+  var stackedQuery = window.matchMedia("(max-width: 1120px)");
+  document.addEventListener("click", function (e) {
+    if (!stackedQuery.matches || !e.target.closest || !e.target.closest("#scienceCardsMount [data-sci-idx]")) return;
+    setTimeout(function () {
+      var box = document.querySelector(".science-microscope-box");
+      if (!box) return;
+      var r = box.getBoundingClientRect();
+      if (r.top < 70 || r.top > window.innerHeight * 0.55) smoothTo(box);
+    }, 60);
+  });
+
   /* ---------- copy protection: block copy / cut / drag of page text ---------- */
   var COPY_OK = "input, textarea, select, [contenteditable='true'], a[href^='tel:'], a[href^='mailto:']";
   function copyAllowed(node) {

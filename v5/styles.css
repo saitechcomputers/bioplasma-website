@@ -6986,3 +6986,25 @@ img { -webkit-user-drag: none; user-drag: none; }
   body.kb-open .lv-to-top,
   body.kb-open .compare-dock { display: none !important; }
 }
+
+/* =====================================================================
+   SCIENCE LAB on phones / tablets (≤1120px, stacked layout):
+   compact 2-column platform picker with a hint, animation right below it.
+   (the full description is already shown in the panel under the animation)
+   ===================================================================== */
+@media (max-width: 1120px) {
+  .science-cards-stack { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px !important; }
+  .science-cards-stack::before {
+    content: "Tap a platform — its animation and details open just below \2193";
+    grid-column: 1 / -1; display: block; margin: 0 2px 4px; font-size: .86rem; font-weight: 600; line-height: 1.4;
+    color: #104080;
+  }
+  .sci-selector-card { padding: 12px 12px 13px !important; transform: none !important; text-align: left; min-width: 0; }
+  .sci-selector-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .sci-selector-card p, .sci-selector-card .sci-med-ref { display: none !important; }
+  .sci-selector-card .sci-badge-row { margin-bottom: 6px; }
+  .sci-selector-card .sci-tag { font-size: .62rem; letter-spacing: .08em; padding: 3px 8px; white-space: normal; line-height: 1.25; }
+  .sci-selector-card h3 { font-size: .95rem !important; line-height: 1.25 !important; margin: 0 !important; }
+  .science-lab-grid { gap: 14px !important; }
+  .science-microscope-box { scroll-margin-top: 90px; }
+}
