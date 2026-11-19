@@ -1,0 +1,171 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Saitech Diwali Greeting</title>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Tiro+Devanagari+Hindi&family=Cinzel:wght@700;900&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@1,500&display=block" rel="stylesheet">
+<style>
+  :root{--u:1px}
+  html,body{margin:0;padding:0;background:#2a0207}
+  #stage{position:relative;overflow:hidden;width:calc(1080*var(--u));
+    background:radial-gradient(ellipse at 50% 32%, #b3261b 0%, #7a0d14 38%, #3d030a 78%, #22010a 100%);
+    font-family:'Tiro Devanagari Hindi',serif;color:#FFE9A8}
+  canvas#fx{position:absolute;inset:0;width:100%;height:100%}
+  #rays{position:absolute;left:50%;width:calc(2600*var(--u));height:calc(2600*var(--u));margin-left:calc(-1300*var(--u));
+    background:repeating-conic-gradient(from 0deg, rgba(255,214,90,.13) 0deg 4deg, rgba(255,214,90,0) 4deg 12deg);
+    -webkit-mask:radial-gradient(circle, #000 0%, rgba(0,0,0,.6) 30%, transparent 62%);mask:radial-gradient(circle, #000 0%, rgba(0,0,0,.6) 30%, transparent 62%)}
+  #toran{position:absolute;top:0;left:0;width:100%;height:calc(120*var(--u))}
+  .col{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center}
+  #photoWrap{position:relative;display:flex;justify-content:center}
+  #halo{position:absolute;left:-12.5%;border-radius:50%;background:radial-gradient(circle, rgba(255,240,170,.95) 0%, rgba(255,196,60,.55) 35%, rgba(255,150,30,0) 70%)}
+  #photo{position:relative;filter:drop-shadow(0 calc(10*var(--u)) calc(18*var(--u)) rgba(30,0,0,.65))}
+  .title{font-family:'Rozha One',serif;line-height:1.15;
+    background:linear-gradient(180deg,#FFFBE0 0%,#FFD54F 45%,#E0A21E 60%,#FFE38A 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 calc(4*var(--u)) calc(4*var(--u)) rgba(40,0,0,.7))}
+  .msg{text-align:center;line-height:1.45;color:#FFF3D0;text-shadow:0 2px 6px rgba(0,0,0,.6)}
+  .msg b{color:#FFD54F;font-weight:normal}
+  .en{font-family:'Cormorant Garamond',serif;font-style:italic;color:#FFE9A8;text-align:center}
+  .brand{text-align:center;padding:calc(18*var(--u)) calc(60*var(--u)) calc(14*var(--u));position:relative;
+    border-top:calc(2*var(--u)) solid rgba(255,213,79,.7);border-bottom:calc(2*var(--u)) solid rgba(255,213,79,.7)}
+  .brand .with{font-family:'Cormorant Garamond',serif;font-style:italic;color:#FFE9A8}
+  .brand .name{font-family:'Rozha One',serif;letter-spacing:0;line-height:1.25;
+    background:linear-gradient(180deg,#FFFBE0 0%,#FFD54F 45%,#D9961A 62%,#FFE38A 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 2px 3px rgba(0,0,0,.6))}
+  .brand .tag{font-family:'Great Vibes',cursive;color:#FFF3C4;line-height:1}
+  #diyas{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-around;align-items:flex-end}
+  .diya{position:relative}
+  [data-in]{will-change:opacity,transform}
+</style></head>
+<body>
+<div id="stage">
+  <div id="rays"></div>
+  <canvas id="fx"></canvas>
+  <svg id="toran" viewBox="0 0 1080 120" preserveAspectRatio="none"></svg>
+  <div class="col" id="col">
+    <div id="photoWrap" data-in="0.9,1.6,0.92"><div id="halo"></div><img id="photo" src="laxmi-ganesh.png"></div>
+    <div class="title" id="title" data-in="2.6,1.2">शुभ दीपावली</div>
+    <div class="msg" id="m1" data-in="3.9,1.1">दीपों की यह रोशनी आपके घर-आँगन को<br><b>सुख, समृद्धि और अपनों के प्यार</b> से भर दे।</div>
+    <div class="msg" id="m2" data-in="5.4,1.1">आपका भरोसा ही हमारी <b>असली दिवाली</b> है —<br>हर साल, हर कदम पर, हम आपके साथ हैं।</div>
+    <div class="en" id="en" data-in="6.6,1.0">Thank you for being a part of our family.</div>
+    <div class="brand" id="brand" data-in="7.4,1.2,0.94">
+      <div class="with">With love &amp; gratitude</div>
+      <div class="name">साईंटेक कंप्यूटर्स</div>
+      <div class="tag">Completely Yours</div>
+    </div>
+  </div>
+  <div id="diyas"></div>
+  <canvas id="fwc" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas>
+</div>
+<script>
+const q=new URLSearchParams(location.search);
+const W=1080, H=+(q.get('h')||1920), scale=+(q.get('scale')||1);
+const U=scale; document.documentElement.style.setProperty('--u',U+'px');
+const stage=document.getElementById('stage'); stage.style.height=(H*U)+'px';
+const V=H>=1700; // vertical video layout vs 4:5 poster
+const L=V?{top:150,photo:780,title:150,m:44,en:36,brandName:66,brandWith:32,tag:58,gaps:[150,26,40,26,22,60],diya:120,raysY:560}
+         :{top:96,photo:530,title:106,m:33,en:27,brandName:52,brandWith:25,tag:44,gaps:[96,6,18,16,12,26],diya:80,raysY:370};
+const px=v=>v*U+'px';
+const col=document.getElementById('col'); col.style.paddingTop=px(L.top);
+const photo=document.getElementById('photo'); photo.style.width=px(L.photo);
+const halo=document.getElementById('halo'); halo.style.width=halo.style.height=px(L.photo*1.25); halo.style.top=px(-L.photo*0.12);
+document.getElementById('title').style.fontSize=px(L.title);
+['m1','m2'].forEach(i=>document.getElementById(i).style.fontSize=px(L.m));
+document.getElementById('en').style.fontSize=px(L.en);
+const br=document.getElementById('brand');
+br.querySelector('.name').style.fontSize=px(L.brandName*1.3); br.querySelector('.with').style.fontSize=px(L.brandWith); br.querySelector('.tag').style.fontSize=px(L.tag);
+['title','m1','m2','en','brand'].forEach((id,i)=>document.getElementById(id).style.marginTop=px(L.gaps[i+1]));
+document.getElementById('title').style.marginTop=px(V?10:-6);
+const rays=document.getElementById('rays'); rays.style.top=px(L.raysY-1300);
+
+// toran
+const NS='http://www.w3.org/2000/svg', tor=document.getElementById('toran');
+for(let i=0;i<=36;i++){const x=i*30+(i?0:6), y=34+Math.sin(i/36*Math.PI*6)*7;
+  const c=document.createElementNS(NS,'circle');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',13);
+  c.setAttribute('fill',i%2?'#FFB300':'#FF6F00');c.setAttribute('stroke','#B34700');c.setAttribute('stroke-width','2');tor.appendChild(c);
+  if(i%3===1){const l=document.createElementNS(NS,'path');l.setAttribute('d',`M${x} ${y+12} q -9 18 0 32 q 9 -14 0 -32 Z`);l.setAttribute('fill','#2E7D32');tor.appendChild(l);}}
+tor.style.height=px(V?120:96);
+
+// diyas
+const dw=document.getElementById('diyas'); const N=5;
+const diyaSVG=`<svg viewBox="-60 -110 120 120" style="width:${px(L.diya)};height:${px(L.diya)};overflow:visible">
+ <defs><radialGradient id="fl" cx=".5" cy=".7" r=".6"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#FFF176"/><stop offset=".75" stop-color="#FF9800"/><stop offset="1" stop-color="#E65100"/></radialGradient>
+ <radialGradient id="gl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE082" stop-opacity=".9"/><stop offset="1" stop-color="#FFB300" stop-opacity="0"/></radialGradient>
+ <linearGradient id="gd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF6C2"/><stop offset=".4" stop-color="#F2C744"/><stop offset="1" stop-color="#8E5B0E"/></linearGradient></defs>
+ <ellipse class="glow" cx="0" cy="-58" rx="55" ry="60" fill="url(#gl)"/>
+ <path class="flame" d="M0 -95 C 18 -66 18 -40 0 -30 C -18 -40 -18 -66 0 -95 Z" fill="url(#fl)"/>
+ <path d="M-55 -30 Q 0 -20 55 -30 Q 50 8 0 12 Q -50 8 -55 -30 Z" fill="url(#gd)" stroke="#6B3A05" stroke-width="2"/>
+ <path d="M-46 -22 Q 0 -14 46 -22" fill="none" stroke="#B3261E" stroke-width="4"/></svg>`;
+for(let i=0;i<N;i++){const d=document.createElement('div');d.className='diya';d.innerHTML=diyaSVG;d.style.marginBottom=px((i%2?28:14));dw.appendChild(d);}
+
+// particles (deterministic)
+let seed=11; const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const parts=[...Array(70)].map(()=>({x:rnd(),y:rnd(),r:4+rnd()*22,sp:.02+rnd()*.05,a:.15+rnd()*.35,ph:rnd()*6.28,c:rnd()<.5?'255,220,130':'255,190,90'}));
+const stars=[...Array(24)].map(()=>{const side=rnd()<.5; return {x:side?0.02+rnd()*.1:0.88+rnd()*.1,y:0.08+rnd()*.8,s:6+rnd()*12,ph:rnd()*6.28};});
+const cv=document.getElementById('fx'); cv.width=W*U; cv.height=H*U; const g=cv.getContext('2d');
+
+// optional voiceover timeline: ?tl=photo,title,m1,m2,en,brand (start seconds)
+if(q.get('tl')){ const tl=q.get('tl').split(',').map(Number);
+  ['photoWrap','title','m1','m2','en','brand'].forEach((id,i)=>{const el=document.getElementById(id); const p=el.dataset.in.split(','); p[0]=tl[i]; el.dataset.in=p.join(',');}); }
+// optional fireworks: ?fw=t1,t2,... burst times (rocket trail shown 0.85 s before each)
+const FW=(q.get('fw')||'').split(',').filter(Boolean).map(Number).map((b,i)=>{
+  let sd=1000+i*7919; const r=()=>(sd=(sd*16807)%2147483647)/2147483647;
+  const cols=[[255,215,64],[255,82,82],[105,240,174],[64,196,255],[234,128,252],[255,171,64],[255,255,255]];
+  const c1=cols[Math.floor(r()*cols.length)], c2=cols[Math.floor(r()*cols.length)];
+  const side=i%2?1:-1; return {b, x:0.5+side*(0.2+r()*0.1), y:0.1+r()*0.14, sx:0.5+side*(0.05+r()*0.3), n:150+Math.floor(r()*20), R:260+r()*90, c1, c2,
+          sp:[...Array(170)].map(()=>({a:r()*6.283, v:0.55+r()*0.45, tw:r()*6.28}))};});
+const fwc=document.getElementById('fwc'); fwc.width=W*U; fwc.height=H*U; const fg=fwc.getContext('2d');
+function drawFireworks(t){
+  const g=fg; g.clearRect(0,0,fwc.width,fwc.height); g.globalCompositeOperation='lighter';
+  const Wp=fwc.width, Hp=fwc.height;
+  FW.forEach(f=>{
+    const X=f.x*Wp, Y=f.y*Hp;
+    if(t>=f.b-0.85 && t<f.b){ // rocket trail
+      const k=(t-(f.b-0.85))/0.85, sx=f.sx*Wp, cx=sx+(X-sx)*k, cy=Hp+(Y-Hp)*(1-Math.pow(1-k,2));
+      for(let j=0;j<10;j++){const kk=Math.max(0,k-j*0.02), px_=sx+(X-sx)*kk, py=Hp+(Y-Hp)*(1-Math.pow(1-kk,2));
+        g.fillStyle=`rgba(255,230,160,${0.9-j*0.09})`; g.beginPath(); g.arc(px_,py,(8-j*0.6)*U,0,7); g.fill();}
+    }
+    const d=t-f.b; if(d<0||d>2.2) return;
+    const fade=Math.max(0,1-d/2.2), e=1-Math.exp(-d*3.2);
+    if(d<0.2){ const fl=g.createRadialGradient(X,Y,0,X,Y,220*U); fl.addColorStop(0,`rgba(255,250,220,${0.85*(1-d/0.2)})`); fl.addColorStop(1,'rgba(255,200,120,0)'); g.fillStyle=fl; g.beginPath(); g.arc(X,Y,220*U,0,7); g.fill(); }
+    f.sp.slice(0,f.n).forEach((p,i)=>{
+      const rr=f.R*U*p.v*e, px_=X+Math.cos(p.a)*rr, py=Y+Math.sin(p.a)*rr+ 60*U*d*d;
+      const c=i%2?f.c1:f.c2, tw=0.6+0.4*Math.sin(t*25+p.tw);
+      g.strokeStyle=`rgba(${c},${fade*tw})`; g.lineWidth=5*U;
+      const tail=0.14*rr; g.beginPath(); g.moveTo(px_,py); g.lineTo(px_-Math.cos(p.a)*tail, py-Math.sin(p.a)*tail-8*U*d); g.stroke();
+      g.fillStyle=`rgba(255,255,240,${fade*tw})`; g.beginPath(); g.arc(px_,py,3.4*U,0,7); g.fill();
+    });
+  });
+}
+const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
+window.setT=function(t){
+  // fade in from dark
+  stage.style.filter=`brightness(${0.25+0.75*ease(t/1.2)})`;
+  rays.style.transform=`rotate(${t*2.2}deg)`; rays.style.opacity=ease((t-0.4)/1.5);
+  tor.style.transform=`translateY(${px(-130*(1-ease((t-0.3)/1.1)))})`;
+  document.querySelectorAll('[data-in]').forEach(el=>{
+    const [s,d,sc]=el.dataset.in.split(',').map(Number); const k=ease((t-s)/d);
+    el.style.opacity=k; el.style.transform=sc?`scale(${sc+(1-sc)*k})`:`translateY(${px(30*(1-k))})`;
+  });
+  halo.style.opacity=(0.75+0.25*Math.sin(t*2.2))*ease((t-0.9)/1.6);
+  // diyas light up one after another
+  document.querySelectorAll('.diya').forEach((d,i)=>{
+    const k=ease((t-0.15-i*0.18)/0.5);
+    const f=d.querySelector('.flame'), gl=d.querySelector('.glow');
+    const fl=1+0.07*Math.sin(t*13+i*2)+0.04*Math.sin(t*23+i);
+    f.setAttribute('transform',`translate(0 -30) scale(${(0.15+0.85*k)*(0.97+0.03*Math.sin(t*9+i))} ${k*fl}) translate(0 30)`);
+    f.style.opacity=k; gl.style.opacity=k*(0.8+0.2*Math.sin(t*7+i));
+  });
+  // bokeh + sparkles
+  g.clearRect(0,0,cv.width,cv.height);
+  const show=ease((t-0.5)/1.5);
+  parts.forEach(p=>{const y=((p.y - t*p.sp)%1+1)%1, x=p.x+0.015*Math.sin(t*0.8+p.ph);
+    const R=p.r*U; const gr=g.createRadialGradient(x*cv.width,y*cv.height,0,x*cv.width,y*cv.height,R);
+    gr.addColorStop(0,`rgba(${p.c},${p.a*show})`); gr.addColorStop(1,`rgba(${p.c},0)`); g.fillStyle=gr;
+    g.beginPath(); g.arc(x*cv.width,y*cv.height,R,0,7); g.fill();});
+  stars.forEach(s=>{const a=Math.max(0,Math.sin(t*2.5+s.ph))*show; if(a<.05)return; const X=s.x*cv.width,Y=s.y*cv.height,S=s.s*U*a;
+    g.fillStyle=`rgba(255,250,225,${a})`; g.beginPath(); g.moveTo(X,Y-S*2); g.lineTo(X+S*.35,Y-S*.35); g.lineTo(X+S*2,Y); g.lineTo(X+S*.35,Y+S*.35);
+    g.lineTo(X,Y+S*2); g.lineTo(X-S*.35,Y+S*.35); g.lineTo(X-S*2,Y); g.lineTo(X-S*.35,Y-S*.35); g.fill();});
+  drawFireworks(t);
+};
+window.setT(+(q.get('t')||10));
+window.ready=Promise.all([document.fonts.ready,new Promise(r=>photo.complete?r():photo.onload=r)]);
+</script>
+</body></html>
