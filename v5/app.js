@@ -786,14 +786,19 @@
       href: "products.html",
       label: "Products",
       eyebrow: "Complete Medicine Formulary",
-      title: "Evidence-backed medicines across 5 specialties.",
-      desc: "Click any product below to inspect its clinical monograph, or open the interactive formulary to filter & compare all formulations.",
+      title: `Evidence-backed medicines across ${(DATA.categories || []).filter((c) => c.id !== "all").length} specialties.`,
+      desc: "See our newest launches below, browse the complete formulary, or search any medicine, salt or symptom.",
       cardTitle: "Complete Formulary",
       cardSub: "AADIRISE D3 • BIOIPC • ADENOCAL-K2 • PANTHETA DSR & MORE",
       videoSrc: "assets/video/hero-capsule-gmp.mp4",
+      /* short and fixed-size: new launches + browse + search (not every product) */
       quickLinks: [
-        ...(DATA.medicines || []).map((m) => ({ label: m.name, medId: m.id })),
-        { label: "View All Formulations", href: "products.html", isPrimary: true }
+        ...["adenosyl-od", "first-food", "ub-10"]
+          .map((id) => (DATA.medicines || []).find((m) => m.id === id))
+          .filter(Boolean)
+          .map((m) => ({ label: m.name, medId: m.id, isNew: true })),
+        { label: `View all ${(DATA.medicines || []).length} products`, href: "products.html", isPrimary: true },
+        { label: "Search medicines", openSearch: true }
       ]
     },
     {
@@ -806,7 +811,7 @@
       cardSub: "Interactive delivery viewport & WHO-GMP quality standards",
       videoSrc: "assets/video/hero-formulation-lab.mp4",
       quickLinks: [
-        { label: "4 Delivery Vehicles", href: "science.html" },
+        { label: "5 Delivery Platforms", href: "science.html#platforms" },
         { label: "Quality Standards", href: "science.html" }
       ]
     },
@@ -977,7 +982,11 @@
       if (chipsEl) {
         chipsEl.innerHTML = (item.quickLinks || []).map((q) => {
           if (q.medId) {
-            return `<button type="button" class="bio-cmd-chip bio-cmd-med-chip" data-open-med="${escapeHtml(q.medId)}">${escapeHtml(q.label)}</button>`;
+            const newTag = q.isNew ? `<span class="bio-cmd-new">New</span>` : "";
+            return `<button type="button" class="bio-cmd-chip bio-cmd-med-chip" data-open-med="${escapeHtml(q.medId)}">${newTag}${escapeHtml(q.label)}</button>`;
+          }
+          if (q.openSearch) {
+            return `<button type="button" class="bio-cmd-chip bio-cmd-search-chip" data-open-quick-search><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><line x1="20.5" y1="20.5" x2="16.4" y2="16.4"/></svg>${escapeHtml(q.label)}</button>`;
           }
           const extraCls = q.isPrimary ? " bio-cmd-chip-primary" : "";
           return `<a href="${q.href}" class="bio-cmd-chip${extraCls}" data-cmd-nav>${escapeHtml(q.label)} →</a>`;
@@ -1051,15 +1060,79 @@
     closeCommandMenuFn = closeCommandMenu;
     syncCommandMenuActiveFn = syncActivePageInCmd;
 
+    /* Capsule opens: the logo-capsule splits into two halves, granules spill out,
+       and the menu grows out of the spot where the capsule was. */
+    function openFromCapsule() {
+      if (pillEl.classList.contains("lv-x")) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { openCommandMenu(); return; }
+      pillEl.classList.add("lv-x");
+      const pr = pillEl.getBoundingClientRect();
+      /* seam = the gap between the logo half and the menu-button half */
+      const brandR = pillEl.querySelector(".bio-float-pill-brand")?.getBoundingClientRect();
+      const burgR = burgerBtn ? burgerBtn.getBoundingClientRect() : null;
+      let seam = brandR && burgR && burgR.left > brandR.right ? (brandR.right + burgR.left) / 2 - pr.left : pr.width * 0.68;
+      if (!(seam > 20 && seam < pr.width - 20)) seam = pr.width * 0.68;
+      const radius = Math.round(pr.height / 2);
+      const halves = ["left", "right"].map((side) => {
+        const c = pillEl.cloneNode(true);
+        c.removeAttribute("id");
+        c.querySelectorAll("[id]").forEach((n) => n.removeAttribute("id"));
+        c.setAttribute("aria-hidden", "true");
+        c.classList.add("lv-capsule-half", "lv-capsule-" + side);
+        c.classList.remove("is-menu-open");
+        Object.assign(c.style, { left: pr.left + "px", top: pr.top + "px", right: "auto", width: pr.width + "px", height: pr.height + "px", margin: "0" });
+        c.style.clipPath = side === "left"
+          ? `inset(0 ${Math.round(pr.width - seam)}px 0 0 round ${radius}px 0 0 ${radius}px)`
+          : `inset(0 0 0 ${Math.round(seam)}px round 0 ${radius}px ${radius}px 0)`;
+        c.style.setProperty("--seam", seam + "px");
+        document.body.appendChild(c);
+        return c;
+      });
+      const burst = document.createElement("div");
+      burst.className = "lv-capsule-burst";
+      burst.setAttribute("aria-hidden", "true");
+      burst.style.left = pr.left + seam + "px";
+      burst.style.top = pr.top + pr.height / 2 + "px";
+      const COLORS = ["#F8A000", "#3D8BFF", "#22B35E", "#FFFFFF", "#FFC34D", "#38BDF8"];
+      for (let i = 0; i < 16; i++) {
+        const g = document.createElement("i");
+        const ang = (Math.PI * 0.15) + (Math.PI * 1.7) * (i / 16) + (Math.random() - 0.5) * 0.3;
+        const dist = 38 + Math.random() * 46;
+        g.style.setProperty("--dx", Math.cos(ang) * dist + "px");
+        g.style.setProperty("--dy", Math.abs(Math.sin(ang)) * dist * 0.9 + 6 + "px");
+        g.style.setProperty("--s", (4 + Math.random() * 5).toFixed(1) + "px");
+        g.style.background = COLORS[i % COLORS.length];
+        g.style.animationDelay = (Math.random() * 60).toFixed(0) + "ms";
+        burst.appendChild(g);
+      }
+      document.body.appendChild(burst);
+      pillEl.classList.add("lv-capsule-hidden");
+      void halves[0].offsetWidth;
+      setTimeout(() => halves.forEach((h) => h.classList.add("is-splitting")), 16);
+      /* the menu grows out of the capsule */
+      setTimeout(() => {
+        const panelW = panel.offsetWidth || Math.min(1240, window.innerWidth - 28);
+        const panelLeft = (window.innerWidth - panelW) / 2;
+        panel.style.transformOrigin = `${Math.round(pr.left + seam - panelLeft)}px ${Math.round(pr.top + pr.height / 2 - 14)}px`;
+        panel.classList.add("lv-from-capsule");
+        void panel.offsetWidth;
+        openCommandMenu();
+        setTimeout(() => { panel.classList.remove("lv-from-capsule"); panel.style.transformOrigin = ""; }, 520);
+      }, 300);
+      setTimeout(() => {
+        halves.forEach((h) => h.remove());
+        burst.remove();
+        pillEl.classList.remove("lv-capsule-hidden");
+        pillEl.classList.remove("lv-x");
+      }, 820);
+    }
+
     // Toggle menu exclusively on click of burger or pill area (no jarring hover-open)
     burgerBtn?.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
       if (cmdOpen) { closeCommandMenu(); return; }
-      if (pillEl.classList.contains("lv-x")) return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { openCommandMenu(); return; }
-      pillEl.classList.add("lv-x");
-      setTimeout(() => { openCommandMenu(); setTimeout(() => pillEl.classList.remove("lv-x"), 450); }, 280);
+      openFromCapsule();
     });
 
     pillEl.addEventListener("click", (e) => {
@@ -1068,10 +1141,7 @@
       e.preventDefault();
       e.stopPropagation();
       if (cmdOpen) { closeCommandMenu(); return; }
-      if (pillEl.classList.contains("lv-x")) return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { openCommandMenu(); return; }
-      pillEl.classList.add("lv-x");
-      setTimeout(() => { openCommandMenu(); setTimeout(() => pillEl.classList.remove("lv-x"), 450); }, 280);
+      openFromCapsule();
     });
 
     // Hovering any of the 6 headings dynamically updates showcase preview
@@ -1669,27 +1739,33 @@
     if (!cardsMount || !svgMount || !capMount) return;
 
     cardsMount.innerHTML = DATA.technologies.map((tech, idx) => `
-      <button type="button" class="sci-selector-card ${state.activeSciIndex === idx ? "active" : ""}" style="--sci-color:${tech.accent}" data-sci-idx="${idx}">
+      <button type="button" class="sci-selector-card ${state.activeSciIndex === idx ? "active" : ""}" style="--sci-color:${tech.accent}" data-sci-idx="${idx}" aria-pressed="${state.activeSciIndex === idx}">
         <div class="sci-badge-row">
           <span class="sci-tag">${escapeHtml(tech.badge)}</span>
           <span class="sci-med-ref">${escapeHtml(tech.medicine)}</span>
         </div>
         <h3>${escapeHtml(t(tech.titleEn, tech.titleHi))}</h3>
         <p>${escapeHtml(t(tech.cardDescEn || tech.descEn, tech.cardDescHi || tech.descHi))}</p>
+        ${state.activeSciIndex === idx
+          ? `<span class="sci-card-now">${t("Now showing", "अभी दिख रहा है")}</span><span class="sci-card-progress" aria-hidden="true"></span>`
+          : `<span class="sci-card-cue" aria-hidden="true">${t("View", "देखें")} →</span>`}
       </button>
     `).join("");
 
     cardsMount.querySelectorAll(".sci-selector-card").forEach((btn) => {
       btn.addEventListener("click", () => {
+        sciAuto.userChose = true; /* visitor took over — stop auto-advance */
         state.activeSciIndex = Number(btn.getAttribute("data-sci-idx"));
         renderScienceLab();
       });
     });
 
-    const activeTech = DATA.technologies[state.activeSciIndex] || DATA.technologies[0];
-    const linkedMed = getMedById(activeTech.medicineId);
-    svgMount.innerHTML = getScienceSVG(state.activeSciIndex);
-    capMount.innerHTML = `
+    const curIdx = DATA.technologies[state.activeSciIndex] ? state.activeSciIndex : 0;
+    svgMount.innerHTML = getScienceSVG(curIdx);
+    const captionHTML = (i) => {
+      const activeTech = DATA.technologies[i];
+      const linkedMed = getMedById(activeTech.medicineId) || { id: "" };
+      return `
       <span class="sci-tag" style="--sci-color:${activeTech.accent};margin-bottom:10px;display:inline-block;">${escapeHtml(activeTech.badge)}</span>
       <h4>${activeTech.headlineEn ? escapeHtml(t(activeTech.headlineEn, activeTech.headlineHi)) : `${escapeHtml(t(activeTech.titleEn, activeTech.titleHi))} — ${escapeHtml(activeTech.medicine)}`}</h4>
       <p>${escapeHtml(t(activeTech.descEn, activeTech.descHi))}</p>
@@ -1701,7 +1777,75 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
       </div>`}
-    `;
+      <div class="sci-nav">
+        <span class="sci-count">${i + 1} / ${DATA.technologies.length}</span>
+        <button type="button" class="sci-next" data-sci-next>${t("Next platform", "अगला प्लेटफ़ॉर्म")} <span aria-hidden="true">→</span></button>
+      </div>
+`;
+    };
+    equalizeSciCaption(capMount, captionHTML);
+    capMount.innerHTML = captionHTML(curIdx);
+    capMount.querySelector("[data-sci-next]")?.addEventListener("click", () => {
+      sciAuto.userChose = true;
+      state.activeSciIndex = ((state.activeSciIndex || 0) + 1) % DATA.technologies.length;
+      renderScienceLab();
+    });
+    scheduleSciAuto(cardsMount.closest(".science-lab-grid"));
+  }
+
+  /* Keep the viewport the same size for every platform: reserve the height of
+     the tallest caption (re-measured when the width or language changes). */
+  function equalizeSciCaption(capMount, captionHTML) {
+    const key = capMount.clientWidth + "|" + state.lang;
+    if (capMount.dataset.eqKey === key) return;
+    capMount.style.minHeight = "";
+    let tallest = 0;
+    DATA.technologies.forEach((_, i) => {
+      capMount.innerHTML = captionHTML(i);
+      tallest = Math.max(tallest, capMount.scrollHeight);
+    });
+    if (tallest > 0) {
+      capMount.style.minHeight = tallest + "px";
+      capMount.dataset.eqKey = key;
+    }
+  }
+  let sciEqResizeT = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(sciEqResizeT);
+    sciEqResizeT = setTimeout(() => {
+      const cap = document.getElementById("scienceCaptionMount");
+      if (cap) { delete cap.dataset.eqKey; renderScienceLab(); }
+    }, 200);
+  });
+
+  /* Auto-advance through the platforms (every 8 s) until the visitor clicks;
+     pauses while the pointer / finger is on the lab or it is off screen. */
+  const sciAuto = { timer: null, userChose: false, paused: false, DELAY: 8000 };
+  function scheduleSciAuto(grid) {
+    clearTimeout(sciAuto.timer);
+    if (!grid) return;
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const on = !reduce && !sciAuto.userChose;
+    grid.classList.toggle("is-autoplay", on && !sciAuto.paused);
+    grid.style.setProperty("--sci-auto-ms", sciAuto.DELAY + "ms");
+    if (!grid.dataset.sciAutoBound) {
+      grid.dataset.sciAutoBound = "1";
+      const pause = () => { sciAuto.paused = true; grid.classList.remove("is-autoplay"); clearTimeout(sciAuto.timer); };
+      const resume = () => { sciAuto.paused = false; renderScienceLab(); };
+      grid.addEventListener("mouseenter", pause);
+      grid.addEventListener("mouseleave", resume);
+      grid.addEventListener("touchstart", () => { sciAuto.userChose = true; pause(); }, { passive: true });
+      grid.addEventListener("focusin", pause);
+    }
+    if (!on || sciAuto.paused) return;
+    sciAuto.timer = setTimeout(function tick() {
+      if (!grid.isConnected || sciAuto.userChose || sciAuto.paused) return;
+      const r = grid.getBoundingClientRect();
+      const inView = r.top < window.innerHeight * 0.85 && r.bottom > window.innerHeight * 0.15 && !document.hidden;
+      if (!inView) { sciAuto.timer = setTimeout(tick, 1200); return; }
+      state.activeSciIndex = ((state.activeSciIndex || 0) + 1) % DATA.technologies.length;
+      renderScienceLab();
+    }, sciAuto.DELAY);
   }
 
   /* ---------- Complete 9-Medicine Explorer ---------- */

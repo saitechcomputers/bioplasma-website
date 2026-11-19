@@ -7077,3 +7077,128 @@ body:has(.site-header:not(.lv-hdr-hide)) #medicinesExplorerSection .explorer-too
 #medicinesExplorerSection .search-field-wrap[data-open-quick-search] .search-input { cursor: pointer; }
 #medicinesExplorerSection .search-field-wrap[data-open-quick-search] .clear-search-x { display: none !important; }
 #medicinesExplorerSection .search-field-wrap[data-open-quick-search]:hover .search-input { border-color: #104080 !important; }
+
+/* Header menu — Products panel: "New" tag on launch chips, search chip */
+.bio-cmd-chip .bio-cmd-new {
+  display: inline-block; margin-right: 7px; padding: 1px 7px; border-radius: 999px; vertical-align: 1px;
+  background: #F8A000; color: #2A1A00; font-size: .66rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+}
+.bio-cmd-search-chip { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; }
+.bio-cmd-search-chip svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* =====================================================================
+   CAPSULE OPENS → MENU: the floating logo-capsule splits in two, granules
+   spill out, and the menu grows out of the capsule (see openFromCapsule in app.js)
+   ===================================================================== */
+.bio-float-pill.lv-capsule-hidden { opacity: 0 !important; transition: none !important; }
+.bio-float-pill.lv-capsule-half {
+  z-index: 246; pointer-events: none !important; animation: none !important;
+  opacity: 1 !important; visibility: visible !important;
+  transform: none; transform-origin: var(--seam) 50%;
+  transition: transform .46s cubic-bezier(.2, .9, .25, 1), opacity .28s ease .2s, filter .3s ease !important;
+}
+.bio-float-pill.lv-capsule-half::after, .bio-float-pill.lv-capsule-half .bio-float-pill-aura { animation: none !important; }
+.bio-float-pill.lv-capsule-left.is-splitting { transform: translate3d(-26px, 6px, 0) rotate(-11deg); opacity: 0 !important; }
+.bio-float-pill.lv-capsule-right.is-splitting { transform: translate3d(26px, 6px, 0) rotate(11deg); opacity: 0 !important; }
+
+.lv-capsule-burst { position: fixed; width: 0; height: 0; z-index: 254; pointer-events: none; }
+.lv-capsule-burst i {
+  position: absolute; left: 0; top: 0; width: var(--s); height: var(--s); margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
+  border-radius: 50%; box-shadow: 0 0 8px currentColor; opacity: 0;
+  animation: lvGranule .62s cubic-bezier(.15, .8, .3, 1) forwards;
+}
+@keyframes lvGranule {
+  0% { opacity: 1; transform: translate(0, 0) scale(1); }
+  70% { opacity: .9; }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(.35); }
+}
+
+.bio-cmd-panel.lv-from-capsule { transition: opacity .3s ease, transform .5s cubic-bezier(.2, 1.05, .3, 1), visibility .3s ease !important; }
+.bio-cmd-panel.lv-from-capsule:not(.is-open) { transform: translate3d(-50%, 0, 0) scale(.08); opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-capsule-burst, .bio-float-pill.lv-capsule-half { display: none !important; }
+}
+
+/* =====================================================================
+   SCIENCE LAB — make it obvious the platforms are clickable
+   hint line · "View →" cue · "Now showing" tag · 1 / 5 + Next · auto-advance bar
+   ===================================================================== */
+@media (min-width: 1121px) {
+  .science-cards-stack::before {
+    content: "Click a platform to see how it works \2192";
+    display: block; margin: 0 2px 2px; font-size: .9rem; font-weight: 600; color: #104080;
+  }
+}
+.sci-selector-card { position: relative; cursor: pointer; overflow: hidden; }
+.sci-card-cue {
+  position: absolute; right: 18px; bottom: 14px; font-size: .8rem; font-weight: 800; color: #104080;
+  opacity: 0; transform: translateX(-6px); transition: opacity .2s ease, transform .2s ease;
+}
+.sci-selector-card:hover .sci-card-cue, .sci-selector-card:focus-visible .sci-card-cue { opacity: 1; transform: none; }
+.sci-selector-card:not(.active):hover { transform: translateY(-2px); box-shadow: 0 14px 30px -14px rgba(16, 64, 128, .35) !important; }
+.sci-card-now {
+  position: absolute; right: 16px; bottom: 12px; padding: 2px 9px; border-radius: 999px;
+  background: #FFF4DB; color: #7A4A00; font-size: .7rem; font-weight: 800; letter-spacing: .04em;
+}
+.sci-card-progress { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: linear-gradient(90deg, #F8A000, #FFC34D); border-radius: 0 3px 3px 0; }
+.science-lab-grid.is-autoplay .sci-selector-card.active .sci-card-progress { animation: sciAutoBar var(--sci-auto-ms, 8000ms) linear forwards; }
+@keyframes sciAutoBar { from { width: 0; } to { width: 100%; } }
+
+.sci-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, .14); }
+.sci-count { font-size: .85rem; font-weight: 700; color: rgba(255, 255, 255, .72); letter-spacing: .04em; }
+.sci-next {
+  display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 999px; cursor: pointer;
+  border: 1.5px solid rgba(255, 255, 255, .55); background: transparent; color: #FFFFFF; font: inherit; font-size: .88rem; font-weight: 700;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.sci-next:hover, .sci-next:focus-visible { background: #F8A000; border-color: #F8A000; color: #2A1A00; }
+.sci-next span { transition: transform .2s ease; }
+.sci-next:hover span { transform: translateX(3px); }
+
+/* phones / tablets: compact cards keep only the progress line */
+@media (max-width: 1120px) {
+  .sci-card-cue, .sci-card-now { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .science-lab-grid.is-autoplay .sci-selector-card.active .sci-card-progress { animation: none; }
+}
+@media (min-width: 1121px) { .sci-selector-card { padding-bottom: 38px !important; } }
+
+/* Science lab: one steady size — animation area fixed, caption reserves the
+   tallest platform's height (set by equalizeSciCaption in app.js) */
+.science-microscope-box .microscope-svg-canvas { flex: 0 0 auto !important; height: clamp(240px, 32vh, 320px) !important; min-height: 0 !important; }
+@media (min-width: 1121px) {
+  .science-microscope-box { height: auto !important; overflow: visible !important; }
+}
+@media (max-width: 1120px) {
+  .science-microscope-box .microscope-svg-canvas { height: 240px !important; }
+}
+/* active card stays in line with the others (no sideways shift) */
+.sci-selector-card.active { transform: none !important; }
+
+/* Science lab caption: content at top, "2 / 5 · Next platform" always at the bottom */
+#scienceCaptionMount { display: flex; flex-direction: column; align-items: flex-start; }
+#scienceCaptionMount > * { max-width: 100%; }
+#scienceCaptionMount > .sci-nav { align-self: stretch; margin-top: auto; }
+#scienceCaptionMount > ul, #scienceCaptionMount > p, #scienceCaptionMount > .lv-sci-meds { align-self: stretch; }
+#scienceCaptionMount > div:not(.sci-nav):not(.lv-sci-meds) { margin-bottom: 14px; }
+@media (min-width: 1121px) { .sci-selector-card { padding-bottom: 32px !important; } }
+
+/* =====================================================================
+   SCIENCE LAB — alignment + fit (desktop)
+   - hint sits on its own row above BOTH columns, so the first card and the
+     dark box start on the same line
+   - the bullet list (repeats the description) is hidden, so the reserved
+     caption height stays small and the whole box fits on screen
+   ===================================================================== */
+@media (min-width: 1121px) {
+  .science-cards-stack::before { content: none !important; display: none !important; }
+  .science-lab-grid::before {
+    content: "Click a platform to see how it works \2192";
+    grid-column: 1 / -1; display: block; margin: 0 2px -14px; font-size: .9rem; font-weight: 600; color: #104080;
+  }
+  .science-microscope-box { top: 100px !important; }
+  .science-microscope-box .microscope-svg-canvas { height: clamp(220px, 30vh, 300px) !important; }
+}
+#scienceCaptionMount .lv-sci-points { display: none !important; }
