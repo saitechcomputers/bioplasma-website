@@ -2664,16 +2664,16 @@ window.BIOPLASMA_DATA.medicines.push({
   classification: "Prescription / Active Vitamin B12",
   rxRequired: true,
   sugarFree: false,
-  flavour: "Softgel Capsule",
-  dosageForm: "Softgel capsule",
-  packSize: "10 × 10 Softgels",
+  flavour: "Capsule",
+  dosageForm: "Capsule",
+  packSize: "1 × 10 Capsules",
   technology: "Active Coenzyme B12",
   techBadge: "VITAMIN B12",
   accent: "#A3123A",
   accentSoft: "#FBE9EE",
   image: "assets/products/adenosyl-od.webp",
-  taglineEn: "Adenosylcobalamin — Essential Support for Healthy Body Functions.",
-  taglineHi: "एडीनोसिलकोबालामिन — शरीर के स्वस्थ कार्यों के लिए ज़रूरी सपोर्ट।",
+  taglineEn: "Essential Support for Healthy Body Functions.",
+  taglineHi: "शरीर के स्वस्थ कार्यों के लिए ज़रूरी सपोर्ट।",
   easyGuide: {
     whatIsItEn: "Adenosylcobalamin is the biologically active coenzyme form of Vitamin B12. The body uses it directly for DNA synthesis and neurological function — unlike cyanocobalamin, it does not need to be converted into an active form first.",
     whatIsItHi: "एडीनोसिलकोबालामिन विटामिन B12 का जैविक रूप से सक्रिय (कोएंज़ाइम) रूप है। शरीर इसे सीधे DNA बनाने और नसों के कार्य के लिए इस्तेमाल करता है — सायनोकोबालामिन की तरह इसे पहले सक्रिय रूप में बदलने की ज़रूरत नहीं होती।",
@@ -2695,8 +2695,7 @@ window.BIOPLASMA_DATA.medicines.push({
     ]
   },
   composition: [
-    { ingredient: "Adenosylcobalamin", detail: "Biologically active coenzyme form of Vitamin B12", strength: "1000 mcg", rda: "Per Softgel" },
-    { ingredient: "Excipients", detail: "Approved colours used in soft gelatin capsule shells", strength: "q.s.", rda: "—" }
+    { ingredient: "Adenosylcobalamin", detail: "Biologically active coenzyme form of Vitamin B12", strength: "1000 mcg", rda: "Per Capsule" }
   ],
   mechanism: [
     { step: "01", title: "Active Coenzyme B12", desc: "Used directly by the body for DNA synthesis and neurological function, without conversion to an active form; essential for the conversion of methylmalonyl-CoA into succinyl-CoA." },
@@ -2736,7 +2735,7 @@ window.BIOPLASMA_DATA.medicines.push({
     customer: {
       headline: "Active Vitamin B12 for nerves, blood and energy — take only on your doctor's advice.",
       metaLabel: "Prescription Care",
-      metaValue: "Rx Only • 10 × 10 Softgels",
+      metaValue: "Rx Only • 1 × 10 Capsules",
       points: [
         "Supports nerve health, red blood cell formation and energy metabolism.",
         "Swallow the softgel whole with water — do not chew or crush.",
@@ -2754,9 +2753,9 @@ window.BIOPLASMA_DATA.medicines.push({
       ]
     },
     stockist: {
-      headline: "Rx active-B12 SKU (10 × 10 Softgels) for gynecology, maternity and physician prescriptions.",
+      headline: "Rx active-B12 SKU (1 × 10 Capsules) for gynecology, maternity and physician prescriptions.",
       metaLabel: "Trade Pack Spec",
-      metaValue: "10 × 10 Softgels",
+      metaValue: "1 × 10 Capsules",
       points: [
         "Stock alongside the women's-health and iron & blood range.",
         "Store in a cool, dry and dark place; protect from direct sunlight and moisture.",
