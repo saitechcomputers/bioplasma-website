@@ -7008,3 +7008,72 @@ img { -webkit-user-drag: none; user-drag: none; }
   .science-lab-grid { gap: 14px !important; }
   .science-microscope-box { scroll-margin-top: 90px; }
 }
+
+/* ===================== V5: Products search/filter — same as mobile on every screen ===================== */
+#medicinesExplorerSection .toolbar-row-top { display: flex !important; flex-direction: row !important; align-items: center; gap: 10px; flex-wrap: nowrap !important; }
+#medicinesExplorerSection .toolbar-row-top > .search-field-wrap { flex: 1; min-width: 0; }
+#medicinesExplorerSection .toolbar-row-top > div:has(#explorerDosageSelect), #medicinesExplorerSection #explorerSugarBtn { display: none !important; }
+#medicinesExplorerSection #explorerCategoryPills { display: none !important; }
+#medicinesExplorerSection #explorerFilterStatus { display: none !important; }
+#medicinesExplorerSection .lv-filter-btn { display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; height: 52px; padding: 0 20px; border-radius: 999px; border: 1.5px solid #104080; background: #fff; color: #104080; font-weight: 800; font-size: .95rem; cursor: pointer; transition: background .2s, color .2s; }
+#medicinesExplorerSection .lv-filter-btn:hover, #medicinesExplorerSection .lv-filter-btn:focus-visible { background: #104080; color: #fff; }
+#medicinesExplorerSection .lv-filter-btn svg { width: 18px; height: 18px; }
+#medicinesExplorerSection .lv-filter-count { min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: #F8A000; color: #2A1A00; font-size: .72rem; display: inline-grid; place-items: center; }
+#medicinesExplorerSection .lv-filter-count[hidden] { display: none; }
+#medicinesExplorerSection .lv-active-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; }
+#medicinesExplorerSection .lv-count { font-size: .85rem; font-weight: 800; color: #5B6B84; margin-right: 4px; }
+#medicinesExplorerSection .lv-active-chip { border: 0; background: #FFF4DB; color: #7A4A00; font-weight: 700; font-size: .82rem; padding: 6px 12px; border-radius: 999px; cursor: pointer; }
+@media (min-width: 761px) {
+  #medicinesExplorerSection .explorer-toolbar { position: sticky; top: 96px; z-index: 40; background: rgba(255,255,255,.96) !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  /* Filter panel: centred card on bigger screens */
+  .lv-sheet-panel { left: 50%; right: auto; bottom: auto; top: 50%; width: min(560px, 92vw); max-height: 82dvh; border-radius: 22px; transform: translate(-50%, -46%) scale(.96); opacity: 0; transition: transform .28s cubic-bezier(.2,.8,.2,1), opacity .2s ease; }
+  .lv-sheet.open .lv-sheet-panel { transform: translate(-50%, -50%); opacity: 1; }
+  .lv-sheet-grab { display: none; }
+  .lv-sheet-head { padding-top: 16px; }
+}
+
+/* =====================================================================
+   ONE SEARCH EVERYWHERE — the search pop-up looks and works the same on
+   every screen size (desktop gets the same bar + Cancel + compact rows).
+   ===================================================================== */
+#quickSearchBackdrop .modal-header-bar { display: none !important; }
+#quickSearchBackdrop .modal-body-scroll { padding: 0 18px 18px !important; scrollbar-width: none; }
+#quickSearchBackdrop .modal-body-scroll::-webkit-scrollbar { display: none; }
+#quickSearchBackdrop .qs-bar {
+  position: sticky; top: 0; z-index: 2; margin: 0 -18px; padding: 14px 18px;
+  background: #FFFFFF; border-bottom: 1px solid #E6ECF4;
+}
+#quickSearchBackdrop #quickSearchModalInput { height: 48px; font-size: 16px; border-radius: 999px; }
+#quickSearchBackdrop .qs-cancel {
+  display: inline-flex; flex-shrink: 0; align-items: center; height: 48px; padding: 0 4px; border: 0; background: none;
+  color: #104080; font: inherit; font-size: 1rem; font-weight: 700; cursor: pointer;
+}
+#quickSearchBackdrop .qs-cancel:hover { color: #F8A000; }
+#quickSearchResultsMount > .qs-chips,
+#quickSearchResultsMount > .qs-label:has(+ .qs-chips) { display: none !important; }
+#quickSearchResultsMount { gap: 4px !important; margin-top: 4px !important; }
+#quickSearchResultsMount .qs-label { margin: 12px 2px 4px; }
+#quickSearchResultsMount .qs-row { gap: 12px; padding: 8px 12px; border-radius: 12px; min-height: 60px; }
+#quickSearchResultsMount .qs-row img { width: 42px; height: 42px; }
+#quickSearchResultsMount .qs-txt strong { font-size: .95rem; line-height: 1.25; }
+#quickSearchResultsMount .qs-txt small { -webkit-line-clamp: 1; font-size: .8rem; }
+#quickSearchResultsMount .qs-go { font-size: 1.3rem; }
+
+/* Products hero: the search box is a button that opens the same pop-up */
+.hero-search-btn { cursor: pointer; text-align: left; font: inherit; color: #FFFFFF; appearance: none; -webkit-appearance: none; }
+.hero-search-btn:hover { border-color: #FFC34D; background: rgba(255, 255, 255, 0.16); }
+.hero-search-btn:focus-visible { outline: 2px solid #FFC34D; outline-offset: 3px; }
+.hero-search-btn .hero-search-ph { flex: 1; min-width: 0; color: rgba(255, 255, 255, 0.68); font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hero-search-btn .hero-search-go { display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px !important; border-radius: 999px; pointer-events: none; }
+
+/* Products search + Filter bar scrolls with the page on every screen (never pinned) */
+#medicinesExplorerSection .explorer-toolbar,
+body:has(.site-header:not(.lv-hdr-hide)) #medicinesExplorerSection .explorer-toolbar {
+  position: relative !important; top: auto !important; z-index: auto !important;
+}
+
+/* Product-list search box opens the search pop-up */
+#medicinesExplorerSection .search-field-wrap[data-open-quick-search],
+#medicinesExplorerSection .search-field-wrap[data-open-quick-search] .search-input { cursor: pointer; }
+#medicinesExplorerSection .search-field-wrap[data-open-quick-search] .clear-search-x { display: none !important; }
+#medicinesExplorerSection .search-field-wrap[data-open-quick-search]:hover .search-input { border-color: #104080 !important; }

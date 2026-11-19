@@ -545,7 +545,7 @@ window.BIOPLASMA_DATA = {
       vegetarian: true,
       sugarFree: false,
       flavour: "Small Tablet, Easy to Digest",
-      dosageForm: "Film-Coated Tablet",
+      dosageForm: "Oral Tablet",
       packSize: "1 × 10 Tablets",
       technology: "Aquamin Bio-Marine Calcium",
       techBadge: "MARINE CALCIUM",
@@ -2657,8 +2657,8 @@ window.BIOPLASMA_DATA.medicines.push({
 window.BIOPLASMA_DATA.medicines.push({
   id: "adenosyl-od",
   name: "ADENOSYL-OD",
-  shortTitle: "Adenosylcobalamin 1000 mcg Softgel Capsules",
-  genericSummary: "Adenosylcobalamin (Active Vitamin B12) 1000 mcg Softgel Capsules",
+  shortTitle: "Adenosylcobalamin 1000 mcg Capsules",
+  genericSummary: "Adenosylcobalamin (Active Vitamin B12) 1000 mcg Capsules",
   category: "womens",
   secondaryCategories: ["hematinic", "nutrition"],
   classification: "Prescription / Active Vitamin B12",
@@ -2703,7 +2703,7 @@ window.BIOPLASMA_DATA.medicines.push({
     { step: "03", title: "Pregnancy & Lactation", desc: "Maternal B12 status is important for fetal and infant B12 stores; maternal supplementation significantly raises infant B12." }
   ],
   highlights: [
-    "Adenosylcobalamin (Vitamin B12) 1000 mcg — Softgel Capsules",
+    "Adenosylcobalamin (Vitamin B12) 1000 mcg — Capsules",
     "Biologically active coenzyme form of Vitamin B12",
     "Supports nerve health, red blood cell formation, DNA synthesis & energy metabolism",
     "Maternal B12 support in pregnancy & lactation"
@@ -2719,14 +2719,14 @@ window.BIOPLASMA_DATA.medicines.push({
     "Malabsorption"
   ],
   dosage: "As directed by the Physician. Do not chew or crush the capsules — swallow whole with water.",
-  keywords: ["adenosyl-od", "adenosyl od", "adenosyl", "adenosylcobalamin", "cobalamin", "vitamin b12", "b12", "methylcobalamin", "anemia", "anaemia", "neuropathy", "nerve", "pregnancy", "lactation", "breastfeeding", "vegetarian", "vegan", "metformin", "softgel"],
+  keywords: ["adenosyl-od", "adenosyl od", "adenosyl", "adenosylcobalamin", "cobalamin", "vitamin b12", "b12", "methylcobalamin", "anemia", "anaemia", "neuropathy", "nerve", "pregnancy", "lactation", "breastfeeding", "vegetarian", "vegan", "metformin", "capsule"],
   stakeholders: {
     doctor: {
       headline: "Active coenzyme Vitamin B12 (Adenosylcobalamin 1000 mcg) — no conversion needed.",
       metaLabel: "Key Specialties",
       metaValue: "Gynecology • Obstetrics • Internal Medicine • Neurology",
       points: [
-        "Adenosylcobalamin 1000 mcg per softgel — the biologically active coenzyme form of B12.",
+        "Adenosylcobalamin 1000 mcg per capsule — the biologically active coenzyme form of B12.",
         "Maternal B12 support in pregnancy, lactation, maternal anemia and neuropathy.",
         "Consider B12 assessment in vegetarians/vegans, post gastric/bariatric surgery, pernicious anemia, long-term metformin and malabsorption.",
         "Prescription (Rx) product."
@@ -2738,7 +2738,7 @@ window.BIOPLASMA_DATA.medicines.push({
       metaValue: "Rx Only • 1 × 10 Capsules",
       points: [
         "Supports nerve health, red blood cell formation and energy metabolism.",
-        "Swallow the softgel whole with water — do not chew or crush.",
+        "Swallow the capsule whole with water — do not chew or crush.",
         "Important: Prescription (Rx) product — use strictly as advised by your doctor."
       ]
     },

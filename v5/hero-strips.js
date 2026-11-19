@@ -293,7 +293,7 @@
 
   /* mobile: while the on-screen keyboard is open (a text field has focus), hide the
      bottom menu bar, WhatsApp and back-to-top so they don't ride up over the content */
-  var TYPING = "input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]), textarea, select, [contenteditable='true']";
+  var TYPING = "input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]):not([readonly]), textarea, select, [contenteditable='true']";
   var kbTimer = null;
   document.addEventListener("focusin", function (e) {
     if (!phoneQuery.matches || !e.target.matches || !e.target.matches(TYPING)) return;
@@ -331,6 +331,14 @@
       var r = box.getBoundingClientRect();
       if (r.top < 70 || r.top > window.innerHeight * 0.55) smoothTo(box);
     }, 60);
+  });
+
+  /* product-list search box = the same search pop-up (keyboard users: Enter / Space opens it) */
+  document.addEventListener("keydown", function (e) {
+    if (e.target && e.target.id === "explorerSearchInput" && (e.key === "Enter" || e.key === " ")) {
+      e.preventDefault();
+      e.target.click();
+    }
   });
 
   /* ---------- copy protection: block copy / cut / drag of page text ---------- */

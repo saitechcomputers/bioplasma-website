@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="styles.css?v=14.8" />
+  <link rel="stylesheet" href="styles.css?v=15.2" />
 </head>
 <body class="has-cinema-hero">
 
@@ -73,12 +73,11 @@
           Filter by therapeutic division, health symptom, dosage vehicle, or sugar-free status. Click any medicine card for its complete clinical monograph and patient guide.
         </p>
         <div class="hero-actions">
-          <form class="hero-search" data-hero-search role="search">
+          <button type="button" class="hero-search hero-search-btn" data-open-quick-search aria-label="Search medicines">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <label for="heroSearchInput" class="sr-only">Search medicines</label>
-            <input type="search" id="heroSearchInput" placeholder="Search medicine, salt, or symptom" autocomplete="off" />
-            <button type="submit" class="btn btn-crimson">Search</button>
-          </form>
+            <span class="hero-search-ph">Search medicines</span>
+            <span class="btn btn-crimson hero-search-go">Search</span>
+          </button>
         </div>
         <div class="hero-trust-row">
           <span class="bio-trust-pill lilly-trust-pill"><b>WHO-GMP</b> Licensed Manufacturing</span>
@@ -123,10 +122,10 @@
 
         <div class="explorer-toolbar">
           <div class="toolbar-row-top">
-            <div class="search-field-wrap">
+            <div class="search-field-wrap" data-open-quick-search>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               <label for="explorerSearchInput" class="sr-only">Search Products</label>
-              <input type="search" id="explorerSearchInput" class="search-input" placeholder="Search medicine name, salt, or indication..." autocomplete="off" />
+              <input type="search" id="explorerSearchInput" class="search-input" placeholder="Search medicines" readonly aria-haspopup="dialog" autocomplete="off" />
               <button type="button" class="clear-search-x" id="explorerSearchClear" aria-label="Clear Search">✕</button>
             </div>
             <div>
@@ -210,8 +209,8 @@
     </div>
   </nav>
 
-  <script src="medicines-data.js?v=13.4"></script>
-  <script src="app.js?v=13.3"></script>
-  <script src="hero-strips.js?v=14"></script>
+  <script src="medicines-data.js?v=15.0"></script>
+  <script src="app.js?v=15.2"></script>
+  <script src="hero-strips.js?v=16"></script>
 </body>
 </html>

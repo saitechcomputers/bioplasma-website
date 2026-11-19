@@ -114,7 +114,7 @@
       subEn: "Backed by scientific research, LV Bioplasma Biologicals brings you specialized products paired with the latest technology.",
       subHi: "वैज्ञानिक शोध पर आधारित — LV बायोप्लाज़्मा बायोलॉजिकल्स आपके लिए नवीनतम तकनीक के साथ विशेष उत्पाद लाता है।",
       glowColor: "radial-gradient(circle, rgba(245, 158, 11, 0.34) 0%, transparent 70%)",
-      medId: "dydrofy",
+      medId: "adenosyl-od",
       ctaHref: "#medicinesExplorerSection",
       ctaLabelEn: "Explore All Products",
       ctaLabelHi: "सभी प्रोडक्ट्स देखें"
@@ -1201,13 +1201,7 @@
         openQuickSearchModal();
       } else if (e.key === "/" && !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName)) {
         e.preventDefault();
-        const inlineSearch = document.getElementById("explorerSearchInput");
-        if (inlineSearch) {
-          inlineSearch.focus();
-          inlineSearch.scrollIntoView({ behavior: "smooth", block: "center" });
-        } else {
-          openQuickSearchModal();
-        }
+        openQuickSearchModal(); /* one search everywhere */
       } else if (e.key === "Escape") {
         if (closeCommandMenuFn) closeCommandMenuFn();
         closeAllModals();
@@ -1804,7 +1798,7 @@
     const rowTop = toolbar.querySelector(".toolbar-row-top");
     const ORDER = ["Tablets", "Capsules", "Syrups & Suspensions", "Drops", "Nano Shots", "Granules", "Gel", "Others"];
     const forms = ORDER.filter((g) => DATA.medicines.some((m) => lvFormGroup(m) === g));
-    const nActive = (state.formGroup !== "all" ? 1 : 0) + (state.dosageForm !== "all" ? 1 : 0) + (state.sugarFreeOnly ? 1 : 0) + (state.vegOnly ? 1 : 0);
+    const nActive = (state.category !== "all" && !state.quickNeedId ? 1 : 0) + (state.formGroup !== "all" ? 1 : 0) + (state.dosageForm !== "all" ? 1 : 0) + (state.sugarFreeOnly ? 1 : 0) + (state.vegOnly ? 1 : 0);
 
     let fbtn = toolbar.querySelector(".lv-filter-btn");
     if (!fbtn && rowTop) {
@@ -1819,6 +1813,8 @@
     let strip = toolbar.querySelector(".lv-active-strip");
     if (!strip) { strip = document.createElement("div"); strip.className = "lv-active-strip"; toolbar.appendChild(strip); }
     const chips = [];
+    const catObj = state.category === "rx" ? { labelEn: "Rx Prescription" } : DATA.categories.find((c) => c.id === state.category);
+    if (state.category !== "all" && catObj && !state.quickNeedId) chips.push(["cat", catObj.labelEn]);
     if (state.formGroup !== "all") chips.push(["group", state.formGroup]);
     if (state.dosageForm !== "all") chips.push(["dosage", state.dosageForm]);
     if (state.sugarFreeOnly) chips.push(["sugar", "Sugar-Free"]);
@@ -1837,6 +1833,7 @@
     }
     function clearOne(k) {
       if (k === "dosage") state.dosageForm = "all";
+      if (k === "cat") state.category = "all";
       if (k === "group") state.formGroup = "all";
       if (k === "sugar") state.sugarFreeOnly = false;
       if (k === "veg") state.vegOnly = false;
@@ -1849,7 +1846,12 @@
     }
     function paintSheet(n) {
       const body = document.querySelector("#lvFilterSheet .lv-sheet-body");
+      const cats = [...(DATA.categories.some((c) => c.id === "all") ? [] : [{ id: "all", labelEn: "All Medicines" }]), ...DATA.categories, { id: "rx", labelEn: "Rx Prescription" }];
       body.innerHTML = `
+        <p class="lv-sheet-label">Category</p>
+        <div class="lv-sheet-chips">
+          ${cats.map((c) => `<button type="button" class="lv-opt ${state.category === c.id && !state.quickNeedId ? "on" : ""}" data-cat="${c.id}">${escapeHtml(c.labelEn)}</button>`).join("")}
+        </div>
         <p class="lv-sheet-label">Dosage form</p>
         <div class="lv-sheet-chips">
           <button type="button" class="lv-opt ${state.formGroup === "all" ? "on" : ""}" data-form="all">All</button>
@@ -1859,6 +1861,7 @@
         <label class="lv-switch"><span>Sugar-Free only</span><input type="checkbox" data-pref="sugar" ${state.sugarFreeOnly ? "checked" : ""}><i></i></label>
         <label class="lv-switch"><span>100% Vegetarian only</span><input type="checkbox" data-pref="veg" ${state.vegOnly ? "checked" : ""}><i></i></label>`;
       document.querySelector("#lvFilterSheet .lv-sheet-show").textContent = `Show ${n} product${n === 1 ? "" : "s"}`;
+      body.querySelectorAll("[data-cat]").forEach((b) => b.addEventListener("click", () => { state.category = b.dataset.cat; state.quickNeedId = null; renderQuickNeeds(); renderExplorer(); }));
       body.querySelectorAll("[data-form]").forEach((b) => b.addEventListener("click", () => { state.formGroup = b.dataset.form; state.dosageForm = "all"; sync(); renderExplorer(); }));
       body.querySelectorAll("[data-pref]").forEach((c) => c.addEventListener("change", () => {
         if (c.dataset.pref === "sugar") state.sugarFreeOnly = c.checked; else state.vegOnly = c.checked;
@@ -1878,11 +1881,22 @@
           </div>`;
         document.body.appendChild(sh);
         sh.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => { sh.classList.remove("open"); document.body.style.overflow = ""; }));
-        sh.querySelector(".lv-sheet-clear").addEventListener("click", () => { state.formGroup = "all"; state.dosageForm = "all"; state.sugarFreeOnly = false; state.vegOnly = false; sync(); renderExplorer(); });
+        sh.querySelector(".lv-sheet-clear").addEventListener("click", () => { state.category = "all"; state.quickNeedId = null; renderQuickNeeds(); state.formGroup = "all"; state.dosageForm = "all"; state.sugarFreeOnly = false; state.vegOnly = false; sync(); renderExplorer(); });
       }
       paintSheet(getFilteredMedicines().length);
       sh.classList.add("open"); document.body.style.overflow = "hidden";
     }
+  }
+
+  /* One search rule for the whole site (search pop-up + product list) */
+  function medSearchHay(m) {
+    return [m.name, m.shortTitle, m.genericSummary, m.technology, m.techBadge, m.dosageForm, m.taglineEn, m.taglineHi,
+      ...(m.keywords || []), ...(m.indications || [])].join(" ").toLowerCase();
+  }
+  function medMatchesQuery(m, q) {
+    if (!q) return true;
+    if (q === "sugar-free" || q === "sugar free") return !!m.sugarFree;
+    return medSearchHay(m).includes(q);
   }
 
   function getFilteredMedicines() {
@@ -1908,20 +1922,7 @@
       if (state.formGroup !== "all" && lvFormGroup(m) !== state.formGroup) return false;
       if (state.rxOnly && !m.rxRequired) return false;
 
-      if (q) {
-        const hay = [
-          m.name,
-          m.shortTitle,
-          m.genericSummary,
-          m.technology,
-          m.dosageForm,
-          m.taglineEn,
-          m.taglineHi,
-          ...(m.keywords || []),
-          ...(m.indications || [])
-        ].join(" ").toLowerCase();
-        if (!hay.includes(q)) return false;
-      }
+      if (q && !medMatchesQuery(m, q)) return false;
       return true;
     });
   }
@@ -2129,7 +2130,7 @@
               <div class="qs-field">
                 <svg class="qs-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><line x1="20.5" y1="20.5" x2="16.4" y2="16.4"/></svg>
                 <label for="quickSearchModalInput" class="sr-only">Search medicines</label>
-                <input type="search" id="quickSearchModalInput" class="search-input" placeholder="Medicine, salt or symptom…" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" />
+                <input type="search" id="quickSearchModalInput" class="search-input" placeholder="Search medicines" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" />
                 <button type="button" class="qs-clear" id="quickSearchClearBtn" aria-label="Clear search" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></button>
               </div>
               <button type="button" class="qs-cancel" id="quickSearchCancelBtn">Cancel</button>
@@ -2236,7 +2237,7 @@
     if (!mount) return;
     const raw = (query || "").trim();
     const q = raw.toLowerCase();
-    const hayOf = (m) => [m.name, m.genericSummary, m.technology, m.techBadge, ...(m.keywords || []), ...(m.indications || [])].join(" ").toLowerCase();
+    const hayOf = medSearchHay;
     const hl = (txt) => {
       const safe = escapeHtml(txt);
       if (!q) return safe;
@@ -2258,17 +2259,12 @@
       try { recent = JSON.parse(localStorage.getItem("lvRecentMeds") || "[]"); } catch (e) {}
       const recentMeds = recent.map((id) => getMedById(id)).filter(Boolean).slice(0, 4);
       mount.innerHTML = `
-        <p class="qs-label">Popular searches</p>
-        <div class="qs-chips">${POP.map(([l, v]) => `<button type="button" class="qs-chip" data-qs="${v}">${l}</button>`).join("")}</div>
         ${recentMeds.length ? `<p class="qs-label">Recently viewed</p>${recentMeds.map(row).join("")}` : ""}
         <p class="qs-label">All products (${DATA.medicines.length})</p>
         ${DATA.medicines.map(row).join("")}`;
       return;
     }
-    const matches = DATA.medicines.filter((m) => {
-      if (q === "sugar-free") return m.sugarFree;
-      return hayOf(m).includes(q);
-    });
+    const matches = DATA.medicines.filter((m) => medMatchesQuery(m, q));
     if (!matches.length) {
       const first = q.slice(0, 3);
       const near = DATA.medicines.filter((m) => m.name.toLowerCase().startsWith(first.slice(0, 2)) || hayOf(m).includes(first)).slice(0, 4);
