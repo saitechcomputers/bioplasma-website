@@ -7202,3 +7202,36 @@ body:has(.site-header:not(.lv-hdr-hide)) #medicinesExplorerSection .explorer-too
   .science-microscope-box .microscope-svg-canvas { height: clamp(220px, 30vh, 300px) !important; }
 }
 #scienceCaptionMount .lv-sci-points { display: none !important; }
+
+/* =====================================================================
+   TEXT CLARITY — sharper rendering, stronger contrast where text was faint
+   ===================================================================== */
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+
+/* Text sitting on top of the hero videos: brighter + a soft shadow that
+   separates it from moving/compressed video */
+.subpage-video-hero h1,
+.bio-hero-headline, .lilly-hero-headline { text-shadow: 0 2px 22px rgba(3, 10, 24, .5), 0 1px 2px rgba(3, 10, 24, .35); }
+.subpage-video-hero .section-lead,
+.bio-hero-subtext, .lilly-hero-subtext {
+  color: rgba(255, 255, 255, .95) !important;
+  text-shadow: 0 1px 14px rgba(3, 10, 24, .6), 0 1px 2px rgba(3, 10, 24, .45);
+}
+.subpage-video-hero .breadcrumb { color: rgba(255, 255, 255, .88) !important; text-shadow: 0 1px 8px rgba(3, 10, 24, .5); }
+.subpage-video-hero .bio-trust-pill, .lilly-trust-row .lilly-trust-pill { text-shadow: 0 1px 6px rgba(3, 10, 24, .45); }
+
+/* Section strips & menu captions on navy */
+.hs-sub { color: rgba(220, 230, 245, .95) !important; }
+.cinema-chapter-sub { color: rgba(220, 230, 245, .9) !important; }
+
+/* Small labels that were too light on white */
+.pillar-num { color: #5B6B84 !important; }
+:root { --bio-sky: #0369A1; }
+
+/* WhatsApp buttons: darker green so the white label is readable (WCAG AA) */
+a.header-phone-pill[style*="#25D366"], a.header-phone-pill[style*="#25d366"] { background: #11804A !important; }
+a.header-phone-pill[style*="#25D366"]:hover { background: #0C6B3D !important; }
+#sendWhatsAppEnquiryBtn { color: #0B6B5F !important; }
+#removeCvBtn, #cvErrorMessage { color: #B91C1C !important; }
+[style*="color:#0284C7"], [style*="color: #0284C7"] { color: #0369A1 !important; }
+#whatsAppCvBtn, a[style*="background:#25D366"], button[style*="background:#25D366"] { background: #11804A !important; border-color: #11804A !important; }
