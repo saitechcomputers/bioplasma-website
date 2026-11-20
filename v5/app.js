@@ -787,16 +787,12 @@
       label: "Products",
       eyebrow: "Complete Medicine Formulary",
       title: `Evidence-backed medicines across ${(DATA.categories || []).filter((c) => c.id !== "all").length} specialties.`,
-      desc: "See our newest launches below, browse the complete formulary, or search any medicine, salt or symptom.",
+      desc: "Browse the complete formulary, or search any medicine, salt or symptom.",
       cardTitle: "Complete Formulary",
       cardSub: "AADIRISE D3 • BIOIPC • ADENOCAL-K2 • PANTHETA DSR & MORE",
       videoSrc: "assets/video/hero-capsule-gmp.mp4",
-      /* short and fixed-size: new launches + browse + search (not every product) */
+      /* short and fixed-size: browse + search (not every product) */
       quickLinks: [
-        ...["adenosyl-od", "first-food", "ub-10"]
-          .map((id) => (DATA.medicines || []).find((m) => m.id === id))
-          .filter(Boolean)
-          .map((m) => ({ label: m.name, medId: m.id, isNew: true })),
         { label: `View all ${(DATA.medicines || []).length} products`, href: "products.html", isPrimary: true },
         { label: "Search medicines", openSearch: true }
       ]
@@ -961,7 +957,7 @@
     let cmdOpen = false;
     const hasFinePointer = () => window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-    function renderCmdShowcase(idx) {
+    function renderCmdShowcase(idx, measureOnly) {
       const item = FLOATING_NAV_ITEMS[idx] || FLOATING_NAV_ITEMS[0];
       const eyebrowEl = document.getElementById("bioCmdEyebrow");
       const titleEl = document.getElementById("bioCmdTitle");
@@ -993,7 +989,7 @@
         }).join("");
       }
 
-      if (vidEl) {
+      if (vidEl && !measureOnly) {
         if (vidEl.getAttribute("src") !== item.videoSrc) {
           vidEl.src = item.videoSrc;
         }
@@ -1019,12 +1015,29 @@
       renderCmdShowcase(activeIdx);
     }
 
+    /* Every menu item shows the same-size panel: reserve the tallest one */
+    function equalizeCmdShowcase() {
+      const box = panel.querySelector(".bio-cmd-showcase");
+      if (!box) return;
+      const key = window.innerWidth + "x" + window.innerHeight + "|" + state.lang;
+      if (box.dataset.eqKey === key) return;
+      box.style.minHeight = "";
+      let tallest = 0;
+      FLOATING_NAV_ITEMS.forEach((_, i) => {
+        renderCmdShowcase(i, true);
+        tallest = Math.max(tallest, box.offsetHeight);
+      });
+      if (tallest > 0) { box.style.minHeight = tallest + "px"; box.dataset.eqKey = key; }
+    }
+
     let lastOpenedAt = 0;
 
     function openCommandMenu() {
       if (cmdOpen) return;
       cmdOpen = true;
       lastOpenedAt = Date.now();
+      panel.classList.add("is-open");
+      equalizeCmdShowcase();
       syncActivePageInCmd();
       panel.classList.add("is-open");
       panel.classList.add("is-opening");
@@ -1067,12 +1080,19 @@
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { openCommandMenu(); return; }
       pillEl.classList.add("lv-x");
       const pr = pillEl.getBoundingClientRect();
-      /* seam = the gap between the logo half and the menu-button half */
-      const brandR = pillEl.querySelector(".bio-float-pill-brand")?.getBoundingClientRect();
-      const burgR = burgerBtn ? burgerBtn.getBoundingClientRect() : null;
-      let seam = brandR && burgR && burgR.left > brandR.right ? (brandR.right + burgR.left) / 2 - pr.left : pr.width * 0.68;
-      if (!(seam > 20 && seam < pr.width - 20)) seam = pr.width * 0.68;
-      const radius = Math.round(pr.height / 2);
+      /* seam = the visible divider line of the capsule (where its white logo half
+         meets the tinted menu half — a background colour stop, 62% by default) */
+      const W = pillEl.offsetWidth || pr.width, H = pillEl.offsetHeight || pr.height;
+      const stop = (getComputedStyle(pillEl).backgroundImage.match(/(\d+(?:\.\d+)?)%\s*,\s*rgba?\(16,\s*64,\s*128/) || [])[1];
+      let seamPct = stop ? parseFloat(stop) / 100 : 0;
+      if (!(seamPct > 0.3 && seamPct < 0.9)) {
+        const brandR = pillEl.querySelector(".bio-float-pill-brand")?.getBoundingClientRect();
+        const burgR = burgerBtn ? burgerBtn.getBoundingClientRect() : null;
+        seamPct = brandR && burgR && burgR.left > brandR.right ? ((brandR.right + burgR.left) / 2 - pr.left) / pr.width : 0.62;
+      }
+      const seam = W * seamPct;              /* in the capsule's own (unscaled) box */
+      const seamScreen = pr.width * seamPct; /* on screen */
+      const radius = Math.round(H / 2);
       const halves = ["left", "right"].map((side) => {
         const c = pillEl.cloneNode(true);
         c.removeAttribute("id");
@@ -1080,10 +1100,10 @@
         c.setAttribute("aria-hidden", "true");
         c.classList.add("lv-capsule-half", "lv-capsule-" + side);
         c.classList.remove("is-menu-open");
-        Object.assign(c.style, { left: pr.left + "px", top: pr.top + "px", right: "auto", width: pr.width + "px", height: pr.height + "px", margin: "0" });
+        Object.assign(c.style, { left: pr.left + "px", top: pr.top + "px", right: "auto", width: W + "px", height: H + "px", margin: "0" });
         c.style.clipPath = side === "left"
-          ? `inset(0 ${Math.round(pr.width - seam)}px 0 0 round ${radius}px 0 0 ${radius}px)`
-          : `inset(0 0 0 ${Math.round(seam)}px round 0 ${radius}px ${radius}px 0)`;
+          ? `inset(0 ${(W - seam).toFixed(1)}px 0 0 round ${radius}px 0 0 ${radius}px)`
+          : `inset(0 0 0 ${seam.toFixed(1)}px round 0 ${radius}px ${radius}px 0)`;
         c.style.setProperty("--seam", seam + "px");
         document.body.appendChild(c);
         return c;
@@ -1091,7 +1111,7 @@
       const burst = document.createElement("div");
       burst.className = "lv-capsule-burst";
       burst.setAttribute("aria-hidden", "true");
-      burst.style.left = pr.left + seam + "px";
+      burst.style.left = pr.left + seamScreen + "px";
       burst.style.top = pr.top + pr.height / 2 + "px";
       const COLORS = ["#F8A000", "#3D8BFF", "#22B35E", "#FFFFFF", "#FFC34D", "#38BDF8"];
       for (let i = 0; i < 16; i++) {
@@ -1113,7 +1133,7 @@
       setTimeout(() => {
         const panelW = panel.offsetWidth || Math.min(1240, window.innerWidth - 28);
         const panelLeft = (window.innerWidth - panelW) / 2;
-        panel.style.transformOrigin = `${Math.round(pr.left + seam - panelLeft)}px ${Math.round(pr.top + pr.height / 2 - 14)}px`;
+        panel.style.transformOrigin = `${Math.round(pr.left + seamScreen - panelLeft)}px ${Math.round(pr.top + pr.height / 2 - 14)}px`;
         panel.classList.add("lv-from-capsule");
         void panel.offsetWidth;
         openCommandMenu();
