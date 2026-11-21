@@ -341,6 +341,63 @@
     }
   });
 
+  /* ---------- product photo viewer: click the photo in product details to see it large ---------- */
+  var viewer = null;
+  function closeViewer() {
+    if (!viewer || !viewer.classList.contains("is-open")) return;
+    viewer.classList.remove("is-open", "is-zoomed");
+    setTimeout(function () { if (viewer && !viewer.classList.contains("is-open")) viewer.hidden = true; }, 220);
+  }
+  function openViewer(src, alt) {
+    if (!viewer) {
+      viewer = document.createElement("div");
+      viewer.className = "lv-photo-viewer";
+      viewer.setAttribute("role", "dialog");
+      viewer.setAttribute("aria-modal", "true");
+      viewer.setAttribute("aria-label", "Product photo");
+      viewer.innerHTML =
+        '<button type="button" class="lv-pv-close" aria-label="Close photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+        '<div class="lv-pv-stage"><img class="lv-pv-img" alt="" /></div>' +
+        '<p class="lv-pv-hint">Click the photo to zoom in · Esc to close</p>';
+      document.body.appendChild(viewer);
+      var img = viewer.querySelector(".lv-pv-img");
+      viewer.addEventListener("click", function (e) {
+        if (e.target === img) {
+          /* zoom in at the clicked point, click again to zoom out */
+          var r = img.getBoundingClientRect();
+          img.style.transformOrigin = ((e.clientX - r.left) / r.width * 100).toFixed(1) + "% " + ((e.clientY - r.top) / r.height * 100).toFixed(1) + "%";
+          viewer.classList.toggle("is-zoomed");
+          return;
+        }
+        closeViewer();
+      });
+      img.addEventListener("mousemove", function (e) {
+        if (!viewer.classList.contains("is-zoomed")) return;
+        var r = img.getBoundingClientRect();
+        img.style.transformOrigin = ((e.clientX - r.left) / r.width * 100).toFixed(1) + "% " + ((e.clientY - r.top) / r.height * 100).toFixed(1) + "%";
+      });
+    }
+    var im = viewer.querySelector(".lv-pv-img");
+    im.src = src; im.alt = alt || "Product photo"; im.style.transformOrigin = "50% 50%";
+    viewer.classList.remove("is-zoomed");
+    viewer.hidden = false;
+    void viewer.offsetWidth;
+    viewer.classList.add("is-open");
+    viewer.querySelector(".lv-pv-close").focus({ preventScroll: true });
+  }
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest && e.target.closest(".monograph-pack-box img");
+    if (!t) return;
+    e.preventDefault();
+    openViewer(t.currentSrc || t.src, t.alt);
+  });
+  /* Esc closes only the photo (not the product details behind it) */
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && viewer && viewer.classList.contains("is-open")) {
+      e.stopImmediatePropagation(); e.preventDefault(); closeViewer();
+    }
+  }, true);
+
   /* ---------- copy protection: block copy / cut / drag of page text ---------- */
   var COPY_OK = "input, textarea, select, [contenteditable='true'], a[href^='tel:'], a[href^='mailto:']";
   function copyAllowed(node) {

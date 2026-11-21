@@ -7235,3 +7235,44 @@ a.header-phone-pill[style*="#25D366"]:hover { background: #0C6B3D !important; }
 #removeCvBtn, #cvErrorMessage { color: #B91C1C !important; }
 [style*="color:#0284C7"], [style*="color: #0284C7"] { color: #0369A1 !important; }
 #whatsAppCvBtn, a[style*="background:#25D366"], button[style*="background:#25D366"] { background: #11804A !important; border-color: #11804A !important; }
+
+/* =====================================================================
+   PRODUCT PHOTO VIEWER — click the photo in product details to enlarge
+   ===================================================================== */
+.monograph-pack-box { position: relative; }
+.monograph-pack-box img { cursor: zoom-in; transition: transform .25s ease; }
+.monograph-pack-box:hover img { transform: scale(1.04); }
+.monograph-pack-box::after {
+  content: "\1F50D  Click to enlarge"; position: absolute; right: 10px; bottom: 10px; pointer-events: none;
+  padding: 4px 10px; border-radius: 999px; background: rgba(11, 37, 69, .82); color: #FFFFFF;
+  font-size: .72rem; font-weight: 700; letter-spacing: .02em;
+}
+@media (hover: none) { .monograph-pack-box::after { content: "\1F50D  Tap to enlarge"; } }
+
+.lv-photo-viewer {
+  position: fixed; inset: 0; z-index: 4000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+  background: rgba(6, 16, 32, .88); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  opacity: 0; transition: opacity .2s ease;
+}
+.lv-photo-viewer[hidden] { display: none; }
+.lv-photo-viewer.is-open { opacity: 1; }
+.lv-pv-stage {
+  max-width: min(92vw, 1000px); max-height: 82vh; overflow: hidden; border-radius: 20px;
+  background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #EEF3FA 100%);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .6); display: flex; align-items: center; justify-content: center;
+  transform: scale(.94); transition: transform .22s ease;
+}
+.lv-photo-viewer.is-open .lv-pv-stage { transform: none; }
+.lv-pv-img { display: block; max-width: min(88vw, 960px); max-height: 78vh; width: auto; height: auto; padding: 18px; cursor: zoom-in; transition: transform .25s ease; }
+.lv-photo-viewer.is-zoomed .lv-pv-img { transform: scale(2.2); cursor: zoom-out; }
+.lv-pv-close {
+  position: absolute; top: max(14px, env(safe-area-inset-top)); right: 14px; width: 46px; height: 46px; border-radius: 50%;
+  border: 0; background: #FFFFFF; color: #0B2545; display: flex; align-items: center; justify-content: center; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .3);
+}
+.lv-pv-close svg { width: 20px; height: 20px; }
+.lv-pv-close:hover, .lv-pv-close:focus-visible { background: #F8A000; outline: none; }
+.lv-pv-hint { margin: 0; color: rgba(255, 255, 255, .78); font-size: .82rem; text-align: center; }
+@media (hover: none) { .lv-pv-hint { display: none; } }
+@media (prefers-reduced-motion: reduce) { .lv-photo-viewer, .lv-pv-stage, .lv-pv-img, .monograph-pack-box img { transition: none; } }
