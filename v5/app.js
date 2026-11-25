@@ -870,7 +870,7 @@
     pillEl.innerHTML = `
       <span class="bio-float-pill-aura" aria-hidden="true"></span>
       <a href="index.html" class="bio-float-pill-brand" aria-label="LV Bioplasma Home">
-        <img src="assets/brand/logo-navbar.png?v=4.5" alt="LV Bioplasma" class="bio-float-pill-logo" />
+        <img src="assets/brand/logo-navbar.svg?v=1" alt="LV Bioplasma" class="bio-float-pill-logo" />
       </a>
       <span class="bio-float-pill-sep" aria-hidden="true"></span>
       <button type="button" class="bio-float-pill-burger" id="bioFloatPillBurger" aria-label="Open LV Bioplasma Navigation Menu" aria-expanded="false" aria-controls="bioplasmaCommandMenu">
@@ -904,7 +904,7 @@
       <div class="bio-cmd-glow" aria-hidden="true"></div>
       <div class="bio-cmd-top">
         <a href="index.html" class="bio-cmd-brand" data-cmd-nav>
-          <img src="assets/brand/logo-footer-light.png?v=4.4" alt="LV Bioplasma Biologicals Private Limited" />
+          <img src="assets/brand/logo-footer-light.svg?v=1" alt="LV Bioplasma Biologicals Private Limited" />
         </a>
 
         <nav class="bio-cmd-nav" aria-label="Floating Primary Navigation">
@@ -3376,6 +3376,7 @@
   /* --- 1. Logo icons come alive (smile, drip, sway) --- */
   const CELLS = {
     "logo-navbar.png": { src: "assets/brand/logo-cell-", w: 601, h: 258, y: 14, hh: 76, xs: [[126, 114], [243, 114], [360, 113]] },
+    "logo-navbar.svg": { src: "assets/brand/logo-cell-", w: 601, h: 258, y: 14, hh: 76, xs: [[126, 114], [243, 114], [360, 113]] },
     "logo-emblem.png": { src: "assets/brand/emblem-cell-", w: 420, h: 99, y: 4, hh: 91, xs: [[4, 135], [143, 134], [281, 135]] }
   };
   function enhance(img) {
